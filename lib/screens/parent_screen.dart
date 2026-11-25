@@ -4,9 +4,9 @@ import '../data/island_catalog.dart';
 import '../providers/app_providers.dart';
 
 /// Góc phụ huynh tối giản (MVP):
-/// - Khóa PIN 4 số, mặc định 1234.
+/// - Khóa PIN 4 số (mặc định 1234, đổi được ngay trong màn này).
 /// - Mở khóa tay từng đảo (không cần đạt sao).
-/// - Reset tiến độ.
+/// - Reset tiến độ (không đổi PIN).
 /// - Bật/tắt âm thanh.
 /// Thống kê, chủ đề yếu, giới hạn giờ/ngày là giai đoạn 3.
 class ParentScreen extends ConsumerStatefulWidget {
@@ -53,11 +53,6 @@ class _ParentScreenState extends ConsumerState<ParentScreen> {
               const Text(
                 'Nhập PIN 4 số để vào Góc phụ huynh.',
                 style: TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 8),
-              const Text(
-                'PIN mặc định: 1234',
-                style: TextStyle(fontSize: 15, color: Colors.grey),
               ),
               const SizedBox(height: 20),
               TextField(
@@ -112,6 +107,89 @@ class _ParentScreenState extends ConsumerState<ParentScreen> {
                   ref.read(soundOnProvider.notifier).state = value;
                   ref.read(soundServiceProvider).enabled = value;
                   await db.setSoundOn(value);
+                },
+              ),
+              const Divider(),
+              ListTile(
+                title: const Text('Đổi PIN phụ huynh',
+                    style: TextStyle(fontSize: 18)),
+                subtitle: const Text('Đặt PIN 4 số mới thay cho PIN mặc định'),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () async {
+                  final messenger = ScaffoldMessenger.of(context);
+                  final newPin = await showDialog<String>(
+                    context: context,
+                    builder: (ctx) {
+                      final c1 = TextEditingController();
+                      final c2 = TextEditingController();
+                      String? err;
+                      return StatefulBuilder(
+                        builder: (ctx, setLocal) => AlertDialog(
+                          title: const Text('Đổi PIN'),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              TextField(
+                                controller: c1,
+                                keyboardType: TextInputType.number,
+                                obscureText: true,
+                                maxLength: 4,
+                                decoration: const InputDecoration(
+                                  labelText: 'PIN mới (4 số)',
+                                  counterText: '',
+                                ),
+                              ),
+                              TextField(
+                                controller: c2,
+                                keyboardType: TextInputType.number,
+                                obscureText: true,
+                                maxLength: 4,
+                                decoration: const InputDecoration(
+                                  labelText: 'Nhập lại PIN mới',
+                                  counterText: '',
+                                ),
+                              ),
+                              if (err != null) ...[
+                                const SizedBox(height: 8),
+                                Text(err!,
+                                    style:
+                                        const TextStyle(color: Colors.red)),
+                              ],
+                            ],
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.of(ctx).pop(),
+                              child: const Text('Hủy'),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                final a = c1.text.trim();
+                                final b = c2.text.trim();
+                                if (!RegExp(r'^\d{4}$').hasMatch(a)) {
+                                  setLocal(
+                                      () => err = 'PIN phải gồm đúng 4 số.');
+                                } else if (a != b) {
+                                  setLocal(() =>
+                                      err = 'Hai lần nhập chưa khớp nhau.');
+                                } else {
+                                  Navigator.of(ctx).pop(a);
+                                }
+                              },
+                              child: const Text('Lưu PIN mới'),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                  if (newPin != null) {
+                    final db = ref.read(databaseProvider);
+                    await db.setPin(newPin);
+                    messenger.showSnackBar(
+                      const SnackBar(content: Text('Đã đổi PIN.')),
+                    );
+                  }
                 },
               ),
               const Divider(),

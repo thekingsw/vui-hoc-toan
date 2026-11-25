@@ -294,6 +294,17 @@ class AppDatabase {
     return (rows.first['parent_pin_hash'] as String?) == pinHash(pin);
   }
 
+  /// Đổi PIN phụ huynh (lưu hash, không lưu PIN thô).
+  /// Reset tiến độ không đụng tới PIN.
+  Future<void> setPin(String newPin) async {
+    final d = await db;
+    await d.update(
+      'settings',
+      {'parent_pin_hash': pinHash(newPin)},
+      where: 'id = 1',
+    );
+  }
+
   // --- Reset ---
   Future<void> resetProgress() async {
     final d = await db;

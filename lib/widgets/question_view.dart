@@ -39,6 +39,17 @@ class _QuestionViewState extends State<QuestionView> {
   AnswerState _state = AnswerState.unanswered;
   bool _retryUsed = false;
 
+  /// Thứ tự lựa chọn hiển thị cho câu mcq: xáo 1 lần lúc mở câu
+  /// (màn hình cha dùng ValueKey(question.id) nên mỗi câu là 1 State
+  /// mới) và giữ nguyên trong suốt câu, kể cả khi thử lại.
+  late final List<String> _displayOptions;
+
+  @override
+  void initState() {
+    super.initState();
+    _displayOptions = shuffledOptions(widget.question);
+  }
+
   @override
   void dispose() {
     _controller.dispose();
@@ -127,7 +138,7 @@ class _QuestionViewState extends State<QuestionView> {
   Widget _buildInput(Question q) {
     switch (q.type) {
       case QuestionType.mcq:
-        final options = q.options ?? const [];
+        final options = _displayOptions;
         return Column(
           children: options.map((opt) {
             final isSelected = _selected == opt;

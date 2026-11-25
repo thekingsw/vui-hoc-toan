@@ -147,10 +147,10 @@
       "id": "boss_chu_de_2_001",
       "lesson_id": "boss_chu_de_2",
       "options": [
-        "8,04",
+        "0,84",
         "8,4",
-        "80,4",
-        "0,84"
+        "8,04",
+        "80,4"
       ],
       "prompt": "Số thập phân có phần nguyên là 8, phần thập phân là 04. Số đó là số nào?",
       "tags": [
@@ -169,8 +169,8 @@
       "lesson_id": "boss_chu_de_2",
       "options": [
         "Hà",
-        "Linh",
         "Hai bạn bằng nhau",
+        "Linh",
         "Không so sánh được"
       ],
       "prompt": "Hà nhảy xa 2,08 m, Linh nhảy xa 2,8 m. Bạn nào nhảy xa hơn?",
@@ -223,10 +223,10 @@
       "id": "boss_chu_de_2_011",
       "lesson_id": "boss_chu_de_2",
       "options": [
-        "6/10",
         "6/100",
+        "60/10",
         "6/1000",
-        "60/10"
+        "6/10"
       ],
       "prompt": "Phân số thập phân nào bằng số thập phân 0,06?",
       "tags": [
@@ -245,10 +245,10 @@
       "id": "boss_chu_de_2_012",
       "lesson_id": "boss_chu_de_2",
       "options": [
+        "275",
         "2,75",
         "2,075",
-        "27,5",
-        "275"
+        "27,5"
       ],
       "prompt": "Một tấm vải dài 2 km 750 m. Viết độ dài tấm vải theo ki-lô-mét, ta được bao nhiêu ki-lô-mét?",
       "tags": [
@@ -297,10 +297,10 @@
       "difficulty": 1,
       "prompt": "Số 0,5 đọc là gì?",
       "options": [
-        "Không phẩy năm",
-        "Không phẩy không năm",
         "Năm phẩy không",
-        "Không phẩy mười lăm"
+        "Không phẩy mười lăm",
+        "Không phẩy năm",
+        "Không phẩy không năm"
       ],
       "answer": "Không phẩy năm",
       "hint": "Nhìn phần nguyên trước, rồi đọc dấu phẩy và phần thập phân.",
@@ -369,8 +369,8 @@
       "prompt": "Chữ số 5 trong số 2,35 thuộc hàng nào?",
       "options": [
         "Phần mười",
-        "Phần trăm",
         "Phần nghìn",
+        "Phần trăm",
         "Phần nguyên"
       ],
       "answer": "Phần trăm",
@@ -388,10 +388,10 @@
       "difficulty": 1,
       "prompt": "Số thập phân 2,7 viết thành phân số thập phân nào?",
       "options": [
-        "27/10",
+        "27/100",
         "7/10",
         "2/10",
-        "27/100"
+        "27/10"
       ],
       "answer": "27/10",
       "hint": "Phần thập phân có một chữ số nên mẫu số là 10.",
@@ -424,10 +424,10 @@
       "difficulty": 1,
       "prompt": "Cô giáo viết số 0,09 lên bảng. Cách đọc đúng của số này là gì?",
       "options": [
-        "Không phẩy không chín",
-        "Không phẩy chín",
         "Không phẩy chín mươi",
-        "Chín phẩy không"
+        "Không phẩy chín",
+        "Chín phẩy không",
+        "Không phẩy không chín"
       ],
       "answer": "Không phẩy không chín",
       "hint": "Đọc từng chữ số ở phần thập phân, đừng bỏ chữ số 0.",
@@ -459,10 +459,10 @@
       "difficulty": 1,
       "prompt": "Số nào có chữ số 4 ở hàng phần mười?",
       "options": [
-        "1,42",
-        "2,14",
+        "0,24",
         "4,12",
-        "0,24"
+        "2,14",
+        "1,42"
       ],
       "answer": "1,42",
       "hint": "Chữ số ở hàng phần mười là chữ số đầu tiên sau dấu phẩy.",
@@ -487,10 +487,10 @@
       ],
       "verified": false,
       "options": [
-        "3,5",
         "3,4",
-        "3,47",
-        "3,6"
+        "3,5",
+        "3,6",
+        "3,47"
       ],
       "calc": "round(Decimal('3.47'),1)"
     },
@@ -523,10 +523,10 @@
       ],
       "verified": false,
       "options": [
+        "7",
         "6",
-        "5",
         "5,6",
-        "7"
+        "5"
       ],
       "calc": "round(Decimal('5.62'),0)"
     },
@@ -560,8 +560,8 @@
       "verified": false,
       "options": [
         "4,3",
-        "4,2",
         "4,27",
+        "4,2",
         "4,4"
       ],
       "calc": "round(Decimal('4.27'),1)"
@@ -581,8 +581,8 @@
       "verified": false,
       "options": [
         "1,8",
-        "1,9",
         "1,82",
+        "1,9",
         "2"
       ],
       "calc": "round(Decimal('1.82'),1)"
@@ -617,10 +617,10 @@
       ],
       "verified": false,
       "options": [
-        "0,67",
-        "0,68",
         "0,7",
-        "0,674"
+        "0,67",
+        "0,674",
+        "0,68"
       ],
       "calc": "round(Decimal('0.674'),2)"
     },
@@ -638,10 +638,10 @@
       ],
       "verified": false,
       "options": [
-        "2,2",
         "2,1",
+        "2,3",
         "2,18",
-        "2,3"
+        "2,2"
       ],
       "calc": "round(Decimal('2.18'),1)"
     },
@@ -668,9 +668,9 @@
       "difficulty": 1,
       "prompt": "Số nào lớn hơn, 3,45 hay 3,5?",
       "options": [
-        "3,5 lớn hơn",
-        "3,45 lớn hơn",
         "Hai số bằng nhau",
+        "3,45 lớn hơn",
+        "3,5 lớn hơn",
         "Không so sánh được"
       ],
       "answer": "3,5 lớn hơn",
@@ -688,10 +688,10 @@
       "difficulty": 1,
       "prompt": "Số lớn nhất trong các số 2,3; 2,03; 2,33 và 2,13 là số nào?",
       "options": [
-        "2,3",
-        "2,03",
         "2,33",
-        "2,13"
+        "2,13",
+        "2,3",
+        "2,03"
       ],
       "answer": "2,33",
       "hint": "Phần nguyên bằng nhau thì so sánh hàng phần mười trước.",
@@ -739,10 +739,10 @@
       "difficulty": 1,
       "prompt": "Số nào bằng 3,5?",
       "options": [
-        "3,05",
-        "3,50",
         "3,15",
-        "3,55"
+        "3,55",
+        "3,05",
+        "3,50"
       ],
       "answer": "3,50",
       "hint": "Thêm chữ số 0 vào cuối phần thập phân thì số không đổi.",
@@ -760,10 +760,10 @@
       "difficulty": 1,
       "prompt": "Điền dấu thích hợp vào chỗ chấm: 6,4 ... 6,40",
       "options": [
-        "=",
-        "<",
+        "≠",
         ">",
-        "≠"
+        "<",
+        "="
       ],
       "answer": "=",
       "hint": "Thêm chữ số 0 vào cuối phần thập phân thì số không đổi.",
@@ -796,9 +796,9 @@
       "prompt": "Số nào lớn hơn 8,5?",
       "options": [
         "8,05",
-        "8,15",
+        "8,45",
         "8,55",
-        "8,45"
+        "8,15"
       ],
       "answer": "8,55",
       "hint": "So sánh phần nguyên rồi đến hàng phần mười, phần trăm.",
@@ -831,10 +831,10 @@
       "difficulty": 1,
       "prompt": "Hoa nói 0,8 = 0,80, Bình nói 0,8 < 0,80. Bạn nào nói đúng?",
       "options": [
-        "Hoa nói đúng",
-        "Bình nói đúng",
         "Cả hai bạn đều sai",
-        "Không biết bạn nào đúng"
+        "Hoa nói đúng",
+        "Không biết bạn nào đúng",
+        "Bình nói đúng"
       ],
       "answer": "Hoa nói đúng",
       "hint": "Thêm chữ số 0 vào cuối phần thập phân thì số không đổi.",
@@ -858,9 +858,9 @@
       ],
       "verified": false,
       "options": [
+        "3,55",
         "3,5",
         "3,05",
-        "3,55",
         "35"
       ],
       "calc": "Decimal('3')+Decimal('5')/Decimal('10')"
@@ -895,10 +895,10 @@
       ],
       "verified": false,
       "options": [
-        "2,25",
-        "2,025",
+        "22,5",
         "2,5",
-        "22,5"
+        "2,025",
+        "2,25"
       ],
       "calc": "Decimal('2')+Decimal('250')/Decimal('1000')"
     },
@@ -932,10 +932,10 @@
       ],
       "verified": false,
       "options": [
-        "5,08",
-        "5,8",
         "5,008",
-        "58"
+        "58",
+        "5,8",
+        "5,08"
       ],
       "calc": "Decimal('5')+Decimal('8')/Decimal('100')"
     },
@@ -953,10 +953,10 @@
       ],
       "verified": false,
       "options": [
-        "0,09",
         "0,9",
         "0,009",
-        "9"
+        "9",
+        "0,09"
       ],
       "calc": "Decimal('9')/Decimal('100')"
     },
@@ -990,10 +990,10 @@
       ],
       "verified": false,
       "options": [
-        "1,7",
-        "1,07",
         "1,77",
-        "17"
+        "17",
+        "1,7",
+        "1,07"
       ],
       "calc": "Decimal('1')+Decimal('7')/Decimal('10')"
     },
@@ -1075,10 +1075,10 @@
       "id": "boss_chu_de_2_007",
       "lesson_id": "boss_chu_de_2",
       "options": [
-        "275",
+        "275 000",
         "2 750",
         "27 500",
-        "275 000"
+        "275"
       ],
       "prompt": "Đổi 2,75 kg ra gam, ta được bao nhiêu gam?",
       "tags": [
@@ -1097,10 +1097,10 @@
       "id": "boss_chu_de_2_008",
       "lesson_id": "boss_chu_de_2",
       "options": [
-        "5,81",
-        "5,74",
         "5,86",
-        "5,69"
+        "5,69",
+        "5,81",
+        "5,74"
       ],
       "prompt": "Số nào làm tròn đến hàng phần mười được 5,8?",
       "tags": [
@@ -1134,9 +1134,9 @@
       "id": "boss_chu_de_2_010",
       "lesson_id": "boss_chu_de_2",
       "options": [
-        "6,25",
-        "6,18",
         "6,32",
+        "6,18",
+        "6,25",
         "6,09"
       ],
       "prompt": "Số nào lớn hơn 6,2 và bé hơn 6,3?",
@@ -1172,10 +1172,10 @@
       "id": "boss_chu_de_2_015",
       "lesson_id": "boss_chu_de_2",
       "options": [
-        "10,8",
-        "108",
         "1 080",
-        "10 800"
+        "108",
+        "10 800",
+        "10,8"
       ],
       "prompt": "Đổi 1,08 m ra xăng-ti-mét, ta được bao nhiêu xăng-ti-mét?",
       "tags": [
@@ -1194,9 +1194,9 @@
       "lesson_id": "boss_chu_de_2",
       "options": [
         "4,2; 4,12; 4,02",
-        "4,02; 4,12; 4,2",
+        "4,2; 4,02; 4,12",
         "4,12; 4,2; 4,02",
-        "4,2; 4,02; 4,12"
+        "4,02; 4,12; 4,2"
       ],
       "prompt": "Trong bốn dãy số dưới đây, dãy nào được xếp từ lớn đến bé?",
       "tags": [
@@ -1215,9 +1215,9 @@
       "id": "boss_chu_de_2_018",
       "lesson_id": "boss_chu_de_2",
       "options": [
-        "12,7",
-        "12,07",
         "120,7",
+        "12,07",
+        "12,7",
         "1,207"
       ],
       "prompt": "Số nào có phần nguyên là 12 và phần thập phân là 7 phần trăm?",
@@ -1316,10 +1316,10 @@
       "difficulty": 2,
       "prompt": "Phân số 123/1000 viết thành số thập phân nào?",
       "options": [
-        "0,123",
         "0,0123",
-        "1,23",
-        "0,132"
+        "0,123",
+        "0,132",
+        "1,23"
       ],
       "answer": "0,123",
       "hint": "Mẫu số 1000 có ba chữ số 0 nên phần thập phân có ba chữ số.",
@@ -1351,10 +1351,10 @@
       "difficulty": 2,
       "prompt": "Bạn An viết một số gồm 2 chục, 3 đơn vị, 1 phần mười và 5 phần nghìn. Số đó là số nào?",
       "options": [
-        "23,105",
-        "23,15",
         "23,015",
-        "2,315"
+        "23,105",
+        "2,315",
+        "23,15"
       ],
       "answer": "23,105",
       "hint": "Ghép phần nguyên 23 với phần thập phân, nhớ chừa chữ số 0 ở hàng phần trăm.",
@@ -1459,10 +1459,10 @@
       ],
       "verified": false,
       "options": [
-        "9,87",
+        "9,873",
         "9,88",
         "9,9",
-        "9,873"
+        "9,87"
       ],
       "calc": "round(Decimal('9.873'),2)"
     },
@@ -1496,9 +1496,9 @@
       "verified": false,
       "options": [
         "6,6",
-        "6,5",
         "6,58",
-        "7"
+        "7",
+        "6,5"
       ],
       "calc": "round(Decimal('6.58'),1)"
     },
@@ -1546,10 +1546,10 @@
       ],
       "verified": false,
       "options": [
+        "17",
         "16",
         "15",
-        "15,9",
-        "17"
+        "15,9"
       ],
       "calc": "round(Decimal('15.96'),0)"
     },
@@ -1582,9 +1582,9 @@
       "verified": false,
       "options": [
         "3,76",
+        "3,764",
         "3,77",
-        "3,8",
-        "3,764"
+        "3,8"
       ],
       "calc": "round(Decimal('3.764'),2)"
     },
@@ -1609,9 +1609,9 @@
       "difficulty": 2,
       "prompt": "Dãy số nào xếp theo thứ tự tăng dần?",
       "options": [
+        "1,25; 1,2; 1,3",
         "1,2; 1,25; 1,3",
         "1,3; 1,25; 1,2",
-        "1,25; 1,2; 1,3",
         "1,2; 1,3; 1,25"
       ],
       "answer": "1,2; 1,25; 1,3",
@@ -1659,10 +1659,10 @@
       "difficulty": 2,
       "prompt": "Bốn sợi dây dài 0,9 m; 0,99 m; 0,909 m và 0,999 m. Sợi dây ngắn nhất dài bao nhiêu mét?",
       "options": [
-        "0,9",
         "0,99",
+        "0,999",
         "0,909",
-        "0,999"
+        "0,9"
       ],
       "answer": "0,9",
       "hint": "So sánh hàng phần mười trước, đừng đếm số chữ số ở phần thập phân.",
@@ -1695,9 +1695,9 @@
       "prompt": "Dãy nào xếp các số theo thứ tự giảm dần?",
       "options": [
         "5,1; 5,01; 5,001",
-        "5,001; 5,01; 5,1",
         "5,01; 5,1; 5,001",
-        "5,1; 5,001; 5,01"
+        "5,1; 5,001; 5,01",
+        "5,001; 5,01; 5,1"
       ],
       "answer": "5,1; 5,01; 5,001",
       "hint": "Dãy giảm dần là dãy số lớn đứng trước số bé.",
@@ -1729,9 +1729,9 @@
       "difficulty": 2,
       "prompt": "Số lớn nhất mà bé hơn 7 là số nào?",
       "options": [
+        "7,1",
         "6,99",
         "7,01",
-        "7,1",
         "6,9"
       ],
       "answer": "6,99",
@@ -1801,9 +1801,9 @@
       ],
       "verified": false,
       "options": [
-        "3,45",
         "3,045",
         "34,5",
+        "3,45",
         "3,405"
       ],
       "calc": "Decimal('3')+Decimal('450')/Decimal('1000')"
@@ -1838,10 +1838,10 @@
       ],
       "verified": false,
       "options": [
-        "1,25",
-        "12,5",
         "0,125",
-        "125"
+        "125",
+        "1,25",
+        "12,5"
       ],
       "calc": "Decimal('1250')/Decimal('1000')"
     },
@@ -1890,8 +1890,8 @@
       "verified": false,
       "options": [
         "8,4",
-        "8,04",
         "84",
+        "8,04",
         "8,004"
       ],
       "calc": "Decimal('8')+Decimal('40')/Decimal('100')"
@@ -1924,10 +1924,10 @@
       ],
       "verified": false,
       "options": [
-        "25,6",
-        "25,06",
+        "256",
         "2,56",
-        "256"
+        "25,6",
+        "25,06"
       ],
       "calc": "Decimal('25')+Decimal('6')/Decimal('10')"
     },

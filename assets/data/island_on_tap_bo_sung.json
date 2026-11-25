@@ -274,10 +274,10 @@
       "id": "boss_chu_de_1_001",
       "lesson_id": "boss_chu_de_1",
       "options": [
-        "Hàng trăm",
-        "Hàng nghìn",
+        "Hàng đơn vị",
         "Hàng chục",
-        "Hàng đơn vị"
+        "Hàng nghìn",
+        "Hàng trăm"
       ],
       "prompt": "Số 71 208 có chữ số 2 ở hàng nào?",
       "tags": [
@@ -296,10 +296,10 @@
       "id": "boss_chu_de_1_002",
       "lesson_id": "boss_chu_de_1",
       "options": [
-        "3/8",
-        "1/6",
         "2/7",
-        "5/9"
+        "5/9",
+        "3/8",
+        "1/6"
       ],
       "prompt": "Phân số nào dưới đây viết được thành phân số thập phân có mẫu số 1 000?",
       "tags": [
@@ -349,10 +349,10 @@
       "id": "boss_chu_de_1_011",
       "lesson_id": "boss_chu_de_1",
       "options": [
-        "392",
-        "382",
         "402",
-        "372"
+        "382",
+        "372",
+        "392"
       ],
       "prompt": "Tính 56 × 7.",
       "tags": [
@@ -371,10 +371,10 @@
       "id": "boss_chu_de_1_012",
       "lesson_id": "boss_chu_de_1",
       "options": [
+        "1/8",
         "5/8",
-        "3/8",
         "7/8",
-        "1/8"
+        "3/8"
       ],
       "prompt": "Một sợi ruy băng dài 1 m, bạn An cắt đi 3/8 m. Phân số chỉ phần ruy băng còn lại là bao nhiêu?",
       "tags": [
@@ -410,9 +410,9 @@
       "lesson_id": "boss_chu_de_1",
       "options": [
         "6",
-        "8",
         "40",
-        "56"
+        "56",
+        "8"
       ],
       "prompt": "Một hình chữ nhật có diện tích 48 m² và chiều dài 8 m. Chiều rộng hình chữ nhật là bao nhiêu mét?",
       "tags": [
@@ -437,10 +437,10 @@
       ],
       "verified": false,
       "options": [
-        "3/4",
         "2/6",
-        "5/8",
-        "1/2"
+        "1/2",
+        "3/4",
+        "5/8"
       ],
       "calc": "Fraction(1,2)+Fraction(1,4)"
     },
@@ -475,10 +475,10 @@
       ],
       "verified": false,
       "options": [
-        "1/2",
-        "4/9",
         "2/3",
-        "1/6"
+        "1/6",
+        "1/2",
+        "4/9"
       ],
       "calc": "Fraction(5,6)-Fraction(1,3)"
     },
@@ -529,9 +529,9 @@
       "verified": false,
       "options": [
         "3/10",
+        "2/5",
         "2/15",
-        "1/5",
-        "2/5"
+        "1/5"
       ],
       "calc": "Fraction(1,5)+Fraction(1,10)"
     },
@@ -566,8 +566,8 @@
       ],
       "verified": false,
       "options": [
-        "1/3",
         "0",
+        "1/3",
         "1/8",
         "2/3"
       ],
@@ -588,10 +588,10 @@
       ],
       "verified": false,
       "options": [
-        "5/6",
         "3/9",
+        "2/3",
         "1/2",
-        "2/3"
+        "5/6"
       ],
       "calc": "Fraction(2,3)+Fraction(1,6)"
     },
@@ -619,10 +619,10 @@
       "id": "hon_so_001",
       "lesson_id": "hon_so",
       "options": [
-        "7/3",
-        "6/3",
         "5/3",
-        "8/3"
+        "6/3",
+        "8/3",
+        "7/3"
       ],
       "prompt": "Đổi hỗn số 2 1/3 thành phân số.",
       "tags": [
@@ -640,10 +640,10 @@
       "id": "hon_so_002",
       "lesson_id": "hon_so",
       "options": [
-        "3/5",
-        "4/5",
+        "3/4",
         "5/3",
-        "3/4"
+        "3/5",
+        "4/5"
       ],
       "prompt": "Phần phân số của hỗn số 4 3/5 là bao nhiêu?",
       "tags": [
@@ -691,10 +691,10 @@
       "id": "hon_so_007",
       "lesson_id": "hon_so",
       "options": [
-        "2 3/4",
         "3 1/4",
         "2 1/4",
-        "3 3/4"
+        "3 3/4",
+        "2 3/4"
       ],
       "prompt": "Chia 11 quả cam đều cho 4 bạn, mỗi bạn được mấy quả cam?",
       "tags": [
@@ -711,10 +711,10 @@
       "id": "hon_so_011",
       "lesson_id": "hon_so",
       "options": [
-        "Sáu và một phần hai",
         "Sáu phần một phần hai",
+        "Sáu một phần hai",
         "Một phần hai và sáu",
-        "Sáu một phần hai"
+        "Sáu và một phần hai"
       ],
       "prompt": "Hỗn số 6 1/2 đọc là gì?",
       "tags": [
@@ -747,10 +747,10 @@
       "id": "hon_so_013",
       "lesson_id": "hon_so",
       "options": [
-        "5/2",
+        "1/4",
         "3/3",
-        "2/5",
-        "1/4"
+        "5/2",
+        "2/5"
       ],
       "prompt": "Trong các phân số sau, phân số nào viết được thành hỗn số?",
       "tags": [
@@ -767,10 +767,10 @@
       "id": "hon_so_017",
       "lesson_id": "hon_so",
       "options": [
-        "Phần nguyên",
         "Phần phân số",
-        "Tử số",
-        "Mẫu số"
+        "Mẫu số",
+        "Phần nguyên",
+        "Tử số"
       ],
       "prompt": "Trong hỗn số 7 2/9, số 7 được gọi là gì?",
       "tags": [
@@ -802,10 +802,10 @@
       "id": "on_tap_hinh_hoc_do_luong_001",
       "lesson_id": "on_tap_hinh_hoc_do_luong",
       "options": [
-        "26",
-        "40",
         "13",
-        "30"
+        "30",
+        "40",
+        "26"
       ],
       "prompt": "Hình chữ nhật có chiều dài 8 m, chiều rộng 5 m. Chu vi hình chữ nhật là bao nhiêu mét?",
       "tags": [
@@ -839,10 +839,10 @@
       "id": "on_tap_hinh_hoc_do_luong_003",
       "lesson_id": "on_tap_hinh_hoc_do_luong",
       "options": [
-        "30",
-        "300",
         "3",
-        "3 000"
+        "3 000",
+        "30",
+        "300"
       ],
       "prompt": "3 m bằng bao nhiêu đề-xi-mét?",
       "tags": [
@@ -891,14 +891,14 @@
       "calc": "1*1000",
       "difficulty": 1,
       "explanation": "1 tấn = 1 000 kg.",
-      "hint": "1 tấn = 10 tạ = 1 000 kg.",
+      "hint": "Đổi từng bước nhé: tấn → tạ → kg.",
       "id": "on_tap_hinh_hoc_do_luong_011",
       "lesson_id": "on_tap_hinh_hoc_do_luong",
       "options": [
         "1 000",
-        "100",
         "10",
-        "10 000"
+        "10 000",
+        "100"
       ],
       "prompt": "1 tấn bằng bao nhiêu ki-lô-gam?",
       "tags": [
@@ -931,10 +931,10 @@
       "id": "on_tap_hinh_hoc_do_luong_013",
       "lesson_id": "on_tap_hinh_hoc_do_luong",
       "options": [
+        "Chồng khít lên nhau",
         "Không bao giờ cắt nhau",
-        "Cắt nhau tạo thành góc vuông",
         "Cắt nhau tại một điểm",
-        "Chồng khít lên nhau"
+        "Cắt nhau tạo thành góc vuông"
       ],
       "prompt": "Hai đường thẳng song song là hai đường thẳng như thế nào?",
       "tags": [
@@ -966,10 +966,10 @@
       "id": "on_tap_hinh_hoc_do_luong_017",
       "lesson_id": "on_tap_hinh_hoc_do_luong",
       "options": [
-        "70",
-        "7",
         "700",
-        "17"
+        "17",
+        "70",
+        "7"
       ],
       "prompt": "Một cây bút dài 7 dm. Hỏi cây bút dài bao nhiêu xăng-ti-mét?",
       "tags": [
@@ -985,10 +985,10 @@
       "difficulty": 1,
       "prompt": "Chia một cái bánh thành 4 phần bằng nhau, lấy 3 phần. Phân số chỉ phần bánh đã lấy là bao nhiêu?",
       "options": [
-        "3/4",
         "4/3",
+        "1/3",
         "1/4",
-        "1/3"
+        "3/4"
       ],
       "answer": "3/4",
       "hint": "Tử số là số phần đã lấy, mẫu số là số phần bằng nhau.",
@@ -1022,10 +1022,10 @@
       "difficulty": 1,
       "prompt": "Chia cả tử số và mẫu số của phân số 6/8 cho 2, ta được phân số nào?",
       "options": [
-        "3/4",
-        "2/3",
         "6/4",
-        "1/2"
+        "1/2",
+        "3/4",
+        "2/3"
       ],
       "answer": "3/4",
       "hint": "Chia tử số và mẫu số cho cùng một số.",
@@ -1044,9 +1044,9 @@
       "prompt": "Phân số nào lớn hơn: 3/7 hay 5/7?",
       "options": [
         "5/7",
-        "3/7",
         "7/3",
-        "7/5"
+        "7/5",
+        "3/7"
       ],
       "answer": "5/7",
       "hint": "Cùng mẫu số thì so sánh tử số.",
@@ -1080,8 +1080,8 @@
       "options": [
         "Tử số",
         "Mẫu số",
-        "Phân số",
-        "Số tự nhiên"
+        "Số tự nhiên",
+        "Phân số"
       ],
       "answer": "Tử số",
       "hint": "Số viết trên dấu gạch ngang có tên riêng.",
@@ -1136,8 +1136,8 @@
       "options": [
         "2/5",
         "5/2",
-        "7/7",
-        "9/8"
+        "9/8",
+        "7/7"
       ],
       "answer": "2/5",
       "hint": "Phân số bé hơn 1 khi tử số bé hơn mẫu số.",
@@ -1177,10 +1177,10 @@
       ],
       "verified": false,
       "options": [
-        "3/4",
-        "3/8",
         "5/8",
-        "1/2"
+        "3/8",
+        "1/2",
+        "3/4"
       ],
       "calc": "Fraction(1,4)+Fraction(2,4)"
     },
@@ -1214,10 +1214,10 @@
       ],
       "verified": false,
       "options": [
-        "3/10",
-        "4/7",
+        "1/3",
         "3/7",
-        "1/3"
+        "3/10",
+        "4/7"
       ],
       "calc": "Fraction(1,2)*Fraction(3,5)"
     },
@@ -1266,10 +1266,10 @@
       ],
       "verified": false,
       "options": [
-        "3/7",
         "3/14",
-        "5/7",
-        "1/2"
+        "1/2",
+        "3/7",
+        "5/7"
       ],
       "calc": "Fraction(4,7)-Fraction(1,7)"
     },
@@ -1303,10 +1303,10 @@
       ],
       "verified": false,
       "options": [
-        "3/14",
-        "5/11",
         "6/11",
-        "1/2"
+        "1/2",
+        "5/11",
+        "3/14"
       ],
       "calc": "Fraction(2,7)*Fraction(3,4)"
     },
@@ -1324,10 +1324,10 @@
       ],
       "verified": false,
       "options": [
-        "1",
         "25/36",
-        "5/3",
-        "0"
+        "1",
+        "0",
+        "5/3"
       ],
       "calc": "Fraction(5,6)/Fraction(5,6)"
     },
@@ -1355,9 +1355,9 @@
       "lesson_id": "on_tap_phep_tinh_stn",
       "options": [
         "605",
-        "595",
+        "615",
         "505",
-        "615"
+        "595"
       ],
       "prompt": "Bạn Lan tính tổng của 347 và 258. Kết quả bạn Lan tìm được là bao nhiêu?",
       "tags": [
@@ -1390,9 +1390,9 @@
       "id": "on_tap_phep_tinh_stn_003",
       "lesson_id": "on_tap_phep_tinh_stn",
       "options": [
-        "768",
         "728",
         "708",
+        "768",
         "788"
       ],
       "prompt": "Một thùng có 128 gói mì. Hỏi 6 thùng như thế có bao nhiêu gói mì?",
@@ -1441,10 +1441,10 @@
       "id": "on_tap_phep_tinh_stn_011",
       "lesson_id": "on_tap_phep_tinh_stn",
       "options": [
-        "325",
-        "335",
         "425",
-        "315"
+        "315",
+        "335",
+        "325"
       ],
       "prompt": "Tính hiệu của 604 và 279.",
       "tags": [
@@ -1478,9 +1478,9 @@
       "id": "on_tap_phep_tinh_stn_013",
       "lesson_id": "on_tap_phep_tinh_stn",
       "options": [
+        "185",
         "175",
         "165",
-        "185",
         "155"
       ],
       "prompt": "Chia 875 chiếc bánh đều vào 5 hộp. Mỗi hộp có bao nhiêu chiếc bánh?",
@@ -1501,8 +1501,8 @@
       "options": [
         "2 243",
         "2 143",
-        "2 233",
-        "2 343"
+        "2 343",
+        "2 233"
       ],
       "prompt": "Tổng của 1 286 và 957 là bao nhiêu?",
       "tags": [
@@ -1534,9 +1534,9 @@
       "lesson_id": "on_tap_so_tu_nhien",
       "options": [
         "Mười hai nghìn không trăm ba mươi tư",
-        "Mười hai nghìn ba mươi tư",
         "Mười hai nghìn không trăm ba mươi bốn",
-        "Một trăm hai mươi nghìn ba mươi tư"
+        "Một trăm hai mươi nghìn ba mươi tư",
+        "Mười hai nghìn ba mươi tư"
       ],
       "prompt": "Số 12 034 đọc là gì?",
       "tags": [
@@ -1569,9 +1569,9 @@
       "id": "on_tap_so_tu_nhien_003",
       "lesson_id": "on_tap_so_tu_nhien",
       "options": [
+        "9 999",
         "9 876",
         "10 234",
-        "9 999",
         "10 023"
       ],
       "prompt": "Trong bốn số 9 876, 10 234, 9 999 và 10 023, số nào lớn nhất?",
@@ -1621,8 +1621,8 @@
       "options": [
         "25 307",
         "25 037",
-        "25 370",
-        "20 537"
+        "20 537",
+        "25 370"
       ],
       "prompt": "Số “hai mươi lăm nghìn ba trăm linh bảy” viết là số nào?",
       "tags": [
@@ -1655,10 +1655,10 @@
       "id": "on_tap_so_tu_nhien_013",
       "lesson_id": "on_tap_so_tu_nhien",
       "options": [
+        "7 089",
         "7 890",
         "7 809",
-        "7 980",
-        "7 089"
+        "7 980"
       ],
       "prompt": "Bạn An có bốn tấm thẻ ghi các số 7 890, 7 809, 7 980 và 7 089. Số bé nhất trên các tấm thẻ là số nào?",
       "tags": [
@@ -1677,9 +1677,9 @@
       "lesson_id": "on_tap_so_tu_nhien",
       "options": [
         "8 400",
+        "8 000",
         "8 500",
-        "8 410",
-        "8 000"
+        "8 410"
       ],
       "prompt": "Một cửa hàng có 8 412 chiếc bút. Làm tròn số bút đến hàng trăm, cửa hàng có khoảng bao nhiêu chiếc bút?",
       "tags": [
@@ -1709,10 +1709,10 @@
       "difficulty": 1,
       "prompt": "Viết phân số 3/5 dưới dạng phân số thập phân.",
       "options": [
-        "6/10",
-        "3/10",
+        "5/10",
         "6/5",
-        "5/10"
+        "3/10",
+        "6/10"
       ],
       "answer": "6/10",
       "hint": "Nhân cả tử số và mẫu số của 3/5 với 2 để mẫu số thành 10.",
@@ -1746,9 +1746,9 @@
       "prompt": "Trong các phân số sau, phân số nào là phân số thập phân?",
       "options": [
         "4/10",
-        "3/7",
         "5/6",
-        "2/9"
+        "2/9",
+        "3/7"
       ],
       "answer": "4/10",
       "hint": "Phân số thập phân có mẫu số là 10, 100 hay 1 000.",
@@ -1767,8 +1767,8 @@
       "prompt": "Phân số thập phân nào có mẫu số 10?",
       "options": [
         "3/10",
-        "3/100",
         "3/1000",
+        "3/100",
         "3/5"
       ],
       "answer": "3/10",
@@ -1801,9 +1801,9 @@
       "difficulty": 1,
       "prompt": "Trong các phân số sau, phân số nào có mẫu số là 1 000?",
       "options": [
+        "6/10",
         "6/1000",
         "6/100",
-        "6/10",
         "6/5"
       ],
       "answer": "6/1000",
@@ -1858,10 +1858,10 @@
       "difficulty": 1,
       "prompt": "Tìm phân số có mẫu số không phải là 10, 100 hay 1 000.",
       "options": [
-        "8/9",
+        "2/1000",
         "6/10",
-        "4/100",
-        "2/1000"
+        "8/9",
+        "4/100"
       ],
       "answer": "8/9",
       "hint": "Mẫu số là số viết dưới dấu gạch ngang.",
@@ -1896,9 +1896,9 @@
       "lesson_id": "boss_chu_de_1",
       "options": [
         "44",
-        "46",
+        "42",
         "48",
-        "42"
+        "46"
       ],
       "prompt": "Một sân chơi hình chữ nhật dài 14 m, rộng 9 m. Người ta rào xung quanh sân, chừa 2 m làm cổng. Cần bao nhiêu mét dây rào?",
       "tags": [
@@ -1917,10 +1917,10 @@
       "id": "boss_chu_de_1_006",
       "lesson_id": "boss_chu_de_1",
       "options": [
-        "6",
-        "24",
+        "3",
         "12",
-        "3"
+        "24",
+        "6"
       ],
       "prompt": "Bạn Minh có 18 viên bi, bạn Lan cho thêm 6 viên rồi Minh chia đều cho 4 bạn. Mỗi bạn được bao nhiêu viên bi?",
       "tags": [
@@ -1955,10 +1955,10 @@
       "id": "boss_chu_de_1_008",
       "lesson_id": "boss_chu_de_1",
       "options": [
-        "2 1/4",
+        "2 5/8",
         "2 3/8",
         "2 1/2",
-        "2 5/8"
+        "2 1/4"
       ],
       "prompt": "Trong các hỗn số 2 1/4, 2 3/8, 2 1/2 và 2 5/8, hỗn số nào lớn nhất?",
       "tags": [
@@ -2042,10 +2042,10 @@
       "id": "boss_chu_de_1_017",
       "lesson_id": "boss_chu_de_1",
       "options": [
-        "1/2",
+        "3/10",
         "3/5",
-        "1/5",
-        "3/10"
+        "1/2",
+        "1/5"
       ],
       "prompt": "Một chai nước có 7/10 lít, bạn Bình uống hết 1/5 lít. Trong chai còn lại bao nhiêu lít nước?",
       "tags": [
@@ -2066,8 +2066,8 @@
       "options": [
         "2/5",
         "1/5",
-        "3/5",
-        "4/15"
+        "4/15",
+        "3/5"
       ],
       "prompt": "Bạn Lan có 3/5 kg bột, dùng 2/3 số bột để làm bánh. Số bột đã dùng là bao nhiêu ki-lô-gam?",
       "tags": [
@@ -2124,10 +2124,10 @@
       ],
       "verified": false,
       "options": [
-        "7/12",
-        "2/7",
+        "5/12",
         "1/2",
-        "5/12"
+        "2/7",
+        "7/12"
       ],
       "calc": "Fraction(1,3)+Fraction(1,4)"
     },
@@ -2163,9 +2163,9 @@
       "verified": false,
       "options": [
         "1/2",
+        "3/15",
         "3/5",
-        "2/7",
-        "3/15"
+        "2/7"
       ],
       "calc": "Fraction(2,5)+Fraction(1,10)"
     },
@@ -2200,10 +2200,10 @@
       ],
       "verified": false,
       "options": [
-        "1/2",
         "1/3",
         "5/12",
-        "2/5"
+        "2/5",
+        "1/2"
       ],
       "calc": "Fraction(2,3)-Fraction(1,6)"
     },
@@ -2222,10 +2222,10 @@
       ],
       "verified": false,
       "options": [
+        "7/10",
         "13/20",
-        "3/9",
         "1/2",
-        "7/10"
+        "3/9"
       ],
       "calc": "Fraction(1,4)+Fraction(2,5)"
     },
@@ -2276,8 +2276,8 @@
       "verified": false,
       "options": [
         "1/2",
-        "4/15",
         "2/5",
+        "4/15",
         "3/7"
       ],
       "calc": "Fraction(3,10)+Fraction(1,5)"
@@ -2307,10 +2307,10 @@
       "id": "hon_so_005",
       "lesson_id": "hon_so",
       "options": [
-        "3 2/7",
-        "1 5/6",
         "2 4/3",
-        "5 1/8"
+        "5 1/8",
+        "1 5/6",
+        "3 2/7"
       ],
       "prompt": "Hỗn số nào sau đây viết sai?",
       "tags": [
@@ -2359,9 +2359,9 @@
       "id": "hon_so_009",
       "lesson_id": "hon_so",
       "options": [
+        "5/2",
         "9/2",
         "8/2",
-        "5/2",
         "10/2"
       ],
       "prompt": "Đổi hỗn số 4 1/2 thành phân số, kết quả đúng là phân số nào?",
@@ -2426,8 +2426,8 @@
       "options": [
         "3 2/5",
         "2 2/5",
-        "3 1/5",
-        "4 2/5"
+        "4 2/5",
+        "3 1/5"
       ],
       "prompt": "Phân số 17/5 bằng hỗn số nào?",
       "tags": [
@@ -2446,9 +2446,9 @@
       "lesson_id": "hon_so",
       "options": [
         "17/5",
-        "15/5",
         "10/5",
-        "20/5"
+        "20/5",
+        "15/5"
       ],
       "prompt": "Bạn Nam đổi hỗn số 3 2/5 thành 15/5. Kết quả đúng phải là phân số nào?",
       "tags": [
@@ -2514,10 +2514,10 @@
       "id": "on_tap_hinh_hoc_do_luong_007",
       "lesson_id": "on_tap_hinh_hoc_do_luong",
       "options": [
-        "96",
         "40",
-        "20",
-        "80"
+        "96",
+        "80",
+        "20"
       ],
       "prompt": "Mảnh vườn nhà bà Lan hình chữ nhật, chiều dài 12 m và chiều rộng 8 m. Tính diện tích mảnh vườn.",
       "tags": [
@@ -2551,10 +2551,10 @@
       "id": "on_tap_hinh_hoc_do_luong_009",
       "lesson_id": "on_tap_hinh_hoc_do_luong",
       "options": [
-        "230",
-        "203",
+        "2 003",
         "23",
-        "2 003"
+        "203",
+        "230"
       ],
       "prompt": "Một sợi dây dài 2 m 30 cm. Hỏi sợi dây dài bao nhiêu xăng-ti-mét?",
       "tags": [
@@ -2588,9 +2588,9 @@
       "id": "on_tap_hinh_hoc_do_luong_016",
       "lesson_id": "on_tap_hinh_hoc_do_luong",
       "options": [
-        "144",
-        "48",
         "24",
+        "48",
+        "144",
         "120"
       ],
       "prompt": "Một cái sân hình vuông có cạnh 12 m. Diện tích cái sân là bao nhiêu mét vuông?",
@@ -2609,9 +2609,9 @@
       "id": "on_tap_hinh_hoc_do_luong_018",
       "lesson_id": "on_tap_hinh_hoc_do_luong",
       "options": [
-        "300",
-        "30",
         "3 000",
+        "30",
+        "300",
         "3"
       ],
       "prompt": "Một xe chở 3 tạ gạo. Hỏi xe chở bao nhiêu ki-lô-gam gạo?",
@@ -2673,10 +2673,10 @@
       "difficulty": 2,
       "prompt": "Muốn so sánh hai phân số 2/3 và 3/4, ta quy đồng chúng về mẫu số 12. Phân số 2/3 sau khi quy đồng là bao nhiêu?",
       "options": [
-        "8/12",
-        "9/12",
+        "4/12",
         "6/12",
-        "4/12"
+        "8/12",
+        "9/12"
       ],
       "answer": "8/12",
       "hint": "Nhân cả tử số và mẫu số của 2/3 với 4.",
@@ -2725,10 +2725,10 @@
       "difficulty": 2,
       "prompt": "Một hộp có 12 viên bi, trong đó có 4 viên bi màu đỏ. Phân số chỉ số bi đỏ sau khi rút gọn là bao nhiêu?",
       "options": [
-        "1/3",
         "1/4",
-        "2/3",
-        "3/4"
+        "1/3",
+        "3/4",
+        "2/3"
       ],
       "answer": "1/3",
       "hint": "Viết phân số 4/12 rồi rút gọn.",
@@ -2762,10 +2762,10 @@
       "difficulty": 2,
       "prompt": "Hai phân số 1/4 và 2/3 cùng có mẫu số chung là 12. Phân số bằng 2/3 và có mẫu số 12 là phân số nào?",
       "options": [
-        "8/12",
-        "3/12",
         "4/12",
-        "6/12"
+        "6/12",
+        "8/12",
+        "3/12"
       ],
       "answer": "8/12",
       "hint": "12 chia cho 3 được 4, nhân tử số 2 với 4.",
@@ -2799,9 +2799,9 @@
       "difficulty": 2,
       "prompt": "Một sợi dây dài 20 m, bạn Hoa cắt đi 5 m. Phân số chỉ phần dây còn lại sau khi rút gọn là bao nhiêu?",
       "options": [
-        "3/4",
         "1/4",
         "2/5",
+        "3/4",
         "4/5"
       ],
       "answer": "3/4",
@@ -2843,10 +2843,10 @@
       ],
       "verified": false,
       "options": [
-        "1/2",
+        "3/5",
         "6/24",
-        "2/3",
-        "3/5"
+        "1/2",
+        "2/3"
       ],
       "calc": "Fraction(5,12)+Fraction(1,12)"
     },
@@ -2881,10 +2881,10 @@
       ],
       "verified": false,
       "options": [
-        "3",
+        "1/3",
         "4",
         "3/16",
-        "1/3"
+        "3"
       ],
       "calc": "Fraction(3,4)/Fraction(1,4)"
     },
@@ -2920,9 +2920,9 @@
       "verified": false,
       "options": [
         "1/2",
-        "9/13",
         "4/13",
-        "20/13"
+        "20/13",
+        "9/13"
       ],
       "calc": "Fraction(4,5)*Fraction(5,8)"
     },
@@ -2941,10 +2941,10 @@
       ],
       "verified": false,
       "options": [
-        "1/2",
+        "3/5",
         "5/20",
         "1/5",
-        "3/5"
+        "1/2"
       ],
       "calc": "Fraction(3,10)+Fraction(2,10)"
     },
@@ -2994,10 +2994,10 @@
       ],
       "verified": false,
       "options": [
-        "1/3",
+        "1/6",
         "7/11",
         "10/11",
-        "1/6"
+        "1/3"
       ],
       "calc": "Fraction(5,6)*Fraction(2,5)"
     },
@@ -3026,9 +3026,9 @@
       "id": "on_tap_phep_tinh_stn_006",
       "lesson_id": "on_tap_phep_tinh_stn",
       "options": [
-        "54",
-        "150",
         "60",
+        "150",
+        "54",
         "30"
       ],
       "prompt": "Tính giá trị của biểu thức 24 + 6 × 5.",
@@ -3062,10 +3062,10 @@
       "id": "on_tap_phep_tinh_stn_008",
       "lesson_id": "on_tap_phep_tinh_stn",
       "options": [
-        "1",
-        "2",
         "3",
-        "0"
+        "0",
+        "1",
+        "2"
       ],
       "prompt": "Khi chia 157 cho 6, số dư của phép chia là bao nhiêu?",
       "tags": [
@@ -3100,10 +3100,10 @@
       "id": "on_tap_phep_tinh_stn_010",
       "lesson_id": "on_tap_phep_tinh_stn",
       "options": [
+        "400",
         "320",
         "200",
-        "215",
-        "400"
+        "215"
       ],
       "prompt": "Một rổ có 8 túi, mỗi túi đựng 25 quả cam và 15 quả táo. Hỏi rổ có tất cả bao nhiêu quả?",
       "tags": [
@@ -3123,9 +3123,9 @@
       "lesson_id": "on_tap_phep_tinh_stn",
       "options": [
         "500",
-        "250",
+        "1 000",
         "480",
-        "1 000"
+        "250"
       ],
       "prompt": "Một cửa hàng bán 48 hộp bút buổi sáng và 52 hộp bút buổi chiều, mỗi hộp có 5 chiếc bút. Hỏi cả ngày cửa hàng bán được bao nhiêu chiếc bút?",
       "tags": [
@@ -3161,10 +3161,10 @@
       "id": "on_tap_phep_tinh_stn_018",
       "lesson_id": "on_tap_phep_tinh_stn",
       "options": [
+        "420",
         "360",
-        "300",
         "340",
-        "420"
+        "300"
       ],
       "prompt": "Mỗi hộp có 24 chiếc bánh. Hỏi 15 hộp như thế có bao nhiêu chiếc bánh?",
       "tags": [
@@ -3213,8 +3213,8 @@
       "lesson_id": "on_tap_so_tu_nhien",
       "options": [
         "48 000",
-        "47 000",
         "47 800",
+        "47 000",
         "47 836"
       ],
       "prompt": "Làm tròn số 47 836 đến hàng nghìn được số nào?",
@@ -3248,10 +3248,10 @@
       "id": "on_tap_so_tu_nhien_008",
       "lesson_id": "on_tap_so_tu_nhien",
       "options": [
-        "5 648",
-        "5 652",
         "5 549",
-        "5 671"
+        "5 652",
+        "5 671",
+        "5 648"
       ],
       "prompt": "Số nào khi làm tròn đến hàng trăm được 5 600?",
       "tags": [
@@ -3284,10 +3284,10 @@
       "id": "on_tap_so_tu_nhien_010",
       "lesson_id": "on_tap_so_tu_nhien",
       "options": [
-        "34 567",
+        "34 765",
         "34 576",
-        "34 657",
-        "34 765"
+        "34 567",
+        "34 657"
       ],
       "prompt": "Ba số 34 567, 34 576 và 34 657 được xếp theo thứ tự tăng dần. Số ở giữa là số nào?",
       "tags": [
@@ -3305,8 +3305,8 @@
       "id": "on_tap_so_tu_nhien_016",
       "lesson_id": "on_tap_so_tu_nhien",
       "options": [
-        "50 208",
         "52 008",
+        "50 208",
         "50 280",
         "52 080"
       ],
@@ -3341,9 +3341,9 @@
       "id": "on_tap_so_tu_nhien_018",
       "lesson_id": "on_tap_so_tu_nhien",
       "options": [
-        "62 000",
-        "63 000",
         "62 500",
+        "63 000",
+        "62 000",
         "62 400"
       ],
       "prompt": "Bác nông dân thu hoạch 62 475 kg lúa. Làm tròn số ki-lô-gam lúa đến hàng nghìn được bao nhiêu?",
@@ -3404,10 +3404,10 @@
       "difficulty": 2,
       "prompt": "Đổi phân số 7/20 thành phân số thập phân.",
       "options": [
-        "35/100",
-        "7/100",
+        "70/100",
         "14/100",
-        "70/100"
+        "35/100",
+        "7/100"
       ],
       "answer": "35/100",
       "hint": "Nhân cả tử số và mẫu số với 5 để mẫu số thành 100.",
@@ -3456,8 +3456,8 @@
       "prompt": "Phân số nào dưới đây KHÔNG đổi được thành phân số thập phân?",
       "options": [
         "1/3",
-        "1/2",
         "3/5",
+        "1/2",
         "7/20"
       ],
       "answer": "1/3",
@@ -3491,10 +3491,10 @@
       "difficulty": 2,
       "prompt": "Một phân số bằng 11/50 và có mẫu số 100 là phân số nào?",
       "options": [
-        "22/100",
-        "11/100",
         "55/100",
-        "44/100"
+        "11/100",
+        "44/100",
+        "22/100"
       ],
       "answer": "22/100",
       "hint": "Nhân cả tử số và mẫu số của 11/50 với 2.",
@@ -3527,10 +3527,10 @@
       "difficulty": 2,
       "prompt": "Bạn Mai có 13/20 kg gạo. Viết số gạo đó dưới dạng phân số thập phân có mẫu số 100.",
       "options": [
-        "65/100",
-        "13/100",
         "26/100",
-        "65/10"
+        "65/10",
+        "65/100",
+        "13/100"
       ],
       "answer": "65/100",
       "hint": "Nhân cả tử số và mẫu số của 13/20 với 5.",

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:toan_lop_5/models/question.dart';
 import 'package:toan_lop_5/services/scoring.dart';
@@ -191,6 +193,32 @@ void main() {
     });
     test('phụ huynh mở khóa tay thì mở dù chưa có sao', () {
       expect(isIslandUnlocked(1, {}, {'dao2'}, order), isTrue);
+    });
+  });
+
+  group('shuffledOptions', () {
+    test('mcq: giữ nguyên tập lựa chọn và đáp án, chỉ đổi thứ tự', () {
+      final q = _mcq(answer: 'A', options: const ['A', 'B', 'C', 'D']);
+      final out = shuffledOptions(q, random: Random(42));
+      expect(out.length, 4);
+      expect(out.toSet(), {'A', 'B', 'C', 'D'});
+      expect(out.contains(q.answerText), isTrue);
+      // Không sửa danh sách gốc trong dữ liệu.
+      expect(q.options, ['A', 'B', 'C', 'D']);
+    });
+    test('mcq: đáp án không cố định ở vị trí đầu qua nhiều seed', () {
+      final q = _mcq(answer: 'A', options: const ['A', 'B', 'C', 'D']);
+      final positions = <int>{
+        for (var seed = 0; seed < 40; seed++)
+          shuffledOptions(q, random: Random(seed)).indexOf('A'),
+      };
+      expect(positions.length, greaterThan(1));
+    });
+    test('không phải mcq thì giữ nguyên thứ tự', () {
+      final q = _tf();
+      expect(shuffledOptions(q), isEmpty);
+      final f = _fill();
+      expect(shuffledOptions(f), isEmpty);
     });
   });
 }

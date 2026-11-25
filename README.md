@@ -5,9 +5,9 @@ Flutter + Riverpod + sqflite. Không mạng, không analytics, không quảng c�
 
 ## Chạy
 
+Thư mục gốc của repo chính là project Flutter:
+
 ```bash
-export PATH=~/workspace/flutter/bin:$PATH
-cd app
 flutter pub get
 flutter analyze
 flutter test
@@ -15,22 +15,39 @@ flutter run            # chạy trên máy/emulator
 flutter build apk --debug
 ```
 
-## PIN phụ huynh mặc định
+Cần JDK 17 để build Android (Gradle 8.3 + AGP 8.1 không chạy được trên
+JDK mới hơn, vd JDK 21/25 sẽ báo "Unsupported class file major version").
 
-**`1234`** (xem `lib/services/database_service.dart`, hằng `defaultParentPin`).
-Lưu trong DB dạng hash FNV-1a — chỉ chống bé bấm nhầm, không phải bảo mật thật.
+## Build bằng GitHub Actions
+
+Repo có workflow `.github/workflows/build-apk.yml`: mỗi lần push lên
+`main`, CI tự khôi phục các file nhị phân không nằm trong git (font
+Nunito tải từ google/fonts, 2 file âm thanh và 5 icon tự sinh,
+`gradle-wrapper.jar` tải từ repo gradle), rồi chạy `flutter test` và
+`flutter build apk --debug`. File APK nằm ở mục **Artifacts**
+(`app-debug`) cuối trang của lần chạy.
+
+## PIN phụ huynh
+
+PIN mặc định là **`1234`**. Phụ huynh đổi được ngay trong Góc phụ huynh
+(mục "Đổi PIN phụ huynh"); PIN lưu trong DB dạng hash FNV-1a — chỉ
+chống bé bấm nhầm, không phải bảo mật thật. Reset tiến độ không đổi PIN.
 
 ## Dữ liệu
 
-- Dữ liệu thật (280 câu) sẽ nằm ở `app/assets/data/island_*.json`
-  (do agent dữ liệu sinh, xem `../docs/SPEC_data_generation_lop5.md`).
-- Hiện tại trong repo là **dữ liệu mẫu**: `island_on_tap_bo_sung.json`
-  và `island_so_thap_phan.json` (mỗi đảo 2 lesson mẫu + boss 10 câu,
-  đủ 3 loại `mcq` / `fill_number` / `true_false`).
-  Khi file thật thay vào đúng tên file, loader đọc thẳng không cần sửa code.
+- Dữ liệu thật **280 câu** nằm ở `assets/data/island_*.json`:
+  đảo 1 "Ôn Tập" 180 câu (8 bài + boss), đảo 2 "Số thập phân" 100 câu
+  (4 bài + boss). Mỗi bài 20 câu (10 mức 1 + 10 mức 2), mỗi boss 20 câu
+  (8 mức 1 + 12 mức 2); tỉ lệ loại câu 10 `mcq` + 7 `fill_number` +
+  3 `true_false` mỗi bài/boss.
 - Loader bỏ qua trường lạ (`calc`, `verified`, `source`...).
   Debug mode validate JSON lúc khởi động (thiếu trường, mcq answer
   không thuộc options, id trùng...).
+- App tự xáo thứ tự lựa chọn của câu `mcq` mỗi lần hiển thị, nên bé
+  không đoán được đáp án theo vị trí.
+- Toàn bộ 280 câu hiện ở trạng thái `verified: false` — chờ rà tay
+  theo quy trình trong SPEC (bài toán lời văn + mẫu 20%) trước khi
+  chuyển sang `verified: true`.
 
 ## Cấu trúc
 
@@ -39,7 +56,7 @@ lib/
   main.dart
   models/       Question, Lesson, IslandData
   data/         island_catalog (12 đảo), data_loader
-  services/     scoring (chấm điểm, sao, chọn câu, mở khóa),
+  services/     scoring (chấm điểm, sao, chọn câu, mở khóa, xáo lựa chọn),
                 validator, database_service (sqflite),
                 sound_service (audioplayers)
   providers/    Riverpod providers
@@ -48,8 +65,10 @@ lib/
   widgets/      mascot (cáo vẽ bằng CustomPaint), fraction_view,
                 star_row, question_view
 test/
-  scoring_test.dart    chấm điểm (,/ .), sao, chọn câu, mở khóa
-  validator_test.dart  validate JSON
+  scoring_test.dart       chấm điểm (phân số, dấu phẩy), sao, chọn câu,
+                          mở khóa, xáo lựa chọn
+  validator_test.dart     validate JSON
+  bundled_data_test.dart  nạp đúng dữ liệu thật trong assets, đủ 280 câu
 ```
 
 ## Luồng MVP
@@ -57,33 +76,10 @@ test/
 Home (12 đảo, 2 đảo đầu vào được) → Màn đảo (Học / Luyện tập /
 Thử thách) → Lesson (thẻ vuốt ngang) → Practice (10 câu, sai được
 gợi ý + thử lại 1 lần) → Quiz cấp đảo (10 câu, phân tầng 4 mức 1 +
-6 mức 2, sao ≥6=1, ≥8=2, ≥9=3) → Result. Góc phụ huynh: PIN,
+6 mức 2, sao ≥6=1, ≥8=2, ≥9=3) → Result. Góc phụ huynh: PIN, đổi PIN,
 mở khóa tay từng đảo, reset tiến độ, bật/tắt âm thanh.
 
-## Build APK — ghi chú môi trường
-
-Trên VM này, `flutter build apk --debug` **chưa build được** (xem chi tiết
-trong báo cáo bàn giao). Nguyên nhân đã xác định: sandbox chặn TCP đi
-của tiến trình Java — client của Gradle daemon nhận được thông báo
-chặn thay cho dữ liệu daemon (`Unexpected type tag 109`, byte đầu là
-`m` của "muse: Other TCP connections is turned off..."). Kiểm chứng:
-socket loopback Python ↔ Python vẫn chạy, Java client → bất cứ đâu
-đều nhận đúng thông báo chặn đó. Code app không có lỗi — `analyze`
-sạch và 30/30 test pass. Muốn có APK thì build trên máy không bị
-chặn Java TCP (vd. PC anh có Android Studio, hoặc máy 92).
-
-Các bước chuẩn bị đã làm xong trên VM (để lần build sau nhanh hơn):
-- `flutter pub get` xong (61 dependencies).
-- Gradle 8.3 đã tải về `~/.gradle/wrapper/dists/gradle-8.3-all/6en3ugtfdg5xnpx44z4qbwgas/`
-  (chú ý: thư mục hash của wrapper KHÔNG phải sha256 hex của URL).
-- License Android đã tạo tay trong `~/workspace/android-sdk/licenses/`
-  (sdkmanager không chạy được qua proxy).
-- Build cần: `JAVA_HOME=~/workspace/jdk-17`,
-  `ANDROID_HOME=~/workspace/android-sdk`,
-  `GRADLE_USER_HOME=/home/hatch/.gradle` (Java lấy `user.home=/root`
-  nên không đặt biến này thì wrapper tìm nhầm chỗ),
-  `GRADLE_OPTS` với proxy `hatch-egress-proxy:3128` (lấy user/pass
-  từ `$https_proxy` lúc chạy, không ghi vào file).
+## Ghi chú
 
 - Font Nunito kèm trong `assets/fonts/Nunito.ttf` (variable font).
   Nếu font lỗi, Flutter tự rơi về font hệ thống, app vẫn chạy.

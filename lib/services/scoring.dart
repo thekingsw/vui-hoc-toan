@@ -4,6 +4,18 @@ import '../models/question.dart';
 /// Logic thuần (không phụ thuộc Flutter): chấm điểm, tính sao,
 /// chọn câu Luyện tập / Quiz, mở khóa đảo. Có unit test riêng.
 
+/// Trả về bản sao options đã xáo trộn cho câu mcq (chỉ đổi vị trí hiển
+/// thị, đáp án đúng vẫn nằm trong danh sách). Dữ liệu sinh ra có xu
+/// hướng để đáp án ở vị trí đầu (90% ở đợt 280 câu đầu), nên app phải
+/// xáo mỗi lần hiển thị để bé không đoán theo vị trí. Loại khác mcq
+/// giữ nguyên thứ tự.
+List<String> shuffledOptions(Question q, {Random? random}) {
+  final opts = List<String>.of(q.options ?? const []);
+  if (q.type != QuestionType.mcq || opts.length < 2) return opts;
+  opts.shuffle(random ?? Random());
+  return opts;
+}
+
 /// Chuẩn hóa chuỗi số Việt Nam: "3,5" / "3.5" / "3,50" / "12 500" -> 3.5.
 /// Trả về null nếu không parse được.
 double? parseVietnameseNumber(String raw) {
