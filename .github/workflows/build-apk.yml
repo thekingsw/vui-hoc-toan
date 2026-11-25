@@ -1,0 +1,78 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore binary assets (font, sounds, icons, gradle wrapper)
+        run: |
+          mkdir -p assets/fonts assets/sounds android/gradle/wrapper
+          curl -fsSL -o assets/fonts/Nunito.ttf "https://github.com/google/fonts/raw/main/ofl/nunito/Nunito%5Bwght%5D.ttf"
+          curl -fsSL -o android/gradle/wrapper/gradle-wrapper.jar "https://raw.githubusercontent.com/gradle/gradle/v8.3.0/gradle/wrapper/gradle-wrapper.jar"
+          python3 - <<'PY'
+          import math, struct, wave, zlib, os
+
+          # --- sounds: 22050 Hz, 16-bit mono ---
+          def tone(freq, secs, rate=22050, vol=0.5):
+              n = int(rate * secs)
+              out = []
+              for i in range(n):
+                  fade = min(1.0, i / (rate * 0.01), (n - i) / (rate * 0.01))
+                  out.append(int(32767 * vol * fade * math.sin(2 * math.pi * freq * i / rate)))
+              return out
+
+          def save_wav(path, samples, rate=22050):
+              w = wave.open(path, "wb")
+              w.setnchannels(1); w.setsampwidth(2); w.setframerate(rate)
+              w.writeframes(b"".join(struct.pack("<h", s) for s in samples))
+              w.close()
+
+          save_wav("assets/sounds/correct.wav", tone(880, 0.16) + tone(1318.5, 0.16))
+          save_wav("assets/sounds/wrong.wav", tone(220, 0.5))
+
+          # --- launcher icons: solid orange with white circle ---
+          def png(size, path):
+              raw = b""
+              cx = cy = size / 2
+              r = size * 0.30
+              for y in range(size):
+                  raw += b"\x00"
+                  for x in range(size):
+                      inside = (x - cx) ** 2 + (y - cy) ** 2 <= r * r
+                      raw += bytes((255, 255, 255)) if inside else bytes((255, 152, 0))
+              def chunk(tag, data):
+                  c = struct.pack(">I", len(data)) + tag + data
+                  return c + struct.pack(">I", zlib.crc32(tag + data) & 0xFFFFFFFF)
+              ihdr = struct.pack(">IIBBBBB", size, size, 8, 2, 0, 0, 0)
+              data = (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", ihdr)
+                      + chunk(b"IDAT", zlib.compress(raw)) + chunk(b"IEND", b""))
+              with open(path, "wb") as f:
+                  f.write(data)
+
+          for name, size in [("mdpi", 48), ("hdpi", 72), ("xhdpi", 96), ("xxhdpi", 144), ("xxxhdpi", 192)]:
+              d = f"android/app/src/main/res/mipmap-{name}"
+              os.makedirs(d, exist_ok=True)
+              png(size, f"{d}/ic_launcher.png")
+          print("binary assets restored")
+          PY
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.24.5"
+          channel: "stable"
+
+      - run: flutter pub get
+      - run: flutter test
+      - run: flutter build apk --debug
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: app-debug
+          path: build/app/outputs/flutter-apk/app-debug.apk
