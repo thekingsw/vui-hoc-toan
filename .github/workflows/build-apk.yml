@@ -11,6 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up JDK 17 (Gradle 8.3 + AGP 8.1 need JDK 17; runner default is newer)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
       - name: Restore binary assets (font, sounds, icons, gradle wrapper)
         run: |
           mkdir -p assets/fonts assets/sounds android/gradle/wrapper
