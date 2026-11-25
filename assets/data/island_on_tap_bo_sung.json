@@ -1,0 +1,3559 @@
+{
+  "island_id": "on_tap_bo_sung",
+  "title": "Đảo Ôn Tập",
+  "order": 1,
+  "lessons": [
+    {
+      "lesson_id": "on_tap_so_tu_nhien",
+      "kind": "lesson",
+      "title": "Đọc, viết và so sánh số tự nhiên",
+      "cards": [
+        {
+          "body": "Đọc từ trái sang phải, tách số thành từng lớp: lớp nghìn và lớp đơn vị. Đọc tên lớp nghìn rồi đọc phần còn lại.",
+          "example": "12 034 đọc là mười hai nghìn không trăm ba mươi tư. Ta đọc lớp nghìn trước: mười hai nghìn, rồi đọc lớp đơn vị: không trăm ba mươi tư.",
+          "heading": "Đọc số tự nhiên"
+        },
+        {
+          "body": "Mỗi chữ số có giá trị theo hàng của nó. Viết số thành tổng các giá trị đó, từ hàng lớn đến hàng bé.",
+          "example": "12 345 = 10 000 + 2 000 + 300 + 40 + 5. Chữ số 1 ở hàng chục nghìn nên có giá trị 10 000, chữ số 2 ở hàng nghìn có giá trị 2 000, rồi cộng tiếp 300, 40 và 5.",
+          "heading": "Viết số thành tổng theo hàng"
+        },
+        {
+          "body": "Số nào có nhiều chữ số hơn thì lớn hơn. Nếu số chữ số bằng nhau, so sánh từng chữ số từ trái sang phải.",
+          "example": "So sánh 9 876 và 10 234: 10 234 có 5 chữ số, 9 876 có 4 chữ số nên 10 234 lớn hơn 9 876.",
+          "heading": "So sánh số tự nhiên"
+        },
+        {
+          "body": "Nhìn chữ số ngay sau hàng cần làm tròn. Từ 5 trở lên thì tăng hàng đó lên 1, dưới 5 thì giữ nguyên, các chữ số sau thành 0.",
+          "example": "Làm tròn 47 836 đến hàng nghìn: chữ số sau hàng nghìn là 8, từ 5 trở lên nên tăng hàng nghìn lên 1, được 48 000.",
+          "heading": "Làm tròn số tự nhiên"
+        },
+        {
+          "body": "Đọc thiếu số 0 ở giữa, so sánh chỉ nhìn số chữ số đầu, làm tròn nhầm hàng. Đọc chậm từng lớp, so đủ các hàng rồi mới kết luận.",
+          "example": "12 034 hay bị đọc thành mười hai nghìn ba mươi tư vì bỏ số 0 ở hàng trăm. Đọc đủ cả hàng trăm: không trăm, rồi mới đọc ba mươi tư.",
+          "heading": "Lỗi hay gặp"
+        }
+      ]
+    },
+    {
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "kind": "lesson",
+      "title": "Các phép tính với số tự nhiên",
+      "cards": [
+        {
+          "body": "Đặt tính thẳng hàng, cộng hoặc trừ từ phải sang trái, nhớ sang hàng tiếp theo khi tổng lớn hơn 9.",
+          "example": "347 + 258: 7 + 8 = 15, viết 5 nhớ 1; 4 + 5 + 1 = 10, viết 0 nhớ 1; 3 + 2 + 1 = 6, được 605.",
+          "heading": "Cộng và trừ số tự nhiên"
+        },
+        {
+          "body": "Nhân lần lượt từng chữ số, nhớ khi cần. Chia từ trái sang phải, số dư luôn bé hơn số chia.",
+          "example": "136 × 4: 4 × 6 = 24, viết 4 nhớ 2; 4 × 3 + 2 = 14, viết 4 nhớ 1; 4 × 1 + 1 = 5, được 544.",
+          "heading": "Nhân và chia số tự nhiên"
+        },
+        {
+          "body": "Dùng tính chất giao hoán, kết hợp để gộp các số tròn chục, tròn trăm trước. Nhân một tổng với một số thì nhân từng số hạng rồi cộng lại.",
+          "example": "25 + 37 + 75 = (25 + 75) + 37 = 100 + 37 = 137. Gộp 25 với 75 được 100 tròn trăm trước.",
+          "heading": "Tính nhanh"
+        },
+        {
+          "body": "Trong ngoặc trước, rồi nhân chia, cuối cùng cộng trừ. Làm từ trái sang phải với các phép tính cùng mức.",
+          "example": "12 + 3 × 4: nhân trước, 3 × 4 = 12, rồi cộng: 12 + 12 = 24. Nếu cộng trước sẽ ra 60, là sai.",
+          "heading": "Thứ tự thực hiện phép tính"
+        },
+        {
+          "body": "Cộng trước khi nhân, quên nhớ khi cộng trừ có nhớ, chia nhầm số dư. Viết rõ từng bước, kiểm tra lại số nhớ và số dư.",
+          "example": "24 + 6 × 5 hay bị tính thành 150 vì cộng trước. Phải nhân trước: 6 × 5 = 30, rồi 24 + 30 = 54.",
+          "heading": "Lỗi hay gặp"
+        }
+      ]
+    },
+    {
+      "lesson_id": "on_tap_phan_so",
+      "kind": "lesson",
+      "title": "Ôn tập phân số",
+      "cards": [
+        {
+          "heading": "Phân số là gì",
+          "body": "Một phân số có tử số và mẫu số. Mẫu số cho biết hình được chia thành bao nhiêu phần bằng nhau, tử số cho biết đã lấy mấy phần.",
+          "example": "Chia một cái bánh thành 4 phần bằng nhau, lấy 3 phần. Ta viết phân số 3/4. Số 3 là tử số, số 4 là mẫu số."
+        },
+        {
+          "heading": "Rút gọn phân số",
+          "body": "Muốn rút gọn phân số, ta chia cả tử số và mẫu số cho cùng một số tự nhiên lớn hơn 1, cho đến khi không chia được nữa.",
+          "example": "6/8 = 3/4 vì chia cả tử số và mẫu số cho 2: 6 : 2 = 3, 8 : 2 = 4."
+        },
+        {
+          "heading": "Quy đồng mẫu số",
+          "body": "Muốn quy đồng mẫu số hai phân số, ta nhân cả tử số và mẫu số của mỗi phân số với mẫu số của phân số kia.",
+          "example": "1/2 = 3/6 và 1/3 = 2/6 vì 1/2 nhân cả tử và mẫu với 3, 1/3 nhân cả tử và mẫu với 2."
+        },
+        {
+          "heading": "So sánh phân số",
+          "body": "Hai phân số cùng mẫu số, phân số nào có tử số lớn hơn thì lớn hơn. Khác mẫu số thì quy đồng mẫu số rồi mới so sánh.",
+          "example": "2/5 < 3/5 vì cùng mẫu số 5 mà 2 < 3."
+        },
+        {
+          "heading": "Lỗi hay gặp",
+          "body": "Rút gọn chưa hết; quy đồng chỉ nhân mẫu số mà quên nhân tử số; so sánh phân số khác mẫu mà không quy đồng; nhầm tử số với mẫu số.",
+          "example": "Quy đồng 1/2 và 1/3: 1/2 = 3/6, không phải 1/6. Nhớ nhân cả tử số nữa nhé!"
+        }
+      ]
+    },
+    {
+      "lesson_id": "phan_so_thap_phan",
+      "kind": "lesson",
+      "title": "Phân số thập phân",
+      "cards": [
+        {
+          "heading": "Phân số thập phân là gì",
+          "body": "Phân số thập phân là phân số có mẫu số là 10, 100, 1 000, ... Ví dụ: 3/10, 7/100 và 9/1000 đều là phân số thập phân.",
+          "example": "3/10, 7/100 và 9/1000 là phân số thập phân vì mẫu số của chúng là 10, 100 và 1 000."
+        },
+        {
+          "heading": "Đổi phân số thành phân số thập phân",
+          "body": "Muốn đổi một phân số thành phân số thập phân, ta nhân cả tử số và mẫu số với một số để mẫu số thành 10, 100 hay 1 000.",
+          "example": "3/5 = 6/10 vì nhân cả tử số và mẫu số với 2: 3 × 2 = 6, 5 × 2 = 10."
+        },
+        {
+          "heading": "Đổi phân số có mẫu 20, 25, 50",
+          "body": "Mẫu số 20 nhân với 5 thành 100, mẫu số 25 nhân với 4 thành 100, mẫu số 50 nhân với 2 thành 100. Nhớ nhân cả tử số nữa.",
+          "example": "7/20 = 35/100 vì nhân cả tử số và mẫu số với 5: 7 × 5 = 35, 20 × 5 = 100."
+        },
+        {
+          "heading": "Phân số nào đổi được?",
+          "body": "Không phải phân số nào cũng đổi được. Chỉ đổi được khi mẫu số nhân với một số nào đó thành 10, 100, 1 000, ... Ví dụ mẫu số 3 thì không đổi được.",
+          "example": "1/3 không đổi được thành phân số thập phân vì 3 nhân với số nào cũng không thành 10, 100 hay 1 000."
+        },
+        {
+          "heading": "Lỗi hay gặp",
+          "body": "Tưởng mọi phân số đều đổi được; nhân tử số mà quên nhân mẫu số; nhầm mẫu số 10 với 100; đổi xong quên viết phân số mới.",
+          "example": "Đổi 3/5 thành 6/10, không phải 6/5. Nhân tử số với 2 thì phải nhân mẫu số với 2 nữa."
+        }
+      ]
+    },
+    {
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "kind": "lesson",
+      "title": "Các phép tính với phân số",
+      "cards": [
+        {
+          "heading": "Cộng, trừ phân số cùng mẫu số",
+          "body": "Muốn cộng hoặc trừ hai phân số cùng mẫu số, ta cộng hoặc trừ hai tử số với nhau và giữ nguyên mẫu số.",
+          "example": "1/4 + 2/4 = (1 + 2)/4 = 3/4."
+        },
+        {
+          "heading": "Nhân hai phân số",
+          "body": "Muốn nhân hai phân số, ta nhân tử số với tử số, mẫu số với mẫu số.",
+          "example": "2/3 × 1/4 = (2 × 1)/(3 × 4) = 2/12 = 1/6."
+        },
+        {
+          "heading": "Chia hai phân số",
+          "body": "Muốn chia hai phân số, ta lấy phân số thứ nhất nhân với phân số thứ hai đã đảo ngược.",
+          "example": "3/4 : 1/2 = 3/4 × 2/1 = 6/4 = 3/2."
+        },
+        {
+          "heading": "Rút gọn kết quả",
+          "body": "Sau khi tính, nhớ rút gọn kết quả thành phân số tối giản.",
+          "example": "6/8 = 3/4 vì chia cả tử số và mẫu số cho 2."
+        },
+        {
+          "heading": "Lỗi hay gặp",
+          "body": "Đừng cộng cả tử lẫn mẫu: 1/2 + 1/2 không bằng 2/4. Khi chia, đừng quên đảo ngược phân số thứ hai.",
+          "example": "1/2 + 1/2 = (1 + 1)/2 = 2/2 = 1, không phải 2/4."
+        }
+      ]
+    },
+    {
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "kind": "lesson",
+      "title": "Cộng, trừ hai phân số khác mẫu số",
+      "cards": [
+        {
+          "heading": "Quy đồng mẫu số",
+          "body": "Muốn cộng hoặc trừ hai phân số khác mẫu số, trước hết ta quy đồng mẫu số để hai phân số có cùng mẫu số.",
+          "example": "1/2 = 2/4, giữ nguyên 1/4, mẫu số chung là 4."
+        },
+        {
+          "heading": "Cộng hai phân số khác mẫu số",
+          "body": "Sau khi quy đồng, ta cộng hai tử số với nhau và giữ nguyên mẫu số chung.",
+          "example": "1/2 + 1/4 = 2/4 + 1/4 = 3/4."
+        },
+        {
+          "heading": "Trừ hai phân số khác mẫu số",
+          "body": "Sau khi quy đồng, ta trừ hai tử số với nhau và giữ nguyên mẫu số chung.",
+          "example": "3/4 - 1/2 = 3/4 - 2/4 = 1/4."
+        },
+        {
+          "heading": "Rút gọn kết quả",
+          "body": "Sau khi cộng hoặc trừ, nhớ rút gọn kết quả thành phân số tối giản.",
+          "example": "2/4 = 1/2 vì chia cả tử số và mẫu số cho 2."
+        },
+        {
+          "heading": "Lỗi hay gặp",
+          "body": "Đừng cộng luôn tử với tử, mẫu với mẫu. Phải quy đồng mẫu số trước rồi mới cộng hoặc trừ.",
+          "example": "1/2 + 1/3 = 3/6 + 2/6 = 5/6, không phải 2/5."
+        }
+      ]
+    },
+    {
+      "lesson_id": "hon_so",
+      "kind": "lesson",
+      "title": "Hỗn số",
+      "cards": [
+        {
+          "body": "Hỗn số gồm phần nguyên và phần phân số nhỏ hơn 1. Phần nguyên là số tự nhiên, phần phân số có tử số nhỏ hơn mẫu số.",
+          "example": "2 1/3 đọc là hai và một phần ba. Phần nguyên là 2, phần phân số là 1/3.",
+          "heading": "Hỗn số là gì"
+        },
+        {
+          "body": "Lấy phần nguyên nhân với mẫu số, rồi cộng với tử số. Kết quả làm tử số mới, giữ nguyên mẫu số.",
+          "example": "2 1/3 = (2 × 3 + 1) / 3 = 7/3. Phần nguyên 2 nhân mẫu 3 được 6, cộng tử 1 được 7.",
+          "heading": "Đổi hỗn số thành phân số"
+        },
+        {
+          "body": "Chia tử số cho mẫu số. Thương là phần nguyên, số dư là tử số mới, mẫu số giữ nguyên. Chỉ đổi được khi tử số lớn hơn mẫu số.",
+          "example": "7 : 3 = 2 dư 1 nên 7/3 = 2 1/3. Phần nguyên là 2, phần phân số là 1/3.",
+          "heading": "Đổi phân số thành hỗn số"
+        },
+        {
+          "body": "Đọc phần nguyên trước, rồi đọc phần phân số. Khi viết, viết phần nguyên trước, phần phân số viết sau, cách nhau một khoảng trắng.",
+          "example": "Ba và hai phần năm viết là 3 2/5. Đọc 3 2/5 là ba và hai phần năm.",
+          "heading": "Đọc và viết hỗn số"
+        },
+        {
+          "body": "Đổi hỗn số mà quên cộng tử số sẽ sai: 2 1/3 không phải 6/3. Phần phân số của hỗn số luôn nhỏ hơn 1, tử số không được lớn hơn mẫu số.",
+          "example": "2 1/3 = (2 × 3 + 1) / 3 = 7/3, không phải 6/3. Nhớ cộng tử số 1 sau khi nhân.",
+          "heading": "Lỗi hay gặp"
+        }
+      ]
+    },
+    {
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "kind": "lesson",
+      "title": "Ôn tập hình học và đo lường",
+      "cards": [
+        {
+          "body": "Chu vi hình chữ nhật bằng tổng chiều dài và chiều rộng rồi nhân với 2. Nhớ viết đơn vị đo sau kết quả.",
+          "example": "Hình chữ nhật dài 8 m, rộng 5 m. Chu vi = (8 + 5) × 2 = 26 (m).",
+          "heading": "Chu vi hình chữ nhật"
+        },
+        {
+          "body": "Diện tích hình chữ nhật bằng chiều dài nhân chiều rộng. Diện tích hình vuông bằng cạnh nhân với chính nó.",
+          "example": "Hình chữ nhật 8 m × 5 m có diện tích = 8 × 5 = 40 (m²). Hình vuông cạnh 6 cm có diện tích = 6 × 6 = 36 (cm²).",
+          "heading": "Diện tích hình chữ nhật và hình vuông"
+        },
+        {
+          "body": "1 km = 1 000 m, 1 m = 10 dm = 100 cm, 1 cm = 10 mm. 1 tấn = 10 tạ = 100 yến = 1 000 kg, 1 kg = 1 000 g.",
+          "example": "3 m = 3 × 10 = 30 dm. 2 kg = 2 × 1 000 = 2 000 g.",
+          "heading": "Đổi đơn vị đo độ dài và khối lượng"
+        },
+        {
+          "body": "1 giờ = 60 phút, 1 phút = 60 giây, 1 ngày = 24 giờ. Khi đổi từ đơn vị lớn sang đơn vị bé thì nhân với 60.",
+          "example": "2 giờ = 2 × 60 = 120 phút. 3 phút = 3 × 60 = 180 giây.",
+          "heading": "Đổi đơn vị đo thời gian"
+        },
+        {
+          "body": "Đừng nhầm chu vi với diện tích. Nhớ đổi về cùng một đơn vị trước khi tính. 1 m = 10 dm, không phải 100 dm.",
+          "example": "Hình chữ nhật dài 3 m, rộng 40 cm: đổi 3 m = 300 cm rồi mới tính chu vi.",
+          "heading": "Lỗi hay gặp"
+        }
+      ]
+    },
+    {
+      "lesson_id": "boss_chu_de_1",
+      "kind": "boss",
+      "title": "Thử thách Đảo Ôn Tập"
+    }
+  ],
+  "questions": [
+    {
+      "answer": "Hàng trăm",
+      "difficulty": 1,
+      "explanation": "Đếm từ phải sang trái: 8 ở hàng đơn vị, 0 ở hàng chục, 2 ở hàng trăm. Vậy chữ số 2 ở hàng trăm.",
+      "hint": "Đếm các hàng từ phải sang trái: đơn vị, chục, trăm, nghìn, chục nghìn.",
+      "id": "boss_chu_de_1_001",
+      "lesson_id": "boss_chu_de_1",
+      "options": [
+        "Hàng trăm",
+        "Hàng nghìn",
+        "Hàng chục",
+        "Hàng đơn vị"
+      ],
+      "prompt": "Số 71 208 có chữ số 2 ở hàng nào?",
+      "tags": [
+        "hang_cua_chu_so",
+        "on_tap_so_tu_nhien"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "3/8",
+      "calc": "Fraction(3,8)",
+      "difficulty": 1,
+      "explanation": "8 × 125 = 1 000 nên 3/8 = 375/1000. Các mẫu số 6, 7 và 9 nhân với số nào cũng không thành 1 000.",
+      "hint": "Tìm mẫu số nào nhân với một số thì thành 1 000.",
+      "id": "boss_chu_de_1_002",
+      "lesson_id": "boss_chu_de_1",
+      "options": [
+        "3/8",
+        "1/6",
+        "2/7",
+        "5/9"
+      ],
+      "prompt": "Phân số nào dưới đây viết được thành phân số thập phân có mẫu số 1 000?",
+      "tags": [
+        "doi_phan_so_thap_phan",
+        "phan_so_thap_phan"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "1",
+      "calc": "Fraction(3,8)+Fraction(5,8)",
+      "difficulty": 1,
+      "explanation": "3/8 + 5/8 = 8/8 = 1.",
+      "hint": "Cộng hai tử số với nhau, giữ nguyên mẫu số, rồi rút gọn kết quả.",
+      "id": "boss_chu_de_1_003",
+      "lesson_id": "boss_chu_de_1",
+      "prompt": "Tính 3/8 + 5/8 rồi viết kết quả dưới dạng số tự nhiên.",
+      "tags": [
+        "cong_phan_so",
+        "on_tap_phep_tinh_phan_so"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "Đúng",
+      "difficulty": 1,
+      "explanation": "7/7 có tử số bằng mẫu số nên bằng 1. Câu nói trên là đúng.",
+      "hint": "Tử số bằng mẫu số thì phân số bằng mấy?",
+      "id": "boss_chu_de_1_005",
+      "lesson_id": "boss_chu_de_1",
+      "prompt": "Phân số 7/7 bằng 1. Đúng hay sai?",
+      "tags": [
+        "phan_so",
+        "on_tap_phan_so"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "answer": "392",
+      "calc": "56*7",
+      "difficulty": 1,
+      "explanation": "7 × 6 = 42, viết 2 nhớ 4. 7 × 5 + 4 = 39. Kết quả là 392.",
+      "hint": "Nhân 7 với 6 trước, nhớ 4 rồi nhân tiếp với 5.",
+      "id": "boss_chu_de_1_011",
+      "lesson_id": "boss_chu_de_1",
+      "options": [
+        "392",
+        "382",
+        "402",
+        "372"
+      ],
+      "prompt": "Tính 56 × 7.",
+      "tags": [
+        "nhan_stn",
+        "on_tap_phep_tinh_stn"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "5/8",
+      "calc": "Fraction(1,1)-Fraction(3,8)",
+      "difficulty": 1,
+      "explanation": "1 = 8/8 nên 8/8 − 3/8 = 5/8. Phần ruy băng còn lại là 5/8 m.",
+      "hint": "Lấy độ dài sợi ruy băng trừ đi phần đã cắt, viết 1 thành phân số có mẫu số 8.",
+      "id": "boss_chu_de_1_012",
+      "lesson_id": "boss_chu_de_1",
+      "options": [
+        "5/8",
+        "3/8",
+        "7/8",
+        "1/8"
+      ],
+      "prompt": "Một sợi ruy băng dài 1 m, bạn An cắt đi 3/8 m. Phân số chỉ phần ruy băng còn lại là bao nhiêu?",
+      "tags": [
+        "tru_phan_so",
+        "on_tap_phan_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "60/100",
+      "calc": "Fraction(6,10)*Fraction(10,10)",
+      "difficulty": 1,
+      "explanation": "6 × 10 = 60 và 10 × 10 = 100. Vậy 6/10 = 60/100.",
+      "hint": "Nhân cả tử số và mẫu số của 6/10 với 10 để mẫu số thành 100.",
+      "id": "boss_chu_de_1_013",
+      "lesson_id": "boss_chu_de_1",
+      "prompt": "Viết phân số 6/10 thành phân số thập phân có mẫu số 100.",
+      "tags": [
+        "doi_phan_so_thap_phan",
+        "phan_so_thap_phan"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "6",
+      "calc": "48/8",
+      "difficulty": 1,
+      "explanation": "Chiều rộng là 48 : 8 = 6 (m), vì diện tích bằng chiều dài nhân chiều rộng.",
+      "hint": "Diện tích bằng chiều dài nhân chiều rộng, vậy muốn tìm chiều rộng ta làm phép chia.",
+      "id": "boss_chu_de_1_014",
+      "lesson_id": "boss_chu_de_1",
+      "options": [
+        "6",
+        "8",
+        "40",
+        "56"
+      ],
+      "prompt": "Một hình chữ nhật có diện tích 48 m² và chiều dài 8 m. Chiều rộng hình chữ nhật là bao nhiêu mét?",
+      "tags": [
+        "dien_tich_hinh_chu_nhat",
+        "on_tap_hinh_hoc_do_luong"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_001",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "An ăn 1/2 cái bánh, Bình ăn 1/4 cái bánh. Cả hai bạn đã ăn tất cả bao nhiêu cái bánh?",
+      "answer": "3/4",
+      "hint": "Quy đồng 1/2 thành 2/4 rồi cộng.",
+      "explanation": "1/2 = 2/4 nên cả hai bạn ăn 2/4 + 1/4 = 3/4 cái bánh.",
+      "tags": [
+        "cong_phan_so",
+        "quy_dong_mau_so"
+      ],
+      "verified": false,
+      "options": [
+        "3/4",
+        "2/6",
+        "5/8",
+        "1/2"
+      ],
+      "calc": "Fraction(1,2)+Fraction(1,4)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_002",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Một vòi nước chảy được 1/3 bể buổi sáng và 1/6 bể buổi chiều. Cả ngày vòi chảy được bao nhiêu phần bể?",
+      "answer": "1/2",
+      "hint": "Quy đồng hai phân số về mẫu số chung 6 rồi cộng.",
+      "explanation": "1/3 = 2/6 nên cả ngày vòi chảy 2/6 + 1/6 = 3/6 = 1/2 bể.",
+      "tags": [
+        "cong_phan_so",
+        "quy_dong_mau_so"
+      ],
+      "verified": false,
+      "calc": "Fraction(1,3)+Fraction(1,6)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_003",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Tìm kết quả: 5/6 - 1/3.",
+      "answer": "1/2",
+      "hint": "Quy đồng 1/3 thành 2/6 rồi trừ.",
+      "explanation": "1/3 = 2/6 nên 5/6 - 1/3 = 5/6 - 2/6 = 3/6 = 1/2.",
+      "tags": [
+        "tru_phan_so",
+        "quy_dong_mau_so"
+      ],
+      "verified": false,
+      "options": [
+        "1/2",
+        "4/9",
+        "2/3",
+        "1/6"
+      ],
+      "calc": "Fraction(5,6)-Fraction(1,3)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_004",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Lan tô màu 1/4 bức tranh, Mai tô màu 1/2 bức tranh. Hai bạn đã tô màu tất cả bao nhiêu phần bức tranh?",
+      "answer": "3/4",
+      "hint": "Quy đồng 1/2 thành 2/4 rồi cộng.",
+      "explanation": "1/2 = 2/4 nên hai bạn tô 1/4 + 2/4 = 3/4 bức tranh.",
+      "tags": [
+        "cong_phan_so",
+        "quy_dong_mau_so"
+      ],
+      "verified": false,
+      "calc": "Fraction(1,4)+Fraction(1,2)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_005",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "true_false",
+      "difficulty": 1,
+      "prompt": "Muốn cộng hai phân số khác mẫu số, ta quy đồng mẫu số rồi cộng hai phân số đã quy đồng.",
+      "answer": "Đúng",
+      "hint": "Nhớ lại các bước cộng hai phân số khác mẫu số.",
+      "explanation": "Đúng, vì chỉ cộng được khi hai phân số đã có cùng mẫu số.",
+      "tags": [
+        "cong_phan_so",
+        "quy_dong_mau_so"
+      ],
+      "verified": false
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_011",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Cộng 1/5 với 1/10 được bao nhiêu?",
+      "answer": "3/10",
+      "hint": "Quy đồng 1/5 thành 2/10 rồi cộng.",
+      "explanation": "1/5 = 2/10 nên 1/5 + 1/10 = 2/10 + 1/10 = 3/10.",
+      "tags": [
+        "cong_phan_so",
+        "quy_dong_mau_so"
+      ],
+      "verified": false,
+      "options": [
+        "3/10",
+        "2/15",
+        "1/5",
+        "2/5"
+      ],
+      "calc": "Fraction(1,5)+Fraction(1,10)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_012",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Tìm hiệu của 3/4 và 1/2.",
+      "answer": "1/4",
+      "hint": "Quy đồng 1/2 thành 2/4 rồi trừ.",
+      "explanation": "1/2 = 2/4 nên 3/4 - 1/2 = 3/4 - 2/4 = 1/4.",
+      "tags": [
+        "tru_phan_so",
+        "quy_dong_mau_so"
+      ],
+      "verified": false,
+      "calc": "Fraction(3,4)-Fraction(1,2)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_013",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Một sợi dây dài 1/2 m, người ta cắt đi 1/6 m. Sợi dây còn lại dài bao nhiêu mét?",
+      "answer": "1/3",
+      "hint": "Quy đồng 1/2 thành 3/6 rồi trừ.",
+      "explanation": "1/2 = 3/6 nên sợi dây còn 3/6 - 1/6 = 2/6 = 1/3 m.",
+      "tags": [
+        "tru_phan_so",
+        "quy_dong_mau_so"
+      ],
+      "verified": false,
+      "options": [
+        "1/3",
+        "0",
+        "1/8",
+        "2/3"
+      ],
+      "calc": "Fraction(1,2)-Fraction(1,6)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_014",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Tổng của 2/3 và 1/6 bằng bao nhiêu?",
+      "answer": "5/6",
+      "hint": "Quy đồng 2/3 thành 4/6 rồi cộng.",
+      "explanation": "2/3 = 4/6 nên 2/3 + 1/6 = 4/6 + 1/6 = 5/6.",
+      "tags": [
+        "cong_phan_so",
+        "quy_dong_mau_so"
+      ],
+      "verified": false,
+      "options": [
+        "5/6",
+        "3/9",
+        "1/2",
+        "2/3"
+      ],
+      "calc": "Fraction(2,3)+Fraction(1,6)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_015",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "true_false",
+      "difficulty": 1,
+      "prompt": "Bạn Hùng nói: 2/3 + 1/4 = 3/7. Bạn Hùng nói đúng.",
+      "answer": "Sai",
+      "hint": "Cộng phân số khác mẫu số thì có cộng luôn tử với tử, mẫu với mẫu không?",
+      "explanation": "Sai, vì phải quy đồng trước: 2/3 + 1/4 = 8/12 + 3/12 = 11/12, không phải 3/7.",
+      "tags": [
+        "cong_phan_so",
+        "loi_hay_gap"
+      ],
+      "verified": false
+    },
+    {
+      "answer": "7/3",
+      "calc": "Fraction(2*3+1,3)",
+      "difficulty": 1,
+      "explanation": "2 1/3 = (2 × 3 + 1) / 3 = 7/3.",
+      "hint": "Nhân phần nguyên với mẫu số rồi cộng tử số.",
+      "id": "hon_so_001",
+      "lesson_id": "hon_so",
+      "options": [
+        "7/3",
+        "6/3",
+        "5/3",
+        "8/3"
+      ],
+      "prompt": "Đổi hỗn số 2 1/3 thành phân số.",
+      "tags": [
+        "doi_hon_so_thanh_phan_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "3/5",
+      "calc": "Fraction(3,5)",
+      "difficulty": 1,
+      "explanation": "Hỗn số 4 3/5 có phần nguyên là 4 và phần phân số là 3/5.",
+      "hint": "Phần phân số đứng sau phần nguyên.",
+      "id": "hon_so_002",
+      "lesson_id": "hon_so",
+      "options": [
+        "3/5",
+        "4/5",
+        "5/3",
+        "3/4"
+      ],
+      "prompt": "Phần phân số của hỗn số 4 3/5 là bao nhiêu?",
+      "tags": [
+        "phan_nguyen_phan_phan_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "5 1/4",
+      "calc": "Fraction(5*4+1,4)",
+      "difficulty": 1,
+      "explanation": "Hỗn số gồm 5 đơn vị và một phần tư viết là 5 1/4.",
+      "hint": "Phần nguyên là 5, phần phân số là 1/4.",
+      "id": "hon_so_003",
+      "lesson_id": "hon_so",
+      "prompt": "Viết hỗn số gồm 5 đơn vị và một phần tư.",
+      "tags": [
+        "viet_hon_so"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "2 1/4",
+      "calc": "Fraction(9,4)",
+      "difficulty": 1,
+      "explanation": "9 : 4 = 2 dư 1 nên 9/4 = 2 1/4.",
+      "hint": "Chia 9 cho 4 được 2 dư 1.",
+      "id": "hon_so_004",
+      "lesson_id": "hon_so",
+      "prompt": "Viết phân số 9/4 dưới dạng hỗn số.",
+      "tags": [
+        "doi_phan_so_thanh_hon_so"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "2 3/4",
+      "calc": "Fraction(11,4)",
+      "difficulty": 1,
+      "explanation": "11 : 4 = 2 dư 3 nên mỗi bạn được 2 3/4 quả cam.",
+      "hint": "Chia 11 cho 4 được 2 dư 3.",
+      "id": "hon_so_007",
+      "lesson_id": "hon_so",
+      "options": [
+        "2 3/4",
+        "3 1/4",
+        "2 1/4",
+        "3 3/4"
+      ],
+      "prompt": "Chia 11 quả cam đều cho 4 bạn, mỗi bạn được mấy quả cam?",
+      "tags": [
+        "doi_phan_so_thanh_hon_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "Sáu và một phần hai",
+      "difficulty": 1,
+      "explanation": "6 1/2 đọc là sáu và một phần hai.",
+      "hint": "Đọc phần nguyên trước, rồi đọc phần phân số.",
+      "id": "hon_so_011",
+      "lesson_id": "hon_so",
+      "options": [
+        "Sáu và một phần hai",
+        "Sáu phần một phần hai",
+        "Một phần hai và sáu",
+        "Sáu một phần hai"
+      ],
+      "prompt": "Hỗn số 6 1/2 đọc là gì?",
+      "tags": [
+        "doc_hon_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "15/4",
+      "calc": "Fraction(3*4+3,4)",
+      "difficulty": 1,
+      "explanation": "3 3/4 = (3 × 4 + 3) / 4 = 15/4.",
+      "hint": "Nhân 3 với 4 rồi cộng 3.",
+      "id": "hon_so_012",
+      "lesson_id": "hon_so",
+      "prompt": "Viết 3 3/4 dưới dạng phân số có mẫu số là 4.",
+      "tags": [
+        "doi_hon_so_thanh_phan_so"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "5/2",
+      "calc": "Fraction(5,2)",
+      "difficulty": 1,
+      "explanation": "Chỉ 5/2 có tử số lớn hơn mẫu số nên viết được thành hỗn số 2 1/2.",
+      "hint": "Phân số viết được thành hỗn số phải có tử số lớn hơn mẫu số.",
+      "id": "hon_so_013",
+      "lesson_id": "hon_so",
+      "options": [
+        "5/2",
+        "3/3",
+        "2/5",
+        "1/4"
+      ],
+      "prompt": "Trong các phân số sau, phân số nào viết được thành hỗn số?",
+      "tags": [
+        "nhan_biet_hon_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "Phần nguyên",
+      "difficulty": 1,
+      "explanation": "Trong hỗn số 7 2/9, số 7 đứng trước phần phân số nên là phần nguyên.",
+      "hint": "Số đứng trước phần phân số là phần nguyên.",
+      "id": "hon_so_017",
+      "lesson_id": "hon_so",
+      "options": [
+        "Phần nguyên",
+        "Phần phân số",
+        "Tử số",
+        "Mẫu số"
+      ],
+      "prompt": "Trong hỗn số 7 2/9, số 7 được gọi là gì?",
+      "tags": [
+        "phan_nguyen_phan_phan_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "Sai",
+      "difficulty": 1,
+      "explanation": "Phần phân số 7/4 lớn hơn 1 nên 5 7/4 không phải hỗn số viết đúng.",
+      "hint": "So sánh tử số với mẫu số của phần phân số.",
+      "id": "hon_so_019",
+      "lesson_id": "hon_so",
+      "prompt": "Hỗn số 5 7/4 là hỗn số viết đúng.",
+      "tags": [
+        "nhan_biet_hon_so"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "answer": "26",
+      "calc": "(8+5)*2",
+      "difficulty": 1,
+      "explanation": "Chu vi = (8 + 5) × 2 = 26 (m).",
+      "hint": "Chu vi bằng tổng chiều dài và chiều rộng rồi nhân 2.",
+      "id": "on_tap_hinh_hoc_do_luong_001",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "options": [
+        "26",
+        "40",
+        "13",
+        "30"
+      ],
+      "prompt": "Hình chữ nhật có chiều dài 8 m, chiều rộng 5 m. Chu vi hình chữ nhật là bao nhiêu mét?",
+      "tags": [
+        "chu_vi_hinh_chu_nhat"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "24",
+      "calc": "6*4",
+      "difficulty": 1,
+      "explanation": "Diện tích = 6 × 4 = 24 (m²).",
+      "hint": "Diện tích bằng chiều dài nhân chiều rộng.",
+      "id": "on_tap_hinh_hoc_do_luong_002",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "prompt": "Một tấm bảng hình chữ nhật dài 6 m, rộng 4 m. Diện tích tấm bảng là bao nhiêu mét vuông?",
+      "tags": [
+        "dien_tich_hinh_chu_nhat"
+      ],
+      "type": "fill_number",
+      "unit": "m²",
+      "verified": false
+    },
+    {
+      "answer": "30",
+      "calc": "3*10",
+      "difficulty": 1,
+      "explanation": "3 m = 3 × 10 = 30 (dm).",
+      "hint": "1 m = 10 dm.",
+      "id": "on_tap_hinh_hoc_do_luong_003",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "options": [
+        "30",
+        "300",
+        "3",
+        "3 000"
+      ],
+      "prompt": "3 m bằng bao nhiêu đề-xi-mét?",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "90",
+      "calc": "90",
+      "difficulty": 1,
+      "explanation": "Góc vuông có số đo là 90 độ.",
+      "hint": "Góc vuông là góc tạo bởi hai đường thẳng vuông góc.",
+      "id": "on_tap_hinh_hoc_do_luong_005",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "options": [
+        "90",
+        "180",
+        "45",
+        "360"
+      ],
+      "prompt": "Góc vuông có số đo là bao nhiêu độ?",
+      "tags": [
+        "goc_vuong"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "Đúng",
+      "difficulty": 1,
+      "explanation": "Hình vuông có 4 góc vuông và 4 cạnh bằng nhau nên câu này đúng.",
+      "hint": "Nhớ lại đặc điểm của hình vuông.",
+      "id": "on_tap_hinh_hoc_do_luong_010",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "prompt": "Hình vuông có 4 góc vuông và 4 cạnh bằng nhau.",
+      "tags": [
+        "hinh_vuong"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "answer": "1 000",
+      "calc": "1*1000",
+      "difficulty": 1,
+      "explanation": "1 tấn = 1 000 kg.",
+      "hint": "1 tấn = 10 tạ = 1 000 kg.",
+      "id": "on_tap_hinh_hoc_do_luong_011",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "options": [
+        "1 000",
+        "100",
+        "10",
+        "10 000"
+      ],
+      "prompt": "1 tấn bằng bao nhiêu ki-lô-gam?",
+      "tags": [
+        "doi_don_vi_khoi_luong"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "240",
+      "calc": "4*60",
+      "difficulty": 1,
+      "explanation": "4 giờ = 4 × 60 = 240 (phút).",
+      "hint": "1 giờ = 60 phút.",
+      "id": "on_tap_hinh_hoc_do_luong_012",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "prompt": "Một bộ phim kéo dài 4 giờ. Hỏi bộ phim kéo dài bao nhiêu phút?",
+      "tags": [
+        "doi_don_vi_thoi_gian"
+      ],
+      "type": "fill_number",
+      "unit": "phút",
+      "verified": false
+    },
+    {
+      "answer": "Không bao giờ cắt nhau",
+      "difficulty": 1,
+      "explanation": "Hai đường thẳng song song không bao giờ cắt nhau.",
+      "hint": "Hai đường thẳng song song không có điểm chung.",
+      "id": "on_tap_hinh_hoc_do_luong_013",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "options": [
+        "Không bao giờ cắt nhau",
+        "Cắt nhau tạo thành góc vuông",
+        "Cắt nhau tại một điểm",
+        "Chồng khít lên nhau"
+      ],
+      "prompt": "Hai đường thẳng song song là hai đường thẳng như thế nào?",
+      "tags": [
+        "duong_thang_song_song"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "Sai",
+      "difficulty": 1,
+      "explanation": "1 m = 10 dm, không phải 100 dm nên câu này sai.",
+      "hint": "Nhớ 1 m bằng bao nhiêu đề-xi-mét.",
+      "id": "on_tap_hinh_hoc_do_luong_015",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "prompt": "1 m = 100 dm.",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "answer": "70",
+      "calc": "7*10",
+      "difficulty": 1,
+      "explanation": "7 dm = 7 × 10 = 70 (cm).",
+      "hint": "1 dm = 10 cm.",
+      "id": "on_tap_hinh_hoc_do_luong_017",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "options": [
+        "70",
+        "7",
+        "700",
+        "17"
+      ],
+      "prompt": "Một cây bút dài 7 dm. Hỏi cây bút dài bao nhiêu xăng-ti-mét?",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_001",
+      "lesson_id": "on_tap_phan_so",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Chia một cái bánh thành 4 phần bằng nhau, lấy 3 phần. Phân số chỉ phần bánh đã lấy là bao nhiêu?",
+      "options": [
+        "3/4",
+        "4/3",
+        "1/4",
+        "1/3"
+      ],
+      "answer": "3/4",
+      "hint": "Tử số là số phần đã lấy, mẫu số là số phần bằng nhau.",
+      "explanation": "Bánh chia thành 4 phần bằng nhau nên mẫu số là 4. Lấy 3 phần nên tử số là 3. Vậy phân số là 3/4.",
+      "tags": [
+        "phan_so",
+        "tu_so_mau_so"
+      ],
+      "calc": "Fraction(3,4)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_002",
+      "lesson_id": "on_tap_phan_so",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Phân số 5/8 có tử số là bao nhiêu?",
+      "answer": "5",
+      "hint": "Tử số là số viết trên dấu gạch ngang.",
+      "explanation": "Trong phân số 5/8, số 5 viết trên dấu gạch ngang nên tử số là 5.",
+      "tags": [
+        "tu_so_mau_so"
+      ],
+      "calc": "Fraction(5,1)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_003",
+      "lesson_id": "on_tap_phan_so",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Chia cả tử số và mẫu số của phân số 6/8 cho 2, ta được phân số nào?",
+      "options": [
+        "3/4",
+        "2/3",
+        "6/4",
+        "1/2"
+      ],
+      "answer": "3/4",
+      "hint": "Chia tử số và mẫu số cho cùng một số.",
+      "explanation": "6 : 2 = 3 và 8 : 2 = 4. Vậy 6/8 rút gọn thành 3/4.",
+      "tags": [
+        "rut_gon"
+      ],
+      "calc": "Fraction(6,8)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_007",
+      "lesson_id": "on_tap_phan_so",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Phân số nào lớn hơn: 3/7 hay 5/7?",
+      "options": [
+        "5/7",
+        "3/7",
+        "7/3",
+        "7/5"
+      ],
+      "answer": "5/7",
+      "hint": "Cùng mẫu số thì so sánh tử số.",
+      "explanation": "Hai phân số cùng mẫu số 7. Tử số 5 lớn hơn 3 nên 5/7 lớn hơn 3/7.",
+      "tags": [
+        "so_sanh"
+      ],
+      "calc": "Fraction(5,7)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_010",
+      "lesson_id": "on_tap_phan_so",
+      "type": "true_false",
+      "difficulty": 1,
+      "prompt": "Phân số 5/9 có mẫu số là 5. Đúng hay sai?",
+      "answer": "Sai",
+      "hint": "Mẫu số là số viết dưới dấu gạch ngang.",
+      "explanation": "Trong phân số 5/9, số 5 là tử số, số 9 mới là mẫu số. Vậy câu nói trên là sai.",
+      "tags": [
+        "tu_so_mau_so"
+      ],
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_011",
+      "lesson_id": "on_tap_phan_so",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Trong phân số 7/12, số 7 được gọi là gì?",
+      "options": [
+        "Tử số",
+        "Mẫu số",
+        "Phân số",
+        "Số tự nhiên"
+      ],
+      "answer": "Tử số",
+      "hint": "Số viết trên dấu gạch ngang có tên riêng.",
+      "explanation": "Trong phân số 7/12, số 7 viết trên dấu gạch ngang nên được gọi là tử số.",
+      "tags": [
+        "tu_so_mau_so"
+      ],
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_012",
+      "lesson_id": "on_tap_phan_so",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Viết phân số có tử số là 2 và mẫu số là 9.",
+      "answer": "2/9",
+      "hint": "Tử số viết trên, mẫu số viết dưới dấu gạch ngang.",
+      "explanation": "Tử số là 2, mẫu số là 9 nên phân số là 2/9.",
+      "tags": [
+        "phan_so"
+      ],
+      "calc": "Fraction(2,9)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_013",
+      "lesson_id": "on_tap_phan_so",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Phân số nào bằng phân số 4/10?",
+      "options": [
+        "2/5",
+        "4/5",
+        "1/2",
+        "1/5"
+      ],
+      "answer": "2/5",
+      "hint": "Chia cả tử số và mẫu số của 4/10 cho 2.",
+      "explanation": "Chia cả tử số và mẫu số của 4/10 cho 2: 4 : 2 = 2, 10 : 2 = 5. Vậy 4/10 = 2/5.",
+      "tags": [
+        "rut_gon"
+      ],
+      "calc": "Fraction(4,10)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_016",
+      "lesson_id": "on_tap_phan_so",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Phân số nào bé hơn 1?",
+      "options": [
+        "2/5",
+        "5/2",
+        "7/7",
+        "9/8"
+      ],
+      "answer": "2/5",
+      "hint": "Phân số bé hơn 1 khi tử số bé hơn mẫu số.",
+      "explanation": "Phân số bé hơn 1 khi tử số bé hơn mẫu số. Trong các phân số trên, chỉ 2/5 có tử số bé hơn mẫu số.",
+      "tags": [
+        "so_sanh"
+      ],
+      "calc": "Fraction(2,5)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_018",
+      "lesson_id": "on_tap_phan_so",
+      "type": "true_false",
+      "difficulty": 1,
+      "prompt": "Muốn rút gọn phân số, ta chia cả tử số và mẫu số cho cùng một số tự nhiên lớn hơn 1. Đúng hay sai?",
+      "answer": "Đúng",
+      "hint": "Nhớ lại cách rút gọn phân số trong thẻ bài học.",
+      "explanation": "Muốn rút gọn phân số, ta chia cả tử số và mẫu số cho cùng một số tự nhiên lớn hơn 1. Câu nói trên là đúng.",
+      "tags": [
+        "rut_gon"
+      ],
+      "verified": false
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_001",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Tính 1/4 + 2/4.",
+      "answer": "3/4",
+      "hint": "Cộng hai tử số với nhau, giữ nguyên mẫu số.",
+      "explanation": "1/4 + 2/4 = (1 + 2)/4 = 3/4.",
+      "tags": [
+        "cong_phan_so",
+        "cung_mau_so"
+      ],
+      "verified": false,
+      "options": [
+        "3/4",
+        "3/8",
+        "5/8",
+        "1/2"
+      ],
+      "calc": "Fraction(1,4)+Fraction(2,4)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_002",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Lan có 5/6 tấm vải, đã dùng 1/6 tấm vải để may khăn. Lan còn lại bao nhiêu phần tấm vải?",
+      "answer": "2/3",
+      "hint": "Trừ hai tử số với nhau, giữ nguyên mẫu số.",
+      "explanation": "5/6 - 1/6 = (5 - 1)/6 = 4/6 = 2/3. Lan còn lại 2/3 tấm vải.",
+      "tags": [
+        "tru_phan_so",
+        "cung_mau_so"
+      ],
+      "verified": false,
+      "calc": "Fraction(5,6)-Fraction(1,6)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_003",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Kết quả của phép tính 1/2 × 3/5 là bao nhiêu?",
+      "answer": "3/10",
+      "hint": "Nhân tử với tử, nhân mẫu với mẫu.",
+      "explanation": "1/2 × 3/5 = (1 × 3)/(2 × 5) = 3/10.",
+      "tags": [
+        "nhan_phan_so"
+      ],
+      "verified": false,
+      "options": [
+        "3/10",
+        "4/7",
+        "3/7",
+        "1/3"
+      ],
+      "calc": "Fraction(1,2)*Fraction(3,5)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_004",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Tìm thương của phép chia 2/3 : 1/3.",
+      "answer": "2",
+      "hint": "Chia một phân số là nhân với phân số đảo ngược.",
+      "explanation": "2/3 : 1/3 = 2/3 × 3/1 = 6/3 = 2.",
+      "tags": [
+        "chia_phan_so"
+      ],
+      "verified": false,
+      "calc": "Fraction(2,3)/Fraction(1,3)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_005",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "true_false",
+      "difficulty": 1,
+      "prompt": "Muốn cộng hai phân số cùng mẫu số, ta cộng tử số với nhau và giữ nguyên mẫu số.",
+      "answer": "Đúng",
+      "hint": "Nhớ lại quy tắc cộng phân số cùng mẫu số.",
+      "explanation": "Đúng, vì hai phân số đã có chung mẫu số nên chỉ cộng tử số, mẫu số giữ nguyên.",
+      "tags": [
+        "cong_phan_so",
+        "cung_mau_so"
+      ],
+      "verified": false
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_011",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Hiệu của 4/7 và 1/7 là bao nhiêu?",
+      "answer": "3/7",
+      "hint": "Trừ hai tử số với nhau, giữ nguyên mẫu số.",
+      "explanation": "4/7 - 1/7 = (4 - 1)/7 = 3/7.",
+      "tags": [
+        "tru_phan_so",
+        "cung_mau_so"
+      ],
+      "verified": false,
+      "options": [
+        "3/7",
+        "3/14",
+        "5/7",
+        "1/2"
+      ],
+      "calc": "Fraction(4,7)-Fraction(1,7)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_012",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Bạn Hà ăn 2/9 chiếc bánh, bạn Nam ăn 4/9 chiếc bánh. Cả hai bạn đã ăn bao nhiêu phần chiếc bánh?",
+      "answer": "2/3",
+      "hint": "Cộng số phần bánh hai bạn đã ăn, giữ nguyên mẫu số.",
+      "explanation": "2/9 + 4/9 = (2 + 4)/9 = 6/9 = 2/3 chiếc bánh.",
+      "tags": [
+        "cong_phan_so",
+        "bai_toan_loi_van"
+      ],
+      "verified": false,
+      "calc": "Fraction(2,9)+Fraction(4,9)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_013",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Tính tích của 2/7 và 3/4.",
+      "answer": "3/14",
+      "hint": "Nhân tử với tử, nhân mẫu với mẫu.",
+      "explanation": "2/7 × 3/4 = (2 × 3)/(7 × 4) = 6/28 = 3/14.",
+      "tags": [
+        "nhan_phan_so"
+      ],
+      "verified": false,
+      "options": [
+        "3/14",
+        "5/11",
+        "6/11",
+        "1/2"
+      ],
+      "calc": "Fraction(2,7)*Fraction(3,4)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_014",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Thương của 5/6 chia cho 5/6 là bao nhiêu?",
+      "answer": "1",
+      "hint": "Chia là nhân với phân số đảo ngược của số chia.",
+      "explanation": "5/6 : 5/6 = 5/6 × 6/5 = 30/30 = 1.",
+      "tags": [
+        "chia_phan_so"
+      ],
+      "verified": false,
+      "options": [
+        "1",
+        "25/36",
+        "5/3",
+        "0"
+      ],
+      "calc": "Fraction(5,6)/Fraction(5,6)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_015",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "true_false",
+      "difficulty": 1,
+      "prompt": "Khi chia một phân số cho một phân số, ta giữ nguyên phân số thứ nhất rồi nhân với phân số thứ hai đã đảo ngược.",
+      "answer": "Đúng",
+      "hint": "Nhớ lại quy tắc chia hai phân số.",
+      "explanation": "Đúng, đó chính là quy tắc chia hai phân số.",
+      "tags": [
+        "chia_phan_so"
+      ],
+      "verified": false
+    },
+    {
+      "answer": "605",
+      "calc": "347+258",
+      "difficulty": 1,
+      "explanation": "7 + 8 = 15, viết 5 nhớ 1. 4 + 5 + 1 = 10, viết 0 nhớ 1. 3 + 2 + 1 = 6. Kết quả là 605.",
+      "hint": "Đặt tính thẳng hàng, cộng từ phải sang trái, nhớ 1 khi tổng lớn hơn 9.",
+      "id": "on_tap_phep_tinh_stn_001",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "options": [
+        "605",
+        "595",
+        "505",
+        "615"
+      ],
+      "prompt": "Bạn Lan tính tổng của 347 và 258. Kết quả bạn Lan tìm được là bao nhiêu?",
+      "tags": [
+        "cong_stn"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "356",
+      "calc": "823-467",
+      "difficulty": 1,
+      "explanation": "3 không trừ được 7 nên mượn 1, 13 − 7 = 6. Hàng chục còn 1, mượn 1 được 11, 11 − 6 = 5. 7 − 4 = 3. Kết quả là 356.",
+      "hint": "Đặt tính thẳng hàng, trừ từ phải sang trái, nhớ mượn khi chữ số trên bé hơn chữ số dưới.",
+      "id": "on_tap_phep_tinh_stn_002",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "prompt": "Hiệu của hai số 823 và 467 bằng bao nhiêu? Em hãy đặt tính rồi tính.",
+      "tags": [
+        "tru_stn"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "768",
+      "calc": "128*6",
+      "difficulty": 1,
+      "explanation": "Số gói mì là 128 × 6. 6 × 8 = 48, viết 8 nhớ 4; 6 × 2 + 4 = 16, viết 6 nhớ 1; 6 × 1 + 1 = 7. Kết quả là 768 gói mì.",
+      "hint": "Muốn biết 6 thùng có bao nhiêu gói mì, em làm phép tính gì?",
+      "id": "on_tap_phep_tinh_stn_003",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "options": [
+        "768",
+        "728",
+        "708",
+        "788"
+      ],
+      "prompt": "Một thùng có 128 gói mì. Hỏi 6 thùng như thế có bao nhiêu gói mì?",
+      "tags": [
+        "nhan_stn"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "234",
+      "calc": "936/4",
+      "difficulty": 1,
+      "explanation": "9 : 4 được 2, dư 1. 13 : 4 được 3, dư 1. 16 : 4 được 4. Mỗi lớp được 234 quyển vở.",
+      "hint": "Chia từ trái sang phải, bắt đầu từ chữ số hàng trăm.",
+      "id": "on_tap_phep_tinh_stn_004",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "prompt": "Chia đều 936 quyển vở cho 4 lớp. Mỗi lớp được bao nhiêu quyển vở?",
+      "tags": [
+        "chia_stn"
+      ],
+      "type": "fill_number",
+      "unit": "quyển",
+      "verified": false
+    },
+    {
+      "answer": "Sai",
+      "difficulty": 1,
+      "explanation": "Nhân trước, cộng sau: 3 × 4 = 12, rồi 12 + 12 = 24. Vậy 12 + 3 × 4 = 24, không phải 60.",
+      "hint": "Trong biểu thức có cả cộng và nhân, em thực hiện phép tính nào trước?",
+      "id": "on_tap_phep_tinh_stn_005",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "prompt": "12 + 3 × 4 = 60.",
+      "tags": [
+        "thu_tu_thuc_hien"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "answer": "325",
+      "calc": "604-279",
+      "difficulty": 1,
+      "explanation": "4 không trừ được 9 nên mượn 1, 14 − 9 = 5. Hàng chục mượn 1 được 10, 10 − 1 − 7 = 2. Hàng trăm còn 5, 5 − 2 = 3. Kết quả là 325.",
+      "hint": "Đặt tính thẳng hàng, trừ từ phải sang trái, nhớ mượn khi cần.",
+      "id": "on_tap_phep_tinh_stn_011",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "options": [
+        "325",
+        "335",
+        "425",
+        "315"
+      ],
+      "prompt": "Tính hiệu của 604 và 279.",
+      "tags": [
+        "tru_stn"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "540",
+      "calc": "45*12",
+      "difficulty": 1,
+      "explanation": "Xe chở tất cả 45 × 12 = 540 kg gạo.",
+      "hint": "Muốn biết tất cả bao nhiêu ki-lô-gam, em nhân số bao với cân nặng mỗi bao.",
+      "id": "on_tap_phep_tinh_stn_012",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "prompt": "Một xe chở 45 bao gạo, mỗi bao nặng 12 kg. Hỏi xe chở tất cả bao nhiêu ki-lô-gam gạo?",
+      "tags": [
+        "nhan_stn"
+      ],
+      "type": "fill_number",
+      "unit": "kg",
+      "verified": false
+    },
+    {
+      "answer": "175",
+      "calc": "875/5",
+      "difficulty": 1,
+      "explanation": "8 : 5 được 1, dư 3. 37 : 5 được 7, dư 2. 25 : 5 được 5. Mỗi hộp có 175 chiếc bánh.",
+      "hint": "Chia từ trái sang phải, bắt đầu từ chữ số hàng trăm.",
+      "id": "on_tap_phep_tinh_stn_013",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "options": [
+        "175",
+        "165",
+        "185",
+        "155"
+      ],
+      "prompt": "Chia 875 chiếc bánh đều vào 5 hộp. Mỗi hộp có bao nhiêu chiếc bánh?",
+      "tags": [
+        "chia_stn"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "2 243",
+      "calc": "1286+957",
+      "difficulty": 1,
+      "explanation": "6 + 7 = 13, viết 3 nhớ 1. 8 + 5 + 1 = 14, viết 4 nhớ 1. 2 + 9 + 1 = 12, viết 2 nhớ 1. 1 + 1 = 2. Kết quả là 2 243.",
+      "hint": "Đặt tính thẳng hàng, cộng từ phải sang trái, nhớ 1 khi tổng lớn hơn 9.",
+      "id": "on_tap_phep_tinh_stn_014",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "options": [
+        "2 243",
+        "2 143",
+        "2 233",
+        "2 343"
+      ],
+      "prompt": "Tổng của 1 286 và 957 là bao nhiêu?",
+      "tags": [
+        "cong_stn"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "Đúng",
+      "difficulty": 1,
+      "explanation": "Chia trước, cộng sau: 36 : 4 = 9, rồi 9 + 5 = 14. Vậy đẳng thức đúng.",
+      "hint": "Trong biểu thức có chia và cộng, em thực hiện phép chia trước.",
+      "id": "on_tap_phep_tinh_stn_015",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "prompt": "36 : 4 + 5 = 14.",
+      "tags": [
+        "thu_tu_thuc_hien"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "answer": "Mười hai nghìn không trăm ba mươi tư",
+      "difficulty": 1,
+      "explanation": "Đọc lớp nghìn: mười hai nghìn. Đọc lớp đơn vị: không trăm ba mươi tư. Vậy số đọc là mười hai nghìn không trăm ba mươi tư.",
+      "hint": "Đọc lớp nghìn trước, rồi đọc lớp đơn vị, đừng bỏ số 0 ở hàng trăm.",
+      "id": "on_tap_so_tu_nhien_001",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "options": [
+        "Mười hai nghìn không trăm ba mươi tư",
+        "Mười hai nghìn ba mươi tư",
+        "Mười hai nghìn không trăm ba mươi bốn",
+        "Một trăm hai mươi nghìn ba mươi tư"
+      ],
+      "prompt": "Số 12 034 đọc là gì?",
+      "tags": [
+        "doc_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "34 056",
+      "calc": "30000+4000+50+6",
+      "difficulty": 1,
+      "explanation": "Ba mươi tư nghìn là 34 000, không trăm năm mươi sáu là 56. Ghép lại được 34 056.",
+      "hint": "Ba mươi tư nghìn là 34 000, năm mươi sáu là 56, ghép lại theo hàng.",
+      "id": "on_tap_so_tu_nhien_002",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "prompt": "Viết số “ba mươi tư nghìn không trăm năm mươi sáu” bằng chữ số.",
+      "tags": [
+        "viet_so"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "10 234",
+      "calc": "10234",
+      "difficulty": 1,
+      "explanation": "10 234 và 10 023 có 5 chữ số, lớn hơn các số 4 chữ số. So hàng nghìn: 10 234 lớn hơn 10 023.",
+      "hint": "Số nào có nhiều chữ số hơn thì lớn hơn.",
+      "id": "on_tap_so_tu_nhien_003",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "options": [
+        "9 876",
+        "10 234",
+        "9 999",
+        "10 023"
+      ],
+      "prompt": "Trong bốn số 9 876, 10 234, 9 999 và 10 023, số nào lớn nhất?",
+      "tags": [
+        "so_sanh"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "5 000",
+      "calc": "5000",
+      "difficulty": 1,
+      "explanation": "Chữ số 5 ở hàng nghìn nên có giá trị là 5 × 1 000 = 5 000.",
+      "hint": "Chữ số ở hàng nghìn có giá trị bằng chữ số đó nhân với 1 000.",
+      "id": "on_tap_so_tu_nhien_004",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "prompt": "Số 25 038 có chữ số 5 ở hàng nghìn. Giá trị của chữ số 5 là bao nhiêu?",
+      "tags": [
+        "gia_tri_chu_so"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "Đúng",
+      "difficulty": 1,
+      "explanation": "Cả hai số đều có 4 chữ số. Hàng chục: 6 lớn hơn 5 nên 8 765 lớn hơn 8 756.",
+      "hint": "Hai số có cùng số chữ số, so sánh từng chữ số từ trái sang phải.",
+      "id": "on_tap_so_tu_nhien_005",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "prompt": "Số 8 765 lớn hơn số 8 756.",
+      "tags": [
+        "so_sanh"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "answer": "25 307",
+      "calc": "25307",
+      "difficulty": 1,
+      "explanation": "Hai mươi lăm nghìn là 25 000, ba trăm linh bảy là 307. Ghép lại được 25 307.",
+      "hint": "“Ba trăm linh bảy” nghĩa là hàng trăm là 3, hàng chục là 0, hàng đơn vị là 7.",
+      "id": "on_tap_so_tu_nhien_011",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "options": [
+        "25 307",
+        "25 037",
+        "25 370",
+        "20 537"
+      ],
+      "prompt": "Số “hai mươi lăm nghìn ba trăm linh bảy” viết là số nào?",
+      "tags": [
+        "viet_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "60 000",
+      "calc": "60000",
+      "difficulty": 1,
+      "explanation": "Chữ số 6 ở hàng chục nghìn nên có giá trị là 6 × 10 000 = 60 000.",
+      "hint": "Chữ số 6 đứng ở hàng nào trong số 63 418?",
+      "id": "on_tap_so_tu_nhien_012",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "prompt": "Trên bảng, cô giáo viết số 63 418 và khoanh tròn chữ số 6. Chữ số được khoanh tròn có giá trị là bao nhiêu?",
+      "tags": [
+        "gia_tri_chu_so"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "7 089",
+      "calc": "7089",
+      "difficulty": 1,
+      "explanation": "Cả bốn số đều có hàng nghìn là 7. So hàng trăm: 0 bé hơn 8 và 9 nên 7 089 là số bé nhất.",
+      "hint": "Các số đều có 4 chữ số và cùng hàng nghìn, hãy so tiếp hàng trăm.",
+      "id": "on_tap_so_tu_nhien_013",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "options": [
+        "7 890",
+        "7 809",
+        "7 980",
+        "7 089"
+      ],
+      "prompt": "Bạn An có bốn tấm thẻ ghi các số 7 890, 7 809, 7 980 và 7 089. Số bé nhất trên các tấm thẻ là số nào?",
+      "tags": [
+        "so_sanh"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "8 400",
+      "calc": "8400",
+      "difficulty": 1,
+      "explanation": "Chữ số sau hàng trăm là 1, dưới 5 nên giữ nguyên hàng trăm. Vậy 8 412 làm tròn thành 8 400.",
+      "hint": "Làm tròn đến hàng trăm thì nhìn chữ số hàng chục.",
+      "id": "on_tap_so_tu_nhien_014",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "options": [
+        "8 400",
+        "8 500",
+        "8 410",
+        "8 000"
+      ],
+      "prompt": "Một cửa hàng có 8 412 chiếc bút. Làm tròn số bút đến hàng trăm, cửa hàng có khoảng bao nhiêu chiếc bút?",
+      "tags": [
+        "lam_tron"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "Sai",
+      "difficulty": 1,
+      "explanation": "Số 10 000 có 5 chữ số. Số lớn nhất có bốn chữ số là 9 999.",
+      "hint": "Đếm xem số 10 000 có mấy chữ số.",
+      "id": "on_tap_so_tu_nhien_015",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "prompt": "Số 10 000 là số lớn nhất có bốn chữ số.",
+      "tags": [
+        "so_sanh"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_001",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Viết phân số 3/5 dưới dạng phân số thập phân.",
+      "options": [
+        "6/10",
+        "3/10",
+        "6/5",
+        "5/10"
+      ],
+      "answer": "6/10",
+      "hint": "Nhân cả tử số và mẫu số của 3/5 với 2 để mẫu số thành 10.",
+      "explanation": "Nhân cả tử số và mẫu số của 3/5 với 2: 3 × 2 = 6, 5 × 2 = 10. Vậy 3/5 = 6/10.",
+      "tags": [
+        "doi_phan_so_thap_phan"
+      ],
+      "calc": "Fraction(3,5)*Fraction(2,2)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_002",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Viết phân số thập phân có tử số là 7 và mẫu số là 100.",
+      "answer": "7/100",
+      "hint": "Tử số viết trên, mẫu số viết dưới dấu gạch ngang.",
+      "explanation": "Tử số là 7, mẫu số là 100 nên phân số thập phân là 7/100.",
+      "tags": [
+        "phan_so_thap_phan"
+      ],
+      "calc": "Fraction(7,100)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_003",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Trong các phân số sau, phân số nào là phân số thập phân?",
+      "options": [
+        "4/10",
+        "3/7",
+        "5/6",
+        "2/9"
+      ],
+      "answer": "4/10",
+      "hint": "Phân số thập phân có mẫu số là 10, 100 hay 1 000.",
+      "explanation": "Phân số thập phân có mẫu số là 10, 100 hay 1 000. Trong các phân số trên, chỉ 4/10 có mẫu số là 10.",
+      "tags": [
+        "nhan_biet"
+      ],
+      "calc": "Fraction(4,10)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_007",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Phân số thập phân nào có mẫu số 10?",
+      "options": [
+        "3/10",
+        "3/100",
+        "3/1000",
+        "3/5"
+      ],
+      "answer": "3/10",
+      "hint": "Mẫu số là số viết dưới dấu gạch ngang.",
+      "explanation": "Phân số có mẫu số 10 là phân số có số 10 dưới dấu gạch ngang. Đó là phân số 3/10.",
+      "tags": [
+        "nhan_biet"
+      ],
+      "calc": "Fraction(3,10)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_010",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "true_false",
+      "difficulty": 1,
+      "prompt": "Phân số 7/10 là phân số thập phân. Đúng hay sai?",
+      "answer": "Đúng",
+      "hint": "Phân số thập phân có mẫu số là 10, 100 hay 1 000.",
+      "explanation": "Phân số 7/10 có mẫu số là 10 nên là phân số thập phân. Câu nói trên là đúng.",
+      "tags": [
+        "nhan_biet"
+      ],
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_011",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Trong các phân số sau, phân số nào có mẫu số là 1 000?",
+      "options": [
+        "6/1000",
+        "6/100",
+        "6/10",
+        "6/5"
+      ],
+      "answer": "6/1000",
+      "hint": "Tìm phân số có số 1 000 dưới dấu gạch ngang.",
+      "explanation": "Mẫu số là số viết dưới dấu gạch ngang. Phân số có mẫu số 1 000 là 6/1000.",
+      "tags": [
+        "nhan_biet"
+      ],
+      "calc": "Fraction(6,1000)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_012",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Một phân số thập phân có mẫu số 10 và tử số 9. Viết phân số đó.",
+      "answer": "9/10",
+      "hint": "Tử số viết trên, mẫu số viết dưới dấu gạch ngang.",
+      "explanation": "Tử số là 9, mẫu số là 10 nên phân số thập phân là 9/10.",
+      "tags": [
+        "phan_so_thap_phan"
+      ],
+      "calc": "Fraction(9,10)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_013",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Nhân cả tử số và mẫu số của phân số 2/5 với 2, ta được phân số thập phân nào?",
+      "options": [
+        "4/10",
+        "2/10",
+        "4/5",
+        "5/10"
+      ],
+      "answer": "4/10",
+      "hint": "Nhân cả tử số và mẫu số với 2.",
+      "explanation": "2 × 2 = 4 và 5 × 2 = 10. Vậy 2/5 = 4/10, đây là phân số thập phân.",
+      "tags": [
+        "doi_phan_so_thap_phan"
+      ],
+      "calc": "Fraction(2,5)*Fraction(2,2)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_016",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Tìm phân số có mẫu số không phải là 10, 100 hay 1 000.",
+      "options": [
+        "8/9",
+        "6/10",
+        "4/100",
+        "2/1000"
+      ],
+      "answer": "8/9",
+      "hint": "Mẫu số là số viết dưới dấu gạch ngang.",
+      "explanation": "Mẫu số của 6/10 là 10, của 4/100 là 100, của 2/1000 là 1 000. Chỉ phân số 8/9 có mẫu số là 9.",
+      "tags": [
+        "nhan_biet"
+      ],
+      "calc": "Fraction(8,9)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_018",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "true_false",
+      "difficulty": 1,
+      "prompt": "Mọi phân số đều đổi được thành phân số thập phân. Đúng hay sai?",
+      "answer": "Sai",
+      "hint": "Thử nghĩ xem phân số 1/3 có đổi được không.",
+      "explanation": "Không phải phân số nào cũng đổi được. Ví dụ phân số 1/3 không đổi được thành phân số thập phân. Câu nói trên là sai.",
+      "tags": [
+        "doi_phan_so_thap_phan"
+      ],
+      "verified": false
+    },
+    {
+      "answer": "44",
+      "calc": "(14+9)*2-2",
+      "difficulty": 2,
+      "explanation": "Chu vi sân là (14 + 9) × 2 = 46 m. Chừa 2 m làm cổng nên cần 46 − 2 = 44 m dây rào.",
+      "hint": "Tính chu vi sân trước, rồi trừ đi phần cổng không cần rào.",
+      "id": "boss_chu_de_1_004",
+      "lesson_id": "boss_chu_de_1",
+      "options": [
+        "44",
+        "46",
+        "48",
+        "42"
+      ],
+      "prompt": "Một sân chơi hình chữ nhật dài 14 m, rộng 9 m. Người ta rào xung quanh sân, chừa 2 m làm cổng. Cần bao nhiêu mét dây rào?",
+      "tags": [
+        "chu_vi_hinh_chu_nhat",
+        "on_tap_hinh_hoc_do_luong"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "6",
+      "calc": "(18+6)/4",
+      "difficulty": 2,
+      "explanation": "Minh có 18 + 6 = 24 viên bi. Mỗi bạn được 24 : 4 = 6 viên bi.",
+      "hint": "Tính tổng số bi của Minh trước, rồi chia đều cho 4 bạn.",
+      "id": "boss_chu_de_1_006",
+      "lesson_id": "boss_chu_de_1",
+      "options": [
+        "6",
+        "24",
+        "12",
+        "3"
+      ],
+      "prompt": "Bạn Minh có 18 viên bi, bạn Lan cho thêm 6 viên rồi Minh chia đều cho 4 bạn. Mỗi bạn được bao nhiêu viên bi?",
+      "tags": [
+        "thu_tu_thuc_hien",
+        "on_tap_phep_tinh_stn"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "13/15",
+      "calc": "Fraction(2,3)+Fraction(1,5)",
+      "difficulty": 2,
+      "explanation": "2/3 = 10/15 và 1/5 = 3/15. Cả ngày bạn Hoa đọc được 10/15 + 3/15 = 13/15 quyển truyện.",
+      "hint": "Quy đồng hai phân số về mẫu số chung 15 rồi cộng.",
+      "id": "boss_chu_de_1_007",
+      "lesson_id": "boss_chu_de_1",
+      "prompt": "Buổi sáng, bạn Hoa đọc được 2/3 quyển truyện, buổi chiều đọc thêm 1/5 quyển truyện. Cả ngày bạn Hoa đọc được bao nhiêu phần quyển truyện?",
+      "tags": [
+        "cong_phan_so",
+        "cong_tru_phan_so_khac_mau"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "2 5/8",
+      "calc": "Fraction(2*8+5,8)",
+      "difficulty": 2,
+      "explanation": "Phần nguyên đều là 2. So phần phân số: 5/8 lớn hơn 1/2, 3/8 và 1/4. Vậy hỗn số lớn nhất là 2 5/8.",
+      "hint": "Các hỗn số có cùng phần nguyên, em so sánh phần phân số của chúng.",
+      "id": "boss_chu_de_1_008",
+      "lesson_id": "boss_chu_de_1",
+      "options": [
+        "2 1/4",
+        "2 3/8",
+        "2 1/2",
+        "2 5/8"
+      ],
+      "prompt": "Trong các hỗn số 2 1/4, 2 3/8, 2 1/2 và 2 5/8, hỗn số nào lớn nhất?",
+      "tags": [
+        "so_sanh_hon_so",
+        "hon_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "99 999",
+      "calc": "100000-1",
+      "difficulty": 2,
+      "explanation": "Số nhỏ nhất có sáu chữ số là 100 000. Số liền trước là 100 000 − 1 = 99 999.",
+      "hint": "Số nhỏ nhất có sáu chữ số là số nào? Số liền trước bé hơn nó 1 đơn vị.",
+      "id": "boss_chu_de_1_009",
+      "lesson_id": "boss_chu_de_1",
+      "prompt": "Số liền trước của số nhỏ nhất có sáu chữ số là bao nhiêu?",
+      "tags": [
+        "viet_so",
+        "on_tap_so_tu_nhien"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "5",
+      "calc": "Fraction(5,6)/Fraction(1,6)",
+      "difficulty": 2,
+      "explanation": "5/6 : 1/6 = 5/6 × 6/1 = 30/6 = 5. Chia được 5 túi.",
+      "hint": "Muốn biết chia được mấy túi, em chia số đường cho số đường mỗi túi.",
+      "id": "boss_chu_de_1_010",
+      "lesson_id": "boss_chu_de_1",
+      "prompt": "Có 5/6 kg đường, chia đều vào các túi, mỗi túi 1/6 kg. Chia được bao nhiêu túi?",
+      "tags": [
+        "chia_phan_so",
+        "on_tap_phep_tinh_phan_so"
+      ],
+      "type": "fill_number",
+      "unit": "túi",
+      "verified": false
+    },
+    {
+      "answer": "Đúng",
+      "difficulty": 2,
+      "explanation": "1 3/5 = (1 × 5 + 3)/5 = 8/5. Câu nói trên là đúng.",
+      "hint": "Tính 1 × 5 + 3 rồi so với 8.",
+      "id": "boss_chu_de_1_015",
+      "lesson_id": "boss_chu_de_1",
+      "prompt": "Đổi hỗn số 1 3/5 thành phân số, ta được 8/5. Đúng hay sai?",
+      "tags": [
+        "doi_hon_so_thanh_phan_so",
+        "hon_so"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "answer": "200",
+      "calc": "(27+23)*4",
+      "difficulty": 2,
+      "explanation": "Lớp có 27 + 23 = 50 bạn. Số vở là 50 × 4 = 200 quyển.",
+      "hint": "Cộng số bạn nam với số bạn nữ trước, rồi nhân với 4.",
+      "id": "boss_chu_de_1_016",
+      "lesson_id": "boss_chu_de_1",
+      "prompt": "Một lớp có 27 bạn nam và 23 bạn nữ. Mỗi bạn được phát 4 quyển vở. Lớp được phát tất cả bao nhiêu quyển vở?",
+      "tags": [
+        "toan_loi_van",
+        "on_tap_phep_tinh_stn"
+      ],
+      "type": "fill_number",
+      "unit": "quyển",
+      "verified": false
+    },
+    {
+      "answer": "1/2",
+      "calc": "Fraction(7,10)-Fraction(1,5)",
+      "difficulty": 2,
+      "explanation": "1/5 = 2/10 nên 7/10 − 1/5 = 7/10 − 2/10 = 5/10 = 1/2 lít nước.",
+      "hint": "Quy đồng 1/5 thành 2/10 rồi trừ.",
+      "id": "boss_chu_de_1_017",
+      "lesson_id": "boss_chu_de_1",
+      "options": [
+        "1/2",
+        "3/5",
+        "1/5",
+        "3/10"
+      ],
+      "prompt": "Một chai nước có 7/10 lít, bạn Bình uống hết 1/5 lít. Trong chai còn lại bao nhiêu lít nước?",
+      "tags": [
+        "tru_phan_so",
+        "cong_tru_phan_so_khac_mau"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "2/5",
+      "calc": "Fraction(3,5)*Fraction(2,3)",
+      "difficulty": 2,
+      "explanation": "3/5 × 2/3 = 6/15 = 2/5 kg bột.",
+      "hint": "Tìm 2/3 của 3/5, tức là nhân hai phân số với nhau.",
+      "id": "boss_chu_de_1_018",
+      "lesson_id": "boss_chu_de_1",
+      "options": [
+        "2/5",
+        "1/5",
+        "3/5",
+        "4/15"
+      ],
+      "prompt": "Bạn Lan có 3/5 kg bột, dùng 2/3 số bột để làm bánh. Số bột đã dùng là bao nhiêu ki-lô-gam?",
+      "tags": [
+        "nhan_phan_so",
+        "on_tap_phep_tinh_phan_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "425",
+      "calc": "4*100+25",
+      "difficulty": 2,
+      "explanation": "4 tạ = 400 kg. Bao gạo nặng 400 + 25 = 425 kg.",
+      "hint": "Đổi 4 tạ ra ki-lô-gam rồi cộng thêm 25 kg.",
+      "id": "boss_chu_de_1_019",
+      "lesson_id": "boss_chu_de_1",
+      "prompt": "Một bao gạo nặng 4 tạ 25 kg. Bao gạo nặng bao nhiêu ki-lô-gam?",
+      "tags": [
+        "doi_don_vi_khoi_luong",
+        "on_tap_hinh_hoc_do_luong"
+      ],
+      "type": "fill_number",
+      "unit": "kg",
+      "verified": false
+    },
+    {
+      "answer": "Sai",
+      "difficulty": 2,
+      "explanation": "60 408 đọc là sáu mươi nghìn bốn trăm linh tám, vì chữ số 0 ở hàng chục đọc là linh. Câu nói trên là sai.",
+      "hint": "Số 60 408 có chữ số 0 ở hàng chục, đọc là linh tám.",
+      "id": "boss_chu_de_1_020",
+      "lesson_id": "boss_chu_de_1",
+      "prompt": "Số 60 408 đọc là sáu mươi nghìn bốn trăm tám. Đúng hay sai?",
+      "tags": [
+        "doc_so",
+        "on_tap_so_tu_nhien"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_006",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Sáng nay, Mai làm được 1/3 số bài tập, buổi chiều làm thêm 1/4 số bài tập. Mai đã làm được bao nhiêu phần số bài tập?",
+      "answer": "7/12",
+      "hint": "Quy đồng hai phân số về mẫu số chung 12 rồi cộng.",
+      "explanation": "1/3 = 4/12, 1/4 = 3/12 nên tổng là 4/12 + 3/12 = 7/12 số bài tập.",
+      "tags": [
+        "cong_phan_so",
+        "bai_toan_loi_van"
+      ],
+      "verified": false,
+      "options": [
+        "7/12",
+        "2/7",
+        "1/2",
+        "5/12"
+      ],
+      "calc": "Fraction(1,3)+Fraction(1,4)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_007",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Một thùng nước đang đầy 7/8 thùng, người ta đã dùng 1/4 thùng nước. Trong thùng còn lại bao nhiêu phần nước?",
+      "answer": "5/8",
+      "hint": "Quy đồng 1/4 thành 2/8 rồi trừ.",
+      "explanation": "1/4 = 2/8 nên 7/8 - 1/4 = 7/8 - 2/8 = 5/8 thùng nước.",
+      "tags": [
+        "tru_phan_so",
+        "bai_toan_loi_van"
+      ],
+      "verified": false,
+      "calc": "Fraction(7,8)-Fraction(1,4)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_008",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Hãy tính tổng của 2/5 và 1/10.",
+      "answer": "1/2",
+      "hint": "Quy đồng 2/5 thành 4/10 rồi cộng.",
+      "explanation": "2/5 = 4/10 nên 2/5 + 1/10 = 4/10 + 1/10 = 5/10 = 1/2.",
+      "tags": [
+        "cong_phan_so",
+        "rut_gon"
+      ],
+      "verified": false,
+      "options": [
+        "1/2",
+        "3/5",
+        "2/7",
+        "3/15"
+      ],
+      "calc": "Fraction(2,5)+Fraction(1,10)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_009",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Lấy 5/6 trừ đi 1/2 thì được bao nhiêu?",
+      "answer": "1/3",
+      "hint": "Quy đồng 1/2 thành 3/6 rồi trừ, nhớ rút gọn.",
+      "explanation": "1/2 = 3/6 nên 5/6 - 1/2 = 5/6 - 3/6 = 2/6 = 1/3.",
+      "tags": [
+        "tru_phan_so",
+        "rut_gon"
+      ],
+      "verified": false,
+      "calc": "Fraction(5,6)-Fraction(1,2)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_010",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "An có 2/3 tấm bìa, đã dùng 1/6 tấm bìa để làm đồ thủ công. An còn lại bao nhiêu phần tấm bìa?",
+      "answer": "1/2",
+      "hint": "Quy đồng 2/3 thành 4/6 rồi trừ.",
+      "explanation": "2/3 = 4/6 nên 2/3 - 1/6 = 4/6 - 1/6 = 3/6 = 1/2 tấm bìa.",
+      "tags": [
+        "tru_phan_so",
+        "bai_toan_loi_van"
+      ],
+      "verified": false,
+      "options": [
+        "1/2",
+        "1/3",
+        "5/12",
+        "2/5"
+      ],
+      "calc": "Fraction(2,3)-Fraction(1,6)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_016",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Ngày thứ nhất, bác Tư gieo hạt được 1/4 thửa ruộng, ngày thứ hai gieo thêm 2/5 thửa ruộng. Cả hai ngày bác gieo được bao nhiêu phần thửa ruộng?",
+      "answer": "13/20",
+      "hint": "Quy đồng hai phân số về mẫu số chung 20 rồi cộng.",
+      "explanation": "1/4 = 5/20, 2/5 = 8/20 nên tổng là 5/20 + 8/20 = 13/20 thửa ruộng.",
+      "tags": [
+        "cong_phan_so",
+        "bai_toan_loi_van"
+      ],
+      "verified": false,
+      "options": [
+        "13/20",
+        "3/9",
+        "1/2",
+        "7/10"
+      ],
+      "calc": "Fraction(1,4)+Fraction(2,5)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_017",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Một bể nước đã có 5/6 bể nước, người ta lấy ra 1/3 bể để tưới cây. Bể còn lại bao nhiêu phần nước?",
+      "answer": "1/2",
+      "hint": "Quy đồng 1/3 thành 2/6 rồi trừ.",
+      "explanation": "1/3 = 2/6 nên 5/6 - 1/3 = 5/6 - 2/6 = 3/6 = 1/2 bể nước.",
+      "tags": [
+        "tru_phan_so",
+        "bai_toan_loi_van"
+      ],
+      "verified": false,
+      "calc": "Fraction(5,6)-Fraction(1,3)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_018",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "Để trừ hai phân số khác mẫu số, ta trừ tử số cho nhau và trừ mẫu số cho nhau.",
+      "answer": "Sai",
+      "hint": "Muốn trừ hai phân số khác mẫu số, bước đầu tiên là gì?",
+      "explanation": "Sai, vì phải quy đồng mẫu số trước rồi mới trừ hai tử số, giữ nguyên mẫu số.",
+      "tags": [
+        "tru_phan_so",
+        "loi_hay_gap"
+      ],
+      "verified": false
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_019",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Mẹ dùng 3/10 kg đường để nấu chè và 1/5 kg đường để làm bánh. Mẹ đã dùng tất cả bao nhiêu ki-lô-gam đường?",
+      "answer": "1/2",
+      "hint": "Quy đồng 1/5 thành 2/10, cộng rồi rút gọn.",
+      "explanation": "1/5 = 2/10 nên mẹ dùng 3/10 + 2/10 = 5/10 = 1/2 kg đường.",
+      "tags": [
+        "cong_phan_so",
+        "rut_gon"
+      ],
+      "verified": false,
+      "options": [
+        "1/2",
+        "4/15",
+        "2/5",
+        "3/7"
+      ],
+      "calc": "Fraction(3,10)+Fraction(1,5)"
+    },
+    {
+      "id": "cong_tru_phan_so_khac_mau_020",
+      "lesson_id": "cong_tru_phan_so_khac_mau",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Chị Lan may áo hết 3/8 m vải, may quần hết 1/4 m vải. May áo hết nhiều hơn may quần bao nhiêu mét vải?",
+      "answer": "1/8",
+      "hint": "Quy đồng 1/4 thành 2/8 rồi trừ.",
+      "explanation": "1/4 = 2/8 nên 3/8 - 1/4 = 3/8 - 2/8 = 1/8 m vải.",
+      "tags": [
+        "tru_phan_so",
+        "bai_toan_loi_van"
+      ],
+      "verified": false,
+      "calc": "Fraction(3,8)-Fraction(1,4)"
+    },
+    {
+      "answer": "2 4/3",
+      "calc": "Fraction(2*3+4,3)",
+      "difficulty": 2,
+      "explanation": "Phần phân số 4/3 lớn hơn 1 nên 2 4/3 không phải hỗn số đúng.",
+      "hint": "Phần phân số của hỗn số phải nhỏ hơn 1.",
+      "id": "hon_so_005",
+      "lesson_id": "hon_so",
+      "options": [
+        "3 2/7",
+        "1 5/6",
+        "2 4/3",
+        "5 1/8"
+      ],
+      "prompt": "Hỗn số nào sau đây viết sai?",
+      "tags": [
+        "nhan_biet_hon_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "7",
+      "calc": "Fraction(3*2+1,2)*2",
+      "difficulty": 2,
+      "explanation": "3 1/2 = 7/2. Hai hộp có 7/2 × 2 = 7 (kg).",
+      "hint": "Đổi 3 1/2 thành phân số rồi nhân với 2.",
+      "id": "hon_so_006",
+      "lesson_id": "hon_so",
+      "prompt": "Một hộp có 3 1/2 kg kẹo. Hỏi 2 hộp như thế có bao nhiêu ki-lô-gam kẹo?",
+      "tags": [
+        "doi_hon_so_thanh_phan_so"
+      ],
+      "type": "fill_number",
+      "unit": "kg",
+      "verified": false
+    },
+    {
+      "answer": "17",
+      "calc": "5*3+2",
+      "difficulty": 2,
+      "explanation": "5 × 3 + 2 = 17 nên 5 2/3 = 17/3.",
+      "hint": "Tử số mới bằng phần nguyên nhân mẫu số rồi cộng tử số.",
+      "id": "hon_so_008",
+      "lesson_id": "hon_so",
+      "prompt": "Hỗn số 5 2/3 đổi thành phân số có tử số là bao nhiêu?",
+      "tags": [
+        "doi_hon_so_thanh_phan_so"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "9/2",
+      "calc": "Fraction(4*2+1,2)",
+      "difficulty": 2,
+      "explanation": "4 1/2 = (4 × 2 + 1) / 2 = 9/2.",
+      "hint": "Nhớ cộng tử số sau khi nhân phần nguyên với mẫu số.",
+      "id": "hon_so_009",
+      "lesson_id": "hon_so",
+      "options": [
+        "9/2",
+        "8/2",
+        "5/2",
+        "10/2"
+      ],
+      "prompt": "Đổi hỗn số 4 1/2 thành phân số, kết quả đúng là phân số nào?",
+      "tags": [
+        "doi_hon_so_thanh_phan_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "Đúng",
+      "difficulty": 2,
+      "explanation": "3 2/5 = (3 × 5 + 2) / 5 = 17/5 nên câu này đúng.",
+      "hint": "Tính 3 × 5 + 2 rồi so với 17.",
+      "id": "hon_so_010",
+      "lesson_id": "hon_so",
+      "prompt": "Hỗn số 3 2/5 đổi thành phân số được 17/5.",
+      "tags": [
+        "doi_hon_so_thanh_phan_so"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "answer": "33/5",
+      "calc": "Fraction(2*5+1,5)*3",
+      "difficulty": 2,
+      "explanation": "2 1/5 = 11/5. Ba can chứa 11/5 × 3 = 33/5 (l).",
+      "hint": "Đổi 2 1/5 thành phân số rồi nhân với 3.",
+      "id": "hon_so_014",
+      "lesson_id": "hon_so",
+      "prompt": "Một can chứa 2 1/5 l dầu. Hỏi 3 can như thế chứa bao nhiêu lít dầu?",
+      "tags": [
+        "doi_hon_so_thanh_phan_so"
+      ],
+      "type": "fill_number",
+      "unit": "l",
+      "verified": false
+    },
+    {
+      "answer": "Đúng",
+      "difficulty": 2,
+      "explanation": "2 3/4 = 11/4 và 11 : 4 = 2 dư 3 nên 11/4 = 2 3/4.",
+      "hint": "Đổi đi rồi đổi lại để kiểm tra.",
+      "id": "hon_so_015",
+      "lesson_id": "hon_so",
+      "prompt": "Hỗn số 2 3/4 đổi thành phân số được 11/4 và phân số 11/4 đổi lại thành hỗn số được 2 3/4.",
+      "tags": [
+        "doi_hon_so_thanh_phan_so"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "answer": "3 2/5",
+      "calc": "Fraction(17,5)",
+      "difficulty": 2,
+      "explanation": "17 : 5 = 3 dư 2 nên 17/5 = 3 2/5.",
+      "hint": "Chia 17 cho 5 được 3 dư 2.",
+      "id": "hon_so_016",
+      "lesson_id": "hon_so",
+      "options": [
+        "3 2/5",
+        "2 2/5",
+        "3 1/5",
+        "4 2/5"
+      ],
+      "prompt": "Phân số 17/5 bằng hỗn số nào?",
+      "tags": [
+        "doi_phan_so_thanh_hon_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "17/5",
+      "calc": "Fraction(3*5+2,5)",
+      "difficulty": 2,
+      "explanation": "3 2/5 = (3 × 5 + 2) / 5 = 17/5. Bạn Nam quên cộng tử số.",
+      "hint": "Bạn Nam quên cộng tử số 2 sau khi nhân.",
+      "id": "hon_so_018",
+      "lesson_id": "hon_so",
+      "options": [
+        "17/5",
+        "15/5",
+        "10/5",
+        "20/5"
+      ],
+      "prompt": "Bạn Nam đổi hỗn số 3 2/5 thành 15/5. Kết quả đúng phải là phân số nào?",
+      "tags": [
+        "doi_hon_so_thanh_phan_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "7",
+      "calc": "Fraction(1*5+2,5)*5",
+      "difficulty": 2,
+      "explanation": "1 2/5 = 7/5. Năm gói nặng 7/5 × 5 = 7 (kg).",
+      "hint": "Đổi 1 2/5 thành phân số rồi nhân với 5.",
+      "id": "hon_so_020",
+      "lesson_id": "hon_so",
+      "prompt": "Có 5 gói bánh, mỗi gói nặng 1 2/5 kg. Hỏi 5 gói bánh nặng bao nhiêu ki-lô-gam?",
+      "tags": [
+        "doi_hon_so_thanh_phan_so"
+      ],
+      "type": "fill_number",
+      "unit": "kg",
+      "verified": false
+    },
+    {
+      "answer": "2 500",
+      "calc": "2*1000+500",
+      "difficulty": 2,
+      "explanation": "2 kg = 2 000 g. Túi đường nặng 2 000 + 500 = 2 500 (g).",
+      "hint": "Đổi 2 kg ra gam rồi cộng thêm 500 g.",
+      "id": "on_tap_hinh_hoc_do_luong_004",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "prompt": "Một túi đường nặng 2 kg 500 g. Hỏi túi đường nặng bao nhiêu gam?",
+      "tags": [
+        "doi_don_vi_khoi_luong"
+      ],
+      "type": "fill_number",
+      "unit": "g",
+      "verified": false
+    },
+    {
+      "answer": "36",
+      "calc": "9*4",
+      "difficulty": 2,
+      "explanation": "Chu vi = 9 × 4 = 36 (cm).",
+      "hint": "Chu vi hình vuông bằng cạnh nhân 4.",
+      "id": "on_tap_hinh_hoc_do_luong_006",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "prompt": "Một hình vuông có cạnh 9 cm. Chu vi hình vuông là bao nhiêu xăng-ti-mét?",
+      "tags": [
+        "chu_vi_hinh_vuong"
+      ],
+      "type": "fill_number",
+      "unit": "cm",
+      "verified": false
+    },
+    {
+      "answer": "96",
+      "calc": "12*8",
+      "difficulty": 2,
+      "explanation": "Diện tích = 12 × 8 = 96 (m²).",
+      "hint": "Diện tích bằng chiều dài nhân chiều rộng, không phải cộng.",
+      "id": "on_tap_hinh_hoc_do_luong_007",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "options": [
+        "96",
+        "40",
+        "20",
+        "80"
+      ],
+      "prompt": "Mảnh vườn nhà bà Lan hình chữ nhật, chiều dài 12 m và chiều rộng 8 m. Tính diện tích mảnh vườn.",
+      "tags": [
+        "dien_tich_hinh_chu_nhat"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "200",
+      "calc": "3*60+20",
+      "difficulty": 2,
+      "explanation": "3 giờ = 180 phút. 3 giờ 20 phút = 180 + 20 = 200 (phút).",
+      "hint": "Đổi 3 giờ ra phút rồi cộng thêm 20 phút.",
+      "id": "on_tap_hinh_hoc_do_luong_008",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "prompt": "3 giờ 20 phút bằng bao nhiêu phút?",
+      "tags": [
+        "doi_don_vi_thoi_gian"
+      ],
+      "type": "fill_number",
+      "unit": "phút",
+      "verified": false
+    },
+    {
+      "answer": "230",
+      "calc": "2*100+30",
+      "difficulty": 2,
+      "explanation": "2 m = 200 cm. Sợi dây dài 200 + 30 = 230 (cm).",
+      "hint": "Đổi 2 m ra xăng-ti-mét rồi cộng thêm 30 cm.",
+      "id": "on_tap_hinh_hoc_do_luong_009",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "options": [
+        "230",
+        "203",
+        "23",
+        "2 003"
+      ],
+      "prompt": "Một sợi dây dài 2 m 30 cm. Hỏi sợi dây dài bao nhiêu xăng-ti-mét?",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "42",
+      "calc": "(15+6)*2",
+      "difficulty": 2,
+      "explanation": "Chu vi = (15 + 6) × 2 = 42 (dm).",
+      "hint": "Dây rào dài bằng chu vi mảnh đất.",
+      "id": "on_tap_hinh_hoc_do_luong_014",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "prompt": "Bác Hùng rào một mảnh đất hình chữ nhật dài 15 dm, rộng 6 dm. Bác cần bao nhiêu đề-xi-mét dây rào?",
+      "tags": [
+        "chu_vi_hinh_chu_nhat"
+      ],
+      "type": "fill_number",
+      "unit": "dm",
+      "verified": false
+    },
+    {
+      "answer": "144",
+      "calc": "12*12",
+      "difficulty": 2,
+      "explanation": "Diện tích = 12 × 12 = 144 (m²).",
+      "hint": "Diện tích hình vuông bằng cạnh nhân với chính nó.",
+      "id": "on_tap_hinh_hoc_do_luong_016",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "options": [
+        "144",
+        "48",
+        "24",
+        "120"
+      ],
+      "prompt": "Một cái sân hình vuông có cạnh 12 m. Diện tích cái sân là bao nhiêu mét vuông?",
+      "tags": [
+        "dien_tich_hinh_vuong"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "300",
+      "calc": "3*100",
+      "difficulty": 2,
+      "explanation": "3 tạ = 3 × 100 = 300 (kg).",
+      "hint": "1 tạ = 100 kg.",
+      "id": "on_tap_hinh_hoc_do_luong_018",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "options": [
+        "300",
+        "30",
+        "3 000",
+        "3"
+      ],
+      "prompt": "Một xe chở 3 tạ gạo. Hỏi xe chở bao nhiêu ki-lô-gam gạo?",
+      "tags": [
+        "doi_don_vi_khoi_luong"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "Sai",
+      "difficulty": 2,
+      "explanation": "Diện tích hình chữ nhật bằng chiều dài nhân chiều rộng, không phải cộng.",
+      "hint": "Diện tích dùng phép nhân, chu vi mới dùng phép cộng.",
+      "id": "on_tap_hinh_hoc_do_luong_019",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "prompt": "Diện tích hình chữ nhật bằng chiều dài cộng chiều rộng.",
+      "tags": [
+        "dien_tich_hinh_chu_nhat"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "answer": "125",
+      "calc": "5*100/4",
+      "difficulty": 2,
+      "explanation": "5 m = 500 cm. Mỗi đoạn dài 500 : 4 = 125 (cm).",
+      "hint": "Đổi 5 m ra xăng-ti-mét rồi chia cho 4.",
+      "id": "on_tap_hinh_hoc_do_luong_020",
+      "lesson_id": "on_tap_hinh_hoc_do_luong",
+      "prompt": "Một tấm vải dài 5 m, cắt thành 4 đoạn bằng nhau. Hỏi mỗi đoạn dài bao nhiêu xăng-ti-mét?",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "type": "fill_number",
+      "unit": "cm",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_004",
+      "lesson_id": "on_tap_phan_so",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Rút gọn phân số 10/15 thành phân số tối giản.",
+      "answer": "2/3",
+      "hint": "Tìm số lớn nhất cùng chia hết cho 10 và 15.",
+      "explanation": "10 và 15 cùng chia hết cho 5. 10 : 5 = 2, 15 : 5 = 3. Vậy 10/15 = 2/3.",
+      "tags": [
+        "rut_gon"
+      ],
+      "calc": "Fraction(10,15)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_005",
+      "lesson_id": "on_tap_phan_so",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Muốn so sánh hai phân số 2/3 và 3/4, ta quy đồng chúng về mẫu số 12. Phân số 2/3 sau khi quy đồng là bao nhiêu?",
+      "options": [
+        "8/12",
+        "9/12",
+        "6/12",
+        "4/12"
+      ],
+      "answer": "8/12",
+      "hint": "Nhân cả tử số và mẫu số của 2/3 với 4.",
+      "explanation": "12 : 3 = 4 nên nhân cả tử số và mẫu số của 2/3 với 4: 2 × 4 = 8. Vậy 2/3 = 8/12.",
+      "tags": [
+        "quy_dong"
+      ],
+      "calc": "Fraction(2,3)*Fraction(4,4)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_006",
+      "lesson_id": "on_tap_phan_so",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Quy đồng hai phân số 3/4 và 5/6 về cùng mẫu số 12. Phân số 5/6 thành phân số nào?",
+      "answer": "10/12",
+      "hint": "12 chia cho 6 được 2, nhân cả tử số và mẫu số với 2.",
+      "explanation": "12 : 6 = 2 nên nhân cả tử số và mẫu số của 5/6 với 2: 5 × 2 = 10. Vậy 5/6 = 10/12.",
+      "tags": [
+        "quy_dong"
+      ],
+      "calc": "Fraction(5,6)*Fraction(2,2)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_008",
+      "lesson_id": "on_tap_phan_so",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Lan ăn 2/3 cái bánh, Mai ăn 3/4 cái bánh. Ai ăn nhiều bánh hơn? Viết phân số chỉ phần bánh của bạn ăn nhiều hơn.",
+      "answer": "3/4",
+      "hint": "Quy đồng 2/3 và 3/4 về mẫu số 12 rồi so sánh.",
+      "explanation": "2/3 = 8/12 và 3/4 = 9/12. Vì 9/12 lớn hơn 8/12 nên Mai ăn nhiều hơn, phần bánh của Mai là 3/4.",
+      "tags": [
+        "so_sanh",
+        "quy_dong"
+      ],
+      "calc": "Fraction(3,4)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_009",
+      "lesson_id": "on_tap_phan_so",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Một hộp có 12 viên bi, trong đó có 4 viên bi màu đỏ. Phân số chỉ số bi đỏ sau khi rút gọn là bao nhiêu?",
+      "options": [
+        "1/3",
+        "1/4",
+        "2/3",
+        "3/4"
+      ],
+      "answer": "1/3",
+      "hint": "Viết phân số 4/12 rồi rút gọn.",
+      "explanation": "Số bi đỏ là 4/12. Chia cả tử số và mẫu số cho 4: 4 : 4 = 1, 12 : 4 = 3. Vậy phân số là 1/3.",
+      "tags": [
+        "rut_gon",
+        "phan_so"
+      ],
+      "calc": "Fraction(4,12)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_014",
+      "lesson_id": "on_tap_phan_so",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Tìm phân số tối giản bằng phân số 18/24.",
+      "answer": "3/4",
+      "hint": "18 và 24 cùng chia hết cho 6.",
+      "explanation": "Chia cả tử số và mẫu số cho 6: 18 : 6 = 3, 24 : 6 = 4. Vậy 18/24 = 3/4.",
+      "tags": [
+        "rut_gon"
+      ],
+      "calc": "Fraction(18,24)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_015",
+      "lesson_id": "on_tap_phan_so",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Hai phân số 1/4 và 2/3 cùng có mẫu số chung là 12. Phân số bằng 2/3 và có mẫu số 12 là phân số nào?",
+      "options": [
+        "8/12",
+        "3/12",
+        "4/12",
+        "6/12"
+      ],
+      "answer": "8/12",
+      "hint": "12 chia cho 3 được 4, nhân tử số 2 với 4.",
+      "explanation": "12 : 3 = 4 nên nhân cả tử số và mẫu số của 2/3 với 4: 2 × 4 = 8. Vậy phân số cần tìm là 8/12.",
+      "tags": [
+        "quy_dong"
+      ],
+      "calc": "Fraction(2,3)*Fraction(4,4)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_017",
+      "lesson_id": "on_tap_phan_so",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "So sánh hai phân số 5/6 và 7/8. Phân số lớn hơn là bao nhiêu?",
+      "answer": "7/8",
+      "hint": "Quy đồng 5/6 và 7/8 về mẫu số 24 rồi so sánh.",
+      "explanation": "5/6 = 20/24 và 7/8 = 21/24. Vì 21/24 lớn hơn 20/24 nên phân số lớn hơn là 7/8.",
+      "tags": [
+        "so_sanh",
+        "quy_dong"
+      ],
+      "calc": "Fraction(7,8)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_019",
+      "lesson_id": "on_tap_phan_so",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Một sợi dây dài 20 m, bạn Hoa cắt đi 5 m. Phân số chỉ phần dây còn lại sau khi rút gọn là bao nhiêu?",
+      "options": [
+        "3/4",
+        "1/4",
+        "2/5",
+        "4/5"
+      ],
+      "answer": "3/4",
+      "hint": "Phần dây còn lại là 20 trừ 5, rồi rút gọn phân số.",
+      "explanation": "Dây còn lại 20 − 5 = 15 m, tức là 15/20. Chia cả tử số và mẫu số cho 5, ta được 3/4.",
+      "tags": [
+        "rut_gon",
+        "phan_so"
+      ],
+      "calc": "Fraction(15,20)",
+      "verified": false
+    },
+    {
+      "id": "on_tap_phan_so_020",
+      "lesson_id": "on_tap_phan_so",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "Quy đồng mẫu số hai phân số 1/2 và 1/5 được 5/10 và 2/10. Đúng hay sai?",
+      "answer": "Đúng",
+      "hint": "Nhân cả tử số và mẫu số của mỗi phân số với mẫu số của phân số kia.",
+      "explanation": "1/2 = 5/10 vì nhân cả tử số và mẫu số với 5. 1/5 = 2/10 vì nhân cả tử số và mẫu số với 2. Câu nói trên là đúng.",
+      "tags": [
+        "quy_dong"
+      ],
+      "verified": false
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_006",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Tính tổng 5/12 + 1/12 rồi rút gọn kết quả.",
+      "answer": "1/2",
+      "hint": "Cộng hai phân số cùng mẫu số, rồi rút gọn phân số tìm được.",
+      "explanation": "5/12 + 1/12 = 6/12 = 1/2 vì chia cả tử và mẫu cho 6.",
+      "tags": [
+        "cong_phan_so",
+        "rut_gon"
+      ],
+      "verified": false,
+      "options": [
+        "1/2",
+        "6/24",
+        "2/3",
+        "3/5"
+      ],
+      "calc": "Fraction(5,12)+Fraction(1,12)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_007",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Minh tô màu 2/3 tờ giấy. Trong phần đã tô, màu đỏ chiếm 1/2. Phần màu đỏ bằng bao nhiêu phần tờ giấy?",
+      "answer": "1/3",
+      "hint": "Tìm 1/2 của 2/3, tức là nhân hai phân số với nhau.",
+      "explanation": "Phần màu đỏ là 2/3 × 1/2 = 2/6 = 1/3 tờ giấy.",
+      "tags": [
+        "nhan_phan_so",
+        "bai_toan_loi_van"
+      ],
+      "verified": false,
+      "calc": "Fraction(2,3)*Fraction(1,2)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_008",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Có 3/4 lít nước, rót đều vào các chai, mỗi chai đựng 1/4 lít. Rót được bao nhiêu chai?",
+      "answer": "3",
+      "hint": "Muốn biết rót được mấy chai, hãy chia số lít nước cho số lít mỗi chai.",
+      "explanation": "3/4 : 1/4 = 3/4 × 4/1 = 12/4 = 3. Rót được 3 chai.",
+      "tags": [
+        "chia_phan_so",
+        "bai_toan_loi_van"
+      ],
+      "verified": false,
+      "options": [
+        "3",
+        "4",
+        "3/16",
+        "1/3"
+      ],
+      "calc": "Fraction(3,4)/Fraction(1,4)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_009",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Tính 7/9 - 2/9 - 1/9.",
+      "answer": "4/9",
+      "hint": "Trừ lần lượt từng tử số, mẫu số giữ nguyên.",
+      "explanation": "7/9 - 2/9 - 1/9 = (7 - 2 - 1)/9 = 4/9.",
+      "tags": [
+        "tru_phan_so",
+        "cung_mau_so"
+      ],
+      "verified": false,
+      "calc": "Fraction(7,9)-Fraction(2,9)-Fraction(1,9)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_010",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Phép tính 4/5 × 5/8 cho kết quả rút gọn là bao nhiêu?",
+      "answer": "1/2",
+      "hint": "Nhân tử với tử, mẫu với mẫu, rồi rút gọn kết quả.",
+      "explanation": "4/5 × 5/8 = 20/40 = 1/2 vì chia cả tử và mẫu cho 20.",
+      "tags": [
+        "nhan_phan_so",
+        "rut_gon"
+      ],
+      "verified": false,
+      "options": [
+        "1/2",
+        "9/13",
+        "4/13",
+        "20/13"
+      ],
+      "calc": "Fraction(4,5)*Fraction(5,8)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_016",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Buổi sáng, cửa hàng bán được 3/10 số gạo trong kho, buổi chiều bán thêm 2/10 số gạo. Cả ngày cửa hàng bán được bao nhiêu phần số gạo?",
+      "answer": "1/2",
+      "hint": "Cộng số gạo bán buổi sáng với buổi chiều, giữ nguyên mẫu số.",
+      "explanation": "3/10 + 2/10 = 5/10 = 1/2 số gạo trong kho.",
+      "tags": [
+        "cong_phan_so",
+        "bai_toan_loi_van"
+      ],
+      "verified": false,
+      "options": [
+        "1/2",
+        "5/20",
+        "1/5",
+        "3/5"
+      ],
+      "calc": "Fraction(3,10)+Fraction(2,10)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_017",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Một sợi dây dài 4/5 m được cắt thành các đoạn bằng nhau, mỗi đoạn dài 1/5 m. Cắt được bao nhiêu đoạn dây?",
+      "answer": "4",
+      "hint": "Chia độ dài sợi dây cho độ dài mỗi đoạn.",
+      "explanation": "4/5 : 1/5 = 4/5 × 5/1 = 20/5 = 4 đoạn dây.",
+      "tags": [
+        "chia_phan_so",
+        "bai_toan_loi_van"
+      ],
+      "verified": false,
+      "calc": "Fraction(4,5)/Fraction(1,5)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_018",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "Phép tính 1/2 + 1/2 = 2/4 là đúng.",
+      "answer": "Sai",
+      "hint": "Cộng hai phân số cùng mẫu số thì mẫu số có thay đổi không?",
+      "explanation": "Sai, vì 1/2 + 1/2 = (1 + 1)/2 = 2/2 = 1, không phải 2/4.",
+      "tags": [
+        "cong_phan_so",
+        "loi_hay_gap"
+      ],
+      "verified": false
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_019",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Một mảnh vườn hình chữ nhật có chiều dài 5/6 m và chiều rộng 2/5 m. Diện tích mảnh vườn là bao nhiêu mét vuông?",
+      "answer": "1/3",
+      "hint": "Diện tích hình chữ nhật bằng chiều dài nhân chiều rộng.",
+      "explanation": "Diện tích là 5/6 × 2/5 = 10/30 = 1/3 m².",
+      "tags": [
+        "nhan_phan_so",
+        "dien_tich"
+      ],
+      "verified": false,
+      "options": [
+        "1/3",
+        "7/11",
+        "10/11",
+        "1/6"
+      ],
+      "calc": "Fraction(5,6)*Fraction(2,5)"
+    },
+    {
+      "id": "on_tap_phep_tinh_phan_so_020",
+      "lesson_id": "on_tap_phep_tinh_phan_so",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Bình có 8/9 lít sữa, đã uống 5/9 lít. Bình còn lại bao nhiêu lít sữa?",
+      "answer": "1/3",
+      "hint": "Lấy số sữa lúc đầu trừ đi số sữa đã uống.",
+      "explanation": "8/9 - 5/9 = (8 - 5)/9 = 3/9 = 1/3 lít sữa.",
+      "tags": [
+        "tru_phan_so",
+        "bai_toan_loi_van"
+      ],
+      "verified": false,
+      "calc": "Fraction(8,9)-Fraction(5,9)"
+    },
+    {
+      "answer": "54",
+      "calc": "24+6*5",
+      "difficulty": 2,
+      "explanation": "6 × 5 = 30, rồi 24 + 30 = 54. Nếu cộng trước sẽ ra 150, là sai.",
+      "hint": "Nhân trước, cộng sau.",
+      "id": "on_tap_phep_tinh_stn_006",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "options": [
+        "54",
+        "150",
+        "60",
+        "30"
+      ],
+      "prompt": "Tính giá trị của biểu thức 24 + 6 × 5.",
+      "tags": [
+        "thu_tu_thuc_hien"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "137",
+      "calc": "(25+75)+37",
+      "difficulty": 2,
+      "explanation": "Gộp 25 với 75 được 100 tròn trăm. 100 + 37 = 137.",
+      "hint": "Tìm hai số nào cộng lại được số tròn trăm.",
+      "id": "on_tap_phep_tinh_stn_007",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "prompt": "Tính bằng cách thuận tiện nhất: 25 + 37 + 75.",
+      "tags": [
+        "tinh_nhanh"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "1",
+      "calc": "157%6",
+      "difficulty": 2,
+      "explanation": "157 = 6 × 26 + 1. Số dư là 1, bé hơn số chia 6.",
+      "hint": "Tìm số lớn nhất bé hơn 157 mà chia hết cho 6.",
+      "id": "on_tap_phep_tinh_stn_008",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "0"
+      ],
+      "prompt": "Khi chia 157 cho 6, số dư của phép chia là bao nhiêu?",
+      "tags": [
+        "chia_co_du"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "735",
+      "calc": "245+245*2",
+      "difficulty": 2,
+      "explanation": "Buổi chiều bán được 245 × 2 = 490 kg. Cả ngày bán được 245 + 490 = 735 kg.",
+      "hint": "Buổi chiều bán gấp đôi buổi sáng, em tính buổi chiều trước rồi cộng cả hai buổi.",
+      "id": "on_tap_phep_tinh_stn_009",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "prompt": "Một cửa hàng buổi sáng bán được 245 kg gạo, buổi chiều bán được gấp đôi buổi sáng. Hỏi cả ngày cửa hàng bán được bao nhiêu ki-lô-gam gạo?",
+      "tags": [
+        "toan_loi_van",
+        "nhan_stn"
+      ],
+      "type": "fill_number",
+      "unit": "kg",
+      "verified": false
+    },
+    {
+      "answer": "320",
+      "calc": "8*(25+15)",
+      "difficulty": 2,
+      "explanation": "Mỗi túi có 25 + 15 = 40 quả. Cả rổ có 8 × 40 = 320 quả.",
+      "hint": "Tính số quả trong một túi trước, rồi nhân với 8 túi.",
+      "id": "on_tap_phep_tinh_stn_010",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "options": [
+        "320",
+        "200",
+        "215",
+        "400"
+      ],
+      "prompt": "Một rổ có 8 túi, mỗi túi đựng 25 quả cam và 15 quả táo. Hỏi rổ có tất cả bao nhiêu quả?",
+      "tags": [
+        "toan_loi_van",
+        "thu_tu_thuc_hien"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "500",
+      "calc": "(48+52)*5",
+      "difficulty": 2,
+      "explanation": "Cả ngày bán được 48 + 52 = 100 hộp. Số bút là 100 × 5 = 500 chiếc.",
+      "hint": "Gộp số hộp của hai buổi lại trước, hai số đó cộng lại được số tròn trăm.",
+      "id": "on_tap_phep_tinh_stn_016",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "options": [
+        "500",
+        "250",
+        "480",
+        "1 000"
+      ],
+      "prompt": "Một cửa hàng bán 48 hộp bút buổi sáng và 52 hộp bút buổi chiều, mỗi hộp có 5 chiếc bút. Hỏi cả ngày cửa hàng bán được bao nhiêu chiếc bút?",
+      "tags": [
+        "toan_loi_van",
+        "tinh_nhanh"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "28",
+      "calc": "100-12*6",
+      "difficulty": 2,
+      "explanation": "6 quyển vở hết 12 × 6 = 72 nghìn đồng. Bạn Nam còn lại 100 − 72 = 28 nghìn đồng.",
+      "hint": "Tính tiền mua 6 quyển vở trước, rồi lấy 100 nghìn đồng trừ đi.",
+      "id": "on_tap_phep_tinh_stn_017",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "prompt": "Bạn Nam có 100 nghìn đồng, mua 6 quyển vở, mỗi quyển giá 12 nghìn đồng. Hỏi bạn Nam còn lại bao nhiêu nghìn đồng?",
+      "tags": [
+        "toan_loi_van",
+        "thu_tu_thuc_hien"
+      ],
+      "type": "fill_number",
+      "unit": "nghìn đồng",
+      "verified": false
+    },
+    {
+      "answer": "360",
+      "calc": "24*15",
+      "difficulty": 2,
+      "explanation": "Số bánh là 24 × 15. 24 × 10 = 240, 24 × 5 = 120, 240 + 120 = 360 chiếc bánh.",
+      "hint": "Muốn biết 15 hộp có bao nhiêu chiếc bánh, em làm phép tính gì?",
+      "id": "on_tap_phep_tinh_stn_018",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "options": [
+        "360",
+        "300",
+        "340",
+        "420"
+      ],
+      "prompt": "Mỗi hộp có 24 chiếc bánh. Hỏi 15 hộp như thế có bao nhiêu chiếc bánh?",
+      "tags": [
+        "nhan_stn"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "76",
+      "calc": "684/9",
+      "difficulty": 2,
+      "explanation": "68 : 9 được 7, dư 5. 54 : 9 được 6. Mỗi bạn được 76 viên kẹo.",
+      "hint": "Chia đều nghĩa là làm phép chia, em chia từ trái sang phải.",
+      "id": "on_tap_phep_tinh_stn_019",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "prompt": "Cô giáo chia đều 684 viên kẹo cho 9 bạn. Mỗi bạn được bao nhiêu viên kẹo?",
+      "tags": [
+        "chia_stn"
+      ],
+      "type": "fill_number",
+      "unit": "viên",
+      "verified": false
+    },
+    {
+      "answer": "Sai",
+      "difficulty": 2,
+      "explanation": "Trong biểu thức có nhân và cộng, ta thực hiện phép nhân trước: 15 × 4 = 60, rồi mới cộng 6.",
+      "hint": "Nhớ lại thứ tự thực hiện phép tính: nhân chia trước, cộng trừ sau.",
+      "id": "on_tap_phep_tinh_stn_020",
+      "lesson_id": "on_tap_phep_tinh_stn",
+      "prompt": "Trong biểu thức 15 × 4 + 6, ta thực hiện phép cộng trước rồi mới nhân.",
+      "tags": [
+        "thu_tu_thuc_hien"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "answer": "48 000",
+      "calc": "48000",
+      "difficulty": 2,
+      "explanation": "Chữ số sau hàng nghìn là 8, từ 5 trở lên nên tăng hàng nghìn lên 1. Vậy 47 836 làm tròn thành 48 000.",
+      "hint": "Nhìn chữ số ngay sau hàng nghìn, đó là chữ số hàng trăm.",
+      "id": "on_tap_so_tu_nhien_006",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "options": [
+        "48 000",
+        "47 000",
+        "47 800",
+        "47 836"
+      ],
+      "prompt": "Làm tròn số 47 836 đến hàng nghìn được số nào?",
+      "tags": [
+        "lam_tron"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "98 765",
+      "calc": "98765",
+      "difficulty": 2,
+      "explanation": "Hàng chục nghìn chọn 9, rồi lần lượt chọn 8, 7, 6, 5 cho các hàng sau. Được số 98 765.",
+      "hint": "Chọn chữ số lớn nhất cho hàng lớn nhất, mỗi chữ số chỉ dùng một lần.",
+      "id": "on_tap_so_tu_nhien_007",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "prompt": "Số lớn nhất có 5 chữ số khác nhau là bao nhiêu?",
+      "tags": [
+        "viet_so"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "5 648",
+      "calc": "5648",
+      "difficulty": 2,
+      "explanation": "5 648 có chữ số hàng chục là 4, dưới 5 nên làm tròn xuống 5 600. Các số còn lại làm tròn thành 5 500 hoặc 5 700.",
+      "hint": "Làm tròn đến hàng trăm thì nhìn chữ số hàng chục của mỗi số.",
+      "id": "on_tap_so_tu_nhien_008",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "options": [
+        "5 648",
+        "5 652",
+        "5 549",
+        "5 671"
+      ],
+      "prompt": "Số nào khi làm tròn đến hàng trăm được 5 600?",
+      "tags": [
+        "lam_tron"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "47 329",
+      "calc": "40000+7000+300+20+9",
+      "difficulty": 2,
+      "explanation": "40 000 + 7 000 = 47 000, cộng 300 được 47 300, cộng 20 được 47 320, cộng 9 được 47 329.",
+      "hint": "Cộng lần lượt các giá trị theo hàng, từ hàng lớn đến hàng bé.",
+      "id": "on_tap_so_tu_nhien_009",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "prompt": "Số gồm 4 chục nghìn, 7 nghìn, 3 trăm, 2 chục và 9 đơn vị viết thành tổng là 40 000 + 7 000 + 300 + 20 + 9. Kết quả của tổng đó là bao nhiêu?",
+      "tags": [
+        "tong_theo_hang"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "34 576",
+      "calc": "34576",
+      "difficulty": 2,
+      "explanation": "Hàng trăm của 34 657 là 6 nên số này lớn nhất. So hàng chục: 34 567 bé hơn 34 576. Vậy số ở giữa là 34 576.",
+      "hint": "So sánh từng chữ số từ trái sang phải, bắt đầu từ hàng nghìn.",
+      "id": "on_tap_so_tu_nhien_010",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "options": [
+        "34 567",
+        "34 576",
+        "34 657",
+        "34 765"
+      ],
+      "prompt": "Ba số 34 567, 34 576 và 34 657 được xếp theo thứ tự tăng dần. Số ở giữa là số nào?",
+      "tags": [
+        "so_sanh"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "50 208",
+      "calc": "50000+200+8",
+      "difficulty": 2,
+      "explanation": "5 chục nghìn là 50 000, 2 trăm là 200, 8 đơn vị là 8. Ghép lại được 50 208.",
+      "hint": "Viết số 0 vào đúng hàng nghìn và hàng chục, đừng bỏ qua.",
+      "id": "on_tap_so_tu_nhien_016",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "options": [
+        "50 208",
+        "52 008",
+        "50 280",
+        "52 080"
+      ],
+      "prompt": "Số gồm 5 chục nghìn, 0 nghìn, 2 trăm, 0 chục và 8 đơn vị là số nào?",
+      "tags": [
+        "viet_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "7 380",
+      "calc": "7380",
+      "difficulty": 2,
+      "explanation": "Số tròn chục gần 7 385 nhất mà bé hơn nó là 7 380, vì 7 390 đã lớn hơn 7 385.",
+      "hint": "Số tròn chục có chữ số hàng đơn vị là 0, hãy tìm số gần 7 385 nhất mà bé hơn nó.",
+      "id": "on_tap_so_tu_nhien_017",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "prompt": "Số tròn chục lớn nhất nhỏ hơn 7 385 là bao nhiêu?",
+      "tags": [
+        "so_sanh"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "62 000",
+      "calc": "62000",
+      "difficulty": 2,
+      "explanation": "Chữ số sau hàng nghìn là 4, dưới 5 nên giữ nguyên hàng nghìn. Vậy 62 475 làm tròn thành 62 000.",
+      "hint": "Làm tròn đến hàng nghìn thì nhìn chữ số hàng trăm.",
+      "id": "on_tap_so_tu_nhien_018",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "options": [
+        "62 000",
+        "63 000",
+        "62 500",
+        "62 400"
+      ],
+      "prompt": "Bác nông dân thu hoạch 62 475 kg lúa. Làm tròn số ki-lô-gam lúa đến hàng nghìn được bao nhiêu?",
+      "tags": [
+        "lam_tron"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "10 000",
+      "calc": "9999+1",
+      "difficulty": 2,
+      "explanation": "Số lớn nhất có bốn chữ số là 9 999. Số liền sau là 9 999 + 1 = 10 000.",
+      "hint": "Số lớn nhất có bốn chữ số là số nào? Số liền sau lớn hơn nó 1 đơn vị.",
+      "id": "on_tap_so_tu_nhien_019",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "prompt": "Viết số liền sau của số lớn nhất có bốn chữ số.",
+      "tags": [
+        "viet_so"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "Đúng",
+      "difficulty": 2,
+      "explanation": "Chữ số sau hàng chục nghìn là 5, từ 5 trở lên nên tăng hàng chục nghìn lên 1. Vậy 45 678 làm tròn thành 50 000.",
+      "hint": "Làm tròn đến hàng chục nghìn thì nhìn chữ số hàng nghìn.",
+      "id": "on_tap_so_tu_nhien_020",
+      "lesson_id": "on_tap_so_tu_nhien",
+      "prompt": "Số 45 678 làm tròn đến hàng chục nghìn được 50 000.",
+      "tags": [
+        "lam_tron"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_004",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Phân số 1/2 bằng phân số thập phân nào có mẫu số 10?",
+      "answer": "5/10",
+      "hint": "Nhân cả tử số và mẫu số của 1/2 với 5.",
+      "explanation": "Nhân cả tử số và mẫu số của 1/2 với 5: 1 × 5 = 5, 2 × 5 = 10. Vậy 1/2 = 5/10.",
+      "tags": [
+        "doi_phan_so_thap_phan"
+      ],
+      "calc": "Fraction(1,2)*Fraction(5,5)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_005",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Đổi phân số 7/20 thành phân số thập phân.",
+      "options": [
+        "35/100",
+        "7/100",
+        "14/100",
+        "70/100"
+      ],
+      "answer": "35/100",
+      "hint": "Nhân cả tử số và mẫu số với 5 để mẫu số thành 100.",
+      "explanation": "Nhân cả tử số và mẫu số của 7/20 với 5: 7 × 5 = 35, 20 × 5 = 100. Vậy 7/20 = 35/100.",
+      "tags": [
+        "doi_phan_so_thap_phan"
+      ],
+      "calc": "Fraction(7,20)*Fraction(5,5)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_006",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Muốn có mẫu số 100, ta nhân cả tử số và mẫu số của phân số 3/4 với 25. Phân số thập phân thu được là phân số nào?",
+      "answer": "75/100",
+      "hint": "Nhân cả tử số và mẫu số với 25 để mẫu số thành 100.",
+      "explanation": "Nhân cả tử số và mẫu số của 3/4 với 25: 3 × 25 = 75, 4 × 25 = 100. Vậy 3/4 = 75/100.",
+      "tags": [
+        "doi_phan_so_thap_phan"
+      ],
+      "calc": "Fraction(3,4)*Fraction(25,25)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_008",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Một tấm vải dài 1 m, bạn Lan cắt 4/5 m để may áo. Viết phần vải đã cắt dưới dạng phân số thập phân.",
+      "answer": "8/10",
+      "hint": "Nhân cả tử số và mẫu số của 4/5 với 2.",
+      "explanation": "Nhân cả tử số và mẫu số của 4/5 với 2: 4 × 2 = 8, 5 × 2 = 10. Vậy phần vải đã cắt là 8/10 m.",
+      "tags": [
+        "doi_phan_so_thap_phan"
+      ],
+      "calc": "Fraction(4,5)*Fraction(2,2)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_009",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Phân số nào dưới đây KHÔNG đổi được thành phân số thập phân?",
+      "options": [
+        "1/3",
+        "1/2",
+        "3/5",
+        "7/20"
+      ],
+      "answer": "1/3",
+      "hint": "Mẫu số nào nhân với một số cũng không thành 10, 100 hay 1 000?",
+      "explanation": "1/2 = 5/10, 3/5 = 6/10, 7/20 = 35/100. Riêng 1/3 không đổi được vì 3 nhân với số nào cũng không thành 10, 100 hay 1 000.",
+      "tags": [
+        "doi_phan_so_thap_phan"
+      ],
+      "calc": "Fraction(1,3)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_014",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Muốn viết phân số 9/25 dưới dạng phân số thập phân, ta nhân cả tử số và mẫu số với 4. Kết quả là phân số nào?",
+      "answer": "36/100",
+      "hint": "Nhân tử số 9 với 4 và mẫu số 25 với 4.",
+      "explanation": "9 × 4 = 36 và 25 × 4 = 100. Vậy 9/25 = 36/100, đây là phân số thập phân.",
+      "tags": [
+        "doi_phan_so_thap_phan"
+      ],
+      "calc": "Fraction(9,25)*Fraction(4,4)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_015",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Một phân số bằng 11/50 và có mẫu số 100 là phân số nào?",
+      "options": [
+        "22/100",
+        "11/100",
+        "55/100",
+        "44/100"
+      ],
+      "answer": "22/100",
+      "hint": "Nhân cả tử số và mẫu số của 11/50 với 2.",
+      "explanation": "Nhân cả tử số và mẫu số của 11/50 với 2: 11 × 2 = 22, 50 × 2 = 100. Vậy phân số cần tìm là 22/100.",
+      "tags": [
+        "doi_phan_so_thap_phan"
+      ],
+      "calc": "Fraction(11,50)*Fraction(2,2)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_017",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Một chai nước chứa 3/4 lít nước. Viết lượng nước trong chai dưới dạng phân số thập phân có mẫu số 100.",
+      "answer": "75/100",
+      "hint": "Nhân cả tử số và mẫu số của 3/4 với 25.",
+      "explanation": "Nhân cả tử số và mẫu số của 3/4 với 25: 3 × 25 = 75, 4 × 25 = 100. Vậy lượng nước là 75/100 lít.",
+      "tags": [
+        "doi_phan_so_thap_phan"
+      ],
+      "calc": "Fraction(3,4)*Fraction(25,25)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_019",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Bạn Mai có 13/20 kg gạo. Viết số gạo đó dưới dạng phân số thập phân có mẫu số 100.",
+      "options": [
+        "65/100",
+        "13/100",
+        "26/100",
+        "65/10"
+      ],
+      "answer": "65/100",
+      "hint": "Nhân cả tử số và mẫu số của 13/20 với 5.",
+      "explanation": "Nhân cả tử số và mẫu số của 13/20 với 5: 13 × 5 = 65, 20 × 5 = 100. Vậy số gạo là 65/100 kg.",
+      "tags": [
+        "doi_phan_so_thap_phan"
+      ],
+      "calc": "Fraction(13,20)*Fraction(5,5)",
+      "verified": false
+    },
+    {
+      "id": "phan_so_thap_phan_020",
+      "lesson_id": "phan_so_thap_phan",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "Viết phân số 3/8 dưới dạng phân số thập phân, ta được 375/100. Câu nói này đúng hay sai?",
+      "answer": "Sai",
+      "hint": "3/8 nhân cả tử số và mẫu số với 125 thì mẫu số thành bao nhiêu?",
+      "explanation": "Nhân cả tử số và mẫu số của 3/8 với 125: 3 × 125 = 375, 8 × 125 = 1 000. Vậy 3/8 = 375/1000, không phải 375/100. Câu nói trên là sai.",
+      "tags": [
+        "doi_phan_so_thap_phan"
+      ],
+      "verified": false
+    }
+  ]
+}

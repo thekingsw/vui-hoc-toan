@@ -1,0 +1,1949 @@
+{
+  "island_id": "so_thap_phan",
+  "title": "Đảo Số Thập Phân",
+  "order": 2,
+  "lessons": [
+    {
+      "lesson_id": "khai_niem_so_thap_phan",
+      "kind": "lesson",
+      "title": "Khái niệm số thập phân",
+      "cards": [
+        {
+          "heading": "Số thập phân là gì",
+          "body": "Số thập phân gồm phần nguyên, dấu phẩy và phần thập phân. Ví dụ 12,34 có phần nguyên là 12, phần thập phân là 34.",
+          "example": "Số 0,5 gồm phần nguyên là 0, dấu phẩy, phần thập phân là 5. Ta đọc 0,5 là 'không phẩy năm'."
+        },
+        {
+          "heading": "Đọc và viết số thập phân",
+          "body": "Đọc phần nguyên, đọc 'phẩy', rồi đọc phần thập phân. Viết thì làm ngược lại, nhớ đặt dấu phẩy đúng chỗ.",
+          "example": "Viết 'bảy phẩy không chín' được 7,09. Đọc 0,09 là 'không phẩy không chín'."
+        },
+        {
+          "heading": "Hàng của số thập phân",
+          "body": "Chữ số đầu sau dấu phẩy là hàng phần mười, tiếp theo là hàng phần trăm, rồi đến hàng phần nghìn.",
+          "example": "Trong số 4,356: chữ số 3 ở hàng phần mười, 5 ở hàng phần trăm, 6 ở hàng phần nghìn."
+        },
+        {
+          "heading": "Phân số thập phân và số thập phân",
+          "body": "Phân số thập phân có mẫu số là 10, 100 hoặc 1000. Viết tử số rồi đặt dấu phẩy cho đúng hàng.",
+          "example": "7/10 = 0,7 vì 7 ở hàng phần mười. Ngược lại, 0,7 = 7/10."
+        },
+        {
+          "heading": "Lỗi hay gặp",
+          "body": "Đừng đọc 0,05 thành 'không phẩy năm'. Đừng quên chữ số 0 ở hàng trống, ví dụ 7/100 = 0,07 chứ không phải 0,7.",
+          "example": "0,05 đọc là 'không phẩy không năm'. Viết 9 phần trăm phải là 0,09, không phải 0,9."
+        }
+      ]
+    },
+    {
+      "lesson_id": "so_sanh_so_thap_phan",
+      "kind": "lesson",
+      "title": "So sánh số thập phân",
+      "cards": [
+        {
+          "heading": "Cách so sánh số thập phân",
+          "body": "So sánh phần nguyên trước. Nếu phần nguyên bằng nhau thì so sánh từng hàng ở phần thập phân, từ hàng phần mười trở đi.",
+          "example": "So sánh 3,45 và 3,5: phần nguyên đều là 3. Hàng phần mười: 4 < 5 nên 3,45 < 3,5."
+        },
+        {
+          "heading": "Phần nguyên khác nhau",
+          "body": "Số nào có phần nguyên lớn hơn thì số đó lớn hơn, không cần nhìn phần thập phân.",
+          "example": "9,99 < 12,3 vì phần nguyên 9 < 12, dù phần thập phân 99 lớn hơn 3."
+        },
+        {
+          "heading": "Phần nguyên bằng nhau",
+          "body": "So sánh hàng phần mười trước, nếu bằng nhau thì so hàng phần trăm, rồi đến hàng phần nghìn.",
+          "example": "So sánh 2,34 và 2,38: hàng phần mười bằng nhau, hàng phần trăm 4 < 8 nên 2,34 < 2,38."
+        },
+        {
+          "heading": "Số thập phân bằng nhau",
+          "body": "Thêm hoặc bớt chữ số 0 ở cuối phần thập phân thì số không đổi.",
+          "example": "3,5 = 3,50 = 3,500 vì thêm chữ số 0 vào cuối phần thập phân."
+        },
+        {
+          "heading": "Lỗi hay gặp",
+          "body": "Đừng chỉ nhìn phần thập phân mà quên phần nguyên. Đừng tưởng số có nhiều chữ số thập phân hơn thì lớn hơn.",
+          "example": "3,456 < 3,5 vì hàng phần mười 4 < 5, dù 3,456 có nhiều chữ số hơn."
+        }
+      ]
+    },
+    {
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "kind": "lesson",
+      "title": "Viết số đo dưới dạng số thập phân",
+      "cards": [
+        {
+          "heading": "Đổi đơn vị đo độ dài",
+          "body": "Muốn đổi từ đơn vị bé sang đơn vị lớn, ta chia cho 10, 100 hoặc 1 000. Nhớ: 1 m = 10 dm = 100 cm = 1 000 mm.",
+          "example": "3 m 5 dm = 3,5 m. Cách làm: 5 dm = 0,5 m, rồi cộng 3 m + 0,5 m = 3,5 m."
+        },
+        {
+          "heading": "Đổi đơn vị đo khối lượng",
+          "body": "1 tấn = 10 tạ = 1 000 kg, 1 kg = 1 000 g. Đổi từ đơn vị bé sang đơn vị lớn, ta chia cho 10 hoặc 1 000.",
+          "example": "2 kg 250 g = 2,25 kg. Cách làm: 250 g = 0,25 kg, rồi cộng 2 kg + 0,25 kg = 2,25 kg."
+        },
+        {
+          "heading": "Đổi một số đo đơn",
+          "body": "Khi chỉ có một số đo, ta chia cho 10, 100 hoặc 1 000 tùy theo hai đơn vị cách nhau mấy bậc.",
+          "example": "45 cm = 0,45 m. Cách làm: 1 m = 100 cm, nên 45 : 100 = 0,45. Vậy 45 cm = 0,45 m."
+        },
+        {
+          "heading": "Lỗi hay gặp",
+          "body": "Hay nhầm số chữ số thập phân: 5 dm = 0,5 m chứ không phải 0,05 m. Hãy đếm bậc giữa hai đơn vị trước khi viết dấu phẩy.",
+          "example": "5 dm = 0,5 m (đúng), 0,05 m (sai). Vì 1 m = 10 dm nên 5 dm = 5 : 10 = 0,5 m."
+        },
+        {
+          "heading": "Đổi đơn vị đo diện tích",
+          "body": "1 m² = 100 dm² = 10 000 cm². Đổi từ đơn vị bé sang đơn vị lớn, ta chia cho 100 hoặc 10 000.",
+          "example": "8 m² 40 dm² = 8,4 m². Cách làm: 40 dm² = 0,4 m², rồi cộng 8 m² + 0,4 m² = 8,4 m²."
+        }
+      ]
+    },
+    {
+      "lesson_id": "lam_tron_so_thap_phan",
+      "kind": "lesson",
+      "title": "Làm tròn số thập phân",
+      "cards": [
+        {
+          "heading": "Làm tròn đến hàng phần mười",
+          "body": "Nhìn chữ số ở hàng phần trăm. Nếu chữ số đó nhỏ hơn 5 thì giữ nguyên, nếu từ 5 trở lên thì cộng thêm 1 vào hàng phần mười.",
+          "example": "3,47 làm tròn đến hàng phần mười được 3,5. Vì chữ số hàng phần trăm là 7, lớn hơn 5, nên 4 tăng thành 5."
+        },
+        {
+          "heading": "Làm tròn đến hàng phần trăm",
+          "body": "Nhìn chữ số ở hàng phần nghìn. Nếu chữ số đó nhỏ hơn 5 thì giữ nguyên, nếu từ 5 trở lên thì cộng thêm 1 vào hàng phần trăm.",
+          "example": "7,846 làm tròn đến hàng phần trăm được 7,85. Vì chữ số hàng phần nghìn là 6, lớn hơn 5, nên 4 tăng thành 5."
+        },
+        {
+          "heading": "Làm tròn đến số tự nhiên gần nhất",
+          "body": "Nhìn chữ số ở hàng phần mười. Nếu chữ số đó nhỏ hơn 5 thì giữ nguyên phần nguyên, nếu từ 5 trở lên thì cộng thêm 1.",
+          "example": "5,62 làm tròn đến số tự nhiên gần nhất được 6. Vì chữ số hàng phần mười là 6, lớn hơn 5, nên 5 tăng thành 6."
+        },
+        {
+          "heading": "Lỗi hay gặp",
+          "body": "Hay làm tròn nhầm hàng, hoặc quên quy tắc chữ số 5 thì làm tròn lên. Hãy gạch chân hàng cần làm tròn rồi mới nhìn chữ số ngay sau nó.",
+          "example": "3,46 làm tròn đến hàng phần mười được 3,5 (đúng), 3,4 (sai). Vì chữ số sau hàng phần mười là 6, lớn hơn 5, nên 4 tăng thành 5."
+        },
+        {
+          "heading": "Quy tắc chữ số 5",
+          "body": "Chữ số ngay sau hàng làm tròn quyết định tất cả: nhỏ hơn 5 thì giữ nguyên, từ 5 trở lên thì cộng thêm 1. Sau khi làm tròn, ta bỏ các chữ số phía sau.",
+          "example": "2,34 làm tròn đến hàng phần mười được 2,3. Vì chữ số hàng phần trăm là 4, nhỏ hơn 5, nên giữ nguyên 3."
+        }
+      ]
+    },
+    {
+      "lesson_id": "boss_chu_de_2",
+      "kind": "boss",
+      "title": "Thử thách Đảo Số Thập Phân"
+    }
+  ],
+  "questions": [
+    {
+      "answer": "8,04",
+      "calc": "Decimal('8.04')",
+      "difficulty": 1,
+      "explanation": "Phần nguyên là 8, phần thập phân là 04 nên số đó viết là 8,04.",
+      "hint": "Phần thập phân 04 có hai chữ số, chữ số 0 đứng ở hàng phần mười.",
+      "id": "boss_chu_de_2_001",
+      "lesson_id": "boss_chu_de_2",
+      "options": [
+        "8,04",
+        "8,4",
+        "80,4",
+        "0,84"
+      ],
+      "prompt": "Số thập phân có phần nguyên là 8, phần thập phân là 04. Số đó là số nào?",
+      "tags": [
+        "khai_niem_so_thap_phan",
+        "cau_tao_so_thap_phan"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "Linh",
+      "difficulty": 1,
+      "explanation": "Phần nguyên đều là 2. Hàng phần mười của 2,08 là 0, của 2,8 là 8, mà 0 nhỏ hơn 8 nên 2,08 nhỏ hơn 2,8. Vậy Linh nhảy xa hơn.",
+      "hint": "So phần nguyên trước, rồi so hàng phần mười: 0 và 8, số nào lớn hơn?",
+      "id": "boss_chu_de_2_002",
+      "lesson_id": "boss_chu_de_2",
+      "options": [
+        "Hà",
+        "Linh",
+        "Hai bạn bằng nhau",
+        "Không so sánh được"
+      ],
+      "prompt": "Hà nhảy xa 2,08 m, Linh nhảy xa 2,8 m. Bạn nào nhảy xa hơn?",
+      "tags": [
+        "so_sanh_so_thap_phan",
+        "so_sanh"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "8,3",
+      "calc": "Fraction(83, 10)",
+      "difficulty": 1,
+      "explanation": "3 dm bằng 0,3 m nên 8 m 3 dm bằng 8,3 m.",
+      "hint": "1 dm bằng 0,1 m nên 3 dm bằng 0,3 m.",
+      "id": "boss_chu_de_2_003",
+      "lesson_id": "boss_chu_de_2",
+      "prompt": "Một cây cầu dài 8 m 3 dm. Viết độ dài cây cầu theo mét, ta được ... m",
+      "tags": [
+        "viet_so_do_dang_thap_phan",
+        "doi_don_vi_do_dai"
+      ],
+      "type": "fill_number",
+      "unit": "m",
+      "verified": false
+    },
+    {
+      "answer": "9,6",
+      "calc": "round(Decimal('9.62'), 1)",
+      "difficulty": 1,
+      "explanation": "Chữ số ở hàng phần trăm là 2, bé hơn 5 nên giữ nguyên 6 ở hàng phần mười. Vậy 9,62 làm tròn thành 9,6.",
+      "hint": "Nhìn chữ số ở hàng phần trăm: 2 bé hơn 5 nên giữ nguyên chữ số ở hàng phần mười.",
+      "id": "boss_chu_de_2_004",
+      "lesson_id": "boss_chu_de_2",
+      "prompt": "Làm tròn số 9,62 đến hàng phần mười, ta được ...",
+      "tags": [
+        "lam_tron_so_thap_phan",
+        "lam_tron_phan_muoi"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "6/100",
+      "calc": "Fraction(6, 100)",
+      "difficulty": 1,
+      "explanation": "0,06 có hai chữ số ở phần thập phân nên viết thành phân số thập phân 6/100.",
+      "hint": "0,06 có hai chữ số ở phần thập phân nên mẫu số của phân số thập phân là 100.",
+      "id": "boss_chu_de_2_011",
+      "lesson_id": "boss_chu_de_2",
+      "options": [
+        "6/10",
+        "6/100",
+        "6/1000",
+        "60/10"
+      ],
+      "prompt": "Phân số thập phân nào bằng số thập phân 0,06?",
+      "tags": [
+        "khai_niem_so_thap_phan",
+        "so_thap_phan_phan_so"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "2,75",
+      "calc": "Decimal('2.75')",
+      "difficulty": 1,
+      "explanation": "750 m bằng 0,75 km nên 2 km 750 m bằng 2,75 km.",
+      "hint": "750 m bằng 0,75 km vì 1 km bằng 1 000 m.",
+      "id": "boss_chu_de_2_012",
+      "lesson_id": "boss_chu_de_2",
+      "options": [
+        "2,75",
+        "2,075",
+        "27,5",
+        "275"
+      ],
+      "prompt": "Một tấm vải dài 2 km 750 m. Viết độ dài tấm vải theo ki-lô-mét, ta được bao nhiêu ki-lô-mét?",
+      "tags": [
+        "viet_so_do_dang_thap_phan",
+        "doi_don_vi_do_dai"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "7,04",
+      "calc": "Decimal('7.04')",
+      "difficulty": 1,
+      "explanation": "Phần nguyên đều là 7. Hàng phần mười là 4, 0, 4, 1 nên bé nhất là 0, số nhỏ nhất là 7,04.",
+      "hint": "So phần nguyên trước, rồi so hàng phần mười: số nào có hàng phần mười bé nhất?",
+      "id": "boss_chu_de_2_013",
+      "lesson_id": "boss_chu_de_2",
+      "prompt": "Nhìn bốn số 7,4; 7,04; 7,44; 7,14, em hãy tìm số bé nhất.",
+      "tags": [
+        "so_sanh_so_thap_phan",
+        "so_sanh"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "8,49",
+      "calc": "round(Decimal('8.491'), 2)",
+      "difficulty": 1,
+      "explanation": "Chữ số ở hàng phần nghìn là 1, bé hơn 5 nên giữ nguyên 9 ở hàng phần trăm. Vậy 8,491 làm tròn thành 8,49.",
+      "hint": "Nhìn chữ số ở hàng phần nghìn: 1 bé hơn 5 nên giữ nguyên chữ số ở hàng phần trăm.",
+      "id": "boss_chu_de_2_017",
+      "lesson_id": "boss_chu_de_2",
+      "prompt": "Số 8,491 làm tròn đến hàng phần trăm là ...",
+      "tags": [
+        "lam_tron_so_thap_phan",
+        "lam_tron_phan_tram"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_001",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Số 0,5 đọc là gì?",
+      "options": [
+        "Không phẩy năm",
+        "Không phẩy không năm",
+        "Năm phẩy không",
+        "Không phẩy mười lăm"
+      ],
+      "answer": "Không phẩy năm",
+      "hint": "Nhìn phần nguyên trước, rồi đọc dấu phẩy và phần thập phân.",
+      "explanation": "0,5 có phần nguyên là 0, phần thập phân là 5 nên đọc là 'không phẩy năm'.",
+      "tags": [
+        "doc_so_thap_phan"
+      ],
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_002",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Trong số 12,34, phần nguyên là số nào?",
+      "options": [
+        "12",
+        "34",
+        "1 234",
+        "0"
+      ],
+      "answer": "12",
+      "hint": "Phần nguyên là phần đứng trước dấu phẩy.",
+      "explanation": "Phần đứng trước dấu phẩy là 12, vậy phần nguyên của 12,34 là 12.",
+      "tags": [
+        "phan_nguyen"
+      ],
+      "calc": "Decimal('12')",
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_003",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Viết số thập phân đọc là 'không phẩy bảy'.",
+      "answer": "0,7",
+      "hint": "Phần nguyên là 0, sau dấu phẩy viết chữ số 7.",
+      "explanation": "Phần nguyên là 0, phần thập phân là 7 nên số đó là 0,7.",
+      "tags": [
+        "viet_so_thap_phan"
+      ],
+      "calc": "Decimal('0.7')",
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_004",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Viết phân số 3/10 dưới dạng số thập phân.",
+      "answer": "0,3",
+      "hint": "Mẫu số 10 có một chữ số 0 nên phần thập phân có một chữ số.",
+      "explanation": "3/10 có mẫu số 10 nên viết thành 0,3, chữ số 3 ở hàng phần mười.",
+      "tags": [
+        "phan_so_thap_phan"
+      ],
+      "calc": "Fraction(3,10)",
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_005",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Chữ số 5 trong số 2,35 thuộc hàng nào?",
+      "options": [
+        "Phần mười",
+        "Phần trăm",
+        "Phần nghìn",
+        "Phần nguyên"
+      ],
+      "answer": "Phần trăm",
+      "hint": "Đếm từ dấu phẩy sang phải: chữ số thứ nhất là phần mười, thứ hai là phần trăm.",
+      "explanation": "Sau dấu phẩy, chữ số 3 ở hàng phần mười, chữ số 5 ở hàng phần trăm.",
+      "tags": [
+        "hang_so_thap_phan"
+      ],
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_011",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Số thập phân 2,7 viết thành phân số thập phân nào?",
+      "options": [
+        "27/10",
+        "7/10",
+        "2/10",
+        "27/100"
+      ],
+      "answer": "27/10",
+      "hint": "Phần thập phân có một chữ số nên mẫu số là 10.",
+      "explanation": "2,7 có phần nguyên 2 và 7 phần mười, tức là 27 phần mười, bằng 27/10.",
+      "tags": [
+        "so_thap_phan_phan_so"
+      ],
+      "calc": "Fraction(27,10)",
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_012",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Viết số thập phân đọc là 'bảy phẩy không năm'.",
+      "answer": "7,05",
+      "hint": "Sau dấu phẩy, chữ số 0 ở hàng phần mười không được bỏ.",
+      "explanation": "Phần nguyên là 7, phần thập phân là 05 nên số đó là 7,05.",
+      "tags": [
+        "viet_so_thap_phan"
+      ],
+      "calc": "Decimal('7.05')",
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_013",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Cô giáo viết số 0,09 lên bảng. Cách đọc đúng của số này là gì?",
+      "options": [
+        "Không phẩy không chín",
+        "Không phẩy chín",
+        "Không phẩy chín mươi",
+        "Chín phẩy không"
+      ],
+      "answer": "Không phẩy không chín",
+      "hint": "Đọc từng chữ số ở phần thập phân, đừng bỏ chữ số 0.",
+      "explanation": "0,09 có phần nguyên là 0, phần thập phân là 09 nên đọc là 'không phẩy không chín'.",
+      "tags": [
+        "doc_so_thap_phan"
+      ],
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_014",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Đổi 8/100 ra số thập phân.",
+      "answer": "0,08",
+      "hint": "Mẫu số 100 có hai chữ số 0 nên phần thập phân có hai chữ số.",
+      "explanation": "8/100 có mẫu số 100 nên viết thành 0,08, chữ số 8 ở hàng phần trăm.",
+      "tags": [
+        "phan_so_thap_phan"
+      ],
+      "calc": "Fraction(8,100)",
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_015",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Số nào có chữ số 4 ở hàng phần mười?",
+      "options": [
+        "1,42",
+        "2,14",
+        "4,12",
+        "0,24"
+      ],
+      "answer": "1,42",
+      "hint": "Chữ số ở hàng phần mười là chữ số đầu tiên sau dấu phẩy.",
+      "explanation": "Trong 1,42, chữ số đầu sau dấu phẩy là 4 nên 4 ở hàng phần mười.",
+      "tags": [
+        "hang_so_thap_phan"
+      ],
+      "calc": "Decimal('1.42')",
+      "verified": false
+    },
+    {
+      "id": "lam_tron_so_thap_phan_001",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Số 3,47 làm tròn đến hàng phần mười bằng bao nhiêu?",
+      "answer": "3,5",
+      "hint": "Nhìn chữ số ở hàng phần trăm: 7 lớn hơn 5 nên hàng phần mười tăng thêm 1.",
+      "explanation": "Chữ số sau hàng phần mười là 7, lớn hơn 5, nên 4 tăng thành 5. Vậy 3,47 làm tròn thành 3,5.",
+      "tags": [
+        "lam_tron_phan_muoi"
+      ],
+      "verified": false,
+      "options": [
+        "3,5",
+        "3,4",
+        "3,47",
+        "3,6"
+      ],
+      "calc": "round(Decimal('3.47'),1)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_002",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Điền số thích hợp vào chỗ chấm: 2,34 làm tròn đến hàng phần mười là ...",
+      "answer": "2,3",
+      "hint": "Nhìn chữ số ở hàng phần trăm: 4 nhỏ hơn 5 nên giữ nguyên hàng phần mười.",
+      "explanation": "Chữ số sau hàng phần mười là 4, nhỏ hơn 5, nên giữ nguyên 3. Vậy 2,34 làm tròn thành 2,3.",
+      "tags": [
+        "lam_tron_phan_muoi"
+      ],
+      "verified": false,
+      "calc": "round(Decimal('2.34'),1)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_003",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Bạn Lan làm tròn số 5,62 đến số tự nhiên gần nhất. Kết quả của Lan là bao nhiêu?",
+      "answer": "6",
+      "hint": "Nhìn chữ số ở hàng phần mười: 6 lớn hơn 5 nên phần nguyên tăng thêm 1.",
+      "explanation": "Chữ số ở hàng phần mười là 6, lớn hơn 5, nên 5 tăng thành 6. Vậy 5,62 làm tròn thành 6.",
+      "tags": [
+        "lam_tron_so_tu_nhien"
+      ],
+      "verified": false,
+      "options": [
+        "6",
+        "5",
+        "5,6",
+        "7"
+      ],
+      "calc": "round(Decimal('5.62'),0)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_004",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Số 7,846 sau khi làm tròn đến hàng phần trăm thì bằng bao nhiêu?",
+      "answer": "7,85",
+      "hint": "Nhìn chữ số ở hàng phần nghìn: 6 lớn hơn 5 nên hàng phần trăm tăng thêm 1.",
+      "explanation": "Chữ số sau hàng phần trăm là 6, lớn hơn 5, nên 4 tăng thành 5. Vậy 7,846 làm tròn thành 7,85.",
+      "tags": [
+        "lam_tron_phan_tram"
+      ],
+      "verified": false,
+      "calc": "round(Decimal('7.846'),2)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_005",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Trong các số dưới đây, số nào là kết quả làm tròn 4,27 đến hàng phần mười?",
+      "answer": "4,3",
+      "hint": "Nhìn chữ số ở hàng phần trăm: 7 lớn hơn 5 nên hàng phần mười tăng thêm 1.",
+      "explanation": "Chữ số sau hàng phần mười là 7, lớn hơn 5, nên 2 tăng thành 3. Vậy 4,27 làm tròn thành 4,3.",
+      "tags": [
+        "lam_tron_phan_muoi"
+      ],
+      "verified": false,
+      "options": [
+        "4,3",
+        "4,2",
+        "4,27",
+        "4,4"
+      ],
+      "calc": "round(Decimal('4.27'),1)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_011",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Kết quả làm tròn số 1,82 đến hàng phần mười là số nào?",
+      "answer": "1,8",
+      "hint": "Nhìn chữ số ở hàng phần trăm: 2 nhỏ hơn 5 nên giữ nguyên hàng phần mười.",
+      "explanation": "Chữ số sau hàng phần mười là 2, nhỏ hơn 5, nên giữ nguyên 8. Vậy 1,82 làm tròn thành 1,8.",
+      "tags": [
+        "lam_tron_phan_muoi"
+      ],
+      "verified": false,
+      "options": [
+        "1,8",
+        "1,9",
+        "1,82",
+        "2"
+      ],
+      "calc": "round(Decimal('1.82'),1)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_012",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Một sợi dây dài 6,31 m. Làm tròn độ dài sợi dây đến số tự nhiên gần nhất, ta được bao nhiêu mét?",
+      "answer": "6",
+      "hint": "Nhìn chữ số ở hàng phần mười: 3 nhỏ hơn 5 nên giữ nguyên phần nguyên.",
+      "explanation": "Chữ số ở hàng phần mười là 3, nhỏ hơn 5, nên giữ nguyên 6. Vậy 6,31 m làm tròn thành 6 m.",
+      "tags": [
+        "lam_tron_so_tu_nhien"
+      ],
+      "verified": false,
+      "unit": "m",
+      "calc": "round(Decimal('6.31'),0)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_013",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Hãy viết số 0,674 sau khi làm tròn đến hàng phần trăm.",
+      "answer": "0,67",
+      "hint": "Nhìn chữ số ở hàng phần nghìn: 4 nhỏ hơn 5 nên giữ nguyên hàng phần trăm.",
+      "explanation": "Chữ số sau hàng phần trăm là 4, nhỏ hơn 5, nên giữ nguyên 7. Vậy 0,674 làm tròn thành 0,67.",
+      "tags": [
+        "lam_tron_phan_tram"
+      ],
+      "verified": false,
+      "options": [
+        "0,67",
+        "0,68",
+        "0,7",
+        "0,674"
+      ],
+      "calc": "round(Decimal('0.674'),2)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_017",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Hãy làm tròn 2,18 đến hàng phần mười. Kết quả là số nào?",
+      "answer": "2,2",
+      "hint": "Nhìn chữ số ở hàng phần trăm: 8 lớn hơn 5 nên hàng phần mười tăng thêm 1.",
+      "explanation": "Chữ số sau hàng phần mười là 8, lớn hơn 5, nên 1 tăng thành 2. Vậy 2,18 làm tròn thành 2,2.",
+      "tags": [
+        "lam_tron_phan_muoi"
+      ],
+      "verified": false,
+      "options": [
+        "2,2",
+        "2,1",
+        "2,18",
+        "2,3"
+      ],
+      "calc": "round(Decimal('2.18'),1)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_018",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Can sữa chứa 4,562 l sữa. Làm tròn lượng sữa đến hàng phần trăm, ta được bao nhiêu lít?",
+      "answer": "4,56",
+      "hint": "Nhìn chữ số ở hàng phần nghìn: 2 nhỏ hơn 5 nên giữ nguyên hàng phần trăm.",
+      "explanation": "Chữ số sau hàng phần trăm là 2, nhỏ hơn 5, nên giữ nguyên 6. Vậy 4,562 l làm tròn thành 4,56 l.",
+      "tags": [
+        "lam_tron_phan_tram"
+      ],
+      "verified": false,
+      "unit": "l",
+      "calc": "round(Decimal('4.562'),2)"
+    },
+    {
+      "id": "so_sanh_so_thap_phan_001",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Số nào lớn hơn, 3,45 hay 3,5?",
+      "options": [
+        "3,5 lớn hơn",
+        "3,45 lớn hơn",
+        "Hai số bằng nhau",
+        "Không so sánh được"
+      ],
+      "answer": "3,5 lớn hơn",
+      "hint": "Phần nguyên bằng nhau thì so sánh hàng phần mười.",
+      "explanation": "Phần nguyên đều là 3. Hàng phần mười: 4 < 5 nên 3,45 < 3,5, vậy 3,5 lớn hơn.",
+      "tags": [
+        "so_sanh"
+      ],
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_002",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Số lớn nhất trong các số 2,3; 2,03; 2,33 và 2,13 là số nào?",
+      "options": [
+        "2,3",
+        "2,03",
+        "2,33",
+        "2,13"
+      ],
+      "answer": "2,33",
+      "hint": "Phần nguyên bằng nhau thì so sánh hàng phần mười trước.",
+      "explanation": "Phần nguyên đều là 2. Hàng phần mười lớn nhất là 3, trong đó 2,33 lớn hơn 2,3 nên số lớn nhất là 2,33.",
+      "tags": [
+        "so_sanh"
+      ],
+      "calc": "Decimal('2.33')",
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_003",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Số lớn hơn trong hai số 4,6 và 4,06 là số nào?",
+      "answer": "4,6",
+      "hint": "Phần nguyên bằng nhau thì so sánh hàng phần mười.",
+      "explanation": "Phần nguyên đều là 4. Hàng phần mười: 6 > 0 nên 4,6 lớn hơn 4,06.",
+      "tags": [
+        "so_sanh"
+      ],
+      "calc": "Decimal('4.6')",
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_004",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Hai gói kẹo nặng 9,12 kg và 9,2 kg. Gói nhẹ hơn nặng bao nhiêu ki-lô-gam?",
+      "answer": "9,12",
+      "hint": "Gói nhẹ hơn là gói có số cân nhỏ hơn, so sánh phần nguyên rồi đến hàng phần mười.",
+      "explanation": "Phần nguyên đều là 9. Hàng phần mười: 1 < 2 nên 9,12 < 9,2, vậy gói nhẹ hơn nặng 9,12 kg.",
+      "tags": [
+        "so_sanh"
+      ],
+      "calc": "Decimal('9.12')",
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_005",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Số nào bằng 3,5?",
+      "options": [
+        "3,05",
+        "3,50",
+        "3,15",
+        "3,55"
+      ],
+      "answer": "3,50",
+      "hint": "Thêm chữ số 0 vào cuối phần thập phân thì số không đổi.",
+      "explanation": "Thêm chữ số 0 vào cuối phần thập phân của 3,5 được 3,50 nên 3,5 = 3,50.",
+      "tags": [
+        "so_thap_phan_bang_nhau"
+      ],
+      "calc": "Decimal('3.5')",
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_011",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Điền dấu thích hợp vào chỗ chấm: 6,4 ... 6,40",
+      "options": [
+        "=",
+        "<",
+        ">",
+        "≠"
+      ],
+      "answer": "=",
+      "hint": "Thêm chữ số 0 vào cuối phần thập phân thì số không đổi.",
+      "explanation": "Thêm chữ số 0 vào cuối phần thập phân của 6,4 được 6,40 nên 6,4 = 6,40.",
+      "tags": [
+        "so_thap_phan_bang_nhau"
+      ],
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_012",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Trong các số 3,6; 3,06; 3,66 và 3,16, số nào nhỏ nhất?",
+      "answer": "3,06",
+      "hint": "Phần nguyên bằng nhau thì so sánh hàng phần mười trước.",
+      "explanation": "Phần nguyên đều là 3. Hàng phần mười nhỏ nhất là 0 nên số nhỏ nhất là 3,06.",
+      "tags": [
+        "so_sanh"
+      ],
+      "calc": "Decimal('3.06')",
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_013",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Số nào lớn hơn 8,5?",
+      "options": [
+        "8,05",
+        "8,15",
+        "8,55",
+        "8,45"
+      ],
+      "answer": "8,55",
+      "hint": "So sánh phần nguyên rồi đến hàng phần mười, phần trăm.",
+      "explanation": "8,5 = 8,50. Phần nguyên và hàng phần mười bằng nhau, hàng phần trăm 5 > 0 nên 8,55 lớn hơn 8,5.",
+      "tags": [
+        "so_sanh"
+      ],
+      "calc": "Decimal('8.55')",
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_014",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Số thập phân lớn hơn 4,6 và bé hơn 4,7, có phần thập phân là 65 là số nào?",
+      "answer": "4,65",
+      "hint": "Số cần tìm có phần nguyên là 4 và phần thập phân là 65.",
+      "explanation": "Phần nguyên là 4, phần thập phân là 65 nên số đó là 4,65, lớn hơn 4,6 và bé hơn 4,7.",
+      "tags": [
+        "so_sanh"
+      ],
+      "calc": "Decimal('4.65')",
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_015",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Hoa nói 0,8 = 0,80, Bình nói 0,8 < 0,80. Bạn nào nói đúng?",
+      "options": [
+        "Hoa nói đúng",
+        "Bình nói đúng",
+        "Cả hai bạn đều sai",
+        "Không biết bạn nào đúng"
+      ],
+      "answer": "Hoa nói đúng",
+      "hint": "Thêm chữ số 0 vào cuối phần thập phân thì số không đổi.",
+      "explanation": "Thêm chữ số 0 vào cuối phần thập phân của 0,8 được 0,80 nên 0,8 = 0,80, Hoa nói đúng.",
+      "tags": [
+        "so_thap_phan_bang_nhau"
+      ],
+      "verified": false
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_001",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Một sợi dây dài 3 m 5 dm. Viết độ dài sợi dây dưới dạng số thập phân theo mét, ta được bao nhiêu mét?",
+      "answer": "3,5",
+      "hint": "1 dm bằng 0,1 m, nên 5 dm bằng bao nhiêu mét?",
+      "explanation": "5 dm = 0,5 m. Vậy 3 m 5 dm = 3 m + 0,5 m = 3,5 m.",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "verified": false,
+      "options": [
+        "3,5",
+        "3,05",
+        "3,55",
+        "35"
+      ],
+      "calc": "Decimal('3')+Decimal('5')/Decimal('10')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_002",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Đổi 45 cm ra mét. Điền số thích hợp vào chỗ chấm: 45 cm = ... m",
+      "answer": "0,45",
+      "hint": "1 cm bằng 0,01 m, nên lấy 45 chia cho 100.",
+      "explanation": "1 m = 100 cm, nên 45 cm = 45 : 100 = 0,45 m.",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "verified": false,
+      "unit": "m",
+      "calc": "Decimal('45')/Decimal('100')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_003",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Gói đường cân nặng 2 kg 250 g. Viết cân nặng gói đường dưới dạng số thập phân theo ki-lô-gam, ta được bao nhiêu ki-lô-gam?",
+      "answer": "2,25",
+      "hint": "1 g bằng 0,001 kg, nên 250 g bằng bao nhiêu ki-lô-gam?",
+      "explanation": "250 g = 0,25 kg. Vậy 2 kg 250 g = 2 kg + 0,25 kg = 2,25 kg.",
+      "tags": [
+        "doi_don_vi_khoi_luong"
+      ],
+      "verified": false,
+      "options": [
+        "2,25",
+        "2,025",
+        "2,5",
+        "22,5"
+      ],
+      "calc": "Decimal('2')+Decimal('250')/Decimal('1000')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_004",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Một gang tay của bạn Nam dài 7 dm. Đổi ra mét, gang tay đó dài bao nhiêu mét?",
+      "answer": "0,7",
+      "hint": "1 dm bằng 0,1 m, nên lấy 7 chia cho 10.",
+      "explanation": "1 m = 10 dm, nên 7 dm = 7 : 10 = 0,7 m.",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "verified": false,
+      "unit": "m",
+      "calc": "Decimal('7')/Decimal('10')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_005",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Chiếc bàn học dài 5 m 8 cm. Hỏi chiếc bàn dài bao nhiêu mét?",
+      "answer": "5,08",
+      "hint": "1 cm bằng 0,01 m, nên 8 cm bằng bao nhiêu mét?",
+      "explanation": "8 cm = 0,08 m. Vậy 5 m 8 cm = 5 m + 0,08 m = 5,08 m.",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "verified": false,
+      "options": [
+        "5,08",
+        "5,8",
+        "5,008",
+        "58"
+      ],
+      "calc": "Decimal('5')+Decimal('8')/Decimal('100')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_011",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Đoạn dây ruy băng dài 9 cm. Đổi ra mét, đoạn dây dài bao nhiêu mét?",
+      "answer": "0,09",
+      "hint": "1 cm bằng 0,01 m, nên lấy 9 chia cho 100.",
+      "explanation": "1 m = 100 cm, nên 9 cm = 9 : 100 = 0,09 m.",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "verified": false,
+      "options": [
+        "0,09",
+        "0,9",
+        "0,009",
+        "9"
+      ],
+      "calc": "Decimal('9')/Decimal('100')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_012",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Gói kẹo cân nặng 250 g. Đổi ra ki-lô-gam, gói kẹo cân nặng bao nhiêu ki-lô-gam?",
+      "answer": "0,25",
+      "hint": "1 kg bằng 1 000 g, nên lấy 250 chia cho 1 000.",
+      "explanation": "1 kg = 1 000 g, nên 250 g = 250 : 1 000 = 0,25 kg.",
+      "tags": [
+        "doi_don_vi_khoi_luong"
+      ],
+      "verified": false,
+      "unit": "kg",
+      "calc": "Decimal('250')/Decimal('1000')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_013",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Tấm bảng dài 1 m 7 dm. Hỏi tấm bảng dài bao nhiêu mét?",
+      "answer": "1,7",
+      "hint": "1 dm bằng 0,1 m, nên 7 dm bằng bao nhiêu mét?",
+      "explanation": "7 dm = 0,7 m. Vậy 1 m 7 dm = 1 m + 0,7 m = 1,7 m.",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "verified": false,
+      "options": [
+        "1,7",
+        "1,07",
+        "1,77",
+        "17"
+      ],
+      "calc": "Decimal('1')+Decimal('7')/Decimal('10')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_017",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "mcq",
+      "difficulty": 1,
+      "prompt": "Con ốc sên bò được 60 mm. Đổi ra mét, quãng đường ốc sên bò được dài bao nhiêu mét?",
+      "answer": "0,06",
+      "hint": "1 mm bằng 0,001 m, nên lấy 60 chia cho 1 000.",
+      "explanation": "1 m = 1 000 mm, nên 60 mm = 60 : 1 000 = 0,06 m.",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "verified": false,
+      "options": [
+        "0,06",
+        "0,6",
+        "0,006",
+        "6"
+      ],
+      "calc": "Decimal('60')/Decimal('1000')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_018",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "fill_number",
+      "difficulty": 1,
+      "prompt": "Bao xi măng cân nặng 3 tạ. Đổi ra tấn, bao xi măng cân nặng bao nhiêu tấn?",
+      "answer": "0,3",
+      "hint": "1 tạ bằng 0,1 tấn, nên lấy 3 chia cho 10.",
+      "explanation": "1 tấn = 10 tạ, nên 3 tạ = 3 : 10 = 0,3 tấn.",
+      "tags": [
+        "doi_don_vi_khoi_luong"
+      ],
+      "verified": false,
+      "unit": "tấn",
+      "calc": "Decimal('3')/Decimal('10')"
+    },
+    {
+      "answer": "0,027",
+      "calc": "Fraction(27, 1000)",
+      "difficulty": 2,
+      "explanation": "27 hạt trong 1000 hạt là phân số 27/1000. Phân số 27/1000 viết thành số thập phân là 0,027.",
+      "hint": "27 hạt trong 1000 hạt là phân số 27/1000, viết thành số thập phân có ba chữ số ở phần thập phân.",
+      "id": "boss_chu_de_2_005",
+      "lesson_id": "boss_chu_de_2",
+      "prompt": "Trong 1000 hạt đậu, có 27 hạt màu đỏ. Viết số phần hạt màu đỏ dưới dạng số thập phân của tổng số hạt.",
+      "tags": [
+        "khai_niem_so_thap_phan",
+        "phan_so_thap_phan"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "4,9",
+      "calc": "Decimal('4.9')",
+      "difficulty": 2,
+      "explanation": "Phần nguyên phải bé hơn 5, lớn nhất là 4. Chữ số lớn nhất ở hàng phần mười là 9 nên số cần tìm là 4,9.",
+      "hint": "Số đó bé hơn 5 nên phần nguyên lớn nhất là 4, phần thập phân lớn nhất có một chữ số là 9.",
+      "id": "boss_chu_de_2_006",
+      "lesson_id": "boss_chu_de_2",
+      "prompt": "Số lớn nhất có một chữ số ở phần thập phân và bé hơn 5 là số nào?",
+      "tags": [
+        "so_sanh_so_thap_phan",
+        "so_sanh"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "2 750",
+      "calc": "Decimal('2.75') * 1000",
+      "difficulty": 2,
+      "explanation": "1 kg bằng 1 000 g nên 2,75 kg bằng 2,75 nhân 1 000, bằng 2 750 g.",
+      "hint": "1 kg bằng 1 000 g, đổi ki-lô-gam ra gam thì nhân với 1 000.",
+      "id": "boss_chu_de_2_007",
+      "lesson_id": "boss_chu_de_2",
+      "options": [
+        "275",
+        "2 750",
+        "27 500",
+        "275 000"
+      ],
+      "prompt": "Đổi 2,75 kg ra gam, ta được bao nhiêu gam?",
+      "tags": [
+        "viet_so_do_dang_thap_phan",
+        "doi_don_vi_khoi_luong"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "5,81",
+      "calc": "Decimal('5.81')",
+      "difficulty": 2,
+      "explanation": "5,81 có chữ số ở hàng phần trăm là 1, bé hơn 5 nên làm tròn thành 5,8. Các số còn lại làm tròn thành 5,7 hoặc 5,9.",
+      "hint": "Thử làm tròn từng số: chữ số ở hàng phần trăm bé hơn 5 thì giữ nguyên, từ 6 trở lên thì làm tròn lên.",
+      "id": "boss_chu_de_2_008",
+      "lesson_id": "boss_chu_de_2",
+      "options": [
+        "5,81",
+        "5,74",
+        "5,86",
+        "5,69"
+      ],
+      "prompt": "Số nào làm tròn đến hàng phần mười được 5,8?",
+      "tags": [
+        "lam_tron_so_thap_phan",
+        "lam_tron_phan_muoi"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "Sai",
+      "difficulty": 2,
+      "explanation": "Chữ số ở hàng phần trăm của 7,83 là 3, bé hơn 5 nên làm tròn được 7,8, không phải 7,9. Vậy bạn Nam nói sai.",
+      "hint": "Nhìn chữ số ở hàng phần trăm của 7,83, chữ số đó bé hơn 5 hay từ 6 trở lên?",
+      "id": "boss_chu_de_2_009",
+      "lesson_id": "boss_chu_de_2",
+      "prompt": "Bạn Nam nói số 7,83 làm tròn đến hàng phần mười là 7,9. Bạn Nam nói đúng hay sai?",
+      "tags": [
+        "lam_tron_so_thap_phan",
+        "lam_tron_phan_muoi"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "answer": "6,25",
+      "calc": "Decimal('6.25')",
+      "difficulty": 2,
+      "explanation": "6,25 có phần nguyên là 6, hàng phần mười là 2 và phần thập phân lớn hơn 0 nên 6,2 nhỏ hơn 6,25 và 6,25 nhỏ hơn 6,3.",
+      "hint": "Số cần tìm có phần nguyên là 6, hàng phần mười là 2 và hàng phần trăm lớn hơn 0.",
+      "id": "boss_chu_de_2_010",
+      "lesson_id": "boss_chu_de_2",
+      "options": [
+        "6,25",
+        "6,18",
+        "6,32",
+        "6,09"
+      ],
+      "prompt": "Số nào lớn hơn 6,2 và bé hơn 6,3?",
+      "tags": [
+        "so_sanh_so_thap_phan",
+        "so_sanh"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "0,03",
+      "calc": "Fraction(3, 100)",
+      "difficulty": 2,
+      "explanation": "Chữ số 3 ở hàng phần trăm nên giá trị của nó là 3/100, tức là 0,03.",
+      "hint": "Chữ số 3 đứng ở hàng phần trăm nên giá trị của nó là 3 phần trăm.",
+      "id": "boss_chu_de_2_014",
+      "lesson_id": "boss_chu_de_2",
+      "prompt": "Giá trị của chữ số 3 trong số 5,37 là bao nhiêu?",
+      "tags": [
+        "khai_niem_so_thap_phan",
+        "hang_so_thap_phan"
+      ],
+      "type": "fill_number",
+      "verified": false
+    },
+    {
+      "answer": "108",
+      "calc": "Decimal('1.08') * 100",
+      "difficulty": 2,
+      "explanation": "1 m bằng 100 cm nên 1,08 m bằng 1,08 nhân 100, bằng 108 cm.",
+      "hint": "1 m bằng 100 cm, đổi mét ra xăng-ti-mét thì nhân với 100.",
+      "id": "boss_chu_de_2_015",
+      "lesson_id": "boss_chu_de_2",
+      "options": [
+        "10,8",
+        "108",
+        "1 080",
+        "10 800"
+      ],
+      "prompt": "Đổi 1,08 m ra xăng-ti-mét, ta được bao nhiêu xăng-ti-mét?",
+      "tags": [
+        "viet_so_do_dang_thap_phan",
+        "doi_don_vi_do_dai"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "4,2; 4,12; 4,02",
+      "difficulty": 2,
+      "explanation": "4,2 lớn hơn 4,12 và 4,12 lớn hơn 4,02 vì hàng phần mười là 2, 1, 0 nên dãy 4,2; 4,12; 4,02 xếp từ lớn đến bé.",
+      "hint": "So từng cặp số kề nhau: số đứng trước phải lớn hơn số đứng sau.",
+      "id": "boss_chu_de_2_016",
+      "lesson_id": "boss_chu_de_2",
+      "options": [
+        "4,2; 4,12; 4,02",
+        "4,02; 4,12; 4,2",
+        "4,12; 4,2; 4,02",
+        "4,2; 4,02; 4,12"
+      ],
+      "prompt": "Trong bốn dãy số dưới đây, dãy nào được xếp từ lớn đến bé?",
+      "tags": [
+        "so_sanh_so_thap_phan",
+        "xep_thu_tu"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "12,07",
+      "calc": "Decimal('12.07')",
+      "difficulty": 2,
+      "explanation": "Phần nguyên là 12, phần thập phân là 07 nên số đó là 12,07.",
+      "hint": "7 phần trăm là chữ số 7 ở hàng phần trăm, hàng phần mười là 0.",
+      "id": "boss_chu_de_2_018",
+      "lesson_id": "boss_chu_de_2",
+      "options": [
+        "12,7",
+        "12,07",
+        "120,7",
+        "1,207"
+      ],
+      "prompt": "Số nào có phần nguyên là 12 và phần thập phân là 7 phần trăm?",
+      "tags": [
+        "khai_niem_so_thap_phan",
+        "cau_tao_so_thap_phan"
+      ],
+      "type": "mcq",
+      "verified": false
+    },
+    {
+      "answer": "Đúng",
+      "difficulty": 2,
+      "explanation": "6,84 đã có hai chữ số ở phần thập phân nên làm tròn đến hàng phần trăm vẫn là 6,84. Khẳng định này đúng.",
+      "hint": "Số 6,84 đã có đúng hai chữ số ở phần thập phân, thử xem làm tròn có đổi gì không.",
+      "id": "boss_chu_de_2_019",
+      "lesson_id": "boss_chu_de_2",
+      "prompt": "Làm tròn 6,84 đến hàng phần trăm được 6,84. Khẳng định này đúng hay sai?",
+      "tags": [
+        "lam_tron_so_thap_phan",
+        "lam_tron_phan_tram"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "answer": "Sai",
+      "difficulty": 2,
+      "explanation": "0,5 tấn bằng 500 kg nên 4,5 tấn bằng 4 tấn 500 kg, không phải 4 tấn 50 kg. Khẳng định này sai.",
+      "hint": "Đổi 0,5 tấn ra ki-lô-gam: 0,5 tấn bằng bao nhiêu ki-lô-gam?",
+      "id": "boss_chu_de_2_020",
+      "lesson_id": "boss_chu_de_2",
+      "prompt": "Khẳng định sau đúng hay sai: 4,5 tấn bằng 4 tấn 50 kg.",
+      "tags": [
+        "viet_so_do_dang_thap_phan",
+        "doi_don_vi_khoi_luong"
+      ],
+      "type": "true_false",
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_006",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Viết số thập phân gồm 3 đơn vị, 4 phần mười và 2 phần trăm.",
+      "options": [
+        "3,42",
+        "3,24",
+        "4,32",
+        "3,402"
+      ],
+      "answer": "3,42",
+      "hint": "Viết phần nguyên trước dấu phẩy, rồi viết lần lượt các chữ số ở phần thập phân.",
+      "explanation": "Phần nguyên là 3, phần thập phân là 42 nên số đó là 3,42.",
+      "tags": [
+        "viet_so_thap_phan"
+      ],
+      "calc": "Decimal('3.42')",
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_007",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Mẹ chia cái bánh thành 100 phần bằng nhau, An ăn 45 phần. Viết số phần An ăn dưới dạng số thập phân của cái bánh.",
+      "answer": "0,45",
+      "hint": "An ăn 45 phần trong 100 phần, tức là phân số 45/100.",
+      "explanation": "45 phần trong 100 phần là 45/100, viết thành số thập phân là 0,45.",
+      "tags": [
+        "phan_so_thap_phan"
+      ],
+      "calc": "Fraction(45,100)",
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_008",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Viết số thập phân có phần nguyên là 6 và phần thập phân là 25.",
+      "answer": "6,25",
+      "hint": "Viết phần nguyên, đặt dấu phẩy, rồi viết phần thập phân.",
+      "explanation": "Phần nguyên là 6, phần thập phân là 25 nên số đó là 6,25.",
+      "tags": [
+        "cau_tao_so_thap_phan"
+      ],
+      "calc": "Decimal('6.25')",
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_009",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Phân số 123/1000 viết thành số thập phân nào?",
+      "options": [
+        "0,123",
+        "0,0123",
+        "1,23",
+        "0,132"
+      ],
+      "answer": "0,123",
+      "hint": "Mẫu số 1000 có ba chữ số 0 nên phần thập phân có ba chữ số.",
+      "explanation": "123/1000 có mẫu số 1000 nên viết thành 0,123, chữ số 1 ở hàng phần mười.",
+      "tags": [
+        "phan_so_thap_phan"
+      ],
+      "calc": "Decimal('0.123')",
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_010",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "Số 0,05 đọc là 'không phẩy năm'.",
+      "answer": "Sai",
+      "hint": "Chữ số 0 ở hàng phần mười không được bỏ qua khi đọc.",
+      "explanation": "0,05 có chữ số 0 ở hàng phần mười nên đọc là 'không phẩy không năm', không phải 'không phẩy năm'.",
+      "tags": [
+        "doc_so_thap_phan"
+      ],
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_016",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Bạn An viết một số gồm 2 chục, 3 đơn vị, 1 phần mười và 5 phần nghìn. Số đó là số nào?",
+      "options": [
+        "23,105",
+        "23,15",
+        "23,015",
+        "2,315"
+      ],
+      "answer": "23,105",
+      "hint": "Ghép phần nguyên 23 với phần thập phân, nhớ chừa chữ số 0 ở hàng phần trăm.",
+      "explanation": "Phần nguyên là 23, phần thập phân là 105 nên số đó là 23,105.",
+      "tags": [
+        "viet_so_thap_phan"
+      ],
+      "calc": "Decimal('23.105')",
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_017",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Một sợi dây dài 7/1000 m. Độ dài sợi dây viết dưới dạng số thập phân là bao nhiêu mét?",
+      "answer": "0,007",
+      "hint": "Mẫu số 1000 có ba chữ số 0 nên phần thập phân có ba chữ số.",
+      "explanation": "7/1000 có mẫu số 1000 nên viết thành 0,007, chữ số 7 ở hàng phần nghìn.",
+      "tags": [
+        "phan_so_thap_phan"
+      ],
+      "calc": "Fraction(7,1000)",
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_018",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Một tấm vải dài 3/10 m. Viết độ dài tấm vải dưới dạng số thập phân.",
+      "options": [
+        "0,3",
+        "0,03",
+        "3,0",
+        "0,003"
+      ],
+      "answer": "0,3",
+      "hint": "Mẫu số 10 có một chữ số 0 nên phần thập phân có một chữ số.",
+      "explanation": "3/10 có mẫu số 10 nên viết thành 0,3, chữ số 3 ở hàng phần mười.",
+      "tags": [
+        "phan_so_thap_phan"
+      ],
+      "calc": "Fraction(3,10)",
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_019",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "Trong số 5,70, chữ số 7 ở hàng phần mười.",
+      "answer": "Đúng",
+      "hint": "Chữ số đầu tiên sau dấu phẩy là hàng phần mười.",
+      "explanation": "Sau dấu phẩy, chữ số 7 đứng đầu tiên nên 7 ở hàng phần mười, chữ số 0 ở hàng phần trăm.",
+      "tags": [
+        "hang_so_thap_phan"
+      ],
+      "verified": false
+    },
+    {
+      "id": "khai_niem_so_thap_phan_020",
+      "lesson_id": "khai_niem_so_thap_phan",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "Số thập phân 0,9 bằng phân số 9/10.",
+      "answer": "Đúng",
+      "hint": "Mẫu số 10 có một chữ số 0 nên phần thập phân có một chữ số.",
+      "explanation": "9/10 có mẫu số 10 nên viết thành 0,9, chữ số 9 ở hàng phần mười.",
+      "tags": [
+        "phan_so_thap_phan"
+      ],
+      "verified": false
+    },
+    {
+      "id": "lam_tron_so_thap_phan_006",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Bạn An cân nặng 32,46 kg. Làm tròn cân nặng của An đến hàng phần mười, ta được bao nhiêu ki-lô-gam?",
+      "answer": "32,5",
+      "hint": "Nhìn chữ số ở hàng phần trăm của 32,46 rồi áp dụng quy tắc làm tròn.",
+      "explanation": "Chữ số sau hàng phần mười là 6, lớn hơn 5, nên 4 tăng thành 5. Vậy 32,46 kg làm tròn thành 32,5 kg.",
+      "tags": [
+        "lam_tron_phan_muoi"
+      ],
+      "verified": false,
+      "unit": "kg",
+      "calc": "round(Decimal('32.46'),1)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_007",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Cô giáo yêu cầu làm tròn 9,873 đến hàng phần trăm. Kết quả đúng là số nào?",
+      "answer": "9,87",
+      "hint": "Nhìn chữ số ở hàng phần nghìn: 3 nhỏ hơn 5 nên giữ nguyên hàng phần trăm.",
+      "explanation": "Chữ số sau hàng phần trăm là 3, nhỏ hơn 5, nên giữ nguyên 7. Vậy 9,873 làm tròn thành 9,87.",
+      "tags": [
+        "lam_tron_phan_tram"
+      ],
+      "verified": false,
+      "options": [
+        "9,87",
+        "9,88",
+        "9,9",
+        "9,873"
+      ],
+      "calc": "round(Decimal('9.873'),2)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_008",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Điền số thích hợp vào chỗ chấm: 12,48 làm tròn đến số tự nhiên gần nhất là ...",
+      "answer": "12",
+      "hint": "Nhìn chữ số ở hàng phần mười: 4 nhỏ hơn 5 nên giữ nguyên phần nguyên.",
+      "explanation": "Chữ số ở hàng phần mười là 4, nhỏ hơn 5, nên giữ nguyên 12. Vậy 12,48 làm tròn thành 12.",
+      "tags": [
+        "lam_tron_so_tu_nhien"
+      ],
+      "verified": false,
+      "calc": "round(Decimal('12.48'),0)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_009",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Quãng đường từ nhà đến trường dài 6,58 km. Làm tròn quãng đường đó đến hàng phần mười, ta được bao nhiêu ki-lô-mét?",
+      "answer": "6,6",
+      "hint": "Nhìn chữ số ở hàng phần trăm của 6,58 rồi áp dụng quy tắc làm tròn.",
+      "explanation": "Chữ số sau hàng phần mười là 8, lớn hơn 5, nên 5 tăng thành 6. Vậy 6,58 km làm tròn thành 6,6 km.",
+      "tags": [
+        "lam_tron_phan_muoi"
+      ],
+      "verified": false,
+      "options": [
+        "6,6",
+        "6,5",
+        "6,58",
+        "7"
+      ],
+      "calc": "round(Decimal('6.58'),1)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_010",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "Bạn Hùng nói: làm tròn 3,46 đến hàng phần mười được 3,4. Theo em, bạn Hùng nói đúng hay sai?",
+      "answer": "Sai",
+      "hint": "Nhìn chữ số ở hàng phần trăm của 3,46: 6 lớn hơn 5 hay nhỏ hơn 5?",
+      "explanation": "Chữ số sau hàng phần mười là 6, lớn hơn 5, nên 4 tăng thành 5. Kết quả đúng là 3,5, nên bạn Hùng nói sai.",
+      "tags": [
+        "lam_tron_phan_muoi"
+      ],
+      "verified": false
+    },
+    {
+      "id": "lam_tron_so_thap_phan_014",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Bạn Mai cao 1,47 m. Làm tròn chiều cao của Mai đến hàng phần mười, ta được bao nhiêu mét?",
+      "answer": "1,5",
+      "hint": "Nhìn chữ số ở hàng phần trăm của 1,47 rồi áp dụng quy tắc làm tròn.",
+      "explanation": "Chữ số sau hàng phần mười là 7, lớn hơn 5, nên 4 tăng thành 5. Vậy 1,47 m làm tròn thành 1,5 m.",
+      "tags": [
+        "lam_tron_phan_muoi"
+      ],
+      "verified": false,
+      "unit": "m",
+      "calc": "round(Decimal('1.47'),1)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_015",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Số 15,96 làm tròn đến số tự nhiên gần nhất bằng số nào dưới đây?",
+      "answer": "16",
+      "hint": "Nhìn chữ số ở hàng phần mười: 9 lớn hơn 5 nên phần nguyên tăng thêm 1.",
+      "explanation": "Chữ số ở hàng phần mười là 9, lớn hơn 5, nên 15 tăng thành 16. Vậy 15,96 làm tròn thành 16.",
+      "tags": [
+        "lam_tron_so_tu_nhien"
+      ],
+      "verified": false,
+      "options": [
+        "16",
+        "15",
+        "15,9",
+        "17"
+      ],
+      "calc": "round(Decimal('15.96'),0)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_016",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "Cô giáo hỏi: 8,43 làm tròn đến hàng phần mười được 8,4, đúng hay sai?",
+      "answer": "Đúng",
+      "hint": "Nhìn chữ số ở hàng phần trăm của 8,43: 3 nhỏ hơn 5 hay lớn hơn 5?",
+      "explanation": "Chữ số sau hàng phần mười là 3, nhỏ hơn 5, nên giữ nguyên 4. Kết quả 8,4 là đúng.",
+      "tags": [
+        "lam_tron_phan_muoi"
+      ],
+      "verified": false
+    },
+    {
+      "id": "lam_tron_so_thap_phan_019",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Một đoạn dây dài 3,764 m. Sau khi làm tròn đến hàng phần trăm, đoạn dây dài bao nhiêu mét?",
+      "answer": "3,76",
+      "hint": "Nhìn chữ số ở hàng phần nghìn của 3,764 rồi áp dụng quy tắc làm tròn.",
+      "explanation": "Chữ số sau hàng phần trăm là 4, nhỏ hơn 5, nên giữ nguyên 6. Vậy 3,764 m làm tròn thành 3,76 m.",
+      "tags": [
+        "lam_tron_phan_tram"
+      ],
+      "verified": false,
+      "options": [
+        "3,76",
+        "3,77",
+        "3,8",
+        "3,764"
+      ],
+      "calc": "round(Decimal('3.764'),2)"
+    },
+    {
+      "id": "lam_tron_so_thap_phan_020",
+      "lesson_id": "lam_tron_so_thap_phan",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "Bạn Nam nói: làm tròn 5,28 đến số tự nhiên gần nhất được 6. Theo em, bạn Nam nói đúng hay sai?",
+      "answer": "Sai",
+      "hint": "Nhìn chữ số ở hàng phần mười của 5,28: 2 nhỏ hơn 5 hay lớn hơn 5?",
+      "explanation": "Chữ số ở hàng phần mười là 2, nhỏ hơn 5, nên giữ nguyên 5. Kết quả đúng là 5, nên bạn Nam nói sai.",
+      "tags": [
+        "lam_tron_so_tu_nhien"
+      ],
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_006",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Dãy số nào xếp theo thứ tự tăng dần?",
+      "options": [
+        "1,2; 1,25; 1,3",
+        "1,3; 1,25; 1,2",
+        "1,25; 1,2; 1,3",
+        "1,2; 1,3; 1,25"
+      ],
+      "answer": "1,2; 1,25; 1,3",
+      "hint": "So sánh từng cặp số liền nhau, số bé đứng trước số lớn.",
+      "explanation": "1,2 < 1,25 < 1,3 vì hàng phần mười và phần trăm tăng dần nên dãy 1,2; 1,25; 1,3 là tăng dần.",
+      "tags": [
+        "xep_thu_tu"
+      ],
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_007",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Bốn bạn thi ném bóng được 5,07 m; 5,7 m; 5,17 m và 5,77 m. Bạn ném xa nhất ném được bao nhiêu mét?",
+      "answer": "5,77",
+      "hint": "Quãng đường xa nhất là số lớn nhất, so sánh phần nguyên rồi đến từng hàng phần thập phân.",
+      "explanation": "Phần nguyên đều là 5. Hàng phần mười lớn nhất là 7, trong đó 5,77 lớn hơn 5,7 nên bạn ném xa nhất được 5,77 m.",
+      "tags": [
+        "so_sanh"
+      ],
+      "calc": "Decimal('5.77')",
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_008",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Bạn Lan cao 1,42 m, bạn Mai cao 1,38 m. Bạn cao hơn có chiều cao là bao nhiêu mét?",
+      "answer": "1,42",
+      "hint": "Bạn cao hơn là bạn có chiều cao lớn hơn, so sánh phần nguyên rồi đến hàng phần mười.",
+      "explanation": "Phần nguyên đều là 1. Hàng phần mười: 4 > 3 nên 1,42 > 1,38, vậy bạn cao hơn cao 1,42 m.",
+      "tags": [
+        "so_sanh"
+      ],
+      "calc": "Decimal('1.42')",
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_009",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Bốn sợi dây dài 0,9 m; 0,99 m; 0,909 m và 0,999 m. Sợi dây ngắn nhất dài bao nhiêu mét?",
+      "options": [
+        "0,9",
+        "0,99",
+        "0,909",
+        "0,999"
+      ],
+      "answer": "0,9",
+      "hint": "So sánh hàng phần mười trước, đừng đếm số chữ số ở phần thập phân.",
+      "explanation": "Hàng phần mười đều là 9. Hàng phần trăm của 0,9 và 0,909 là 0, nhỏ hơn 9. Hàng phần nghìn: 0 < 9 nên 0,9 nhỏ nhất.",
+      "tags": [
+        "so_sanh"
+      ],
+      "calc": "Decimal('0.9')",
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_010",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "9,99 lớn hơn 12,3 vì phần thập phân 99 lớn hơn 3.",
+      "answer": "Sai",
+      "hint": "Khi so sánh hai số thập phân, phải so sánh phần nguyên trước.",
+      "explanation": "Phần nguyên 9 < 12 nên 9,99 < 12,3, dù phần thập phân 99 lớn hơn 3.",
+      "tags": [
+        "so_sanh"
+      ],
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_016",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Dãy nào xếp các số theo thứ tự giảm dần?",
+      "options": [
+        "5,1; 5,01; 5,001",
+        "5,001; 5,01; 5,1",
+        "5,01; 5,1; 5,001",
+        "5,1; 5,001; 5,01"
+      ],
+      "answer": "5,1; 5,01; 5,001",
+      "hint": "Dãy giảm dần là dãy số lớn đứng trước số bé.",
+      "explanation": "5,1 > 5,01 > 5,001 vì hàng phần mười và phần trăm giảm dần nên dãy 5,1; 5,01; 5,001 là giảm dần.",
+      "tags": [
+        "xep_thu_tu"
+      ],
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_017",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Ba bạn chạy thi: An chạy hết 12,5 giây, Bình chạy hết 12,05 giây, Chi chạy hết 12,15 giây. Người chạy nhanh nhất chạy hết bao nhiêu giây?",
+      "answer": "12,05",
+      "hint": "Chạy nhanh nhất là người chạy hết ít giây nhất, tức là số giây nhỏ nhất.",
+      "explanation": "Phần nguyên đều là 12. Hàng phần mười nhỏ nhất là 0 nên 12,05 nhỏ nhất, Bình chạy nhanh nhất với 12,05 giây.",
+      "tags": [
+        "so_sanh"
+      ],
+      "calc": "Decimal('12.05')",
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_018",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Số lớn nhất mà bé hơn 7 là số nào?",
+      "options": [
+        "6,99",
+        "7,01",
+        "7,1",
+        "6,9"
+      ],
+      "answer": "6,99",
+      "hint": "Số bé hơn 7 thì phần nguyên phải bé hơn 7, rồi chọn phần thập phân lớn nhất.",
+      "explanation": "Các số bé hơn 7 là 6,99 và 6,9. Hàng phần trăm 9 > 0 nên 6,99 lớn hơn 6,9.",
+      "tags": [
+        "so_sanh"
+      ],
+      "calc": "Decimal('6.99')",
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_019",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "3,456 lớn hơn 3,5 vì 456 lớn hơn 5.",
+      "answer": "Sai",
+      "hint": "Phần nguyên bằng nhau thì so sánh hàng phần mười trước, đừng đếm số chữ số.",
+      "explanation": "Hàng phần mười: 4 < 5 nên 3,456 < 3,5, dù 3,456 có nhiều chữ số hơn.",
+      "tags": [
+        "so_sanh"
+      ],
+      "verified": false
+    },
+    {
+      "id": "so_sanh_so_thap_phan_020",
+      "lesson_id": "so_sanh_so_thap_phan",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "Khi so sánh hai số thập phân, ta so sánh phần nguyên trước.",
+      "answer": "Đúng",
+      "hint": "Nhớ quy tắc so sánh: phần nguyên trước, rồi mới đến phần thập phân.",
+      "explanation": "Muốn so sánh hai số thập phân, ta so sánh phần nguyên trước, nếu bằng nhau mới so sánh phần thập phân.",
+      "tags": [
+        "so_sanh"
+      ],
+      "verified": false
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_006",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Mẹ mua một tấm vải dài 4 m 25 cm để may áo. Viết độ dài tấm vải dưới dạng số thập phân theo mét.",
+      "answer": "4,25",
+      "hint": "Đổi 25 cm ra mét trước, rồi cộng với 4 m.",
+      "explanation": "25 cm = 0,25 m. Vậy 4 m 25 cm = 4 m + 0,25 m = 4,25 m.",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "verified": false,
+      "unit": "m",
+      "calc": "Decimal('4')+Decimal('25')/Decimal('100')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_007",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Một xe tải chở 3 tấn 450 kg gạo. Viết khối lượng gạo dưới dạng số thập phân theo tấn, ta được bao nhiêu tấn?",
+      "answer": "3,45",
+      "hint": "1 kg bằng 0,001 tấn, nên 450 kg bằng bao nhiêu tấn?",
+      "explanation": "450 kg = 0,45 tấn. Vậy 3 tấn 450 kg = 3 tấn + 0,45 tấn = 3,45 tấn.",
+      "tags": [
+        "doi_don_vi_khoi_luong"
+      ],
+      "verified": false,
+      "options": [
+        "3,45",
+        "3,045",
+        "34,5",
+        "3,405"
+      ],
+      "calc": "Decimal('3')+Decimal('450')/Decimal('1000')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_008",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Cân một hộp bánh, kim chỉ 6 kg 80 g. Hỏi hộp bánh nặng bao nhiêu ki-lô-gam nếu viết dưới dạng số thập phân?",
+      "answer": "6,08",
+      "hint": "Đổi 80 g ra ki-lô-gam trước, rồi cộng với 6 kg.",
+      "explanation": "80 g = 0,08 kg. Vậy 6 kg 80 g = 6 kg + 0,08 kg = 6,08 kg.",
+      "tags": [
+        "doi_don_vi_khoi_luong"
+      ],
+      "verified": false,
+      "unit": "kg",
+      "calc": "Decimal('6')+Decimal('80')/Decimal('1000')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_009",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Quãng đường từ nhà bạn Hoa đến trường dài 1 250 m. Đổi ra ki-lô-mét, quãng đường đó dài bao nhiêu ki-lô-mét?",
+      "answer": "1,25",
+      "hint": "1 km bằng 1 000 m, nên lấy 1 250 chia cho 1 000.",
+      "explanation": "1 km = 1 000 m, nên 1 250 m = 1 250 : 1 000 = 1,25 km.",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "verified": false,
+      "options": [
+        "1,25",
+        "12,5",
+        "0,125",
+        "125"
+      ],
+      "calc": "Decimal('1250')/Decimal('1000')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_010",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "Bạn Minh nói: 5 dm = 0,5 m. Theo em, bạn Minh nói đúng hay sai?",
+      "answer": "Đúng",
+      "hint": "Nhớ lại 1 dm bằng bao nhiêu mét.",
+      "explanation": "1 dm = 0,1 m, nên 5 dm = 5 × 0,1 = 0,5 m. Bạn Minh nói đúng.",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "verified": false
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_014",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "fill_number",
+      "difficulty": 2,
+      "prompt": "Bao gạo nhà bạn Lan nặng 5 kg 600 g. Viết cân nặng bao gạo dưới dạng số thập phân theo ki-lô-gam.",
+      "answer": "5,6",
+      "hint": "Đổi 600 g ra ki-lô-gam trước, rồi cộng với 5 kg.",
+      "explanation": "600 g = 0,6 kg. Vậy 5 kg 600 g = 5 kg + 0,6 kg = 5,6 kg.",
+      "tags": [
+        "doi_don_vi_khoi_luong"
+      ],
+      "verified": false,
+      "unit": "kg",
+      "calc": "Decimal('5')+Decimal('600')/Decimal('1000')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_015",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Mảnh bìa hình chữ nhật có diện tích 8 m² 40 dm². Viết diện tích mảnh bìa dưới dạng số thập phân theo mét vuông, ta được bao nhiêu mét vuông?",
+      "answer": "8,4",
+      "hint": "1 dm² bằng 0,01 m², nên 40 dm² bằng bao nhiêu mét vuông?",
+      "explanation": "40 dm² = 0,4 m². Vậy 8 m² 40 dm² = 8 m² + 0,4 m² = 8,4 m².",
+      "tags": [
+        "doi_don_vi_dien_tich"
+      ],
+      "verified": false,
+      "options": [
+        "8,4",
+        "8,04",
+        "84",
+        "8,004"
+      ],
+      "calc": "Decimal('8')+Decimal('40')/Decimal('100')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_016",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "Bạn An nói: 4 tấn 250 kg = 4,25 tấn. Theo em, bạn An nói đúng hay sai?",
+      "answer": "Đúng",
+      "hint": "Nhớ lại 1 kg bằng bao nhiêu tấn.",
+      "explanation": "250 kg = 0,25 tấn, nên 4 tấn 250 kg = 4,25 tấn. Bạn An nói đúng.",
+      "tags": [
+        "doi_don_vi_khoi_luong"
+      ],
+      "verified": false
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_019",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "mcq",
+      "difficulty": 2,
+      "prompt": "Sân trường của trường em dài 25 m 6 dm. Viết độ dài sân trường dưới dạng số thập phân theo mét.",
+      "answer": "25,6",
+      "hint": "Đổi 6 dm ra mét trước, rồi cộng với 25 m.",
+      "explanation": "6 dm = 0,6 m. Vậy 25 m 6 dm = 25 m + 0,6 m = 25,6 m.",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "verified": false,
+      "options": [
+        "25,6",
+        "25,06",
+        "2,56",
+        "256"
+      ],
+      "calc": "Decimal('25')+Decimal('6')/Decimal('10')"
+    },
+    {
+      "id": "viet_so_do_dang_thap_phan_020",
+      "lesson_id": "viet_so_do_dang_thap_phan",
+      "type": "true_false",
+      "difficulty": 2,
+      "prompt": "Cô giáo hỏi: 7 m 3 cm = 7,3 m, đúng hay sai?",
+      "answer": "Sai",
+      "hint": "Nhớ lại 1 cm bằng bao nhiêu mét, và 3 cm ứng với mấy chữ số thập phân.",
+      "explanation": "3 cm = 0,03 m, nên 7 m 3 cm = 7,03 m, không phải 7,3 m.",
+      "tags": [
+        "doi_don_vi_do_dai"
+      ],
+      "verified": false
+    }
+  ]
+}
