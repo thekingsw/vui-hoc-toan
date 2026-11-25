@@ -29,6 +29,8 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
       final soundOn = await db.isSoundOn();
       ref.read(soundOnProvider.notifier).state = soundOn;
       ref.read(soundServiceProvider).enabled = soundOn;
+      ref.read(reduceEffectsProvider.notifier).state =
+          await db.isReduceEffects();
       await ref.read(islandsProvider.future);
       if (!mounted) return;
       Navigator.of(context).pushReplacement(

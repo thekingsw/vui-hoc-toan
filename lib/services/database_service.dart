@@ -56,13 +56,40 @@ class AppDatabase {
     final path = p.join(await getDatabasesPath(), 'toan_lop_5.db');
     final database = await openDatabase(
       path,
-      version: 1,
+      version: 3,
+      onUpgrade: (db, oldVersion, newVersion) async {
+        // v2: thêm cờ giảm hiệu ứng + đánh dấu đã xem bài Học.
+        // Chỉ thêm cột, giữ nguyên tiến độ của bé.
+        if (oldVersion < 2) {
+          await db.execute(
+              'ALTER TABLE settings ADD COLUMN reduce_effects INTEGER NOT NULL DEFAULT 0');
+          await db.execute(
+              'ALTER TABLE progress ADD COLUMN lesson_viewed INTEGER NOT NULL DEFAULT 0');
+        }
+        // v3: xu + cửa hàng (SPEC giao diện mục 8, 10).
+        if (oldVersion < 3) {
+          await db.execute('''
+            CREATE TABLE owned_items(
+              item_id TEXT PRIMARY KEY,
+              equipped INTEGER NOT NULL DEFAULT 0,
+              acquired_at INTEGER
+            )''');
+          await db.execute('''
+            CREATE TABLE reward_log(
+              key TEXT PRIMARY KEY,
+              claimed_at INTEGER
+            )''');
+          await db.execute(
+              'ALTER TABLE island_progress ADD COLUMN completed_at INTEGER');
+        }
+      },
       onCreate: (db, version) async {
         await db.execute('''
           CREATE TABLE progress(
             island_id TEXT NOT NULL,
             lesson_id TEXT NOT NULL,
             practice_done INTEGER NOT NULL DEFAULT 0,
+            lesson_viewed INTEGER NOT NULL DEFAULT 0,
             last_played INTEGER,
             PRIMARY KEY (island_id, lesson_id)
           )''');
@@ -72,7 +99,8 @@ class AppDatabase {
             best_stars INTEGER NOT NULL DEFAULT 0,
             unlocked INTEGER NOT NULL DEFAULT 0,
             unlocked_by_parent INTEGER NOT NULL DEFAULT 0,
-            last_played INTEGER
+            last_played INTEGER,
+            completed_at INTEGER
           )''');
         await db.execute('''
           CREATE TABLE answer_log(
@@ -103,13 +131,26 @@ class AppDatabase {
           CREATE TABLE settings(
             id INTEGER PRIMARY KEY,
             sound_on INTEGER NOT NULL DEFAULT 1,
+            reduce_effects INTEGER NOT NULL DEFAULT 0,
             daily_limit_minutes INTEGER,
             parent_pin_hash TEXT NOT NULL
+          )''');
+        await db.execute('''
+          CREATE TABLE owned_items(
+            item_id TEXT PRIMARY KEY,
+            equipped INTEGER NOT NULL DEFAULT 0,
+            acquired_at INTEGER
+          )''');
+        await db.execute('''
+          CREATE TABLE reward_log(
+            key TEXT PRIMARY KEY,
+            claimed_at INTEGER
           )''');
         await db.insert('profile', {'id': 1, 'name': 'Bé'});
         await db.insert('settings', {
           'id': 1,
           'sound_on': 1,
+          'reduce_effects': 0,
           'daily_limit_minutes': null,
           'parent_pin_hash': pinHash(defaultParentPin),
         });
@@ -128,16 +169,35 @@ class AppDatabase {
   // --- Tiến độ bài học ---
   Future<void> markPracticeDone(String islandId, String lessonId) async {
     final d = await db;
-    await d.insert(
-      'progress',
-      {
-        'island_id': islandId,
-        'lesson_id': lessonId,
-        'practice_done': 1,
-        'last_played': DateTime.now().millisecondsSinceEpoch,
-      },
-      conflictAlgorithm: ConflictAlgorithm.replace,
+    // UPSERT để không xóa cờ lesson_viewed khi ghi đè.
+    await d.rawInsert(
+      'INSERT INTO progress(island_id, lesson_id, practice_done, last_played) '
+      'VALUES(?, ?, 1, ?) '
+      'ON CONFLICT(island_id, lesson_id) DO UPDATE SET '
+      'practice_done = 1, last_played = excluded.last_played',
+      [islandId, lessonId, DateTime.now().millisecondsSinceEpoch],
     );
+  }
+
+  Future<void> markLessonViewed(String islandId, String lessonId) async {
+    final d = await db;
+    await d.rawInsert(
+      'INSERT INTO progress(island_id, lesson_id, lesson_viewed) '
+      'VALUES(?, ?, 1) '
+      'ON CONFLICT(island_id, lesson_id) DO UPDATE SET lesson_viewed = 1',
+      [islandId, lessonId],
+    );
+  }
+
+  Future<Set<String>> viewedLessonIds(String islandId) async {
+    final d = await db;
+    final rows = await d.query(
+      'progress',
+      columns: ['lesson_id'],
+      where: 'island_id = ? AND lesson_viewed = 1',
+      whereArgs: [islandId],
+    );
+    return rows.map((r) => r['lesson_id'] as String).toSet();
   }
 
   Future<Set<String>> doneLessonIds(String islandId) async {
@@ -179,16 +239,24 @@ class AppDatabase {
     );
     final old = current.isEmpty ? 0 : (current.first['best_stars'] as int? ?? 0);
     final best = stars > old ? stars : old;
-    await d.insert(
-      'island_progress',
-      {
-        'island_id': islandId,
-        'best_stars': best,
-        'unlocked': 1,
-        'unlocked_by_parent': 0,
-        'last_played': now,
-      },
-      conflictAlgorithm: ConflictAlgorithm.replace,
+    // UPSERT: giữ nguyên unlocked_by_parent + completed_at.
+    await d.rawInsert(
+      'INSERT INTO island_progress(island_id, best_stars, unlocked, last_played) '
+      'VALUES(?, ?, 1, ?) '
+      'ON CONFLICT(island_id) DO UPDATE SET '
+      'best_stars = excluded.best_stars, unlocked = 1, '
+      'last_played = excluded.last_played',
+      [islandId, best, now],
+    );
+  }
+
+  /// Ghi thời điểm lần đầu đạt ≥1 sao ở Thử thách (cho huy hiệu đảo).
+  Future<void> markIslandCompleted(String islandId) async {
+    final d = await db;
+    await d.rawUpdate(
+      'UPDATE island_progress SET completed_at = ? '
+      'WHERE island_id = ? AND completed_at IS NULL',
+      [DateTime.now().millisecondsSinceEpoch, islandId],
     );
   }
 
@@ -207,16 +275,12 @@ class AppDatabase {
     final byParent = current.isEmpty
         ? 0
         : (current.first['unlocked_by_parent'] as int? ?? 0);
-    await d.insert(
-      'island_progress',
-      {
-        'island_id': nextIslandId,
-        'best_stars': best,
-        'unlocked': 1,
-        'unlocked_by_parent': byParent,
-        'last_played': DateTime.now().millisecondsSinceEpoch,
-      },
-      conflictAlgorithm: ConflictAlgorithm.replace,
+    await d.rawInsert(
+      'INSERT INTO island_progress(island_id, best_stars, unlocked, unlocked_by_parent, last_played) '
+      'VALUES(?, ?, 1, ?, ?) '
+      'ON CONFLICT(island_id) DO UPDATE SET '
+      'unlocked = 1, last_played = excluded.last_played',
+      [nextIslandId, best, byParent, DateTime.now().millisecondsSinceEpoch],
     );
   }
 
@@ -229,16 +293,20 @@ class AppDatabase {
     );
     final best =
         current.isEmpty ? 0 : (current.first['best_stars'] as int? ?? 0);
-    await d.insert(
-      'island_progress',
-      {
-        'island_id': islandId,
-        'best_stars': best,
-        'unlocked': unlocked ? 1 : 0,
-        'unlocked_by_parent': unlocked ? 1 : 0,
-        'last_played': DateTime.now().millisecondsSinceEpoch,
-      },
-      conflictAlgorithm: ConflictAlgorithm.replace,
+    await d.rawInsert(
+      'INSERT INTO island_progress(island_id, best_stars, unlocked, unlocked_by_parent, last_played) '
+      'VALUES(?, ?, ?, ?, ?) '
+      'ON CONFLICT(island_id) DO UPDATE SET '
+      'unlocked = excluded.unlocked, '
+      'unlocked_by_parent = excluded.unlocked_by_parent, '
+      'last_played = excluded.last_played',
+      [
+        islandId,
+        best,
+        unlocked ? 1 : 0,
+        unlocked ? 1 : 0,
+        DateTime.now().millisecondsSinceEpoch,
+      ],
     );
   }
 
@@ -287,6 +355,23 @@ class AppDatabase {
     );
   }
 
+  /// Giảm hiệu ứng (tắt pháo giấy, parallax, giảm chuyển động) cho máy yếu.
+  Future<bool> isReduceEffects() async {
+    final d = await db;
+    final rows = await d.query('settings', columns: ['reduce_effects']);
+    if (rows.isEmpty) return false;
+    return ((rows.first['reduce_effects'] as int?) ?? 0) == 1;
+  }
+
+  Future<void> setReduceEffects(bool value) async {
+    final d = await db;
+    await d.update(
+      'settings',
+      {'reduce_effects': value ? 1 : 0},
+      where: 'id = 1',
+    );
+  }
+
   Future<bool> verifyPin(String pin) async {
     final d = await db;
     final rows = await d.query('settings', columns: ['parent_pin_hash']);
@@ -305,6 +390,112 @@ class AppDatabase {
     );
   }
 
+  // --- Xu + cửa hàng (SPEC giao diện mục 8, 10) ---
+  Future<int> coins() async {
+    final d = await db;
+    final rows = await d.query('profile', columns: ['coins']);
+    if (rows.isEmpty) return 0;
+    return (rows.first['coins'] as int?) ?? 0;
+  }
+
+  Future<void> addCoins(int amount) async {
+    final d = await db;
+    await d.rawUpdate(
+      'UPDATE profile SET coins = coins + ? WHERE id = 1',
+      [amount],
+    );
+  }
+
+  /// Nhận xu theo [key] đúng 1 lần (chống nhận lặp qua reward_log).
+  /// Trả về true nếu lần này mới nhận được [amount] xu.
+  Future<bool> claimReward(String key, int amount) async {
+    final d = await db;
+    final inserted = await d.rawInsert(
+      'INSERT OR IGNORE INTO reward_log(key, claimed_at) VALUES(?, ?)',
+      [key, DateTime.now().millisecondsSinceEpoch],
+    );
+    if (inserted == 0) return false;
+    await addCoins(amount);
+    return true;
+  }
+
+  /// Đếm số lần đã nhận thưởng theo tiền tố khóa (vd 'practice:<lesson>:').
+  Future<int> countRewards(String keyPrefix) async {
+    final d = await db;
+    final rows = await d.rawQuery(
+      'SELECT COUNT(*) AS c FROM reward_log WHERE key LIKE ?',
+      ['$keyPrefix%'],
+    );
+    return (rows.first['c'] as int?) ?? 0;
+  }
+
+  Future<Set<String>> ownedItemIds() async {
+    final d = await db;
+    final rows = await d.query('owned_items', columns: ['item_id']);
+    return rows.map((r) => r['item_id'] as String).toSet();
+  }
+
+  Future<Set<String>> equippedItemIds() async {
+    final d = await db;
+    final rows = await d.query(
+      'owned_items',
+      columns: ['item_id'],
+      where: 'equipped = 1',
+    );
+    return rows.map((r) => r['item_id'] as String).toSet();
+  }
+
+  /// Mua món: đủ xu mới trừ và ghi sở hữu. Trả về true nếu mua được.
+  Future<bool> buyItem(String itemId, int price) async {
+    final d = await db;
+    return d.transaction((txn) async {
+      final rows = await txn.query('profile', columns: ['coins']);
+      final balance = rows.isEmpty ? 0 : (rows.first['coins'] as int? ?? 0);
+      if (balance < price) return false;
+      final owned = await txn.query(
+        'owned_items',
+        where: 'item_id = ?',
+        whereArgs: [itemId],
+      );
+      if (owned.isNotEmpty) return false;
+      await txn.rawUpdate(
+        'UPDATE profile SET coins = coins - ? WHERE id = 1',
+        [price],
+      );
+      await txn.insert('owned_items', {
+        'item_id': itemId,
+        'equipped': 0,
+        'acquired_at': DateTime.now().millisecondsSinceEpoch,
+      });
+      return true;
+    });
+  }
+
+  /// Mặc [itemId], đồng thời tháo các món cùng nhóm ([slotItemIds]).
+  Future<void> equipOnly(String itemId, List<String> slotItemIds) async {
+    final d = await db;
+    await d.transaction((txn) async {
+      for (final id in slotItemIds) {
+        await txn.update(
+          'owned_items',
+          {'equipped': id == itemId ? 1 : 0},
+          where: 'item_id = ?',
+          whereArgs: [id],
+        );
+      }
+    });
+  }
+
+  Future<void> unequip(String itemId) async {
+    final d = await db;
+    await d.update(
+      'owned_items',
+      {'equipped': 0},
+      where: 'item_id = ?',
+      whereArgs: [itemId],
+    );
+  }
+
   // --- Reset ---
   Future<void> resetProgress() async {
     final d = await db;
@@ -312,6 +503,9 @@ class AppDatabase {
     await d.delete('island_progress');
     await d.delete('answer_log');
     await d.delete('review_box');
+    await d.delete('owned_items');
+    await d.delete('reward_log');
+    await d.update('profile', {'coins': 0}, where: 'id = 1');
     await d.insert('island_progress', {
       'island_id': 'on_tap_bo_sung',
       'best_stars': 0,

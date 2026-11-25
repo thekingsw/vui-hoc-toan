@@ -2,16 +2,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/island_catalog.dart';
+import '../game/question_play_area.dart';
+import '../game/shop/rewards.dart';
 import '../models/question.dart';
 import '../providers/app_providers.dart';
 import '../services/scoring.dart';
-import '../widgets/mascot.dart';
-import '../widgets/question_view.dart';
 import 'result_screen.dart';
 
 /// Thử thách cấp đảo (boss/Quiz):
 /// rút phân tầng 4 mức 1 + 6 mức 2 từ kho boss 20 câu.
-/// Đồng hồ đếm giờ nhẹ — hết giờ không thua.
+/// Đồng hồ cát nhỏ — hết giờ không thua (SPEC giao diện mục 6).
 /// Sao: ≥9 = 3, ≥8 = 2, ≥6 = 1. Lưu sao tốt nhất theo đảo.
 class QuizScreen extends ConsumerStatefulWidget {
   const QuizScreen({super.key, required this.island, required this.meta});
@@ -30,6 +30,22 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
   bool _settled = false;
   int _elapsedSeconds = 0;
   Timer? _timer;
+  int _coinsEarned = 0;
+  int _coinFlyKey = 0;
+
+  /// Nhận xu câu đúng lần đầu (mỗi câu chỉ 1 lần — reward_log chống lặp).
+  Future<void> _claimFirstCorrect(Question q) async {
+    final db = ref.read(databaseProvider);
+    final claimed =
+        await db.claimReward(questionRewardKey(q.id), coinFirstCorrect);
+    if (claimed && mounted) {
+      setState(() {
+        _coinsEarned += coinFirstCorrect;
+        _coinFlyKey++;
+      });
+      ref.read(progressRefreshProvider.notifier).state++;
+    }
+  }
 
   @override
   void initState() {
@@ -68,7 +84,19 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
       await db.logAnswer(questions[i].id, ok, 'quiz');
     }
     final stars = starsFor(correct, total: questions.length);
+    // Lần đầu đạt ≥1 sao: mở đảo mới + thuyền chạy khi về bản đồ.
+    final progressBefore = await db.allIslandProgress();
+    final prevBest =
+        progressBefore[widget.island.islandId]?.bestStars ?? 0;
+    final firstCompletion = prevBest == 0 && stars >= 1;
     await db.saveBestStars(widget.island.islandId, stars);
+    // Xu theo mức sao (mỗi mức nhận 1 lần, trả phần chênh).
+    for (final (key, amount) in bossStarClaims(widget.island.islandId, stars)) {
+      if (await db.claimReward(key, amount)) _coinsEarned += amount;
+    }
+    if (firstCompletion) {
+      await db.markIslandCompleted(widget.island.islandId);
+    }
     if (stars >= 1) {
       // Mở đảo kế tiếp.
       final ids = islandOrderIds;
@@ -76,6 +104,9 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
       if (idx >= 0 && idx + 1 < ids.length) {
         await db.unlockNextIsland(
             widget.island.islandId, ids[idx + 1]);
+        if (firstCompletion) {
+          ref.read(pendingSailProvider.notifier).state = ids[idx + 1];
+        }
       }
     }
     ref.read(progressRefreshProvider.notifier).state++;
@@ -94,6 +125,10 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
               ? 'Chúc mừng! Bé đã mở khóa đảo tiếp theo! 🎉'
               : 'Chưa đủ 6 câu đúng để mở đảo sau — thử lại nhé, cố lên!',
           elapsedText: _timeText,
+          island: widget.island,
+          meta: widget.meta,
+          firstCompletion: firstCompletion,
+          coinsEarned: _coinsEarned,
         ),
       ),
     );
@@ -113,12 +148,11 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Thử thách ${_index + 1}/${questions.length}'),
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 16),
+            padding: EdgeInsets.only(right: 16),
             child: Center(
-              child: Text('⏱ $_timeText',
-                  style: const TextStyle(fontSize: 17)),
+              child: Icon(Icons.hourglass_bottom, size: 22),
             ),
           ),
         ],
@@ -128,26 +162,16 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            LinearProgressIndicator(
-              value: (_index + 1) / questions.length,
-              minHeight: 8,
-              borderRadius: BorderRadius.circular(4),
-            ),
-            const SizedBox(height: 16),
-            Consumer(
-              builder: (context, ref, _) {
-                final mood = ref.watch(mascotMoodProvider);
-                return Align(
-                  alignment: Alignment.centerLeft,
-                  child: MascotWidget(mood: mood, size: 64),
-                );
-              },
-            ),
-            const SizedBox(height: 8),
-            QuestionView(
-              key: ValueKey(q.id),
+            QuestionPlayArea(
               question: q,
+              totalQuestions: questions.length,
               allowRetry: false,
+              reduceEffects: ref.watch(reduceEffectsProvider),
+              coins: ref.watch(coinsProvider).maybeWhen(
+                    data: (c) => c,
+                    orElse: () => 0,
+                  ),
+              coinFlyKey: _coinFlyKey,
               onAnswered: (correct, input) {
                 setState(() => _results[_index] = correct);
                 final sound = ref.read(soundServiceProvider);
@@ -155,6 +179,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
                   sound.playCorrect();
                   ref.read(mascotMoodProvider.notifier).state =
                       MascotMood.happy;
+                  _claimFirstCorrect(q);
                 } else {
                   sound.playWrong();
                   ref.read(mascotMoodProvider.notifier).state =

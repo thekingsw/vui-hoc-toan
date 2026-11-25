@@ -1,7 +1,7 @@
 name: toan_lop_5
 description: "Hành trình khám phá — app học Toán lớp 5 offline (SGK Kết nối tri thức)."
 publish_to: "none"
-version: 1.0.0+1
+version: 1.2.0+3
 
 environment:
   sdk: ">=3.5.0 <4.0.0"
@@ -29,6 +29,8 @@ flutter:
   assets:
     - assets/data/
     - assets/sounds/
+    - assets/config/
+    - assets/config/island_scenes/
   fonts:
     - family: Nunito
       fonts:

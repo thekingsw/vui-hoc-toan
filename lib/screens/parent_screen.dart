@@ -109,6 +109,18 @@ class _ParentScreenState extends ConsumerState<ParentScreen> {
                   await db.setSoundOn(value);
                 },
               ),
+              SwitchListTile(
+                title: const Text('Giảm hiệu ứng',
+                    style: TextStyle(fontSize: 18)),
+                subtitle: const Text(
+                    'Tắt pháo giấy, giảm chuyển động cho máy yếu'),
+                value: ref.watch(reduceEffectsProvider),
+                onChanged: (value) async {
+                  final db = ref.read(databaseProvider);
+                  ref.read(reduceEffectsProvider.notifier).state = value;
+                  await db.setReduceEffects(value);
+                },
+              ),
               const Divider(),
               ListTile(
                 title: const Text('Đổi PIN phụ huynh',

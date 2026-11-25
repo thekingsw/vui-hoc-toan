@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/island_catalog.dart';
+import '../game/question_play_area.dart';
+import '../game/shop/rewards.dart';
 import '../models/question.dart';
 import '../providers/app_providers.dart';
 import '../services/scoring.dart';
-import '../widgets/mascot.dart';
-import '../widgets/question_view.dart';
 import 'result_screen.dart';
 
 /// Luyện tập theo bài học: 10 câu từ kho 20 câu của bài
@@ -32,9 +32,24 @@ class _PracticeScreenState extends ConsumerState<PracticeScreen> {
   List<Question>? _questions;
   int _index = 0;
   final Map<int, bool> _results = {};
-  final Map<int, String> _inputs = {};
   bool _settled = false;
   bool _loading = true;
+  int _coinsEarned = 0;
+  int _coinFlyKey = 0;
+
+  /// Nhận xu câu đúng lần đầu (mỗi câu chỉ 1 lần — reward_log chống lặp).
+  Future<void> _claimFirstCorrect(Question q) async {
+    final db = ref.read(databaseProvider);
+    final claimed =
+        await db.claimReward(questionRewardKey(q.id), coinFirstCorrect);
+    if (claimed && mounted) {
+      setState(() {
+        _coinsEarned += coinFirstCorrect;
+        _coinFlyKey++;
+      });
+      ref.read(progressRefreshProvider.notifier).state++;
+    }
+  }
 
   @override
   void initState() {
@@ -69,6 +84,14 @@ class _PracticeScreenState extends ConsumerState<PracticeScreen> {
     }
     await db.markPracticeDone(
         widget.island.islandId, widget.lesson.lessonId);
+    // Xu xong 1 lượt Luyện tập (khóa theo số lượt đã nhận).
+    final runIndex =
+        await db.countRewards('practice:${widget.lesson.lessonId}:');
+    final practiceClaimed = await db.claimReward(
+      practiceRewardKey(widget.lesson.lessonId, runIndex),
+      coinPracticeDone,
+    );
+    if (practiceClaimed) _coinsEarned += coinPracticeDone;
     ref.read(progressRefreshProvider.notifier).state++;
     ref.read(mascotMoodProvider.notifier).state =
         correct >= questions.length * 0.6
@@ -84,6 +107,10 @@ class _PracticeScreenState extends ConsumerState<PracticeScreen> {
           wrongQuestions: wrongQuestions,
           stars: null,
           subtitle: 'Bài học đã được tính là hoàn thành! 🎉',
+          island: widget.island,
+          lesson: widget.lesson,
+          meta: widget.meta,
+          coinsEarned: _coinsEarned,
         ),
       ),
     );
@@ -117,36 +144,24 @@ class _PracticeScreenState extends ConsumerState<PracticeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            LinearProgressIndicator(
-              value: (_index + 1) / questions.length,
-              minHeight: 8,
-              borderRadius: BorderRadius.circular(4),
-            ),
-            const SizedBox(height: 16),
-            Consumer(
-              builder: (context, ref, _) {
-                final mood = ref.watch(mascotMoodProvider);
-                return Align(
-                  alignment: Alignment.centerLeft,
-                  child: MascotWidget(mood: mood, size: 64),
-                );
-              },
-            ),
-            const SizedBox(height: 8),
-            QuestionView(
-              key: ValueKey(q.id),
+            QuestionPlayArea(
               question: q,
+              totalQuestions: questions.length,
               allowRetry: true,
+              reduceEffects: ref.watch(reduceEffectsProvider),
+              coins: ref.watch(coinsProvider).maybeWhen(
+                    data: (c) => c,
+                    orElse: () => 0,
+                  ),
+              coinFlyKey: _coinFlyKey,
               onAnswered: (correct, input) {
-                setState(() {
-                  _results[_index] = correct;
-                  _inputs[_index] = input;
-                });
+                setState(() => _results[_index] = correct);
                 final sound = ref.read(soundServiceProvider);
                 if (correct) {
                   sound.playCorrect();
                   ref.read(mascotMoodProvider.notifier).state =
                       MascotMood.happy;
+                  _claimFirstCorrect(q);
                 } else {
                   sound.playWrong();
                   ref.read(mascotMoodProvider.notifier).state =

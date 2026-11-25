@@ -19,6 +19,7 @@ class QuestionView extends StatefulWidget {
     this.allowRetry = false,
     this.onRetryUsed,
     this.onSettled,
+    this.hideFeedback = false,
   });
 
   final Question question;
@@ -28,6 +29,10 @@ class QuestionView extends StatefulWidget {
 
   /// Gọi khi câu đã chốt xong (đúng, hoặc sai lần cuối).
   final VoidCallback? onSettled;
+
+  /// true: màn hình cha tự hiện phản hồi (khung thoại linh vật),
+  /// widget không hiện hộp phản hồi của nó nữa.
+  final bool hideFeedback;
 
   @override
   State<QuestionView> createState() => _QuestionViewState();
@@ -97,25 +102,27 @@ class _QuestionViewState extends State<QuestionView> {
         const SizedBox(height: 20),
         _buildInput(q),
         const SizedBox(height: 16),
-        if (_state == AnswerState.wrongRetry) ...[
+        if (!widget.hideFeedback && _state == AnswerState.wrongRetry) ...[
           _feedbackBox(
             'Chưa đúng rồi, thử lại nhé! 💡 Gợi ý: ${q.hint ?? 'Đọc kĩ đề rồi tính lại nào.'}',
             Colors.orange,
           ),
         ],
-        if (_state == AnswerState.correct)
+        if (!widget.hideFeedback && _state == AnswerState.correct)
           _feedbackBox('Đúng rồi, giỏi quá! 🎉', Colors.green),
-        if (_state == AnswerState.wrongFinal) ...[
+        if (!widget.hideFeedback && _state == AnswerState.wrongFinal) ...[
           _feedbackBox(
             'Đáp án đúng là: ${q.answerText ?? ''}${q.unit != null ? ' ${q.unit}' : ''}. Đừng buồn, mình học từ câu này nhé!',
-            Colors.red,
+            Colors.orange,
           ),
           if (q.explanation != null) ...[
             const SizedBox(height: 12),
             _feedbackBox('Lời giải: ${q.explanation}', Colors.blueGrey),
           ],
         ],
-        if (_state == AnswerState.correct && q.explanation != null) ...[
+        if (!widget.hideFeedback &&
+            _state == AnswerState.correct &&
+            q.explanation != null) ...[
           const SizedBox(height: 12),
           _feedbackBox('Lời giải: ${q.explanation}', Colors.blueGrey),
         ],
@@ -147,7 +154,7 @@ class _QuestionViewState extends State<QuestionView> {
             if (_state == AnswerState.correct && isSelected) {
               bg = Colors.green.shade100;
             } else if (_state == AnswerState.wrongFinal && isSelected) {
-              bg = Colors.red.shade100;
+              bg = Colors.orange.shade100;
             } else if (_state == AnswerState.wrongFinal && isAnswer) {
               bg = Colors.green.shade100;
             }
@@ -187,7 +194,7 @@ class _QuestionViewState extends State<QuestionView> {
           children: [
             Expanded(child: _boolButton('Đúng', Colors.green)),
             const SizedBox(width: 12),
-            Expanded(child: _boolButton('Sai', Colors.red)),
+            Expanded(child: _boolButton('Sai', Colors.deepOrange)),
           ],
         );
       case QuestionType.fillNumber:
@@ -289,7 +296,7 @@ class _QuestionViewState extends State<QuestionView> {
     if (_state == AnswerState.correct && isSelected) {
       bg = Colors.green.shade100;
     } else if (_state == AnswerState.wrongFinal && isSelected) {
-      bg = Colors.red.shade100;
+      bg = Colors.orange.shade100;
     } else if (_state == AnswerState.wrongFinal && isAnswer) {
       bg = Colors.green.shade100;
     }

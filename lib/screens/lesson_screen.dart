@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/island_catalog.dart';
 import '../models/question.dart';
-import '../widgets/mascot.dart';
 import '../providers/app_providers.dart';
+import '../widgets/speech_bubble.dart';
 import 'practice_screen.dart';
 
 /// Học: thẻ vuốt ngang (PageView), 4–5 thẻ/bài, có thẻ "Lỗi hay gặp".
@@ -29,6 +29,18 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
   int _page = 0;
 
   @override
+  void initState() {
+    super.initState();
+    // Đánh dấu đã xem bài Học (hiện biểu tượng sách ở điểm dừng).
+    final db = ref.read(databaseProvider);
+    db
+        .markLessonViewed(widget.island.islandId, widget.lesson.lessonId)
+        .then((_) {
+      if (mounted) ref.read(progressRefreshProvider.notifier).state++;
+    });
+  }
+
+  @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
@@ -43,7 +55,16 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
       body: Column(
         children: [
           const SizedBox(height: 12),
-          const MascotWidget(mood: MascotMood.neutral, size: 72),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: SpeechBubble(
+              mood: MascotMood.neutral,
+              mascotSize: 64,
+              text: cards.isEmpty
+                  ? 'Mình cùng học nhé!'
+                  : 'Mình học về: ${cards[_page].heading}',
+            ),
+          ),
           const SizedBox(height: 8),
           Expanded(
             child: cards.isEmpty
@@ -88,7 +109,9 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                                       const SizedBox(width: 12),
                                       Expanded(
                                         child: Text(
-                                          card.heading,
+                                          isMistakeCard
+                                              ? '🪤 Coi chừng cái bẫy này!'
+                                              : card.heading,
                                           style: const TextStyle(
                                             fontSize: 22,
                                             fontWeight: FontWeight.bold,
@@ -141,17 +164,23 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                   ),
           ),
           const SizedBox(height: 12),
+          // Tiến độ dạng viên ngọc.
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
               cards.length,
               (i) => Container(
-                margin: const EdgeInsets.symmetric(horizontal: 4),
-                width: _page == i ? 24 : 10,
-                height: 10,
-                decoration: BoxDecoration(
-                  color: _page == i ? color : Colors.grey.shade300,
-                  borderRadius: BorderRadius.circular(5),
+                margin: const EdgeInsets.symmetric(horizontal: 5),
+                child: Transform.rotate(
+                  angle: 0.7853981633974483, // 45 độ
+                  child: Container(
+                    width: _page == i ? 13 : 9,
+                    height: _page == i ? 13 : 9,
+                    decoration: BoxDecoration(
+                      color: _page == i ? color : Colors.grey.shade300,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
                 ),
               ),
             ),

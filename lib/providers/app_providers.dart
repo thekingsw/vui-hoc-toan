@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/data_loader.dart';
 import '../data/island_catalog.dart';
+import '../game/shop/shop_items.dart';
 import '../models/question.dart';
 import '../services/database_service.dart';
 import '../services/sound_service.dart';
@@ -19,6 +20,13 @@ final soundServiceProvider = Provider<SoundService>((ref) {
 
 /// Bật/tắt âm thanh (đồng bộ với bảng settings).
 final soundOnProvider = StateProvider<bool>((ref) => true);
+
+/// Giảm hiệu ứng cho máy yếu (đồng bộ với bảng settings).
+final reduceEffectsProvider = StateProvider<bool>((ref) => false);
+
+/// Thuyền cần chạy sang đảo mới khi về bản đồ (sau lần đầu mở đảo).
+/// Giá trị là id đảo đích; bản đồ chạy xong thì xóa về null.
+final pendingSailProvider = StateProvider<String?>((ref) => null);
 
 /// Dữ liệu các đảo (nạp từ assets). Đảo chưa có file thì vắng mặt.
 final islandsProvider = FutureProvider<Map<String, IslandData>>((ref) async {
@@ -50,7 +58,41 @@ final doneLessonsProvider =
   return db.doneLessonIds(islandId);
 });
 
+/// Các bài học đã xem (mở màn Học) của 1 đảo.
+final viewedLessonsProvider =
+    FutureProvider.family<Set<String>, String>((ref, islandId) async {
+  ref.watch(progressRefreshProvider);
+  final db = ref.watch(databaseProvider);
+  return db.viewedLessonIds(islandId);
+});
+
 /// Cảm xúc linh vật hiện tại.
 enum MascotMood { neutral, happy, sad, excited }
 
 final mascotMoodProvider = StateProvider<MascotMood>((ref) => MascotMood.neutral);
+
+/// Danh mục cửa hàng (assets/config/shop_items.json).
+final shopItemsProvider = FutureProvider<List<ShopItem>>((ref) async {
+  return loadShopItems();
+});
+
+/// Số xu hiện có của bé.
+final coinsProvider = FutureProvider<int>((ref) async {
+  ref.watch(progressRefreshProvider);
+  final db = ref.watch(databaseProvider);
+  return db.coins();
+});
+
+/// Các món đã mua.
+final ownedItemsProvider = FutureProvider<Set<String>>((ref) async {
+  ref.watch(progressRefreshProvider);
+  final db = ref.watch(databaseProvider);
+  return db.ownedItemIds();
+});
+
+/// Các món đang mặc/dùng.
+final equippedItemsProvider = FutureProvider<Set<String>>((ref) async {
+  ref.watch(progressRefreshProvider);
+  final db = ref.watch(databaseProvider);
+  return db.equippedItemIds();
+});
