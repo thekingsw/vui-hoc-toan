@@ -34,6 +34,17 @@ class ToanLop5App extends StatelessWidget {
         // Nunito đã kèm trong assets/fonts; nếu font lỗi thì Flutter
         // tự rơi về font hệ thống, app vẫn chạy.
         fontFamily: 'Nunito',
+        // Baloo 2 cho tiêu đề và số lớn (SPEC mục 1).
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(fontFamily: 'Baloo2'),
+          displayMedium: TextStyle(fontFamily: 'Baloo2'),
+          displaySmall: TextStyle(fontFamily: 'Baloo2'),
+          headlineLarge: TextStyle(fontFamily: 'Baloo2'),
+          headlineMedium: TextStyle(fontFamily: 'Baloo2'),
+          headlineSmall: TextStyle(fontFamily: 'Baloo2'),
+          titleLarge: TextStyle(fontFamily: 'Baloo2'),
+          titleMedium: TextStyle(fontFamily: 'Baloo2'),
+        ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             minimumSize: const Size(48, 48),

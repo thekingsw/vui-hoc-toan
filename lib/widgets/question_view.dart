@@ -19,6 +19,7 @@ class QuestionView extends StatefulWidget {
     this.allowRetry = false,
     this.onRetryUsed,
     this.onSettled,
+    this.onSelect,
     this.hideFeedback = false,
   });
 
@@ -26,6 +27,9 @@ class QuestionView extends StatefulWidget {
   final void Function(bool correct, String userInput) onAnswered;
   final bool allowRetry;
   final VoidCallback? onRetryUsed;
+
+  /// Gọi khi bé chạm chọn một đáp án (để phát tiếng chạm).
+  final VoidCallback? onSelect;
 
   /// Gọi khi câu đã chốt xong (đúng, hoặc sai lần cuối).
   final VoidCallback? onSettled;
@@ -175,6 +179,7 @@ class _QuestionViewState extends State<QuestionView> {
                           _state == AnswerState.wrongFinal)
                       ? null
                       : () {
+                          widget.onSelect?.call();
                           _selected = opt;
                           _submit(opt);
                         },
@@ -310,6 +315,7 @@ class _QuestionViewState extends State<QuestionView> {
         onPressed: locked
             ? null
             : () {
+                widget.onSelect?.call();
                 _selected = label;
                 _submit(label);
               },

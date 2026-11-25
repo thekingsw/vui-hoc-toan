@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import '../game/game_image.dart';
 import '../providers/app_providers.dart';
 
-/// Linh vật cáo vẽ bằng Flutter widget (không cần ảnh ngoài).
-/// Đổi biểu cảm theo [mood]: vui / buồn / hào hứng / bình thường.
+/// Linh vật cáo: dùng ảnh AI (đợt 3) theo [mood], chưa có ảnh thì
+/// vẽ bằng code dự phòng.
 
 class MascotWidget extends StatelessWidget {
   const MascotWidget({super.key, required this.mood, this.size = 96});
@@ -10,12 +11,20 @@ class MascotWidget extends StatelessWidget {
   final MascotMood mood;
   final double size;
 
+  String get _assetPath => switch (mood) {
+        MascotMood.happy || MascotMood.excited =>
+          'assets/images/mascot/mascot_happy.webp',
+        MascotMood.sad => 'assets/images/mascot/mascot_sad.webp',
+        MascotMood.neutral => 'assets/images/mascot/mascot_idle.webp',
+      };
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return GameImage(
+      assetPath: _assetPath,
       width: size,
       height: size,
-      child: CustomPaint(painter: _FoxPainter(mood)),
+      fallback: CustomPaint(painter: _FoxPainter(mood)),
     );
   }
 }

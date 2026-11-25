@@ -1,7 +1,7 @@
 name: toan_lop_5
 description: "Hành trình khám phá — app học Toán lớp 5 offline (SGK Kết nối tri thức)."
 publish_to: "none"
-version: 1.2.0+3
+version: 1.3.0+4
 
 environment:
   sdk: ">=3.5.0 <4.0.0"
@@ -31,6 +31,13 @@ flutter:
     - assets/sounds/
     - assets/config/
     - assets/config/island_scenes/
+    - assets/images/mascot/
+    - assets/images/islands/
+    - assets/images/items/
+    - assets/images/nodes/
+    - assets/images/scenes/
+    - assets/images/map/
+    - assets/images/ui/
   fonts:
     - family: Nunito
       fonts:
@@ -39,4 +46,13 @@ flutter:
         - asset: assets/fonts/Nunito.ttf
           weight: 700
         - asset: assets/fonts/Nunito.ttf
+          weight: 800
+    # Baloo 2 cho tiêu đề và số (SPEC mục 1); CI tải file font này.
+    - family: Baloo2
+      fonts:
+        - asset: assets/fonts/Baloo2.ttf
+          weight: 400
+        - asset: assets/fonts/Baloo2.ttf
+          weight: 700
+        - asset: assets/fonts/Baloo2.ttf
           weight: 800

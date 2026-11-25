@@ -61,7 +61,12 @@ class ResultScreen extends ConsumerWidget {
         padding: const EdgeInsets.all(20),
         children: [
           if (isQuiz)
-            ChestCeremony(stars: stars!, reduceEffects: reduceEffects)
+            ChestCeremony(
+              stars: stars!,
+              reduceEffects: reduceEffects,
+              onChestOpen: () => ref.read(soundServiceProvider).playChest(),
+              onStar: (_) => ref.read(soundServiceProvider).playStar(),
+            )
           else
             Center(
               child: MascotWidget(

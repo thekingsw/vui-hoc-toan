@@ -22,6 +22,8 @@ class QuestionPlayArea extends StatefulWidget {
     required this.reduceEffects,
     required this.onAnswered,
     required this.onSettled,
+    this.onCombo,
+    this.onTapAnswer,
     this.coins = 0,
     this.coinFlyKey = 0,
   });
@@ -32,6 +34,12 @@ class QuestionPlayArea extends StatefulWidget {
   final bool reduceEffects;
   final void Function(bool correct, String userInput) onAnswered;
   final VoidCallback onSettled;
+
+  /// Gọi khi combo đạt từ 3 trở lên (để phát tiếng combo).
+  final void Function(int combo)? onCombo;
+
+  /// Gọi khi bé chạm chọn đáp án (để phát tiếng chạm).
+  final VoidCallback? onTapAnswer;
 
   /// Số xu hiện có (hiện ở góc) và khóa kích hoạt hiệu ứng xu bay.
   final int coins;
@@ -72,6 +80,7 @@ class _QuestionPlayAreaState extends State<QuestionPlayArea> {
     setState(() {
       if (correct) {
         _combo++;
+        if (_combo >= 3) widget.onCombo?.call(_combo);
         _boatDone++;
         _confettiKey++;
         _settled = true;
@@ -147,6 +156,7 @@ class _QuestionPlayAreaState extends State<QuestionPlayArea> {
                 hideFeedback: true,
                 onAnswered: _handleAnswered,
                 onSettled: widget.onSettled,
+                onSelect: widget.onTapAnswer,
               ),
             ),
             if (_settled && !_lastCorrect) ...[

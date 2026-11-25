@@ -43,6 +43,7 @@ class _PracticeScreenState extends ConsumerState<PracticeScreen> {
     final claimed =
         await db.claimReward(questionRewardKey(q.id), coinFirstCorrect);
     if (claimed && mounted) {
+      ref.read(soundServiceProvider).playCoin();
       setState(() {
         _coinsEarned += coinFirstCorrect;
         _coinFlyKey++;
@@ -154,6 +155,8 @@ class _PracticeScreenState extends ConsumerState<PracticeScreen> {
                     orElse: () => 0,
                   ),
               coinFlyKey: _coinFlyKey,
+              onCombo: (_) => ref.read(soundServiceProvider).playCombo(),
+              onTapAnswer: () => ref.read(soundServiceProvider).playTap(),
               onAnswered: (correct, input) {
                 setState(() => _results[_index] = correct);
                 final sound = ref.read(soundServiceProvider);

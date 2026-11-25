@@ -38,6 +38,7 @@ class _ShopScreenState extends ConsumerState<ShopScreen>
     final ok = await db.buyItem(item.id, item.price);
     if (!mounted) return;
     if (ok) {
+      ref.read(soundServiceProvider).playBuy();
       final items = ref.read(shopItemsProvider).valueOrNull ?? const [];
       await db.equipOnly(item.id, slotItemIds(items, item));
       ref.read(progressRefreshProvider.notifier).state++;

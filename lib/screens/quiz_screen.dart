@@ -39,6 +39,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
     final claimed =
         await db.claimReward(questionRewardKey(q.id), coinFirstCorrect);
     if (claimed && mounted) {
+      ref.read(soundServiceProvider).playCoin();
       setState(() {
         _coinsEarned += coinFirstCorrect;
         _coinFlyKey++;
@@ -96,6 +97,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
     }
     if (firstCompletion) {
       await db.markIslandCompleted(widget.island.islandId);
+      ref.read(soundServiceProvider).playUnlock();
     }
     if (stars >= 1) {
       // Mở đảo kế tiếp.
@@ -172,6 +174,8 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
                     orElse: () => 0,
                   ),
               coinFlyKey: _coinFlyKey,
+              onCombo: (_) => ref.read(soundServiceProvider).playCombo(),
+              onTapAnswer: () => ref.read(soundServiceProvider).playTap(),
               onAnswered: (correct, input) {
                 setState(() => _results[_index] = correct);
                 final sound = ref.read(soundServiceProvider);

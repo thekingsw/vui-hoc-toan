@@ -9,10 +9,16 @@ class ChestCeremony extends StatefulWidget {
     super.key,
     required this.stars,
     this.reduceEffects = false,
+    this.onChestOpen,
+    this.onStar,
   });
 
   final int stars;
   final bool reduceEffects;
+
+  /// Gọi khi rương bắt đầu mở / mỗi sao bật ra (để phát âm thanh).
+  final VoidCallback? onChestOpen;
+  final void Function(int index)? onStar;
 
   @override
   State<ChestCeremony> createState() => _ChestCeremonyState();
@@ -21,6 +27,8 @@ class ChestCeremony extends StatefulWidget {
 class _ChestCeremonyState extends State<ChestCeremony>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
+  bool _chestSoundFired = false;
+  final Set<int> _starSoundFired = {};
 
   @override
   void initState() {
@@ -29,10 +37,26 @@ class _ChestCeremonyState extends State<ChestCeremony>
       vsync: this,
       duration: const Duration(milliseconds: 1800),
     );
+    _controller.addListener(_fireSounds);
     if (widget.reduceEffects) {
       _controller.value = 1;
+      _fireSounds();
     } else {
       _controller.forward();
+    }
+  }
+
+  void _fireSounds() {
+    final t = _controller.value;
+    if (!_chestSoundFired && t >= 0.22) {
+      _chestSoundFired = true;
+      widget.onChestOpen?.call();
+    }
+    for (var i = 0; i < widget.stars && i < 3; i++) {
+      if (!_starSoundFired.contains(i) && t >= 0.45 + i * 0.17) {
+        _starSoundFired.add(i);
+        widget.onStar?.call(i);
+      }
     }
   }
 
