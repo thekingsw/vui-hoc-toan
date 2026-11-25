@@ -1,4 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Chỉ dùng để kiểm tra/tải bản cập nhật; học vẫn offline. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Cho phép mở trình cài đặt khi tự cập nhật. -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
     <application
         android:label="toan_lop_5"
         android:name="${applicationName}"

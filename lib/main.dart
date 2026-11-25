@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'screens/splash_screen.dart';
+import 'widgets/update_checker.dart';
+
+final navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +22,7 @@ class ToanLop5App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       title: 'Hành trình khám phá — Toán lớp 5',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -40,7 +44,10 @@ class ToanLop5App extends StatelessWidget {
           ),
         ),
       ),
-      home: const SplashScreen(),
+      home: UpdateChecker(
+        navigatorKey: navigatorKey,
+        child: const SplashScreen(),
+      ),
     );
   }
 }

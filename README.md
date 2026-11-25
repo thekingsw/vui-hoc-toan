@@ -23,9 +23,21 @@ JDK mới hơn, vd JDK 21/25 sẽ báo "Unsupported class file major version").
 Repo có workflow `.github/workflows/build-apk.yml`: mỗi lần push lên
 `main`, CI tự khôi phục các file nhị phân không nằm trong git (font
 Nunito tải từ google/fonts, 2 file âm thanh và 5 icon tự sinh,
-`gradle-wrapper.jar` tải từ repo gradle), rồi chạy `flutter test` và
-`flutter build apk --debug`. File APK nằm ở mục **Artifacts**
-(`app-debug`) cuối trang của lần chạy.
+`gradle-wrapper.jar` tải từ repo gradle), khôi phục khóa ký từ
+GitHub Secrets, rồi chạy `flutter test` và
+`flutter build apk --release --split-per-abi`. File APK nằm ở mục
+**Artifacts** (`app-release`) cuối trang của lần chạy.
+
+## Tự cập nhật
+
+App tự kiểm tra bản mới trên GitHub Releases mỗi khi mở (chỉ việc này
+mới dùng mạng; học vẫn offline). Có bản mới thì app hiện hộp thoại,
+bấm "Cập nhật ngay" là tải + cài luôn. Muốn phát hành bản mới: tăng
+`version` trong `pubspec.yaml`, push lên `main`, rồi tạo tag `vX.Y.Z`
+— CI build xong sẽ tự đăng Release kèm file APK arm64.
+
+Lưu ý: bản release ký bằng khóa riêng (Secrets) nên không cài đè lên
+bản debug cũ được — gỡ bản debug một lần rồi cài bản release.
 
 ## PIN phụ huynh
 
