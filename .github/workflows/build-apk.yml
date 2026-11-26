@@ -29,9 +29,11 @@ jobs:
           curl -fsSL -o android/gradle/wrapper/gradle-wrapper.jar "https://raw.githubusercontent.com/gradle/gradle/v8.3.0/gradle/wrapper/gradle-wrapper.jar"
           # Ảnh game đợt 3 lưu dạng base64 (text) trong repo, giải mã thành .webp
           find assets/images -name '*.webp.b64' | while read f; do base64 -d "$f" > "${f%.b64}"; done
-          # Icon app lưu dạng base64 trong repo, giải mã thành .png
+          # Icon app lưu dạng base64 trong repo, giải mã thành .png rồi xóa
+          # file .b64 (AAPT không chấp nhận file lạ trong thư mục res)
           for d in mdpi hdpi xhdpi xxhdpi xxxhdpi; do
             base64 -d "android/app/src/main/res/mipmap-$d/ic_launcher.png.b64" > "android/app/src/main/res/mipmap-$d/ic_launcher.png"
+            rm "android/app/src/main/res/mipmap-$d/ic_launcher.png.b64"
           done
           python3 - <<'PY'
           import math, random, struct, wave, zlib, os
