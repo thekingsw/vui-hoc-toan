@@ -109,9 +109,20 @@ jobs:
           name: app-release
           path: build/app/outputs/flutter-apk/*.apk
 
-      - name: Publish GitHub Release (tag builds only)
-        if: startsWith(github.ref, 'refs/tags/v')
+      - name: Read app version from pubspec
+        id: ver
+        run: |
+          V=$(grep '^version:' pubspec.yaml | sed 's/version: *//' | cut -d+ -f1)
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+
+      # Tự đăng Release mỗi lần build main thành công, tag lấy từ
+      # version trong pubspec (vd 1.5.1+9 -> v1.5.1) — không cần tạo
+      # tag tay. Nếu Release đã có (đẩy lại cùng version), asset được
+      # ghi đè bằng bản mới nhất.
+      - name: Publish GitHub Release (auto tag from pubspec version)
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: v${{ steps.ver.outputs.version }}
+          name: v${{ steps.ver.outputs.version }}
           files: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
           generate_release_notes: true
