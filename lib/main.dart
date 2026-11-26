@@ -23,7 +23,7 @@ class ToanLop5App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorKey: navigatorKey,
-      title: 'Hành trình khám phá — Toán lớp 5',
+      title: 'Đảo toán học',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(

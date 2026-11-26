@@ -239,9 +239,13 @@ class _IslandScreenState extends ConsumerState<IslandScreen>
                           viewedIds: viewed,
                           suggestedIndex: suggested,
                         ),
+                        mascotHere:
+                            mascotLessonId == lessons[i].lessonId,
                         reduceEffects: reduceEffects,
                       ),
-                    // Linh vật đi bộ tới điểm được chọn.
+                    // Linh vật đi bộ tới điểm được chọn. IgnorePointer để
+                    // linh vật không che mất chạm vào điểm dừng bên dưới
+                    // (lỗi 25/11: cáo đứng ở bài 1 thì không bấm mở được).
                     AnimatedPositioned(
                       duration: reduceEffects
                           ? Duration.zero
@@ -249,8 +253,10 @@ class _IslandScreenState extends ConsumerState<IslandScreen>
                       curve: Curves.easeInOut,
                       left: mascotPoint.dx - 28,
                       top: mascotPoint.dy - 28,
-                      child: const DressedMascot(
-                          mood: MascotMood.neutral, size: 56),
+                      child: const IgnorePointer(
+                        child: DressedMascot(
+                            mood: MascotMood.neutral, size: 56),
+                      ),
                     ),
                   ],
                 ),
@@ -306,6 +312,7 @@ class _IslandScreenState extends ConsumerState<IslandScreen>
     required Offset point,
     required SceneNodeSpot spot,
     required NodeDisplayState state,
+    required bool mascotHere,
     required bool reduceEffects,
   }) {
     const nodeSize = 72.0;
@@ -344,7 +351,8 @@ class _IslandScreenState extends ConsumerState<IslandScreen>
       child: GestureDetector(
         onTap: () async {
           setState(() => _mascotAtLessonId = lesson.lessonId);
-          if (!reduceEffects) {
+          // Cáo đã đứng sẵn ở điểm này thì mở bảng ngay, khỏi chờ đi bộ.
+          if (!reduceEffects && !mascotHere) {
             await Future<void>.delayed(
                 const Duration(milliseconds: 600));
           }

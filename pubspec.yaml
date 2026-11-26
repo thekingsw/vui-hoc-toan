@@ -1,7 +1,7 @@
 name: toan_lop_5
-description: "Hành trình khám phá — app học Toán lớp 5 offline (SGK Kết nối tri thức)."
+description: "Đảo toán học — app học Toán lớp 5 offline (SGK Kết nối tri thức)."
 publish_to: "none"
-version: 1.3.0+4
+version: 1.5.0+8
 
 environment:
   sdk: ">=3.5.0 <4.0.0"
@@ -15,6 +15,7 @@ dependencies:
   path: ^1.9.0
   audioplayers: ^6.1.0
   http: ^1.2.2
+  crypto: ^3.0.3
   package_info_plus: ^8.0.0
   path_provider: ^2.1.4
   open_filex: ^4.5.0
@@ -27,7 +28,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/data/
+    # Chỉ đảo 1 đóng gói làm dự phòng lần mở đầu; nội dung còn lại
+    # đồng bộ từ app Soạn bài trên máy 92 vào SQLite.
+    - assets/data/island_on_tap_bo_sung.json
     - assets/sounds/
     - assets/config/
     - assets/config/island_scenes/

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../game/shop/dressed_mascot.dart';
 import '../providers/app_providers.dart';
 import '../theme/game_theme.dart';
+import 'fraction_view.dart';
 
 /// Linh vật kèm khung thoại (SPEC giao diện mục 5–6): lời dẫn, gợi ý và
 /// lời giải hiện trong khung thoại của cáo.
@@ -39,10 +40,7 @@ class SpeechBubble extends StatelessWidget {
                 ),
               ],
             ),
-            child: Text(
-              text,
-              style: const TextStyle(fontSize: 17, color: GameColors.ink),
-            ),
+            child: RichMathText(text, fontSize: 17, color: GameColors.ink),
           ),
         ),
       ],

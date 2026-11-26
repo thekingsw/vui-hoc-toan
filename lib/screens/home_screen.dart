@@ -98,6 +98,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     final islandsAsync = ref.watch(islandsProvider);
     final progressAsync = ref.watch(islandProgressProvider);
     final reduceEffects = ref.watch(reduceEffectsProvider);
+    ref.listen<String?>(dataUpdateNoticeProvider, (prev, next) {
+      if (next == null) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(next)),
+      );
+      ref.read(dataUpdateNoticeProvider.notifier).state = null;
+    });
     ref.listen<String?>(pendingSailProvider, (prev, next) {
       if (next != null && _layout != null) _startSail(next);
     });
@@ -236,9 +243,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                         return Positioned(
                           left: pos.dx - 28,
                           top: pos.dy - 28,
-                          child: BoatWidget(
-                            size: 56,
-                            assetPath: _boatAsset(ref),
+                          child: IgnorePointer(
+                            child: BoatWidget(
+                              size: 56,
+                              assetPath: _boatAsset(ref),
+                            ),
                           ),
                         );
                       },

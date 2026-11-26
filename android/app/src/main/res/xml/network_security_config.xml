@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Chỉ cho phép HTTP thường tới máy 92 qua Tailscale (đồng bộ bài học
+     từ app Soạn bài). Mọi nơi khác vẫn bắt buộc HTTPS. -->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">100.92.107.114</domain>
+        <domain includeSubdomains="false">ubuntudev.tail8afec3.ts.net</domain>
+    </domain-config>
+    <base-config cleartextTrafficPermitted="false" />
+</network-security-config>

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/question.dart';
 import '../providers/app_providers.dart';
 import '../theme/game_theme.dart';
+import '../widgets/fraction_view.dart';
 import '../widgets/question_view.dart';
 import '../widgets/speech_bubble.dart';
 import 'effects/boat_progress.dart';
@@ -198,7 +199,7 @@ class _QuestionPlayAreaState extends State<QuestionPlayArea> {
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: color.withOpacity(0.4)),
       ),
-      child: Text(text, style: const TextStyle(fontSize: 16)),
+      child: RichMathText(text, fontSize: 16),
     );
   }
 }

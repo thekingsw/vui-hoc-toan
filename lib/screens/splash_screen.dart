@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/app_providers.dart';
+import '../services/data_update_service.dart';
 import '../widgets/mascot.dart';
 import 'home_screen.dart';
 
@@ -32,6 +33,14 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
       ref.read(reduceEffectsProvider.notifier).state =
           await db.isReduceEffects();
       await ref.read(islandsProvider.future);
+      // Kiểm tra bài học mới ở nền, không chặn vào app. Có bản mới thì
+      // nạp lại dữ liệu và báo ở màn hình chính.
+      checkAndUpdateData().then((result) {
+        if (!result.hasUpdates) return;
+        ref.invalidate(islandsProvider);
+        ref.read(dataUpdateNoticeProvider.notifier).state =
+            'Có bài học mới vừa được cập nhật!';
+      }).catchError((_) {});
       if (!mounted) return;
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => const HomeScreen()),
@@ -55,7 +64,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
               const MascotWidget(mood: MascotMood.excited, size: 140),
               const SizedBox(height: 24),
               const Text(
-                'Hành trình khám phá',
+                'Đảo toán học',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 32,

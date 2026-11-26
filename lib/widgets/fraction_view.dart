@@ -1,31 +1,34 @@
 import 'package:flutter/material.dart';
 
-/// Hiển thị phân số dạng tử số / mẫu số rõ ràng (vd. 3/4).
+/// Hiển thị phân số dạng SGK: tử số ở trên, mẫu số ở dưới, gạch ngang ở giữa.
 /// Nhận chuỗi "3/4" hoặc tử/mẫu riêng.
 class FractionView extends StatelessWidget {
-  const FractionView({super.key, required this.numerator, required this.denominator, this.fontSize = 18});
+  const FractionView({super.key, required this.numerator, required this.denominator, this.fontSize = 18, this.color});
 
   final String numerator;
   final String denominator;
   final double fontSize;
+  final Color? color;
 
-  factory FractionView.parse(String text, {double fontSize = 18}) {
+  factory FractionView.parse(String text, {double fontSize = 18, Color? color}) {
     final parts = text.split('/');
     if (parts.length == 2) {
       return FractionView(
         numerator: parts[0].trim(),
         denominator: parts[1].trim(),
         fontSize: fontSize,
+        color: color,
       );
     }
-    return FractionView(numerator: text, denominator: '', fontSize: fontSize);
+    return FractionView(numerator: text, denominator: '', fontSize: fontSize, color: color);
   }
 
   @override
   Widget build(BuildContext context) {
     if (denominator.isEmpty) {
-      return Text(numerator, style: TextStyle(fontSize: fontSize));
+      return Text(numerator, style: TextStyle(fontSize: fontSize, color: color));
     }
+    final c = color ?? Theme.of(context).colorScheme.onSurface;
     return IntrinsicWidth(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -33,16 +36,13 @@ class FractionView extends StatelessWidget {
           Text(
             numerator,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: fontSize, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: fontSize, fontWeight: FontWeight.bold, color: color),
           ),
-          Container(
-            height: 2,
-            color: Theme.of(context).colorScheme.onSurface,
-          ),
+          Container(height: 2, color: c),
           Text(
             denominator,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: fontSize, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: fontSize, fontWeight: FontWeight.bold, color: color),
           ),
         ],
       ),
@@ -50,22 +50,25 @@ class FractionView extends StatelessWidget {
   }
 }
 
-/// Hiển thị văn bản có phân số dạng "a/b" xen kẽ chữ thường.
-/// Cách dùng đơn giản ở MVP: tách chuỗi theo khoảng trắng, từ nào chứa
-/// '/' và 2 phía đều là số thì vẽ bằng [FractionView].
+/// Hiển thị văn bản có phân số/hỗn số dạng SGK xen kẽ chữ thường:
+/// - "3/4" → tử trên, mẫu dưới.
+/// - "6 1/2" (hỗn số) → phần nguyên + phân số nhỏ hơn ở cạnh, đúng kiểu SGK.
 class RichMathText extends StatelessWidget {
-  const RichMathText(this.text, {super.key, this.fontSize = 18, this.fontWeight});
+  const RichMathText(this.text, {super.key, this.fontSize = 18, this.fontWeight, this.color});
 
   final String text;
   final double fontSize;
   final FontWeight? fontWeight;
+  final Color? color;
 
-  static final _fractionPattern = RegExp(r'\d+\s*/\s*\d+');
+  // Ưu tiên khớp hỗn số "6 1/2" trước, sau đó mới tới phân số thường "3/4".
+  static final _mathPattern =
+      RegExp(r'(\d+)\s+(\d+)\s*/\s*(\d+)|(\d+)\s*/\s*(\d+)');
 
   @override
   Widget build(BuildContext context) {
-    final style = TextStyle(fontSize: fontSize, fontWeight: fontWeight);
-    final matches = _fractionPattern.allMatches(text).toList();
+    final style = TextStyle(fontSize: fontSize, fontWeight: fontWeight, color: color);
+    final matches = _mathPattern.allMatches(text).toList();
     if (matches.isEmpty) {
       return Text(text, style: style);
     }
@@ -75,10 +78,29 @@ class RichMathText extends StatelessWidget {
       if (m.start > pos) {
         spans.add(TextSpan(text: text.substring(pos, m.start), style: style));
       }
-      spans.add(WidgetSpan(
-        alignment: PlaceholderAlignment.middle,
-        child: FractionView.parse(m.group(0)!, fontSize: fontSize),
-      ));
+      if (m.group(1) != null) {
+        // Hỗn số: phần nguyên + phân số thu nhỏ (kiểu SGK).
+        spans.add(TextSpan(text: '${m.group(1)} ', style: style));
+        spans.add(WidgetSpan(
+          alignment: PlaceholderAlignment.middle,
+          child: FractionView(
+            numerator: m.group(2)!,
+            denominator: m.group(3)!,
+            fontSize: fontSize * 0.8,
+            color: color,
+          ),
+        ));
+      } else {
+        spans.add(WidgetSpan(
+          alignment: PlaceholderAlignment.middle,
+          child: FractionView(
+            numerator: m.group(4)!,
+            denominator: m.group(5)!,
+            fontSize: fontSize,
+            color: color,
+          ),
+        ));
+      }
       pos = m.end;
     }
     if (pos < text.length) {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/island_catalog.dart';
 import '../providers/app_providers.dart';
+import '../services/data_update_service.dart';
 
 /// Góc phụ huynh tối giản (MVP):
 /// - Khóa PIN 4 số (mặc định 1234, đổi được ngay trong màn này).
@@ -20,6 +21,43 @@ class _ParentScreenState extends ConsumerState<ParentScreen> {
   final _pinController = TextEditingController();
   bool _unlocked = false;
   String? _error;
+  int? _dataVersion;
+  bool _checkingData = false;
+
+  @override
+  void initState() {
+    super.initState();
+    currentDataVersion().then((v) {
+      if (mounted) setState(() => _dataVersion = v);
+    });
+  }
+
+  Future<void> _checkDataUpdate() async {
+    setState(() => _checkingData = true);
+    final messenger = ScaffoldMessenger.of(context);
+    final result = await checkAndUpdateData();
+    if (!mounted) return;
+    setState(() {
+      _checkingData = false;
+      _dataVersion = result.currentVersion;
+    });
+    if (result.hasUpdates) {
+      ref.invalidate(islandsProvider);
+      messenger.showSnackBar(
+        SnackBar(
+            content: Text(
+                'Đã cập nhật bài học mới (phiên bản dữ liệu ${result.currentVersion}).')),
+      );
+    } else if (result.errors.isNotEmpty) {
+      messenger.showSnackBar(
+        SnackBar(content: Text(result.errors.first)),
+      );
+    } else {
+      messenger.showSnackBar(
+        const SnackBar(content: Text('Dữ liệu bài học đã là bản mới nhất.')),
+      );
+    }
+  }
 
   @override
   void dispose() {
@@ -120,6 +158,21 @@ class _ParentScreenState extends ConsumerState<ParentScreen> {
                   ref.read(reduceEffectsProvider.notifier).state = value;
                   await db.setReduceEffects(value);
                 },
+              ),
+              const Divider(),
+              ListTile(
+                title: const Text('Dữ liệu bài học',
+                    style: TextStyle(fontSize: 18)),
+                subtitle: Text(
+                    'Phiên bản dữ liệu: ${_dataVersion ?? '...'}. Bài học mới được tải về qua mạng, không cần cài lại app.'),
+                trailing: _checkingData
+                    ? const SizedBox(
+                        width: 24,
+                        height: 24,
+                        child: CircularProgressIndicator(strokeWidth: 3),
+                      )
+                    : const Icon(Icons.cloud_download_outlined),
+                onTap: _checkingData ? null : _checkDataUpdate,
               ),
               const Divider(),
               ListTile(

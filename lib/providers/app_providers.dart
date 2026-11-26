@@ -3,6 +3,7 @@ import '../data/data_loader.dart';
 import '../data/island_catalog.dart';
 import '../game/shop/shop_items.dart';
 import '../models/question.dart';
+
 import '../services/database_service.dart';
 import '../services/sound_service.dart';
 
@@ -28,7 +29,9 @@ final reduceEffectsProvider = StateProvider<bool>((ref) => false);
 /// Giá trị là id đảo đích; bản đồ chạy xong thì xóa về null.
 final pendingSailProvider = StateProvider<String?>((ref) => null);
 
-/// Dữ liệu các đảo (nạp từ assets). Đảo chưa có file thì vắng mặt.
+/// Dữ liệu các đảo: đọc từ kho nội dung SQLite (đồng bộ từ app Soạn
+/// bài trên máy 92); lần mở đầu kho trống thì nạp bản dự phòng đảo 1
+/// đóng gói trong assets. Đảo chưa có nội dung thì vắng mặt ("Sắp có").
 final islandsProvider = FutureProvider<Map<String, IslandData>>((ref) async {
   final result = await DataLoader().loadAll(islandOrderIds);
   if (result.errors.isNotEmpty) {
@@ -38,6 +41,10 @@ final islandsProvider = FutureProvider<Map<String, IslandData>>((ref) async {
   }
   return result.islands;
 });
+
+/// Thông báo "có bài học mới" sau khi cập nhật dữ liệu qua mạng.
+/// Màn hình chính đọc rồi xóa về null.
+final dataUpdateNoticeProvider = StateProvider<String?>((ref) => null);
 
 /// Đếm số lần cần nạp lại tiến độ (tăng sau mỗi lượt chơi xong).
 final progressRefreshProvider = StateProvider<int>((ref) => 0);

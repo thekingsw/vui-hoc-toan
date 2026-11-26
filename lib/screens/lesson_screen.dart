@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/island_catalog.dart';
 import '../models/question.dart';
 import '../providers/app_providers.dart';
+import '../widgets/fraction_view.dart';
 import '../widgets/speech_bubble.dart';
 import 'practice_screen.dart';
 
@@ -108,23 +109,18 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                                       ),
                                       const SizedBox(width: 12),
                                       Expanded(
-                                        child: Text(
+                                        child: RichMathText(
                                           isMistakeCard
                                               ? '🪤 Coi chừng cái bẫy này!'
                                               : card.heading,
-                                          style: const TextStyle(
-                                            fontSize: 22,
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                     ],
                                   ),
                                   const SizedBox(height: 16),
-                                  Text(
-                                    card.body,
-                                    style: const TextStyle(fontSize: 18),
-                                  ),
+                                  RichMathText(card.body, fontSize: 18),
                                   if (card.example != null) ...[
                                     const SizedBox(height: 16),
                                     Container(
@@ -145,11 +141,7 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                                             ),
                                           ),
                                           const SizedBox(height: 4),
-                                          Text(
-                                            card.example!,
-                                            style:
-                                                const TextStyle(fontSize: 17),
-                                          ),
+                                          RichMathText(card.example!, fontSize: 17),
                                         ],
                                       ),
                                     ),

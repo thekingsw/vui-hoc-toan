@@ -5,6 +5,7 @@ import '../game/effects/coin_fly.dart';
 import '../game/result/chest_ceremony.dart';
 import '../models/question.dart';
 import '../providers/app_providers.dart';
+import '../widgets/fraction_view.dart';
 import '../widgets/mascot.dart';
 import 'lesson_screen.dart';
 import 'practice_screen.dart';
@@ -214,19 +215,16 @@ class ResultScreen extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(q.prompt, style: const TextStyle(fontSize: 16)),
+            RichMathText(q.prompt, fontSize: 16),
             const SizedBox(height: 4),
-            Text(
+            RichMathText(
               'Đáp án: ${q.answerText ?? ''}${q.unit != null ? ' ${q.unit}' : ''}',
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.green,
-              ),
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.green,
             ),
             if (q.explanation != null)
-              Text('Lời giải: ${q.explanation}',
-                  style: const TextStyle(fontSize: 15)),
+              RichMathText('Lời giải: ${q.explanation}', fontSize: 15),
             if (targetLesson != null) ...[
               const SizedBox(height: 8),
               Align(

@@ -56,7 +56,7 @@ class AppDatabase {
     final path = p.join(await getDatabasesPath(), 'toan_lop_5.db');
     final database = await openDatabase(
       path,
-      version: 3,
+      version: 4,
       onUpgrade: (db, oldVersion, newVersion) async {
         // v2: thêm cờ giảm hiệu ứng + đánh dấu đã xem bài Học.
         // Chỉ thêm cột, giữ nguyên tiến độ của bé.
@@ -81,6 +81,11 @@ class AppDatabase {
             )''');
           await db.execute(
               'ALTER TABLE island_progress ADD COLUMN completed_at INTEGER');
+        }
+        // v4: bảng nội dung bài học đồng bộ từ app Soạn bài (máy 92).
+        // Tách hẳn khỏi bảng tiến độ; chỉ thêm bảng mới.
+        if (oldVersion < 4) {
+          await _createContentTables(db);
         }
       },
       onCreate: (db, version) async {
@@ -161,9 +166,57 @@ class AppDatabase {
           'unlocked': 1,
           'unlocked_by_parent': 0,
         });
+        await _createContentTables(db);
       },
     );
     return database;
+  }
+
+  /// Bảng nội dung (v4): đảo/bài/thẻ/câu đồng bộ từ app Soạn bài.
+  static Future<void> _createContentTables(Database db) async {
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS content_islands(
+        island_id TEXT PRIMARY KEY,
+        title TEXT NOT NULL,
+        ord INTEGER NOT NULL DEFAULT 0,
+        version INTEGER NOT NULL DEFAULT 0
+      )''');
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS content_lessons(
+        lesson_id TEXT PRIMARY KEY,
+        island_id TEXT NOT NULL,
+        kind TEXT NOT NULL DEFAULT 'lesson',
+        title TEXT NOT NULL,
+        ord INTEGER NOT NULL DEFAULT 0
+      )''');
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS content_cards(
+        id TEXT PRIMARY KEY,
+        lesson_id TEXT NOT NULL,
+        ord INTEGER NOT NULL DEFAULT 0,
+        heading TEXT NOT NULL DEFAULT '',
+        body TEXT NOT NULL DEFAULT '',
+        example TEXT
+      )''');
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS content_questions(
+        id TEXT PRIMARY KEY,
+        lesson_id TEXT NOT NULL,
+        type TEXT NOT NULL,
+        difficulty INTEGER NOT NULL DEFAULT 1,
+        prompt TEXT NOT NULL DEFAULT '',
+        options_json TEXT NOT NULL DEFAULT '[]',
+        answer TEXT NOT NULL DEFAULT '',
+        hint TEXT DEFAULT '',
+        explanation TEXT DEFAULT '',
+        unit TEXT,
+        min_app_version INTEGER NOT NULL DEFAULT 0
+      )''');
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS content_meta(
+        key TEXT PRIMARY KEY,
+        value TEXT
+      )''');
   }
 
   // --- Tiến độ bài học ---
