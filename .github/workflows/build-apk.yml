@@ -29,6 +29,10 @@ jobs:
           curl -fsSL -o android/gradle/wrapper/gradle-wrapper.jar "https://raw.githubusercontent.com/gradle/gradle/v8.3.0/gradle/wrapper/gradle-wrapper.jar"
           # Ảnh game đợt 3 lưu dạng base64 (text) trong repo, giải mã thành .webp
           find assets/images -name '*.webp.b64' | while read f; do base64 -d "$f" > "${f%.b64}"; done
+          # Icon app lưu dạng base64 trong repo, giải mã thành .png
+          for d in mdpi hdpi xhdpi xxhdpi xxxhdpi; do
+            base64 -d "android/app/src/main/res/mipmap-$d/ic_launcher.png.b64" > "android/app/src/main/res/mipmap-$d/ic_launcher.png"
+          done
           python3 - <<'PY'
           import math, random, struct, wave, zlib, os
 
@@ -71,29 +75,6 @@ jobs:
           save_wav("assets/sounds/unlock.wav", tone(523, 0.1) + tone(659, 0.1) + tone(784, 0.1) + tone(1047, 0.22))
           save_wav("assets/sounds/waves.wav", waves())
 
-          # --- launcher icons: solid orange with white circle ---
-          def png(size, path):
-              raw = b""
-              cx = cy = size / 2
-              r = size * 0.30
-              for y in range(size):
-                  raw += b"\x00"
-                  for x in range(size):
-                      inside = (x - cx) ** 2 + (y - cy) ** 2 <= r * r
-                      raw += bytes((255, 255, 255)) if inside else bytes((255, 152, 0))
-              def chunk(tag, data):
-                  c = struct.pack(">I", len(data)) + tag + data
-                  return c + struct.pack(">I", zlib.crc32(tag + data) & 0xFFFFFFFF)
-              ihdr = struct.pack(">IIBBBBB", size, size, 8, 2, 0, 0, 0)
-              data = (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", ihdr)
-                      + chunk(b"IDAT", zlib.compress(raw)) + chunk(b"IEND", b""))
-              with open(path, "wb") as f:
-                  f.write(data)
-
-          for name, size in [("mdpi", 48), ("hdpi", 72), ("xhdpi", 96), ("xxhdpi", 144), ("xxxhdpi", 192)]:
-              d = f"android/app/src/main/res/mipmap-{name}"
-              os.makedirs(d, exist_ok=True)
-              png(size, f"{d}/ic_launcher.png")
           print("binary assets restored")
           PY
 
