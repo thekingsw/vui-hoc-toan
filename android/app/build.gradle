@@ -54,6 +54,17 @@ android {
             signingConfig = keystorePropertiesFile.exists() ? signingConfigs.release : signingConfigs.debug
         }
     }
+
+    // Icon lưu dạng .b64 trong res/mipmap-* để đẩy qua GitHub dạng text;
+    // CI giải mã thành .png trước khi build. Loại file .b64 khỏi resource
+    // merger vì AAPT chỉ chấp nhận tên file kết thúc .xml/.png.
+    sourceSets {
+        main {
+            res {
+                exclude '**/*.b64'
+            }
+        }
+    }
 }
 
 flutter {
