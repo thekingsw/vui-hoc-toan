@@ -36,13 +36,13 @@ class FractionView extends StatelessWidget {
           Text(
             numerator,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: fontSize, fontWeight: FontWeight.bold, color: color),
+            style: TextStyle(fontSize: fontSize, fontWeight: FontWeight.bold, color: c),
           ),
           Container(height: 2, color: c),
           Text(
             denominator,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: fontSize, fontWeight: FontWeight.bold, color: color),
+            style: TextStyle(fontSize: fontSize, fontWeight: FontWeight.bold, color: c),
           ),
         ],
       ),
@@ -67,7 +67,11 @@ class RichMathText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = TextStyle(fontSize: fontSize, fontWeight: fontWeight, color: color);
+    // RichText không tự kế thừa màu chữ của Material như Text, nên khi
+    // không được truyền màu phải lấy màu chữ mặc định của theme —
+    // thiếu bước này chữ thường bị trắng trên nền sáng (lỗi 26/11).
+    final effectiveColor = color ?? Theme.of(context).colorScheme.onSurface;
+    final style = TextStyle(fontSize: fontSize, fontWeight: fontWeight, color: effectiveColor);
     final matches = _mathPattern.allMatches(text).toList();
     if (matches.isEmpty) {
       return Text(text, style: style);
@@ -87,7 +91,7 @@ class RichMathText extends StatelessWidget {
             numerator: m.group(2)!,
             denominator: m.group(3)!,
             fontSize: fontSize * 0.8,
-            color: color,
+            color: effectiveColor,
           ),
         ));
       } else {
@@ -97,7 +101,7 @@ class RichMathText extends StatelessWidget {
             numerator: m.group(4)!,
             denominator: m.group(5)!,
             fontSize: fontSize,
-            color: color,
+            color: effectiveColor,
           ),
         ));
       }
