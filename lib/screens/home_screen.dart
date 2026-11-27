@@ -269,55 +269,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
                 islands: islands,
               ),
             ),
-            Positioned(
-              right: 16,
-              top: 192,
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(18),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => const ExamScreen()),
-                  ),
-                  child: Ink(
-                    decoration: BoxDecoration(
-                      color: GameColors.accent,
-                      borderRadius: BorderRadius.circular(18),
-                      border: Border.all(
-                          color: const Color(0xFFE65100), width: 2.5),
-                      boxShadow: [
-                        BoxShadow(
-                          color: GameColors.seaDeep.withOpacity(0.3),
-                          blurRadius: 8,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: const Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(Icons.assignment_outlined,
-                              size: 20, color: Colors.white),
-                          SizedBox(width: 6),
-                          Text(
-                            'Thi thử',
-                            style: TextStyle(
-                              fontFamily: 'Baloo2',
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
             if (_speech != null)
               Positioned(
                 left: 16,
@@ -549,6 +500,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
               ),
             ),
             const Spacer(),
+            _hudButton(
+              icon: Icons.assignment_outlined,
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const ExamScreen()),
+                );
+              },
+            ),
+            const SizedBox(width: 8),
             _hudButton(
               icon: Icons.storefront,
               onTap: () {
