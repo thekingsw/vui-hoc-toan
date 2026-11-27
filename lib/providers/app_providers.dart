@@ -5,6 +5,7 @@ import '../game/shop/shop_items.dart';
 import '../models/question.dart';
 
 import '../services/database_service.dart';
+import '../services/review_logic.dart';
 import '../services/sound_service.dart';
 
 /// Riverpod state — đã chốt dùng Riverpod (không dùng Provider).
@@ -88,6 +89,20 @@ final coinsProvider = FutureProvider<int>((ref) async {
   ref.watch(progressRefreshProvider);
   final db = ref.watch(databaseProvider);
   return db.coins();
+});
+
+/// Số câu trong Hộp ôn đã đến hạn hôm nay (Đợt A).
+final dueReviewCountProvider = FutureProvider<int>((ref) async {
+  ref.watch(progressRefreshProvider);
+  final db = ref.watch(databaseProvider);
+  return db.dueReviewCount();
+});
+
+/// Thống kê kỹ năng (tag chính của câu) — cho gợi ý kỹ năng yếu.
+final skillStatsProvider = FutureProvider<List<SkillStat>>((ref) async {
+  ref.watch(progressRefreshProvider);
+  final db = ref.watch(databaseProvider);
+  return db.skillStats();
 });
 
 /// Các món đã mua.

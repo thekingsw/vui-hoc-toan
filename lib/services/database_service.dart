@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:path/path.dart' as p;
 import 'package:sqflite/sqflite.dart';
+
+import 'review_logic.dart';
 
 /// Lưu trữ sqflite — bám bảng mục 7 của SPEC (bản đã sửa):
 /// - progress(island_id, lesson_id, practice_done, last_played):
@@ -56,7 +60,7 @@ class AppDatabase {
     final path = p.join(await getDatabasesPath(), 'toan_lop_5.db');
     final database = await openDatabase(
       path,
-      version: 5,
+      version: 6,
       onUpgrade: (db, oldVersion, newVersion) async {
         // v2: thêm cờ giảm hiệu ứng + đánh dấu đã xem bài Học.
         // Chỉ thêm cột, giữ nguyên tiến độ của bé.
@@ -94,6 +98,21 @@ class AppDatabase {
           await db.execute(
               'ALTER TABLE content_questions ADD COLUMN figure_json TEXT');
         }
+        // v6: Đợt A Học thông minh — tags câu hỏi, hộp ôn Leitner,
+        // thống kê kỹ năng.
+        if (oldVersion < 6) {
+          await db.execute(
+              'ALTER TABLE content_questions ADD COLUMN tags_json TEXT');
+          await db.execute(
+              'ALTER TABLE review_box ADD COLUMN box INTEGER NOT NULL DEFAULT 1');
+          await db.execute('''
+            CREATE TABLE IF NOT EXISTS skill_stats(
+              skill TEXT PRIMARY KEY,
+              correct_count INTEGER NOT NULL DEFAULT 0,
+              wrong_count INTEGER NOT NULL DEFAULT 0,
+              last_at INTEGER
+            )''');
+        }
       },
       onCreate: (db, version) async {
         await db.execute('''
@@ -126,7 +145,15 @@ class AppDatabase {
           CREATE TABLE review_box(
             question_id TEXT PRIMARY KEY,
             wrong_count INTEGER NOT NULL DEFAULT 0,
-            next_review_at INTEGER
+            next_review_at INTEGER,
+            box INTEGER NOT NULL DEFAULT 1
+          )''');
+        await db.execute('''
+          CREATE TABLE skill_stats(
+            skill TEXT PRIMARY KEY,
+            correct_count INTEGER NOT NULL DEFAULT 0,
+            wrong_count INTEGER NOT NULL DEFAULT 0,
+            last_at INTEGER
           )''');
         await db.execute('''
           CREATE TABLE profile(
@@ -219,7 +246,8 @@ class AppDatabase {
         explanation TEXT DEFAULT '',
         unit TEXT,
         min_app_version INTEGER NOT NULL DEFAULT 0,
-        figure_json TEXT
+        figure_json TEXT,
+        tags_json TEXT
       )''');
     await db.execute('''
       CREATE TABLE IF NOT EXISTS content_meta(
@@ -373,15 +401,123 @@ class AppDatabase {
   }
 
   // --- Nhật ký trả lời ---
+  /// Ghi một lần trả lời, đồng thời cập nhật:
+  /// - skill_stats theo tag chính của câu (kỹ năng yếu nhất cho gợi ý học);
+  /// - review_box: sai → vào hộp 1, hẹn ôn sau 1 ngày; đúng trong lượt
+  ///   ôn (mode 'review') → lên hộp / tốt nghiệp.
   Future<void> logAnswer(
       String questionId, bool correct, String mode) async {
     final d = await db;
+    final now = DateTime.now().millisecondsSinceEpoch;
     await d.insert('answer_log', {
       'question_id': questionId,
       'correct': correct ? 1 : 0,
-      'answered_at': DateTime.now().millisecondsSinceEpoch,
+      'answered_at': now,
       'mode': mode,
     });
+
+    // Kỹ năng chính = tag đầu tiên của câu trong kho nội dung.
+    final qRows = await d.query(
+      'content_questions',
+      columns: ['tags_json'],
+      where: 'id = ?',
+      whereArgs: [questionId],
+      limit: 1,
+    );
+    String? skill;
+    if (qRows.isNotEmpty) {
+      final raw = qRows.first['tags_json'] as String?;
+      if (raw != null && raw.isNotEmpty) {
+        try {
+          final tags = jsonDecode(raw);
+          if (tags is List && tags.isNotEmpty) skill = '${tags.first}';
+        } catch (_) {
+          skill = null;
+        }
+      }
+    }
+    if (skill != null && skill.isNotEmpty) {
+      await d.rawInsert(
+        'INSERT INTO skill_stats(skill, correct_count, wrong_count, last_at) '
+        'VALUES(?, ?, ?, ?) '
+        'ON CONFLICT(skill) DO UPDATE SET '
+        'correct_count = correct_count + excluded.correct_count, '
+        'wrong_count = wrong_count + excluded.wrong_count, '
+        'last_at = excluded.last_at',
+        [skill, correct ? 1 : 0, correct ? 0 : 1, now],
+      );
+    }
+
+    // Hộp ôn Leitner.
+    final boxRows = await d.query(
+      'review_box',
+      where: 'question_id = ?',
+      whereArgs: [questionId],
+      limit: 1,
+    );
+    if (!correct) {
+      final wrong = boxRows.isEmpty
+          ? 1
+          : ((boxRows.first['wrong_count'] as int?) ?? 0) + 1;
+      await d.insert(
+        'review_box',
+        {
+          'question_id': questionId,
+          'wrong_count': wrong,
+          'box': 1,
+          'next_review_at': nextReviewAt(1, now),
+        },
+        conflictAlgorithm: ConflictAlgorithm.replace,
+      );
+    } else if (mode == 'review' && boxRows.isNotEmpty) {
+      final currentBox = (boxRows.first['box'] as int?) ?? 1;
+      final nb = nextBox(currentBox, true);
+      if (nb == 0) {
+        await d.delete('review_box',
+            where: 'question_id = ?', whereArgs: [questionId]);
+      } else {
+        await d.update(
+          'review_box',
+          {'box': nb, 'next_review_at': nextReviewAt(nb, now)},
+          where: 'question_id = ?',
+          whereArgs: [questionId],
+        );
+      }
+    }
+  }
+
+  /// Các mục trong hộp ôn đã đến hạn (thuần dữ liệu, logic chọn ở review_logic).
+  Future<List<ReviewEntry>> reviewEntries() async {
+    final d = await db;
+    final rows = await d.query('review_box');
+    return rows
+        .map((r) => ReviewEntry(
+              questionId: r['question_id'] as String,
+              box: (r['box'] as int?) ?? 1,
+              nextReviewAtMs: r['next_review_at'] as int?,
+              wrongCount: (r['wrong_count'] as int?) ?? 0,
+            ))
+        .toList();
+  }
+
+  Future<int> dueReviewCount() async {
+    final now = DateTime.now().millisecondsSinceEpoch;
+    final entries = await reviewEntries();
+    return entries
+        .where((e) => e.nextReviewAtMs == null || e.nextReviewAtMs! <= now)
+        .length;
+  }
+
+  Future<List<SkillStat>> skillStats() async {
+    final d = await db;
+    final rows = await d.query('skill_stats');
+    return rows
+        .map((r) => SkillStat(
+              skill: r['skill'] as String,
+              correct: (r['correct_count'] as int?) ?? 0,
+              wrong: (r['wrong_count'] as int?) ?? 0,
+            ))
+        .toList();
   }
 
   Future<Set<String>> answeredQuestionIds() async {
@@ -565,6 +701,7 @@ class AppDatabase {
     await d.delete('island_progress');
     await d.delete('answer_log');
     await d.delete('review_box');
+    await d.delete('skill_stats');
     await d.delete('owned_items');
     await d.delete('reward_log');
     await d.update('profile', {'coins': 0}, where: 'id = 1');

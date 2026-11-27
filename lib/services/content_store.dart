@@ -136,6 +136,7 @@ class ContentStore {
           'unit': q['unit'] as String?,
           'min_app_version': (q['min_app_version'] as num?)?.toInt() ?? 0,
           'figure_json': q['figure'] != null ? jsonEncode(q['figure']) : null,
+          'tags_json': q['tags'] != null ? jsonEncode(q['tags']) : null,
         });
       }
     });
@@ -191,6 +192,8 @@ class ContentStore {
           if (q['unit'] != null) 'unit': q['unit'],
           if (q['figure_json'] != null)
             'figure': jsonDecode(q['figure_json'] as String),
+          if (q['tags_json'] != null)
+            'tags': jsonDecode(q['tags_json'] as String),
         },
     ];
     return IslandData.fromJson({

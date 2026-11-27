@@ -13,12 +13,14 @@ import '../game/shop/shop_screen.dart';
 import '../models/question.dart';
 import '../providers/app_providers.dart';
 import '../services/database_service.dart';
+import '../services/review_logic.dart';
 import '../services/scoring.dart';
 import '../theme/game_theme.dart';
 import '../widgets/speech_bubble.dart';
 import '../widgets/star_row.dart';
 import 'island_screen.dart';
 import 'parent_screen.dart';
+import 'review_screen.dart';
 
 /// Home: bản đồ biển cuộn dọc (SPEC giao diện mục 3).
 /// Đảo 1 ở dưới cùng, hành trình đi từ dưới lên; thuyền đậu cạnh đảo
@@ -257,6 +259,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
               ),
             ),
             _hud(context, totalStars),
+            Positioned(
+              left: 16,
+              right: 16,
+              top: 104,
+              child: _TodayCard(
+                currentIslandId: currentId,
+                islands: islands,
+              ),
+            ),
             if (_speech != null)
               Positioned(
                 left: 16,
@@ -570,6 +581,124 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
 }
 
 /// Rung nhẹ một lần khi chạm đảo khóa.
+/// Thẻ "Hôm nay học gì" (Đợt A): ưu tiên câu ôn đến hạn → bài chưa học
+/// tiếp theo của đảo hiện tại → gợi ý kỹ năng yếu nhất.
+class _TodayCard extends ConsumerWidget {
+  const _TodayCard({required this.currentIslandId, required this.islands});
+
+  final String currentIslandId;
+  final Map<String, IslandData> islands;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final due = ref.watch(dueReviewCountProvider).maybeWhen(
+          data: (c) => c,
+          orElse: () => 0,
+        );
+    final data = islands[currentIslandId];
+    final done = ref.watch(doneLessonsProvider(currentIslandId)).maybeWhen(
+          data: (s) => s,
+          orElse: () => const <String>{},
+        );
+    final weak = weakestSkill(ref.watch(skillStatsProvider).maybeWhen(
+          data: (s) => s,
+          orElse: () => const <SkillStat>[],
+        ));
+
+    String title;
+    String subtitle;
+    VoidCallback? onTap;
+    if (due > 0) {
+      title = 'Hôm nay ôn lại $due câu nhé!';
+      subtitle = 'Các câu này đến hạn ôn rồi.';
+      onTap = () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const ReviewScreen()),
+          );
+    } else if (data != null) {
+      Lesson? nextLesson;
+      for (final l in data.lessonsOnly) {
+        if (!done.contains(l.lessonId)) {
+          nextLesson = l;
+          break;
+        }
+      }
+      if (nextLesson != null) {
+        title = 'Hôm nay học: ${nextLesson.title}';
+        subtitle = 'Bài tiếp theo trên đảo ${data.title}.';
+        onTap = () {
+          final meta =
+              islandCatalog.firstWhere((m) => m.id == currentIslandId);
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => IslandScreen(meta: meta, data: data),
+            ),
+          );
+        };
+      } else {
+        title = 'Đảo này học xong rồi!';
+        subtitle = 'Thử thách để mở đảo mới nhé.';
+        onTap = () {
+          final meta =
+              islandCatalog.firstWhere((m) => m.id == currentIslandId);
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => IslandScreen(meta: meta, data: data),
+            ),
+          );
+        };
+      }
+    } else {
+      return const SizedBox.shrink();
+    }
+
+    return Material(
+      color: Colors.white.withOpacity(0.94),
+      borderRadius: BorderRadius.circular(16),
+      elevation: 2,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+          child: Row(
+            children: [
+              const Icon(Icons.school, color: Color(0xFF00897B), size: 28),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: GameColors.ink,
+                      ),
+                    ),
+                    Text(
+                      weak != null && due == 0
+                          ? '$subtitle Cần luyện thêm: ${weak.skill}.'
+                          : subtitle,
+                      style: const TextStyle(
+                        fontSize: 13,
+                        color: GameColors.ink,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.arrow_forward_ios,
+                  size: 16, color: Color(0xFF78909C)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _IslandShake extends StatefulWidget {
   const _IslandShake({super.key, required this.child});
 
