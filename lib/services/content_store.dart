@@ -116,6 +116,9 @@ class ContentStore {
             'heading': cards[j]['heading'] as String? ?? '',
             'body': cards[j]['body'] as String? ?? '',
             'example': cards[j]['example'] as String?,
+            'figure_json': cards[j]['figure'] != null
+                ? jsonEncode(cards[j]['figure'])
+                : null,
           });
         }
       }
@@ -132,6 +135,7 @@ class ContentStore {
           'explanation': q['explanation'] as String? ?? '',
           'unit': q['unit'] as String?,
           'min_app_version': (q['min_app_version'] as num?)?.toInt() ?? 0,
+          'figure_json': q['figure'] != null ? jsonEncode(q['figure']) : null,
         });
       }
     });
@@ -160,6 +164,8 @@ class ContentStore {
               'heading': c['heading'],
               'body': c['body'],
               if (c['example'] != null) 'example': c['example'],
+              if (c['figure_json'] != null)
+                'figure': jsonDecode(c['figure_json'] as String),
             },
         ],
       });
@@ -183,6 +189,8 @@ class ContentStore {
           'hint': q['hint'],
           'explanation': q['explanation'],
           if (q['unit'] != null) 'unit': q['unit'],
+          if (q['figure_json'] != null)
+            'figure': jsonDecode(q['figure_json'] as String),
         },
     ];
     return IslandData.fromJson({

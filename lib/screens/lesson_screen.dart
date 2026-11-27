@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/island_catalog.dart';
 import '../models/question.dart';
 import '../providers/app_providers.dart';
+import '../widgets/figure_view.dart';
 import '../widgets/fraction_view.dart';
 import '../widgets/speech_bubble.dart';
 import 'practice_screen.dart';
@@ -121,6 +122,8 @@ class _LessonScreenState extends ConsumerState<LessonScreen> {
                                   ),
                                   const SizedBox(height: 16),
                                   RichMathText(card.body, fontSize: 18),
+                                  if (card.figure != null)
+                                    FigureView(figure: card.figure!, color: color),
                                   if (card.example != null) ...[
                                     const SizedBox(height: 16),
                                     Container(

@@ -122,16 +122,22 @@ class Question {
 }
 
 class LessonCard {
-  LessonCard({required this.heading, required this.body, this.example});
+  LessonCard({required this.heading, required this.body, this.example, this.figure});
 
   final String heading;
   final String body;
   final String? example;
 
+  /// Object figure minh họa (vd {"kind": "triangle", "base": 8, "height": 5}).
+  final Map<String, dynamic>? figure;
+
   factory LessonCard.fromJson(Map<String, dynamic> json) => LessonCard(
         heading: json['heading'] as String? ?? '',
         body: json['body'] as String? ?? '',
         example: json['example'] as String?,
+        figure: json['figure'] is Map
+            ? Map<String, dynamic>.from(json['figure'] as Map)
+            : null,
       );
 }
 

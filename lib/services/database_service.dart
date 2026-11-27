@@ -56,7 +56,7 @@ class AppDatabase {
     final path = p.join(await getDatabasesPath(), 'toan_lop_5.db');
     final database = await openDatabase(
       path,
-      version: 4,
+      version: 5,
       onUpgrade: (db, oldVersion, newVersion) async {
         // v2: thêm cờ giảm hiệu ứng + đánh dấu đã xem bài Học.
         // Chỉ thêm cột, giữ nguyên tiến độ của bé.
@@ -86,6 +86,13 @@ class AppDatabase {
         // Tách hẳn khỏi bảng tiến độ; chỉ thêm bảng mới.
         if (oldVersion < 4) {
           await _createContentTables(db);
+        }
+        // v5: hình minh họa (figure) cho thẻ học + câu hỏi hình học.
+        if (oldVersion < 5) {
+          await db.execute(
+              'ALTER TABLE content_cards ADD COLUMN figure_json TEXT');
+          await db.execute(
+              'ALTER TABLE content_questions ADD COLUMN figure_json TEXT');
         }
       },
       onCreate: (db, version) async {
@@ -196,7 +203,8 @@ class AppDatabase {
         ord INTEGER NOT NULL DEFAULT 0,
         heading TEXT NOT NULL DEFAULT '',
         body TEXT NOT NULL DEFAULT '',
-        example TEXT
+        example TEXT,
+        figure_json TEXT
       )''');
     await db.execute('''
       CREATE TABLE IF NOT EXISTS content_questions(
@@ -210,7 +218,8 @@ class AppDatabase {
         hint TEXT DEFAULT '',
         explanation TEXT DEFAULT '',
         unit TEXT,
-        min_app_version INTEGER NOT NULL DEFAULT 0
+        min_app_version INTEGER NOT NULL DEFAULT 0,
+        figure_json TEXT
       )''');
     await db.execute('''
       CREATE TABLE IF NOT EXISTS content_meta(

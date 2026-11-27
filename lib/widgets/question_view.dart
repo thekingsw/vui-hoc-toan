@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/question.dart';
 import '../services/scoring.dart';
+import 'figure_view.dart';
 import 'fraction_view.dart';
 
 /// Trạng thái trả lời 1 câu trong Practice / Quiz.
@@ -95,6 +96,7 @@ class _QuestionViewState extends State<QuestionView> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         RichMathText(q.prompt, fontSize: 20, fontWeight: FontWeight.w600),
+        if (q.figure != null) FigureView(figure: q.figure!),
         if (q.unit != null)
           Padding(
             padding: const EdgeInsets.only(top: 4),
