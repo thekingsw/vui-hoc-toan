@@ -13,6 +13,19 @@ import 'database_service.dart';
 /// khi thay nội dung — tiến độ gắn theo id nên giữ nguyên.
 
 class ContentStore {
+  /// answer lưu dạng JSON khi là List (order/drag_unit), còn lại là chuỗi.
+  static dynamic _decodeAnswer(String? raw) {
+    if (raw == null) return null;
+    final s = raw.trim();
+    if (s.startsWith('[')) {
+      try {
+        return jsonDecode(s);
+      } catch (_) {
+        return raw;
+      }
+    }
+    return raw;
+  }
   ContentStore([AppDatabase? db]) : _db = db ?? AppDatabase.instance;
 
   final AppDatabase _db;
@@ -123,6 +136,15 @@ class ContentStore {
         }
       }
       for (final q in questions) {
+        // Đợt C: answer có thể là List (order/drag_unit) → lưu dạng JSON;
+        // dữ liệu phụ pairs/items/bank/column gộp vào extra_json.
+        final rawAnswer = q['answer'];
+        final extra = <String, dynamic>{
+          if (q['pairs'] != null) 'pairs': q['pairs'],
+          if (q['items'] != null) 'items': q['items'],
+          if (q['bank'] != null) 'bank': q['bank'],
+          if (q['column'] != null) 'column': q['column'],
+        };
         await txn.insert('content_questions', {
           'id': q['id'] as String,
           'lesson_id': q['lesson_id'] as String,
@@ -130,13 +152,16 @@ class ContentStore {
           'difficulty': (q['difficulty'] as num?)?.toInt() ?? 1,
           'prompt': q['prompt'] as String? ?? '',
           'options_json': jsonEncode(q['options'] ?? const []),
-          'answer': '${q['answer'] ?? ''}',
+          'answer': rawAnswer is List
+              ? jsonEncode(rawAnswer)
+              : '${rawAnswer ?? ''}',
           'hint': q['hint'] as String? ?? '',
           'explanation': q['explanation'] as String? ?? '',
           'unit': q['unit'] as String?,
           'min_app_version': (q['min_app_version'] as num?)?.toInt() ?? 0,
           'figure_json': q['figure'] != null ? jsonEncode(q['figure']) : null,
           'tags_json': q['tags'] != null ? jsonEncode(q['tags']) : null,
+          'extra_json': extra.isEmpty ? null : jsonEncode(extra),
         });
       }
     });
@@ -179,22 +204,26 @@ class ContentStore {
     );
     final questions = [
       for (final q in qRows)
-        {
-          'id': q['id'],
-          'lesson_id': q['lesson_id'],
-          'type': q['type'],
-          'difficulty': q['difficulty'],
-          'prompt': q['prompt'],
-          'options': jsonDecode(q['options_json'] as String? ?? '[]'),
-          'answer': q['answer'],
-          'hint': q['hint'],
-          'explanation': q['explanation'],
-          if (q['unit'] != null) 'unit': q['unit'],
-          if (q['figure_json'] != null)
-            'figure': jsonDecode(q['figure_json'] as String),
-          if (q['tags_json'] != null)
-            'tags': jsonDecode(q['tags_json'] as String),
-        },
+        if (parseQuestionType(q['type'] as String? ?? '') != null)
+          {
+            'id': q['id'],
+            'lesson_id': q['lesson_id'],
+            'type': q['type'],
+            'difficulty': q['difficulty'],
+            'prompt': q['prompt'],
+            'options': jsonDecode(q['options_json'] as String? ?? '[]'),
+            'answer': _decodeAnswer(q['answer'] as String?),
+            'hint': q['hint'],
+            'explanation': q['explanation'],
+            if (q['unit'] != null) 'unit': q['unit'],
+            if (q['figure_json'] != null)
+              'figure': jsonDecode(q['figure_json'] as String),
+            if (q['tags_json'] != null)
+              'tags': jsonDecode(q['tags_json'] as String),
+            if (q['extra_json'] != null)
+              ...(jsonDecode(q['extra_json'] as String)
+                  as Map<String, dynamic>),
+          },
     ];
     return IslandData.fromJson({
       'island_id': islandId,

@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:toan_lop_5/models/question.dart';
 import 'package:toan_lop_5/services/review_logic.dart';
 import 'package:toan_lop_5/services/scoring.dart';
 
@@ -73,6 +74,61 @@ void main() {
     test('chưa đủ dữ liệu thì null', () {
       final stats = [const SkillStat(skill: 'cong', correct: 1, wrong: 1)];
       expect(weakestSkill(stats), isNull);
+    });
+  });
+
+  group('checkAnswer loại câu mới (Đợt C)', () {
+    Question q(QuestionType type,
+            {dynamic answer,
+            List<List<String>>? pairs,
+            List<String>? items,
+            List<String>? bank,
+            Map<String, dynamic>? column}) =>
+        Question(
+          id: 'x',
+          lessonId: 'l',
+          type: type,
+          difficulty: 1,
+          prompt: 'p',
+          answerRaw: answer,
+          pairs: pairs,
+          items: items,
+          bank: bank,
+          column: column,
+        );
+
+    test('match: đúng theo tập hợp cặp, sai khi nối lệch', () {
+      final question = q(QuestionType.match, pairs: [
+        ['1 km', '1000 m'],
+        ['1 m', '100 cm'],
+        ['1 dm', '10 cm'],
+      ]);
+      expect(checkAnswer(question, '1 m=100 cm|1 km=1000 m|1 dm=10 cm'),
+          isTrue);
+      expect(checkAnswer(question, '1 km=100 cm|1 m=1000 m|1 dm=10 cm'),
+          isFalse);
+    });
+
+    test('order: đúng thứ tự mới đạt', () {
+      final question = q(QuestionType.order,
+          items: ['3,5', '2,75', '4,1'], answer: ['2,75', '3,5', '4,1']);
+      expect(checkAnswer(question, '2,75|3,5|4,1'), isTrue);
+      expect(checkAnswer(question, '3,5|2,75|4,1'), isFalse);
+    });
+
+    test('drag_unit: đúng từng chỗ trống', () {
+      final question = q(QuestionType.dragUnit,
+          bank: ['kg', 'km', 'g'], answer: ['kg', 'km']);
+      expect(checkAnswer(question, 'kg|km'), isTrue);
+      expect(checkAnswer(question, 'km|kg'), isFalse);
+    });
+
+    test('column_calc: chấm như số', () {
+      final question = q(QuestionType.columnCalc,
+          column: {'a': '12,5', 'op': '+', 'b': '3,75'}, answer: '16,25');
+      expect(checkAnswer(question, '16,25'), isTrue);
+      expect(checkAnswer(question, '16.25'), isTrue);
+      expect(checkAnswer(question, '16,2'), isFalse);
     });
   });
 }

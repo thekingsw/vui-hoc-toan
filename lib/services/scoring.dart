@@ -66,12 +66,36 @@ bool numbersEqual(String a, String b, {double epsilon = 1e-9}) {
 /// - mcq / true_false: so chuỗi sau khi trim.
 /// - fill_number: so giá trị số, chấp nhận cả ',' và '.'.
 bool checkAnswer(Question q, String userInput) {
-  final expected = q.answerText;
-  if (expected == null) return false;
   final input = userInput.trim();
   if (input.isEmpty) return false;
+  // Loại câu Đợt C: đáp án bé nhập được mã hóa thành chuỗi:
+  // - match: "trái=phải|trái=phải|..." (chấm theo tập hợp cặp)
+  // - order / drag_unit: các mục nối bằng "|"
+  switch (q.type) {
+    case QuestionType.match:
+      final pairs = q.pairs;
+      if (pairs == null || pairs.isEmpty) return false;
+      final expected = pairs.map((p) => '${p[0]}=${p[1]}').toSet();
+      final got = input.split('|').map((s) => s.trim()).toSet();
+      return expected.length == got.length && expected.containsAll(got);
+    case QuestionType.order:
+    case QuestionType.dragUnit:
+      final expected = q.answerList;
+      if (expected == null || expected.isEmpty) return false;
+      final got = input.split('|').map((s) => s.trim()).toList();
+      if (got.length != expected.length) return false;
+      for (var i = 0; i < expected.length; i++) {
+        if (got[i] != expected[i].trim()) return false;
+      }
+      return true;
+    default:
+      break;
+  }
+  final expected = q.answerText;
+  if (expected == null) return false;
   switch (q.type) {
     case QuestionType.fillNumber:
+    case QuestionType.columnCalc:
       return numbersEqual(expected, input);
     case QuestionType.mcq:
     case QuestionType.trueFalse:
@@ -85,7 +109,6 @@ bool checkAnswer(Question q, String userInput) {
     case QuestionType.match:
     case QuestionType.order:
     case QuestionType.dragUnit:
-      // Giai đoạn 2, chưa chấm ở MVP.
       return false;
   }
 }

@@ -129,12 +129,58 @@ void main() {
       expect(errors.any((e) => e.contains('difficulty')), isTrue);
     });
 
-    test('type giai đoạn 2 (match) bị báo lỗi ở giai đoạn 1', () {
+    test('match đủ 3 cặp thì pass, thiếu cặp thì báo lỗi', () {
       final json = _validIsland();
-      (json['questions'] as List)[0]['type'] = 'match';
-      final errors = validateIslandJson(json);
+      final q = (json['questions'] as List)[0];
+      q['type'] = 'match';
+      q['pairs'] = [
+        ['1 km', '1000 m'],
+        ['1 m', '100 cm'],
+        ['1 dm', '10 cm'],
+      ];
+      expect(validateIslandJson(json), isEmpty);
+      q['pairs'] = [
+        ['1 km', '1000 m'],
+      ];
       expect(
-          errors.any((e) => e.contains('chưa hỗ trợ ở giai đoạn 1')), isTrue);
+          validateIslandJson(json).any((e) => e.contains('match')), isTrue);
+    });
+
+    test('order: answer phải là items theo thứ tự đúng', () {
+      final json = _validIsland();
+      final q = (json['questions'] as List)[0];
+      q['type'] = 'order';
+      q['items'] = ['3,5', '2,75', '4,1'];
+      q['answer'] = ['2,75', '3,5', '4,1'];
+      expect(validateIslandJson(json), isEmpty);
+      q['answer'] = ['2,75', '3,5'];
+      expect(
+          validateIslandJson(json).any((e) => e.contains('order')), isTrue);
+    });
+
+    test('drag_unit: số chỗ trống khớp đáp án, đáp án trong bank', () {
+      final json = _validIsland();
+      final q = (json['questions'] as List)[0];
+      q['type'] = 'drag_unit';
+      q['prompt'] = 'Con mèo nặng 3 ___; quãng đường dài 5 ___';
+      q['bank'] = ['kg', 'km', 'g'];
+      q['answer'] = ['kg', 'km'];
+      expect(validateIslandJson(json), isEmpty);
+      q['answer'] = ['kg'];
+      expect(validateIslandJson(json).any((e) => e.contains('drag_unit')),
+          isTrue);
+    });
+
+    test('column_calc: cần column {a, op, b} và answer là số', () {
+      final json = _validIsland();
+      final q = (json['questions'] as List)[0];
+      q['type'] = 'column_calc';
+      q['column'] = {'a': '12,5', 'op': '+', 'b': '3,75'};
+      q['answer'] = '16,25';
+      expect(validateIslandJson(json), isEmpty);
+      q['column'] = {'a': '12,5', 'op': '?', 'b': '3,75'};
+      expect(validateIslandJson(json).any((e) => e.contains('column_calc')),
+          isTrue);
     });
 
     test('boss có cards bị báo lỗi', () {

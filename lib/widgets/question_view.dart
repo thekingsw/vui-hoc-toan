@@ -54,10 +54,33 @@ class _QuestionViewState extends State<QuestionView> {
   /// mới) và giữ nguyên trong suốt câu, kể cả khi thử lại.
   late final List<String> _displayOptions;
 
+  // --- Đợt C: trạng thái các loại câu mới ---
+  /// match: cột phải hiển thị xáo trộn (chỉ số vào pairs).
+  late final List<int> _matchRightOrder;
+  int? _matchLeftSel;
+  final Map<int, int> _matched = {}; // trái -> phải (chỉ số pairs)
+
+  /// order: thứ tự hiển thị xáo trộn + các mục bé đã chọn theo thứ tự.
+  late final List<int> _orderDisplay;
+  final List<int> _orderPicked = [];
+
+  /// drag_unit: đơn vị đã chọn cho từng chỗ trống + ô đang chọn.
+  late final List<String?> _unitPicks;
+  int? _unitFocus;
+
   @override
   void initState() {
     super.initState();
     _displayOptions = shuffledOptions(widget.question);
+    final q = widget.question;
+    _matchRightOrder = [
+      for (var i = 0; i < (q.pairs?.length ?? 0); i++) i,
+    ]..shuffle();
+    _orderDisplay = [
+      for (var i = 0; i < (q.items?.length ?? 0); i++) i,
+    ]..shuffle();
+    final blanks = q.prompt.split('___').length - 1;
+    _unitPicks = List<String?>.filled(blanks, null);
   }
 
   @override
@@ -95,7 +118,8 @@ class _QuestionViewState extends State<QuestionView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        RichMathText(q.prompt, fontSize: 20, fontWeight: FontWeight.w600),
+        if (q.type != QuestionType.dragUnit)
+          RichMathText(q.prompt, fontSize: 20, fontWeight: FontWeight.w600),
         if (q.figure != null) FigureView(figure: q.figure!),
         if (q.unit != null)
           Padding(
@@ -285,13 +309,395 @@ class _QuestionViewState extends State<QuestionView> {
           ],
         );
       case QuestionType.match:
+        return _buildMatch(q);
       case QuestionType.order:
+        return _buildOrder(q);
       case QuestionType.dragUnit:
-        return const Text(
-          'Loại câu này sẽ có ở giai đoạn 2.',
-          style: TextStyle(fontSize: 16),
-        );
+        return _buildDragUnit(q);
+      case QuestionType.columnCalc:
+        return _buildColumnCalc(q);
     }
+  }
+
+  bool get _locked =>
+      _state == AnswerState.correct || _state == AnswerState.wrongFinal;
+
+  Widget _submitButton(String? input) {
+    return SizedBox(
+      height: 56,
+      child: ElevatedButton(
+        onPressed: (_locked || input == null) ? null : () => _submit(input),
+        child: const Text('Trả lời', style: TextStyle(fontSize: 19)),
+      ),
+    );
+  }
+
+  Widget _retryButton(VoidCallback onRetry) {
+    if (_state != AnswerState.wrongRetry) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.only(top: 12),
+      child: SizedBox(
+        height: 56,
+        child: OutlinedButton(
+          onPressed: () {
+            setState(() {
+              _state = AnswerState.unanswered;
+              onRetry();
+            });
+          },
+          child: const Text('Thử lại', style: TextStyle(fontSize: 19)),
+        ),
+      ),
+    );
+  }
+
+  /// Nối cặp: chạm cột trái rồi chạm cột phải. Cặp đã nối hiện số thứ tự.
+  Widget _buildMatch(Question q) {
+    final pairs = q.pairs ?? const [];
+    final complete = _matched.length == pairs.length && pairs.isNotEmpty;
+    final input = complete
+        ? [
+            for (var i = 0; i < pairs.length; i++)
+              '${pairs[i][0]}=${pairs[_matched[i]!][1]}',
+          ].join('|')
+        : null;
+    Widget cell(String text, bool selected, int? badge, VoidCallback? onTap) {
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: SizedBox(
+          height: 56,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor:
+                  selected ? Colors.blue.shade100 : Colors.white,
+              foregroundColor: Colors.black87,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14),
+                side: BorderSide(
+                  color: selected ? Colors.blue : Colors.grey.shade400,
+                  width: selected ? 2.5 : 1,
+                ),
+              ),
+            ),
+            onPressed: _locked ? null : onTap,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (badge != null)
+                  Container(
+                    width: 24,
+                    height: 24,
+                    margin: const EdgeInsets.only(right: 8),
+                    decoration: const BoxDecoration(
+                      color: Colors.blue,
+                      shape: BoxShape.circle,
+                    ),
+                    alignment: Alignment.center,
+                    child: Text('$badge',
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold)),
+                  ),
+                Flexible(child: RichMathText(text, fontSize: 18)),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Column(
+                children: [
+                  for (var i = 0; i < pairs.length; i++)
+                    cell(
+                      pairs[i][0],
+                      _matchLeftSel == i || _matched.containsKey(i),
+                      _matched.containsKey(i)
+                          ? _matched.keys.toList().indexOf(i) + 1
+                          : null,
+                      () {
+                        widget.onSelect?.call();
+                        setState(() {
+                          if (_matched.containsKey(i)) {
+                            _matched.remove(i);
+                            _matchLeftSel = null;
+                          } else {
+                            _matchLeftSel = i;
+                          }
+                        });
+                      },
+                    ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                children: [
+                  for (final j in _matchRightOrder)
+                    cell(
+                      pairs[j][1],
+                      _matched.containsValue(j),
+                      _matched.containsValue(j)
+                          ? _matched.values.toList().indexOf(j) + 1
+                          : null,
+                      () {
+                        widget.onSelect?.call();
+                        setState(() {
+                          final left = _matchLeftSel;
+                          if (left != null && !_matched.containsValue(j)) {
+                            _matched[left] = j;
+                            _matchLeftSel = null;
+                          }
+                        });
+                      },
+                    ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 6),
+        _submitButton(input),
+        _retryButton(() {
+          _matched.clear();
+          _matchLeftSel = null;
+        }),
+      ],
+    );
+  }
+
+  /// Sắp xếp: chạm các mục theo thứ tự đúng, hiện số 1, 2, 3...
+  Widget _buildOrder(Question q) {
+    final items = q.items ?? const [];
+    final complete = _orderPicked.length == items.length && items.isNotEmpty;
+    final input = complete
+        ? _orderPicked.map((i) => items[i]).join('|')
+        : null;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        for (final i in _orderDisplay)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: SizedBox(
+              height: 56,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: _orderPicked.contains(i)
+                      ? Colors.blue.shade100
+                      : Colors.white,
+                  foregroundColor: Colors.black87,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                    side: BorderSide(
+                      color: _orderPicked.contains(i)
+                          ? Colors.blue
+                          : Colors.grey.shade400,
+                      width: _orderPicked.contains(i) ? 2.5 : 1,
+                    ),
+                  ),
+                ),
+                onPressed: _locked
+                    ? null
+                    : () {
+                        widget.onSelect?.call();
+                        setState(() {
+                          if (_orderPicked.contains(i)) {
+                            _orderPicked.remove(i);
+                          } else {
+                            _orderPicked.add(i);
+                          }
+                        });
+                      },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (_orderPicked.contains(i))
+                      Container(
+                        width: 24,
+                        height: 24,
+                        margin: const EdgeInsets.only(right: 8),
+                        decoration: const BoxDecoration(
+                          color: Colors.blue,
+                          shape: BoxShape.circle,
+                        ),
+                        alignment: Alignment.center,
+                        child: Text('${_orderPicked.indexOf(i) + 1}',
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold)),
+                      ),
+                    Flexible(child: RichMathText(items[i], fontSize: 18)),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        const SizedBox(height: 6),
+        _submitButton(input),
+        _retryButton(() => _orderPicked.clear()),
+      ],
+    );
+  }
+
+  /// Kéo thả đơn vị (bản chạm chọn): chạm ô trống rồi chạm đơn vị.
+  Widget _buildDragUnit(Question q) {
+    final parts = q.prompt.split('___');
+    final complete =
+        _unitPicks.isNotEmpty && _unitPicks.every((u) => u != null);
+    final input = complete ? _unitPicks.join('|') : null;
+    final spans = <InlineSpan>[];
+    for (var i = 0; i < parts.length; i++) {
+      spans.add(TextSpan(text: parts[i]));
+      if (i < _unitPicks.length) {
+        final picked = _unitPicks[i];
+        spans.add(WidgetSpan(
+          alignment: PlaceholderAlignment.middle,
+          child: GestureDetector(
+            onTap: _locked
+                ? null
+                : () {
+                    widget.onSelect?.call();
+                    setState(() => _unitFocus = i);
+                  },
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 4),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              decoration: BoxDecoration(
+                color: _unitFocus == i
+                    ? Colors.blue.shade100
+                    : Colors.amber.shade50,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: _unitFocus == i ? Colors.blue : Colors.amber.shade700,
+                  width: _unitFocus == i ? 2.5 : 1.5,
+                ),
+              ),
+              child: Text(
+                picked ?? ' ? ',
+                style: const TextStyle(
+                    fontSize: 19, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ));
+      }
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        RichText(
+          text: TextSpan(
+            style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                color: Colors.black87),
+            children: spans,
+          ),
+        ),
+        const SizedBox(height: 16),
+        Wrap(
+          spacing: 10,
+          runSpacing: 10,
+          children: [
+            for (final u in q.bank ?? const <String>[])
+              ChoiceChip(
+                label: Text(u, style: const TextStyle(fontSize: 18)),
+                selected: _unitFocus != null &&
+                    _unitPicks[_unitFocus!] == u,
+                onSelected: _locked || _unitFocus == null
+                    ? null
+                    : (_) {
+                        widget.onSelect?.call();
+                        setState(() => _unitPicks[_unitFocus!] = u);
+                      },
+              ),
+          ],
+        ),
+        const SizedBox(height: 16),
+        _submitButton(input),
+        _retryButton(() {
+          for (var i = 0; i < _unitPicks.length; i++) {
+            _unitPicks[i] = null;
+          }
+          _unitFocus = null;
+        }),
+      ],
+    );
+  }
+
+  /// Đặt tính cột dọc: hiện phép tính hàng dọc + ô nhập kết quả.
+  Widget _buildColumnCalc(Question q) {
+    final col = q.column ?? const {};
+    final a = '${col['a'] ?? ''}';
+    final b = '${col['b'] ?? ''}';
+    final op = '${col['op'] ?? '+'}';
+    const style = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Center(
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: Colors.grey.shade400, width: 1.5),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(a, style: style),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(op, style: style),
+                    const SizedBox(width: 14),
+                    Text(b, style: style),
+                  ],
+                ),
+                const SizedBox(height: 6),
+                Container(height: 3, width: 130, color: Colors.black87),
+                const SizedBox(height: 6),
+                const Text('?', style: style),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        TextField(
+          controller: _controller,
+          enabled: !_locked,
+          keyboardType: const TextInputType.numberWithOptions(decimal: true),
+          inputFormatters: [
+            FilteringTextInputFormatter.allow(RegExp(r'[0-9,.\s/]')),
+          ],
+          style: const TextStyle(fontSize: 22),
+          decoration: InputDecoration(
+            hintText: 'Nhập kết quả...',
+            suffixText: q.unit,
+            border: const OutlineInputBorder(),
+          ),
+          onSubmitted: (_) => _submit(_controller.text),
+          onChanged: (_) => setState(() {}),
+        ),
+        const SizedBox(height: 12),
+        _submitButton(_controller.text.isEmpty ? null : _controller.text),
+        _retryButton(() => _controller.clear()),
+      ],
+    );
   }
 
   Widget _boolButton(String label, Color color) {

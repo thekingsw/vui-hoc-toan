@@ -132,8 +132,73 @@ List<String> validateIslandJson(
         }
         break;
       case QuestionType.match:
+        final pairs = q['pairs'];
+        if (pairs is! List || pairs.length < 3) {
+          err('question $id (match): cần ít nhất 3 cặp');
+          break;
+        }
+        final lefts = <String>{};
+        final rights = <String>{};
+        for (final p in pairs) {
+          if (p is! List || p.length != 2) {
+            err('question $id (match): mỗi cặp phải có đúng 2 phần tử');
+            break;
+          }
+          if (!lefts.add('${p[0]}')) {
+            err('question $id (match): trùng cột trái: ${p[0]}');
+          }
+          if (!rights.add('${p[1]}')) {
+            err('question $id (match): trùng cột phải: ${p[1]}');
+          }
+        }
+        break;
       case QuestionType.order:
+        final items = q['items'];
+        final answer = q['answer'];
+        if (items is! List || items.length < 3) {
+          err('question $id (order): cần ít nhất 3 mục');
+          break;
+        }
+        if (answer is! List ||
+            answer.length != items.length ||
+            answer.map((e) => '$e').toSet().length != items.length ||
+            !answer.map((e) => '$e').toSet().containsAll(
+                items.map((e) => '$e'))) {
+          err('question $id (order): answer phải là items theo thứ tự đúng');
+        }
+        break;
       case QuestionType.dragUnit:
+        final bank = q['bank'];
+        final answer = q['answer'];
+        final blanks = (prompt ?? '').split('___').length - 1;
+        if (bank is! List || bank.length < 2) {
+          err('question $id (drag_unit): bank cần ít nhất 2 đơn vị');
+          break;
+        }
+        if (answer is! List || answer.length != blanks || blanks == 0) {
+          err('question $id (drag_unit): số chỗ trống ___ phải bằng số đáp án');
+          break;
+        }
+        final bankSet = bank.map((e) => '$e').toSet();
+        for (final a in answer) {
+          if (!bankSet.contains('$a')) {
+            err('question $id (drag_unit): đáp án "$a" không có trong bank');
+          }
+        }
+        break;
+      case QuestionType.columnCalc:
+        final column = q['column'];
+        final answer = q['answer'];
+        if (column is! Map ||
+            column['a'] == null ||
+            column['b'] == null ||
+            !['+', '-', '×', ':'].contains('${column['op']}')) {
+          err('question $id (column_calc): column cần {a, op (+ - × :), b}');
+          break;
+        }
+        if (answer is! String || parseRationalNumber(answer) == null) {
+          err('question $id (column_calc): answer không parse được thành số');
+        }
         break;
     }
   }

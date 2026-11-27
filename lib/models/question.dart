@@ -1,7 +1,7 @@
 // Models cho dữ liệu câu hỏi — bám schema mục 6 của SPEC.
 // Loader bỏ qua mọi trường lạ (calc, verified, source...).
 
-enum QuestionType { mcq, fillNumber, trueFalse, match, order, dragUnit }
+enum QuestionType { mcq, fillNumber, trueFalse, match, order, dragUnit, columnCalc }
 
 QuestionType? parseQuestionType(String raw) {
   switch (raw) {
@@ -17,16 +17,22 @@ QuestionType? parseQuestionType(String raw) {
       return QuestionType.order;
     case 'drag_unit':
       return QuestionType.dragUnit;
+    case 'column_calc':
+      return QuestionType.columnCalc;
     default:
       return null;
   }
 }
 
-/// MVP chỉ hỗ trợ 3 loại đầu; 3 loại sau là giai đoạn 2.
+/// Các loại câu app hỗ trợ (Đợt C mở thêm match/order/drag_unit/column_calc).
 const Set<QuestionType> mvpQuestionTypes = {
   QuestionType.mcq,
   QuestionType.fillNumber,
   QuestionType.trueFalse,
+  QuestionType.match,
+  QuestionType.order,
+  QuestionType.dragUnit,
+  QuestionType.columnCalc,
 };
 
 class Question {
@@ -41,6 +47,7 @@ class Question {
     this.pairs,
     this.items,
     this.bank,
+    this.column,
     this.unit,
     this.hint,
     this.explanation,
@@ -67,6 +74,9 @@ class Question {
 
   /// drag_unit (giai đoạn 2): ngân hàng đơn vị.
   final List<String>? bank;
+
+  /// column_calc (Đợt C): phép tính đặt cột dọc {a, op, b}.
+  final Map<String, dynamic>? column;
 
   final String? unit;
   final String? hint;
@@ -107,6 +117,9 @@ class Question {
           : null,
       bank: json['bank'] is List
           ? List<String>.from((json['bank'] as List).map((e) => '$e'))
+          : null,
+      column: json['column'] is Map
+          ? Map<String, dynamic>.from(json['column'] as Map)
           : null,
       unit: json['unit'] as String?,
       hint: json['hint'] as String?,
