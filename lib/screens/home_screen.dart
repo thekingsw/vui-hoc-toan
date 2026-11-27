@@ -271,17 +271,50 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
             ),
             Positioned(
               right: 16,
-              top: 186,
-              child: ElevatedButton.icon(
-                onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(builder: (_) => const ExamScreen()),
-                ),
-                icon: const Icon(Icons.assignment_outlined, size: 20),
-                label: const Text('Thi thử'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white.withOpacity(0.94),
-                  foregroundColor: GameColors.ink,
-                  elevation: 2,
+              top: 192,
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(18),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const ExamScreen()),
+                  ),
+                  child: Ink(
+                    decoration: BoxDecoration(
+                      color: GameColors.accent,
+                      borderRadius: BorderRadius.circular(18),
+                      border: Border.all(
+                          color: const Color(0xFFE65100), width: 2.5),
+                      boxShadow: [
+                        BoxShadow(
+                          color: GameColors.seaDeep.withOpacity(0.3),
+                          blurRadius: 8,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: const Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.assignment_outlined,
+                              size: 20, color: Colors.white),
+                          SizedBox(width: 6),
+                          Text(
+                            'Thi thử',
+                            style: TextStyle(
+                              fontFamily: 'Baloo2',
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -669,46 +702,80 @@ class _TodayCard extends ConsumerWidget {
     }
 
     return Material(
-      color: Colors.white.withOpacity(0.94),
-      borderRadius: BorderRadius.circular(16),
-      elevation: 2,
+      color: Colors.transparent,
       child: InkWell(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-          child: Row(
-            children: [
-              const Icon(Icons.school, color: Color(0xFF00897B), size: 28),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: GameColors.ink,
-                      ),
-                    ),
-                    Text(
-                      weak != null && due == 0
-                          ? '$subtitle Cần luyện thêm: ${weak.skill}.'
-                          : subtitle,
-                      style: const TextStyle(
-                        fontSize: 13,
-                        color: GameColors.ink,
-                      ),
-                    ),
-                  ],
-                ),
+        child: Ink(
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [Color(0xFFFFF3D6), Colors.white],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: GameColors.accent, width: 3),
+            boxShadow: [
+              BoxShadow(
+                color: GameColors.seaDeep.withOpacity(0.25),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
               ),
-              const Icon(Icons.arrow_forward_ios,
-                  size: 16, color: Color(0xFF78909C)),
             ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            child: Row(
+              children: [
+                Container(
+                  width: 46,
+                  height: 46,
+                  decoration: const BoxDecoration(
+                    color: GameColors.seaDeep,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(Icons.school,
+                      color: Colors.white, size: 26),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          fontFamily: 'Baloo2',
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                          color: GameColors.ink,
+                        ),
+                      ),
+                      Text(
+                        weak != null && due == 0
+                            ? '$subtitle Cần luyện thêm: ${weak.skill}.'
+                            : subtitle,
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: GameColors.ink.withOpacity(0.72),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 34,
+                  height: 34,
+                  decoration: const BoxDecoration(
+                    color: GameColors.accent,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(Icons.arrow_forward,
+                      size: 18, color: Colors.white),
+                ),
+              ],
+            ),
           ),
         ),
       ),

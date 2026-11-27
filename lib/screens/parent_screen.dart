@@ -4,6 +4,7 @@ import '../data/island_catalog.dart';
 import '../providers/app_providers.dart';
 import '../services/data_update_service.dart';
 import '../services/review_logic.dart';
+import '../theme/game_theme.dart';
 
 /// Góc phụ huynh tối giản (MVP):
 /// - Khóa PIN 4 số (mặc định 1234, đổi được ngay trong màn này).
@@ -362,64 +363,168 @@ class _LearningOverview extends ConsumerWidget {
         ? 'chưa có dữ liệu'
         : '${(activity.correct * 100 / activity.total).round()}% đúng';
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text('Theo dõi học tập',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-        const SizedBox(height: 8),
-        ListTile(
-          contentPadding: EdgeInsets.zero,
-          leading: const Icon(Icons.calendar_month_outlined),
-          title: Text('7 ngày qua: ${activity.total} câu'),
-          subtitle: Text(accuracyText),
-        ),
-        ListTile(
-          contentPadding: EdgeInsets.zero,
-          leading: const Icon(Icons.replay_outlined),
-          title: Text('Hộp ôn lại: $due câu đến hạn'),
-          subtitle: const Text('Câu sai được ôn theo lịch 1/3/7/14/30 ngày'),
-        ),
-        if (skills.isNotEmpty) ...[
-          const SizedBox(height: 4),
-          const Text('Kỹ năng (yếu → mạnh)',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 6),
-          for (final s in skills)
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: GameColors.seaLight, width: 2.5),
+        boxShadow: [
+          BoxShadow(
+            color: GameColors.seaDeep.withOpacity(0.12),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Row(
+            children: [
+              Icon(Icons.insights, color: GameColors.seaDeep, size: 24),
+              SizedBox(width: 8),
+              Text('Theo dõi học tập',
+                  style: TextStyle(
+                      fontFamily: 'Baloo2',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: GameColors.ink)),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Row(
+            children: [
+              Expanded(
+                child: _statTile(
+                  icon: Icons.calendar_month_outlined,
+                  value: '${activity.total} câu',
+                  label: '7 ngày qua · $accuracyText',
+                  color: GameColors.seaDeep,
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: _statTile(
+                  icon: Icons.replay_outlined,
+                  value: '$due câu',
+                  label: 'đến hạn ôn lại',
+                  color: GameColors.accent,
+                ),
+              ),
+            ],
+          ),
+          if (skills.isNotEmpty) ...[
+            const SizedBox(height: 14),
+            const Text('Kỹ năng (yếu → mạnh)',
+                style: TextStyle(
+                    fontFamily: 'Baloo2',
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: GameColors.ink)),
+            const SizedBox(height: 8),
+            for (final s in skills)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: Row(
+                  children: [
+                    Expanded(flex: 3, child: Text(s.skill)),
+                    Expanded(
+                      flex: 4,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(6),
+                        child: LinearProgressIndicator(
+                          value: s.accuracy,
+                          minHeight: 10,
+                          backgroundColor:
+                              GameColors.seaLight.withOpacity(0.25),
+                          valueColor: AlwaysStoppedAnimation(
+                            s.accuracy < 0.5
+                                ? GameColors.wrongSoft
+                                : s.accuracy < 0.8
+                                    ? GameColors.accent
+                                    : GameColors.correct,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Text('${s.correct}/${s.total}'),
+                  ],
+                ),
+              ),
+          ],
+          const SizedBox(height: 14),
+          const Text('Sao từng đảo',
+              style: TextStyle(
+                  fontFamily: 'Baloo2',
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: GameColors.ink)),
+          const SizedBox(height: 8),
+          for (final meta in islandCatalog)
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 3),
               child: Row(
                 children: [
-                  Expanded(flex: 3, child: Text(s.skill)),
-                  Expanded(
-                    flex: 4,
-                    child: LinearProgressIndicator(
-                      value: s.accuracy,
-                      minHeight: 8,
-                      borderRadius: BorderRadius.circular(4),
+                  Expanded(child: Text(meta.title)),
+                  for (var i = 0; i < 3; i++)
+                    Icon(
+                      Icons.star,
+                      size: 18,
+                      color: i < (progress[meta.id]?.bestStars ?? 0)
+                          ? const Color(0xFFFFCA28)
+                          : GameColors.mystery.withOpacity(0.35),
                     ),
-                  ),
-                  const SizedBox(width: 8),
-                  Text('${s.correct}/${s.total}'),
                 ],
               ),
             ),
         ],
-        const SizedBox(height: 8),
-        const Text('Sao từng đảo',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-        const SizedBox(height: 6),
-        for (final meta in islandCatalog)
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 2),
-            child: Row(
-              children: [
-                Expanded(child: Text(meta.title)),
-                Text('★ ${progress[meta.id]?.bestStars ?? 0}/3'),
-              ],
+      ),
+    );
+  }
+
+  Widget _statTile({
+    required IconData icon,
+    required String value,
+    required String label,
+    required Color color,
+  }) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: color.withOpacity(0.45), width: 2),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(icon, size: 18, color: color),
+              const SizedBox(width: 6),
+              Text(
+                value,
+                style: TextStyle(
+                  fontFamily: 'Baloo2',
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: GameColors.ink,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 2),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 12.5,
+              color: GameColors.ink.withOpacity(0.7),
             ),
           ),
-      ],
+        ],
+      ),
     );
   }
 }
