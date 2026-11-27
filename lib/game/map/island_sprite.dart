@@ -5,8 +5,8 @@ import '../../theme/game_theme.dart';
 import '../game_image.dart';
 import 'island_state.dart';
 
-/// Sprite một đảo trên bản đồ biển. Đợt 3 có ảnh thì dùng ảnh
-/// (assets/images/islands/{id}.webp), chưa có thì vẽ bằng code.
+/// Sprite một đảo trên bản đồ biển. Dùng ảnh AI sinh
+/// (assets/images/islands/{id}.webp), chưa có ảnh thì vẽ bằng code.
 class IslandSprite extends StatelessWidget {
   const IslandSprite({
     super.key,

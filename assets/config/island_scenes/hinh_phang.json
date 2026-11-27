@@ -1,0 +1,1 @@
+{"background":"assets/images/scenes/hinh_phang_bg.webp","boss":{"x":0.5,"y":0.06},"height_ratio":1.78,"nodes":[{"icon":"node_palm","lesson_id":"hinh_tam_giac","x":0.32,"y":0.9},{"icon":"node_rock","lesson_id":"hinh_thang","x":0.64,"y":0.56},{"icon":"node_arch","lesson_id":"duong_tron_hinh_tron","x":0.32,"y":0.22}]}

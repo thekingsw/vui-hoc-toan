@@ -1,0 +1,1 @@
+{"background":"assets/images/scenes/the_tich_bg.webp","boss":{"x":0.5,"y":0.06},"height_ratio":2.0,"nodes":[{"icon":"node_palm","lesson_id":"the_tich_cua_mot_hinh","x":0.32,"y":0.9},{"icon":"node_rock","lesson_id":"cm3_dm3","x":0.64,"y":0.56},{"icon":"node_arch","lesson_id":"met_khoi","x":0.32,"y":0.22}]}

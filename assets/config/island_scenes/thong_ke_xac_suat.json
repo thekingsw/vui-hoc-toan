@@ -1,0 +1,1 @@
+{"background":"assets/images/scenes/thong_ke_xac_suat_bg.webp","boss":{"x":0.5,"y":0.06},"height_ratio":2.0,"nodes":[{"icon":"node_palm","lesson_id":"thu_thap_phan_loai_so_lieu","x":0.32,"y":0.9},{"icon":"node_rock","lesson_id":"bieu_do_hinh_quat","x":0.64,"y":0.56},{"icon":"node_arch","lesson_id":"ti_so_so_lan_lap_lai","x":0.32,"y":0.22}]}
