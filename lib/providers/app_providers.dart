@@ -105,6 +105,14 @@ final skillStatsProvider = FutureProvider<List<SkillStat>>((ref) async {
   return db.skillStats();
 });
 
+/// Hoạt động 7 ngày qua cho bảng phụ huynh (Đợt B).
+final recentActivityProvider =
+    FutureProvider<({int total, int correct})>((ref) async {
+  ref.watch(progressRefreshProvider);
+  final db = ref.watch(databaseProvider);
+  return db.recentActivity();
+});
+
 /// Các món đã mua.
 final ownedItemsProvider = FutureProvider<Set<String>>((ref) async {
   ref.watch(progressRefreshProvider);

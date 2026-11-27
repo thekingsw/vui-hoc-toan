@@ -4,6 +4,13 @@ import '../models/question.dart';
 /// Logic thuần (không phụ thuộc Flutter): chấm điểm, tính sao,
 /// chọn câu Luyện tập / Quiz, mở khóa đảo. Có unit test riêng.
 
+/// Điểm thi thử thang 10: đúng/tổng × 10, làm tròn 1 chữ số thập phân.
+/// total = 0 → 0.
+double examScore(int correct, int total) {
+  if (total <= 0) return 0;
+  return (correct * 100 / total).round() / 10;
+}
+
 /// Trả về bản sao options đã xáo trộn cho câu mcq (chỉ đổi vị trí hiển
 /// thị, đáp án đúng vẫn nằm trong danh sách). Dữ liệu sinh ra có xu
 /// hướng để đáp án ở vị trí đầu (90% ở đợt 280 câu đầu), nên app phải

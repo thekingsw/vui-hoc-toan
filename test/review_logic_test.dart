@@ -1,7 +1,18 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:toan_lop_5/services/review_logic.dart';
+import 'package:toan_lop_5/services/scoring.dart';
 
 void main() {
+  group('examScore', () {
+    test('thang 10 làm tròn 1 chữ số thập phân', () {
+      expect(examScore(20, 20), 10);
+      expect(examScore(17, 20), 8.5);
+      expect(examScore(2, 3), 6.7);
+      expect(examScore(0, 20), 0);
+      expect(examScore(5, 0), 0);
+    });
+  });
+
   group('nextBox', () {
     test('sai thì về hộp 1', () {
       expect(nextBox(3, false), 1);

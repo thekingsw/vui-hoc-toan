@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/island_catalog.dart';
 import '../providers/app_providers.dart';
 import '../services/data_update_service.dart';
+import '../services/review_logic.dart';
 
 /// Góc phụ huynh tối giản (MVP):
 /// - Khóa PIN 4 số (mặc định 1234, đổi được ngay trong màn này).
@@ -136,6 +137,8 @@ class _ParentScreenState extends ConsumerState<ParentScreen> {
           return ListView(
             padding: const EdgeInsets.all(16),
             children: [
+              const _LearningOverview(),
+              const Divider(),
               SwitchListTile(
                 title: const Text('Âm thanh',
                     style: TextStyle(fontSize: 18)),
@@ -323,14 +326,100 @@ class _ParentScreenState extends ConsumerState<ParentScreen> {
                 ),
               ),
               const SizedBox(height: 16),
-              const Text(
-                'Giai đoạn 3 sẽ có thêm: thời gian học theo ngày, tỉ lệ đúng theo chủ đề, chủ đề yếu, giới hạn giờ/ngày.',
-                style: TextStyle(color: Colors.grey),
-              ),
             ],
           );
         },
       ),
+    );
+  }
+}
+
+/// Bảng theo dõi học tập (Đợt B): hoạt động 7 ngày, hộp ôn,
+/// kỹ năng yếu → mạnh, sao từng đảo.
+class _LearningOverview extends ConsumerWidget {
+  const _LearningOverview();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final activity = ref.watch(recentActivityProvider).maybeWhen(
+          data: (a) => a,
+          orElse: () => (total: 0, correct: 0),
+        );
+    final due = ref.watch(dueReviewCountProvider).maybeWhen(
+          data: (c) => c,
+          orElse: () => 0,
+        );
+    final skills = List<SkillStat>.of(ref.watch(skillStatsProvider).maybeWhen(
+          data: (s) => s,
+          orElse: () => const <SkillStat>[],
+        ))
+      ..sort((a, b) => a.accuracy.compareTo(b.accuracy));
+    final progress = ref.watch(islandProgressProvider).maybeWhen(
+          data: (p) => p,
+          orElse: () => const {},
+        );
+    final accuracyText = activity.total == 0
+        ? 'chưa có dữ liệu'
+        : '${(activity.correct * 100 / activity.total).round()}% đúng';
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text('Theo dõi học tập',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+        const SizedBox(height: 8),
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          leading: const Icon(Icons.calendar_month_outlined),
+          title: Text('7 ngày qua: ${activity.total} câu'),
+          subtitle: Text(accuracyText),
+        ),
+        ListTile(
+          contentPadding: EdgeInsets.zero,
+          leading: const Icon(Icons.replay_outlined),
+          title: Text('Hộp ôn lại: $due câu đến hạn'),
+          subtitle: const Text('Câu sai được ôn theo lịch 1/3/7/14/30 ngày'),
+        ),
+        if (skills.isNotEmpty) ...[
+          const SizedBox(height: 4),
+          const Text('Kỹ năng (yếu → mạnh)',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 6),
+          for (final s in skills)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 3),
+              child: Row(
+                children: [
+                  Expanded(flex: 3, child: Text(s.skill)),
+                  Expanded(
+                    flex: 4,
+                    child: LinearProgressIndicator(
+                      value: s.accuracy,
+                      minHeight: 8,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Text('${s.correct}/${s.total}'),
+                ],
+              ),
+            ),
+        ],
+        const SizedBox(height: 8),
+        const Text('Sao từng đảo',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+        const SizedBox(height: 6),
+        for (final meta in islandCatalog)
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 2),
+            child: Row(
+              children: [
+                Expanded(child: Text(meta.title)),
+                Text('★ ${progress[meta.id]?.bestStars ?? 0}/3'),
+              ],
+            ),
+          ),
+      ],
     );
   }
 }

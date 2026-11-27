@@ -19,6 +19,7 @@ import '../theme/game_theme.dart';
 import '../widgets/speech_bubble.dart';
 import '../widgets/star_row.dart';
 import 'island_screen.dart';
+import 'exam_screen.dart';
 import 'parent_screen.dart';
 import 'review_screen.dart';
 
@@ -266,6 +267,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
               child: _TodayCard(
                 currentIslandId: currentId,
                 islands: islands,
+              ),
+            ),
+            Positioned(
+              right: 16,
+              top: 186,
+              child: ElevatedButton.icon(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const ExamScreen()),
+                ),
+                icon: const Icon(Icons.assignment_outlined, size: 20),
+                label: const Text('Thi thử'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white.withOpacity(0.94),
+                  foregroundColor: GameColors.ink,
+                  elevation: 2,
+                ),
               ),
             ),
             if (_speech != null)

@@ -520,6 +520,25 @@ class AppDatabase {
         .toList();
   }
 
+  /// Hoạt động gần đây cho bảng phụ huynh: (tổng câu đã làm, số câu đúng)
+  /// trong [days] ngày qua.
+  Future<({int total, int correct})> recentActivity({int days = 7}) async {
+    final d = await db;
+    final since =
+        DateTime.now().millisecondsSinceEpoch - days * 24 * 60 * 60 * 1000;
+    final rows = await d.rawQuery(
+      'SELECT COUNT(*) AS total, '
+      'COALESCE(SUM(correct), 0) AS correct '
+      'FROM answer_log WHERE answered_at >= ?',
+      [since],
+    );
+    final r = rows.first;
+    return (
+      total: (r['total'] as int?) ?? 0,
+      correct: (r['correct'] as int?) ?? 0,
+    );
+  }
+
   Future<Set<String>> answeredQuestionIds() async {
     final d = await db;
     final rows = await d.query('answer_log', columns: ['question_id']);
