@@ -162,6 +162,7 @@ class ContentStore {
           'figure_json': q['figure'] != null ? jsonEncode(q['figure']) : null,
           'tags_json': q['tags'] != null ? jsonEncode(q['tags']) : null,
           'extra_json': extra.isEmpty ? null : jsonEncode(extra),
+          'calc': q['calc'] as String?,
         });
       }
     });
@@ -215,6 +216,7 @@ class ContentStore {
             'answer': _decodeAnswer(q['answer'] as String?),
             'hint': q['hint'],
             'explanation': q['explanation'],
+            if (q['calc'] != null) 'calc': q['calc'],
             if (q['unit'] != null) 'unit': q['unit'],
             if (q['figure_json'] != null)
               'figure': jsonDecode(q['figure_json'] as String),

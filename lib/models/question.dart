@@ -51,6 +51,7 @@ class Question {
     this.unit,
     this.hint,
     this.explanation,
+    this.calc,
     this.tags = const [],
     this.figure,
   });
@@ -81,6 +82,10 @@ class Question {
   final String? unit;
   final String? hint;
   final String? explanation;
+
+  /// Biểu thức kiểm chứng (vd "Fraction(3,4)+Fraction(1,2)") — app dùng
+  /// để sinh câu biến thể khi ôn lại, bé không nhìn thấy.
+  final String? calc;
   final List<String> tags;
 
   /// Object figure (vd. {"kind": "trapezoid", "a": 24, ...}). GĐ1 chưa vẽ.
@@ -124,6 +129,7 @@ class Question {
       unit: json['unit'] as String?,
       hint: json['hint'] as String?,
       explanation: json['explanation'] as String?,
+      calc: json['calc'] as String?,
       tags: json['tags'] is List
           ? List<String>.from((json['tags'] as List).map((e) => '$e'))
           : const [],

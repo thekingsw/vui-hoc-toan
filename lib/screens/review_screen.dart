@@ -1,9 +1,12 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../game/question_play_area.dart';
 import '../models/question.dart';
 import '../providers/app_providers.dart';
 import '../services/review_logic.dart';
+import '../services/variant_generator.dart';
 import 'result_screen.dart';
 
 /// Màn Ôn lại (Đợt A — Học thông minh): rút các câu trong Hộp ôn
@@ -42,10 +45,21 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
     setState(() {
       _questions = [
         for (final e in due)
-          if (byId.containsKey(e.questionId)) byId[e.questionId]!,
+          if (byId.containsKey(e.questionId))
+            _withVariant(byId[e.questionId]!),
       ];
       _loading = false;
     });
+  }
+
+  /// Ưu tiên câu biến thể (đổi số, tính lại đáp án) để bé luyện đúng dạng
+  /// thay vì nhớ đáp án cũ. Không sinh được thì dùng câu gốc.
+  Question _withVariant(Question q) {
+    for (var i = 0; i < 3; i++) {
+      final v = makeVariant(q, random: Random());
+      if (v != null) return v;
+    }
+    return q;
   }
 
   Future<void> _finish() async {
