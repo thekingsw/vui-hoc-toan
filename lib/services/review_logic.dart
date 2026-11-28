@@ -23,8 +23,15 @@ int intervalDaysForBox(int box) {
 }
 
 /// Thời điểm ôn kế tiếp (ms) tính từ [nowMs] cho [box].
-int nextReviewAt(int box, int nowMs) =>
-    nowMs + intervalDaysForBox(box) * 24 * 60 * 60 * 1000;
+/// Đến hạn vào đầu ngày (00:00 giờ địa phương) sau [intervalDaysForBox]
+/// ngày — sai hôm nay thì sáng mai đã ôn được, không phải chờ đủ 24 giờ.
+int nextReviewAt(int box, int nowMs) {
+  final now = DateTime.fromMillisecondsSinceEpoch(nowMs);
+  final startOfToday = DateTime(now.year, now.month, now.day);
+  return startOfToday
+      .add(Duration(days: intervalDaysForBox(box)))
+      .millisecondsSinceEpoch;
+}
 
 /// Một mục trong hộp ôn (dạng thuần, không phụ thuộc DB).
 class ReviewEntry {

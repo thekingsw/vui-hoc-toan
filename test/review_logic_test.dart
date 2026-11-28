@@ -4,6 +4,24 @@ import 'package:toan_lop_5/services/review_logic.dart';
 import 'package:toan_lop_5/services/scoring.dart';
 
 void main() {
+  group('nextReviewAt', () {
+    test('đến hạn vào đầu ngày hôm sau (hộp 1), không chờ đủ 24 giờ', () {
+      final evening = DateTime(2026, 11, 27, 21, 30).millisecondsSinceEpoch;
+      final due = nextReviewAt(1, evening);
+      expect(DateTime.fromMillisecondsSinceEpoch(due),
+          DateTime(2026, 11, 28));
+      // Sáng hôm sau 8h là đã đến hạn
+      final morning = DateTime(2026, 11, 28, 8).millisecondsSinceEpoch;
+      expect(due <= morning, isTrue);
+    });
+
+    test('hộp 2 → đầu ngày sau 3 ngày', () {
+      final now = DateTime(2026, 11, 27, 9).millisecondsSinceEpoch;
+      expect(DateTime.fromMillisecondsSinceEpoch(nextReviewAt(2, now)),
+          DateTime(2026, 11, 30));
+    });
+  });
+
   group('examScore', () {
     test('thang 10 làm tròn 1 chữ số thập phân', () {
       expect(examScore(20, 20), 10);
