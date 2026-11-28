@@ -1,7 +1,7 @@
 name: toan_lop_5
 description: "Đảo toán học — app học Toán lớp 5 offline (SGK Kết nối tri thức)."
 publish_to: "none"
-version: 1.10.1+18
+version: 1.10.2+19
 
 environment:
   sdk: ">=3.5.0 <4.0.0"

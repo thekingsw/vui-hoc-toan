@@ -129,13 +129,22 @@ class _ParentScreenState extends ConsumerState<ParentScreen> {
     final progressAsync = ref.watch(islandProgressProvider);
     final soundOn = ref.watch(soundOnProvider);
 
+    // Giữ danh sách cũ khi tải lại (vd sau khi gạt công tắc mở đảo):
+    // nếu thay bằng vòng xoay loading, ListView bị dựng lại và mất
+    // vị trí cuộn — người dùng đang ở cuối danh sách bị nhảy lên đầu.
+    final progress = progressAsync.valueOrNull;
+    if (progress == null) {
+      return Scaffold(
+        appBar: AppBar(title: const Text('Góc phụ huynh')),
+        body: progressAsync.hasError
+            ? Center(child: Text('Lỗi: ${progressAsync.error}'))
+            : const Center(child: CircularProgressIndicator()),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(title: const Text('Góc phụ huynh')),
-      body: progressAsync.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('Lỗi: $e')),
-        data: (progress) {
-          return ListView(
+      body: ListView(
             padding: const EdgeInsets.all(16),
             children: [
               const _LearningOverview(),
@@ -328,8 +337,6 @@ class _ParentScreenState extends ConsumerState<ParentScreen> {
               ),
               const SizedBox(height: 16),
             ],
-          );
-        },
       ),
     );
   }
