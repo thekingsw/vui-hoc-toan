@@ -6,6 +6,7 @@ import '../game/question_play_area.dart';
 import '../game/shop/rewards.dart';
 import '../models/question.dart';
 import '../providers/app_providers.dart';
+import '../services/haptic_service.dart';
 import '../services/scoring.dart';
 import 'result_screen.dart';
 
@@ -27,6 +28,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
   List<Question>? _questions;
   int _index = 0;
   final Map<int, bool> _results = {};
+  int _combo = 0;
   bool _settled = false;
   int _elapsedSeconds = 0;
   Timer? _timer;
@@ -51,6 +53,10 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
   @override
   void initState() {
     super.initState();
+    // Vào màn câu hỏi thì tắt nhạc nền, chỉ còn SFX (F1).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) ref.read(soundServiceProvider).stopMusic();
+    });
     _questions = selectQuizQuestions(widget.island.bossQuestions);
     _timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (mounted) setState(() => _elapsedSeconds++);
@@ -59,6 +65,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
 
   @override
   void dispose() {
+    ref.read(soundServiceProvider).startMusic();
     _timer?.cancel();
     super.dispose();
   }
@@ -174,18 +181,31 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
                     orElse: () => 0,
                   ),
               coinFlyKey: _coinFlyKey,
-              onCombo: (_) => ref.read(soundServiceProvider).playCombo(),
-              onTapAnswer: () => ref.read(soundServiceProvider).playTap(),
+              onCombo: (combo) {
+                ref.read(soundServiceProvider).playCombo();
+                if (combo == 3 || combo == 5 || combo == 7) {
+                  ref.read(hapticServiceProvider).fire(HapticEvent.combo);
+                }
+              },
+              onTapAnswer: () {
+                ref.read(soundServiceProvider).playTap();
+                ref.read(hapticServiceProvider).fire(HapticEvent.tap);
+              },
               onAnswered: (correct, input) {
                 setState(() => _results[_index] = correct);
                 final sound = ref.read(soundServiceProvider);
+                final haptic = ref.read(hapticServiceProvider);
                 if (correct) {
-                  sound.playCorrect();
+                  _combo++;
+                  sound.playCorrect(combo: _combo);
+                  haptic.fire(HapticEvent.correct);
                   ref.read(mascotMoodProvider.notifier).state =
                       MascotMood.happy;
                   _claimFirstCorrect(q);
                 } else {
+                  _combo = 0;
                   sound.playWrong();
+                  haptic.fire(HapticEvent.wrong);
                   ref.read(mascotMoodProvider.notifier).state =
                       MascotMood.sad;
                 }

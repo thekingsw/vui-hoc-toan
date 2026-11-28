@@ -5,6 +5,7 @@ import '../game/shop/shop_items.dart';
 import '../models/question.dart';
 
 import '../services/database_service.dart';
+import '../services/haptic_service.dart';
 import '../services/review_logic.dart';
 import '../services/sound_service.dart';
 
@@ -22,6 +23,20 @@ final soundServiceProvider = Provider<SoundService>((ref) {
 
 /// Bật/tắt âm thanh (đồng bộ với bảng settings).
 final soundOnProvider = StateProvider<bool>((ref) => true);
+
+/// Bật/tắt nhạc nền (đồng bộ với bảng settings).
+final musicOnProvider = StateProvider<bool>((ref) => true);
+
+/// Bật/tắt rung (đồng bộ với bảng settings).
+final hapticsOnProvider = StateProvider<bool>((ref) => true);
+
+/// Dịch vụ rung (1 instance cho cả app).
+final hapticServiceProvider = Provider<HapticService>((ref) {
+  final service = HapticService();
+  ref.listen(hapticsOnProvider, (_, v) => service.enabled = v);
+  ref.listen(reduceEffectsProvider, (_, v) => service.reduceEffects = v);
+  return service;
+});
 
 /// Giảm hiệu ứng cho máy yếu (đồng bộ với bảng settings).
 final reduceEffectsProvider = StateProvider<bool>((ref) => false);

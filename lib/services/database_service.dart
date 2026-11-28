@@ -60,7 +60,7 @@ class AppDatabase {
     final path = p.join(await getDatabasesPath(), 'toan_lop_5.db');
     final database = await openDatabase(
       path,
-      version: 8,
+      version: 9,
       onUpgrade: (db, oldVersion, newVersion) async {
         // v2: thêm cờ giảm hiệu ứng + đánh dấu đã xem bài Học.
         // Chỉ thêm cột, giữ nguyên tiến độ của bé.
@@ -124,6 +124,13 @@ class AppDatabase {
           await db.execute(
               'ALTER TABLE content_questions ADD COLUMN calc TEXT');
         }
+        // v9: F1 — công tắc nhạc nền + rung.
+        if (oldVersion < 9) {
+          await db.execute(
+              'ALTER TABLE settings ADD COLUMN music_enabled INTEGER NOT NULL DEFAULT 1');
+          await db.execute(
+              'ALTER TABLE settings ADD COLUMN haptics_enabled INTEGER NOT NULL DEFAULT 1');
+        }
       },
       onCreate: (db, version) async {
         await db.execute('''
@@ -182,6 +189,8 @@ class AppDatabase {
             id INTEGER PRIMARY KEY,
             sound_on INTEGER NOT NULL DEFAULT 1,
             reduce_effects INTEGER NOT NULL DEFAULT 0,
+            music_enabled INTEGER NOT NULL DEFAULT 1,
+            haptics_enabled INTEGER NOT NULL DEFAULT 1,
             daily_limit_minutes INTEGER,
             parent_pin_hash TEXT NOT NULL
           )''');
@@ -201,6 +210,8 @@ class AppDatabase {
           'id': 1,
           'sound_on': 1,
           'reduce_effects': 0,
+          'music_enabled': 1,
+          'haptics_enabled': 1,
           'daily_limit_minutes': null,
           'parent_pin_hash': pinHash(defaultParentPin),
         });
@@ -598,6 +609,40 @@ class AppDatabase {
     await d.update(
       'settings',
       {'reduce_effects': value ? 1 : 0},
+      where: 'id = 1',
+    );
+  }
+
+  /// Nhạc nền ở bản đồ/màn đảo (F1).
+  Future<bool> isMusicEnabled() async {
+    final d = await db;
+    final rows = await d.query('settings', columns: ['music_enabled']);
+    if (rows.isEmpty) return true;
+    return ((rows.first['music_enabled'] as int?) ?? 1) == 1;
+  }
+
+  Future<void> setMusicEnabled(bool value) async {
+    final d = await db;
+    await d.update(
+      'settings',
+      {'music_enabled': value ? 1 : 0},
+      where: 'id = 1',
+    );
+  }
+
+  /// Rung phản hồi (F1).
+  Future<bool> isHapticsEnabled() async {
+    final d = await db;
+    final rows = await d.query('settings', columns: ['haptics_enabled']);
+    if (rows.isEmpty) return true;
+    return ((rows.first['haptics_enabled'] as int?) ?? 1) == 1;
+  }
+
+  Future<void> setHapticsEnabled(bool value) async {
+    final d = await db;
+    await d.update(
+      'settings',
+      {'haptics_enabled': value ? 1 : 0},
       where: 'id = 1',
     );
   }

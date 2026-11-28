@@ -172,6 +172,31 @@ class _ParentScreenState extends ConsumerState<ParentScreen> {
                   await db.setReduceEffects(value);
                 },
               ),
+              SwitchListTile(
+                title: const Text('Nhạc nền',
+                    style: TextStyle(fontSize: 18)),
+                subtitle: const Text(
+                    'Nhạc nhẹ ở bản đồ và màn đảo, tắt khi làm bài'),
+                value: ref.watch(musicOnProvider),
+                onChanged: (value) async {
+                  final db = ref.read(databaseProvider);
+                  ref.read(musicOnProvider.notifier).state = value;
+                  ref.read(soundServiceProvider).musicEnabled = value;
+                  await db.setMusicEnabled(value);
+                },
+              ),
+              SwitchListTile(
+                title: const Text('Rung',
+                    style: TextStyle(fontSize: 18)),
+                subtitle: const Text(
+                    'Rung nhẹ khi chạm đáp án, trả lời đúng/sai'),
+                value: ref.watch(hapticsOnProvider),
+                onChanged: (value) async {
+                  final db = ref.read(databaseProvider);
+                  ref.read(hapticsOnProvider.notifier).state = value;
+                  await db.setHapticsEnabled(value);
+                },
+              ),
               const Divider(),
               ListTile(
                 title: const Text('Dữ liệu bài học',

@@ -5,6 +5,7 @@ import '../game/effects/coin_fly.dart';
 import '../game/result/chest_ceremony.dart';
 import '../models/question.dart';
 import '../providers/app_providers.dart';
+import '../services/haptic_service.dart';
 import '../widgets/fraction_view.dart';
 import '../widgets/mascot.dart';
 import 'lesson_screen.dart';
@@ -65,8 +66,14 @@ class ResultScreen extends ConsumerWidget {
             ChestCeremony(
               stars: stars!,
               reduceEffects: reduceEffects,
-              onChestOpen: () => ref.read(soundServiceProvider).playChest(),
-              onStar: (_) => ref.read(soundServiceProvider).playStar(),
+              onChestOpen: () {
+                ref.read(soundServiceProvider).playChest();
+                ref.read(hapticServiceProvider).fire(HapticEvent.chest);
+              },
+              onStar: (_) {
+                ref.read(soundServiceProvider).playStar();
+                ref.read(hapticServiceProvider).fire(HapticEvent.star);
+              },
             )
           else
             Center(

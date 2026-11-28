@@ -71,4 +71,40 @@ void main() {
       expect(slotItemIds(items, items.first), ['hat_a', 'hat_b']);
     });
   });
+
+  group('xu Luyện tập theo ngày (chống farm)', () {
+    test('khóa theo ngày + tiền tố đếm', () {
+      expect(practiceRewardKeyForDay('bai1', '2026-11-28', 0),
+          'practice:bai1:2026-11-28:0');
+      expect(practiceDayPrefix('bai1', '2026-11-28'),
+          'practice:bai1:2026-11-28:');
+    });
+
+    test('đúng ≥ 6/10 mới được xu', () {
+      expect(
+          canClaimPracticeCoin(correct: 6, total: 10, claimedToday: 0),
+          isTrue);
+      expect(
+          canClaimPracticeCoin(correct: 5, total: 10, claimedToday: 0),
+          isFalse);
+      expect(
+          canClaimPracticeCoin(correct: 10, total: 10, claimedToday: 0),
+          isTrue);
+    });
+
+    test('tối đa 3 lượt có xu mỗi ngày', () {
+      expect(
+          canClaimPracticeCoin(correct: 10, total: 10, claimedToday: 2),
+          isTrue);
+      expect(
+          canClaimPracticeCoin(correct: 10, total: 10, claimedToday: 3),
+          isFalse);
+    });
+
+    test('tổng 0 câu thì không', () {
+      expect(
+          canClaimPracticeCoin(correct: 0, total: 0, claimedToday: 0),
+          isFalse);
+    });
+  });
 }

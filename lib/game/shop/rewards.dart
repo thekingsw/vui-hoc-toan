@@ -27,6 +27,29 @@ String questionRewardKey(String questionId) => 'q:$questionId';
 String practiceRewardKey(String lessonId, int runIndex) =>
     'practice:$lessonId:$runIndex';
 
+/// Số lượt Luyện tập tối đa có xu mỗi ngày cho mỗi bài (chống farm xu).
+const int maxPracticeCoinsPerDay = 3;
+
+/// Khóa xu Luyện tập theo ngày: `practice:<bài>:<yyyy-MM-dd>:<n>`.
+String practiceRewardKeyForDay(String lessonId, String date, int n) =>
+    'practice:$lessonId:$date:$n';
+
+/// Tiền tố đếm số lần đã nhận xu Luyện tập của [lessonId] trong [date].
+String practiceDayPrefix(String lessonId, String date) =>
+    'practice:$lessonId:$date:';
+
+/// Được nhận xu xong lượt Luyện tập khi đúng ≥ 6/10 câu và chưa quá
+/// [maxPracticeCoinsPerDay] lượt có xu trong ngày cho bài này.
+bool canClaimPracticeCoin({
+  required int correct,
+  required int total,
+  required int claimedToday,
+}) {
+  if (total <= 0) return false;
+  if (claimedToday >= maxPracticeCoinsPerDay) return false;
+  return correct * 10 >= total * 6;
+}
+
 String bossStarRewardKey(String islandId, int starLevel) =>
     'boss:$islandId:star$starLevel';
 

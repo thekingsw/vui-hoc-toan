@@ -32,6 +32,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
       ref.read(soundServiceProvider).enabled = soundOn;
       ref.read(reduceEffectsProvider.notifier).state =
           await db.isReduceEffects();
+      final musicOn = await db.isMusicEnabled();
+      ref.read(musicOnProvider.notifier).state = musicOn;
+      ref.read(soundServiceProvider).musicEnabled = musicOn;
+      ref.read(hapticsOnProvider.notifier).state =
+          await db.isHapticsEnabled();
       await ref.read(islandsProvider.future);
       // Kiểm tra bài học mới ở nền, không chặn vào app. Có bản mới thì
       // nạp lại dữ liệu và báo ở màn hình chính.

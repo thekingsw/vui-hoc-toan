@@ -5,6 +5,7 @@ import '../game/question_play_area.dart';
 import '../game/shop/rewards.dart';
 import '../models/question.dart';
 import '../providers/app_providers.dart';
+import '../services/haptic_service.dart';
 import '../services/scoring.dart';
 import 'result_screen.dart';
 
@@ -32,6 +33,7 @@ class _PracticeScreenState extends ConsumerState<PracticeScreen> {
   List<Question>? _questions;
   int _index = 0;
   final Map<int, bool> _results = {};
+  int _combo = 0;
   bool _settled = false;
   bool _loading = true;
   int _coinsEarned = 0;
@@ -55,7 +57,17 @@ class _PracticeScreenState extends ConsumerState<PracticeScreen> {
   @override
   void initState() {
     super.initState();
+    // Vào màn câu hỏi thì tắt nhạc nền, chỉ còn SFX (F1).
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) ref.read(soundServiceProvider).stopMusic();
+    });
     _loadQuestions();
+  }
+
+  @override
+  void dispose() {
+    ref.read(soundServiceProvider).startMusic();
+    super.dispose();
   }
 
   Future<void> _loadQuestions() async {
@@ -85,14 +97,24 @@ class _PracticeScreenState extends ConsumerState<PracticeScreen> {
     }
     await db.markPracticeDone(
         widget.island.islandId, widget.lesson.lessonId);
-    // Xu xong 1 lượt Luyện tập (khóa theo số lượt đã nhận).
-    final runIndex =
-        await db.countRewards('practice:${widget.lesson.lessonId}:');
-    final practiceClaimed = await db.claimReward(
-      practiceRewardKey(widget.lesson.lessonId, runIndex),
-      coinPracticeDone,
-    );
-    if (practiceClaimed) _coinsEarned += coinPracticeDone;
+    // Xu xong 1 lượt Luyện tập: chỉ khi đúng ≥ 6/10 và tối đa 3 lượt
+    // có xu mỗi ngày cho mỗi bài (chống farm xu).
+    final now = DateTime.now();
+    final date =
+        '${now.year.toString().padLeft(4, '0')}-${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}';
+    final claimedToday = await db
+        .countRewards(practiceDayPrefix(widget.lesson.lessonId, date));
+    if (canClaimPracticeCoin(
+      correct: correct,
+      total: questions.length,
+      claimedToday: claimedToday,
+    )) {
+      final practiceClaimed = await db.claimReward(
+        practiceRewardKeyForDay(widget.lesson.lessonId, date, claimedToday),
+        coinPracticeDone,
+      );
+      if (practiceClaimed) _coinsEarned += coinPracticeDone;
+    }
     ref.read(progressRefreshProvider.notifier).state++;
     ref.read(mascotMoodProvider.notifier).state =
         correct >= questions.length * 0.6
@@ -155,18 +177,31 @@ class _PracticeScreenState extends ConsumerState<PracticeScreen> {
                     orElse: () => 0,
                   ),
               coinFlyKey: _coinFlyKey,
-              onCombo: (_) => ref.read(soundServiceProvider).playCombo(),
-              onTapAnswer: () => ref.read(soundServiceProvider).playTap(),
+              onCombo: (combo) {
+                ref.read(soundServiceProvider).playCombo();
+                if (combo == 3 || combo == 5 || combo == 7) {
+                  ref.read(hapticServiceProvider).fire(HapticEvent.combo);
+                }
+              },
+              onTapAnswer: () {
+                ref.read(soundServiceProvider).playTap();
+                ref.read(hapticServiceProvider).fire(HapticEvent.tap);
+              },
               onAnswered: (correct, input) {
                 setState(() => _results[_index] = correct);
                 final sound = ref.read(soundServiceProvider);
+                final haptic = ref.read(hapticServiceProvider);
                 if (correct) {
-                  sound.playCorrect();
+                  _combo++;
+                  sound.playCorrect(combo: _combo);
+                  haptic.fire(HapticEvent.correct);
                   ref.read(mascotMoodProvider.notifier).state =
                       MascotMood.happy;
                   _claimFirstCorrect(q);
                 } else {
+                  _combo = 0;
                   sound.playWrong();
+                  haptic.fire(HapticEvent.wrong);
                   ref.read(mascotMoodProvider.notifier).state =
                       MascotMood.sad;
                 }

@@ -61,15 +61,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
     loadMapLayout().then((layout) {
       if (mounted) setState(() => _layout = layout);
     });
-    // Sóng biển nền ở bản đồ (SPEC mục 13).
+    // Sóng biển + nhạc nền ở bản đồ (F1).
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) ref.read(soundServiceProvider).startWaves();
+      if (mounted) {
+        ref.read(soundServiceProvider).startWaves();
+        ref.read(soundServiceProvider).startMusic();
+      }
     });
   }
 
   @override
   void dispose() {
     ref.read(soundServiceProvider).stopWaves();
+    ref.read(soundServiceProvider).stopMusic();
     _bounce.dispose();
     _sail.dispose();
     _scroll.dispose();
