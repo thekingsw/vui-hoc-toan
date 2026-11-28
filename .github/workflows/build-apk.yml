@@ -29,56 +29,14 @@ jobs:
           curl -fsSL -o android/gradle/wrapper/gradle-wrapper.jar "https://raw.githubusercontent.com/gradle/gradle/v8.3.0/gradle/wrapper/gradle-wrapper.jar"
           # Ảnh game đợt 3 lưu dạng base64 (text) trong repo, giải mã thành .webp
           find assets/images -name '*.webp.b64' | while read f; do base64 -d "$f" > "${f%.b64}"; done
+          # Âm thanh ogg thật lưu dạng base64 (text) trong repo, giải mã thành .ogg rồi xóa .b64
+          find assets/sounds -name '*.ogg.b64' | while read f; do base64 -d "$f" > "${f%.b64}"; rm "$f"; done
           # Icon app lưu dạng base64 trong repo, giải mã thành .png rồi xóa
           # file .b64 (AAPT không chấp nhận file lạ trong thư mục res)
           for d in mdpi hdpi xhdpi xxhdpi xxxhdpi; do
             base64 -d "android/app/src/main/res/mipmap-$d/ic_launcher.png.b64" > "android/app/src/main/res/mipmap-$d/ic_launcher.png"
             rm "android/app/src/main/res/mipmap-$d/ic_launcher.png.b64"
           done
-          python3 - <<'PY'
-          import math, random, struct, wave, zlib, os
-
-          # --- sounds: 22050 Hz, 16-bit mono ---
-          def tone(freq, secs, rate=22050, vol=0.5, sweep_to=None):
-              n = int(rate * secs)
-              out = []
-              for i in range(n):
-                  f = freq if sweep_to is None else freq + (sweep_to - freq) * i / n
-                  fade = min(1.0, i / (rate * 0.01), (n - i) / (rate * 0.01))
-                  out.append(int(32767 * vol * fade * math.sin(2 * math.pi * f * i / rate)))
-              return out
-
-          def save_wav(path, samples, rate=22050):
-              w = wave.open(path, "wb")
-              w.setnchannels(1); w.setsampwidth(2); w.setframerate(rate)
-              w.writeframes(b"".join(struct.pack("<h", max(-32767, min(32767, s))) for s in samples))
-              w.close()
-
-          def waves(secs=2.0, rate=22050):
-              random.seed(42)
-              n = int(rate * secs)
-              raw = [random.uniform(-1, 1) for _ in range(n)]
-              smooth = []
-              acc = 0.0
-              for x in raw:
-                  acc = acc * 0.96 + x * 0.04
-                  smooth.append(acc * 6)
-              return [int(32767 * 0.35 * (math.sin(math.pi * i / n) ** 2) * x)
-                      for i, x in enumerate(smooth)]
-
-          save_wav("assets/sounds/correct.wav", tone(880, 0.16) + tone(1318.5, 0.16))
-          save_wav("assets/sounds/wrong.wav", tone(220, 0.5))
-          save_wav("assets/sounds/tap.wav", tone(600, 0.06, vol=0.35))
-          save_wav("assets/sounds/combo.wav", tone(660, 0.09) + tone(880, 0.09) + tone(1318.5, 0.14))
-          save_wav("assets/sounds/chest.wav", tone(180, 0.35, vol=0.45, sweep_to=90) + tone(1568, 0.15, vol=0.3))
-          save_wav("assets/sounds/star.wav", tone(1568, 0.2, vol=0.4))
-          save_wav("assets/sounds/coin.wav", tone(988, 0.07, vol=0.4) + tone(1319, 0.25, vol=0.4))
-          save_wav("assets/sounds/buy.wav", tone(1319, 0.08, vol=0.4) + tone(1760, 0.18, vol=0.4))
-          save_wav("assets/sounds/unlock.wav", tone(523, 0.1) + tone(659, 0.1) + tone(784, 0.1) + tone(1047, 0.22))
-          save_wav("assets/sounds/waves.wav", waves())
-
-          print("binary assets restored")
-          PY
 
       - name: Restore signing key from secrets
         env:
