@@ -33,14 +33,14 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
     super.initState();
     // Vào màn câu hỏi thì tắt nhạc nền, chỉ còn SFX (F1).
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) ref.read(soundServiceProvider).stopMusic();
+      if (mounted) ref.read(soundServiceProvider).pauseMusic();
     });
     _loadQuestions();
   }
 
   @override
   void dispose() {
-    ref.read(soundServiceProvider).startMusic();
+    ref.read(soundServiceProvider).resumeMusic();
     super.dispose();
   }
 

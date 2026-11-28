@@ -55,7 +55,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
     super.initState();
     // Vào màn câu hỏi thì tắt nhạc nền, chỉ còn SFX (F1).
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) ref.read(soundServiceProvider).stopMusic();
+      if (mounted) ref.read(soundServiceProvider).pauseMusic();
     });
     _questions = selectQuizQuestions(widget.island.bossQuestions);
     _timer = Timer.periodic(const Duration(seconds: 1), (_) {
@@ -65,7 +65,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
 
   @override
   void dispose() {
-    ref.read(soundServiceProvider).startMusic();
+    ref.read(soundServiceProvider).resumeMusic();
     _timer?.cancel();
     super.dispose();
   }

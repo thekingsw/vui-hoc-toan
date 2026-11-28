@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Chỉ dùng để kiểm tra/tải bản cập nhật; học vẫn offline. -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Rung phản hồi khi trả lời đúng/sai (F1). -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <!-- Cho phép mở trình cài đặt khi tự cập nhật. -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
     <application

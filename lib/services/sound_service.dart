@@ -149,6 +149,31 @@ class SoundService with WidgetsBindingObserver {
     }
   }
 
+  /// Tạm dừng nhạc khi vào màn câu hỏi (giữ nguyên vị trí phát).
+  /// Dùng pause/resume thay vì stop/play: play lại sau stop trên
+  /// một số máy Android không phát lại được.
+  Future<void> pauseMusic() async {
+    try {
+      await _music.pause();
+    } catch (_) {
+      // Bỏ qua lỗi âm thanh.
+    }
+  }
+
+  /// Phát tiếp nhạc sau khi rời màn câu hỏi.
+  Future<void> resumeMusic() async {
+    if (!_musicWanted || !_enabled || !_musicEnabled) return;
+    try {
+      if (_music.state == PlayerState.paused) {
+        await _music.resume();
+      } else if (_music.state != PlayerState.playing) {
+        await startMusic();
+      }
+    } catch (_) {
+      // Bỏ qua lỗi âm thanh.
+    }
+  }
+
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.paused ||
